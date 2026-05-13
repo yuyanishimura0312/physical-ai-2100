@@ -1,0 +1,365 @@
+<!-- ============================================================
+     第1部 第1-3章 本文（index.html の ch1/ch2/ch3 を差し替え）
+     ============================================================ -->
+
+<!-- 第1章 -->
+<section class="chapter-section" id="ch1">
+<div class="chapter-number-label">CHAPTER 01</div>
+<h2 class="chapter-title">双子峰の高原とPhysical AIの位置</h2>
+
+<div class="epigraph">
+<p>私たちは、私たちが作る道具で世界を作り、その世界が今度は私たちを作り返す。</p>
+<span class="attribution">— マーシャル・マクルーハン『メディア論』（1964年、トロント）</span>
+</div>
+
+<p class="no-indent">本書を貫く視点を、最初に置いておきたい。Physical AIは、人類史に突然現れた未曾有の特異点ではない。それは過去250年に積み上げられてきた高位高原のうえに、もう一つ立ち上がりつつある峰である。蒸気機関と動力織機が織りなした第一次産業革命以来、技術と社会の高度化は、近代以前との対比でみればすでに高原状態にある。その高原のうえに、まず情報革命の峰がそびえ、いま、AI革命の峰が並んで立ち上がっている。Physical AIはこの後者の峰の物理側実装である。</p>
+
+<p>ここで「高原」と「峰」という比喩は単なる修辞ではなく、長期的な技術-社会指標から実証的に支持される構造である。Vaclav Smil『Energy and Civilization』（2017, MIT Press）が示すように、人類の一人当たり一次エネルギー消費は、18世紀後半から19世紀後半にかけて約一桁拡大し、20世紀を通じてさらに数倍に伸びた。Robert Gordon『The Rise and Fall of American Growth』（2016, Princeton)が示す米国全要素生産性の長期推移も、19世紀後半から20世紀前半の三度の革命的上昇を経て、戦後の高原に達した。Ian Morris『Why the West Rules — For Now』（2010, Farrar）の社会発展指数も同じ形をなす。技術-経済-社会の長期軌道は、定常的低位から階段状に高原へと押し上げられ、その高原のうえで局所的な峰がいくつも生じる、というのが妥当な定性的記述である。</p>
+
+<p>本書ではこの構造を、深い知が拓く2100年の中で導入された CTI v2（Civilizational Transformation Index v2）の「双子峰の高原」モデルを引き継いで用いる。CTI v2は、Carlota Perez『Technological Revolutions and Financial Capital』（2002, Edward Elgar）の五大技術革命論を、Smil的エネルギー基盤・Morris的社会発展指数・Gordon的生産性曲線と統合して再構成した複合指標である。指数で見るかぎり、1971-1973年に始まる情報革命の前峰と、2012-2017年に始まるAI革命の後峰とが、ほぼ同じ高さの双子峰を形成している。前峰0.764、後峰0.768、その比は1.005倍にすぎない。これは「いま起きていることは、たかだか直前の峰の同じ高さの反復である」という、強い節度を要求する数値である。</p>
+
+<h2 class="article-h2">特異性主張への留保 ── なぜ「シンギュラリティ」ではないのか</h2>
+
+<p class="no-indent">2026年現在、Physical AIや汎用人工知能の語り口の多くは、Ray Kurzweil『The Singularity Is Near』（2005, Viking）以降の特異点主義（singularitarianism）の引力圏にある。Kurzweil本人は2024年の改稿『The Singularity Is Nearer』（Viking）で2045年シンギュラリティを再宣言した。これに対し、Stuart Russell『Human Compatible』（2019, Viking）は意思決定理論側からAGIの統御問題を、Nick Bostrom『Superintelligence』（2014, Oxford）は哲学側から超知能の存在論的リスクを論じている。これらが提示するのは、Physical AIが文明史の連続線上にではなく、その外側に立ちうるという視座である。</p>
+
+<p>しかし、本書はこの視座を採らない。理由は二つある。第一に、長期指標で見るかぎり、現在の変動は1971年以来の情報革命と同じ高さの峰として記述される。物理的成果（電力消費・素材生産・建造物高度・移動速度の上限）のいずれも、20世紀後半のピークを上回っていない。第二に、「特異点」を主張する論者の多くが、技術曲線の指数性のみを根拠とし、社会・制度・物理基盤の同時並行進化の遅延を軽視している。Daron Acemoglu and Simon Johnson『Power and Progress』（2023, PublicAffairs）が指摘するように、技術導入と生産性反映のあいだには平均20-40年の遅延がある。電動モーターは1880年代に発明されたが、工場の生産性に反映されるのは1920年代である。同様の遅延が、現在のAI/Physical AI導入と社会成果のあいだにも横たわる。</p>
+
+<p>もちろん、双子峰モデル自体は仮説である。後峰がさらに伸びて第三峰に到達するか、高原を抜け出して新しい台地に上がる可能性は否定できない。だが、現時点で利用可能なエネルギー・物質・社会指標の総合から判断するかぎり、2026年は「第二峰の登りはじめ」として位置づけるのが最も穏当である。本書のロードマップ全体は、この穏当な視座のうえに構築される。</p>
+
+<h2 class="article-h2">Physical AIの定義 ── 知性が物質に降りる場所</h2>
+
+<p class="no-indent">本書で用いるPhysical AIの定義を確定しておく。Physical AIとは、計算機の内側で完結する知性ではなく、(1)身体を持ち、(2)物理空間で動き、(3)生命と協働し、(4)物質を作り直す知性のことである。NVIDIAのJensen Huangが2024年のCESおよびGTCで提示した同名の概念は、この四要素のうち主に(1)と(2)に重点を置く。本書はそれをさらに広げ、(3)生命系製造と(4)新素材設計までを含めて Physical AI と呼ぶ。これは、Xenobot（Kriegman et al. 2020, PNAS 117(4):1853）やA-Lab（Szymanski et al. 2023, Nature 624:86）のような、伝統的にはロボティクスとは別領域とみなされてきた取り組みを、同一の運動の異なる断面として読むためである。</p>
+
+<p>この定義のもとで、Physical AIは過去2、3年で急速に立ち上がってきた研究と産業の集積点を指す。RT-2（Brohan et al. 2023, arXiv:2307.15818）に始まるVision-Language-Action系基盤モデル、OpenVLA（Kim et al. 2024, arXiv:2406.09246）の公開、Helix（Figure AI 2025）・GR00T N1（NVIDIA 2024）・π0（Physical Intelligence 2024）の登場、Open X-Embodiment（2023, arXiv:2310.08864）の22機種527スキル160万エピソード統合 ── これらが第一系統の事象である。並行して、AlphaFold 3（Abramson et al. 2024, Nature 630:493）が生体分子相互作用予測を高精度化し、Xenobot系統が細胞由来の自己組織化ロボットを臨床手前段階に押し上げ、Boston Dynamics Atlas Electric（2024）が油圧駆動から電動駆動への世代交代を完成させた。これらすべてが、Physical AIという一つの大きな運動の構成要素である。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;height:auto;">
+<!-- 軸 -->
+<line x1="60" y1="300" x2="640" y2="300" stroke="#121212" stroke-width="1.5"/>
+<line x1="60" y1="40" x2="60" y2="300" stroke="#121212" stroke-width="1.5"/>
+<text x="50" y="38" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="end">高</text>
+<text x="50" y="295" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="end">低</text>
+<text x="40" y="170" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" transform="rotate(-90 40 170)">CTI v2 文明転換指数</text>
+
+<!-- x軸目盛り -->
+<text x="60" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">1750</text>
+<text x="190" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">1850</text>
+<text x="320" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">1900</text>
+<text x="430" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">1971</text>
+<text x="540" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">2017</text>
+<text x="630" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">2100</text>
+
+<!-- 低位定常 -->
+<path d="M 60,280 L 190,265" stroke="#555555" stroke-width="2" fill="none"/>
+<!-- 第一次産業革命の登り -->
+<path d="M 190,265 L 320,180" stroke="#121212" stroke-width="2" fill="none"/>
+<!-- 高原 -->
+<path d="M 320,180 L 430,140" stroke="#121212" stroke-width="2" fill="none"/>
+<!-- 前峰（情報革命） -->
+<path d="M 430,140 L 470,90 L 510,135" stroke="#CC1400" stroke-width="2.5" fill="none"/>
+<!-- 高原の凹み -->
+<path d="M 510,135 L 540,145" stroke="#121212" stroke-width="2" fill="none"/>
+<!-- 後峰（AI革命） -->
+<path d="M 540,145 L 590,85 L 630,130" stroke="#CC1400" stroke-width="2.5" fill="none" stroke-dasharray="0"/>
+
+<!-- 峰のラベル -->
+<text x="470" y="78" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">前峰 0.764</text>
+<text x="470" y="105" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#6B6B6B" text-anchor="middle">情報革命</text>
+<text x="590" y="73" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">後峰 0.768</text>
+<text x="590" y="100" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#6B6B6B" text-anchor="middle">AI革命／Physical AI</text>
+
+<!-- 双子峰注釈 -->
+<line x1="470" y1="88" x2="590" y2="88" stroke="#CC1400" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="530" y="55" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-style="italic">差 1.005 倍</text>
+
+<!-- 高原ライン -->
+<line x1="320" y1="180" x2="630" y2="180" stroke="#999" stroke-width="0.5" stroke-dasharray="4,4"/>
+<text x="350" y="195" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#6B6B6B" text-anchor="start">産業化後の高位高原</text>
+
+<!-- 現在線 -->
+<line x1="555" y1="40" x2="555" y2="300" stroke="#CC1400" stroke-width="0.8" stroke-dasharray="2,3"/>
+<text x="555" y="32" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle">2026年現在</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図1-1: 双子峰の高原モデル（CTI v2）。情報革命の前峰とAI革命の後峰がほぼ同高度で並ぶ。Physical AIは後峰の物理側実装として位置する。</figcaption>
+</figure>
+
+<h2 class="article-h2">後峰のなかでのPhysical AIの位置</h2>
+
+<p class="no-indent">後峰すなわちAI革命の峰は、それ自体が均質ではない。便宜的に三層構造で読むと、最上層がLLM（Large Language Model）を代表とする言語空間の知性、中間層がマルチモーダル基盤モデルおよびVLA（Vision-Language-Action）を代表とする「言語と感覚と行動を結ぶ」知性、最下層がPhysical AIすなわち物理空間に実体を持つ知性である。2022年のChatGPT登場で最上層が一気に立ち上がり、2023年のGPT-4およびPaLM-E（Driess et al. 2023, arXiv:2303.03378）で中間層が形成され、2023-2025年のRT-2／OpenVLA／GR00T／Helixで最下層が立ち上がりつつある、というのが実証的記述である。</p>
+
+<p>この三層は、二つの意味で結合している。第一に、技術的依存。Physical AIのVLAは、最上層のLLMアーキテクチャ（Transformer, Vaswani et al. 2017, arXiv:1706.03762）と、中間層のマルチモーダル接地（CLIP, Radford et al. 2021, arXiv:2103.00020）を直接の祖先とする。RT-2はPaLM-Eの後継であり、OpenVLAはRT-2のオープン版である。第二に、経済的依存。最上層の基盤モデルを訓練するには大規模データセンターと電力が要り、その需要が半導体・電池・エネルギー転換を駆動する。Physical AIはこの駆動の物理的受益者であると同時に、ヒューマノイド稼働時間・実機データ収集・現場展開を通じてその物質的限界を露呈する側でもある。後峰のなかでPhysical AIは、純粋な情報空間の知性が物質と接触する境界面として機能している。</p>
+
+<h2 class="article-h2">前峰との比較から見える後峰の固有性</h2>
+
+<p class="no-indent">双子峰の高さが等しいことは、両者の中身が同じであることを意味しない。前峰すなわち1971-2010年代の情報革命は、データ・計算・通信の三領域で人類の活動形態を再編した。Intelの4004（1971）に始まる半導体産業、TCP/IP（1974）からWorld Wide Web（1990）に至るネットワーク化、Google検索（1998）からスマートフォン（2007）に至る端末化が、いずれも物理世界の組み換えというより、情報接続の組み換えを担ってきた。一人の人間が一日に生産・消費する情報の量は、1971年と2010年代で数桁の差がある。だが、その人間が住む建物、移動する車、食べる食物、着る衣服の質感は、おおむね前峰のあいだに保たれた。情報革命は、物質の輪郭の手前で止まる革命であった。</p>
+
+<p>これに対し後峰すなわちAI革命は、当初の数年（2017-2022年のTransformer〜ChatGPT期）は前峰と同じく情報接続の延長線にあった。LLMは文章を扱う技術であり、物質には触れない。しかし2023年以降のVLA基盤モデル、ヒューマノイドの商用配備、A-Labの自律実験、Xenobotの細胞ロボット化が同時に立ち上がったことで、後峰は前峰とは異なる方向へ伸びはじめている。すなわち、情報接続の組み換えから、物質の組み換えへ、である。これがPhysical AIの固有性である。同じ高さの双子峰でありながら、後峰は前峰と質的に違う対象に触れる。74年の含意の大きさは、ここに依存する。</p>
+
+<p>もう一つの違いは、駆動のされ方である。前峰の駆動力は主として民間企業の競争であった。InflectionからAmazon、Google、Appleに至るプラットフォーム企業群が、ユーザー獲得競争のなかで指数曲線を引き上げてきた。後峰の駆動力はこれに加えて、国家・軍事・科学研究の三領域が前面に出てきている。米中の半導体規制、Stargate構想による450億ドル規模のデータセンター計画、DeepMindのAlphaFold/AlphaProof系統の科学AI、Physical Intelligence社やFigure AIへの巨額投資 ── これらが前峰ではみられなかった規模で動いている。後峰は単一の市場原理では駆動されない。それは、技術-経済-地政学の三要素が結合した、より複合的な運動である。</p>
+
+<h2 class="article-h2">冷静と真剣の両立 ── 本書を貫く判断の作法</h2>
+
+<p class="no-indent">双子峰モデルが要求するのは、二つの態度の同時保持である。一方で、現在起きていることが過去250年の高原の構造的反復であるという冷静。他方で、その反復が74年で約60-80億の人類の暮らしを物理面から組み換えうるという真剣。どちらか一方に振れると、判断は歪む。「いまさら騒ぐほどのものではない」という冷笑も、「歴史上類のない特異点だ」という熱狂も、同じく現実を取り逃がす。</p>
+
+<p>本書はこの両立を、74年の精緻な時間軸と8系統合流の構造的な分解とで担保する。Phase A（2026-2030）からPhase G（2090-2100）までの7フェーズロードマップは、各時期に何が起き、何が起きないかを学術論文ベースで限定する。stream_fm（基盤モデル）からstream_mat（物質基盤）までの8系統分解は、Physical AIを「一塊の特異な技術」として神秘化するかわりに、独立に進化する諸系譜の合流体として記述する。前者は時間の節度であり、後者は構造の節度である。両者の交差点に、Physical AIの実像が浮かぶ。</p>
+
+<p>本書は技術論であると同時に判断の書である。74年は、現在25歳の人間が99歳になる時間幅に等しい。一人の人生のなかで完結する時間である。その時間幅で、Physical AIが何を作り、何を組み換え、何を生み出すかを冷静に見定めることは、その人生の輪郭を描くことと等価である。冷静さは熱情を排除しない。むしろ、熱情をささえる長い視野の確保である。</p>
+
+<div class="finding-box">
+<p><strong>本章のまとめ</strong></p>
+<p>Physical AIは新しい高原を作るのではない。それは、過去250年に築かれた高位高原のうえに、情報革命の前峰と並んで立ち上がるAI革命の後峰の物理側実装である。CTI v2の双子峰モデル（前峰0.764・後峰0.768・1.005倍）は、技術的特異性ではなく構造的反復としてPhysical AIを位置づける節度を与える。一方で、後峰の登りはじめにある2026年から2100年までの74年で、知性と物質の関係が組み換わる ── この事実の真剣な引き受けが、冷静さと両立しなければならない。本書はその両立を、7フェーズロードマップと8系統合流という二つの分解装置で担保する。</p>
+</div>
+</section>
+
+
+<!-- 第2章 -->
+<section class="chapter-section" id="ch2">
+<div class="chapter-number-label">CHAPTER 02</div>
+<h2 class="chapter-title">5系統合流の系譜と現在地</h2>
+
+<div class="epigraph">
+<p>知性は単一の場所に存在しない。それは、生体と環境のあいだに、行為のなかで立ち上がる。</p>
+<span class="attribution">— Francisco Varela, Evan Thompson, Eleanor Rosch『The Embodied Mind』（1991年、MIT Press）</span>
+</div>
+
+<p class="no-indent">Physical AIは、過去2、3年で突然立ち上がった技術ではない。それは独立に発生した5つの系統が、2010年代後半から急速に合流して形成された運動である。本章では、その5系統 ── ロボット工学・ハードウェア系（stream_hw、起源1950年代）、古典制御・モーションプランニング系（stream_ctrl、起源1960年代）、機械学習・強化学習系（stream_rl、起源1989年）、基盤モデル・VLM/VLA系（stream_fm、起源2017年）、シミュレーション・データ生成系（stream_sim、起源1996年）── の系譜と現在地を順に確認する。各系統がたどってきた長い時間と、それらが2023-2026年にどこで交差しているのかを見ることで、現在の地点の構造的厚みが見えてくる。</p>
+
+<h2 class="article-h2">第一系統 ── ロボット工学・ハードウェア（1950年代以降）</h2>
+
+<p class="no-indent">系統の出発点は、George DevolとJoseph Engelbergerが1956年に創業したUnimation社、そして1961年にゼネラルモーターズのニュージャージー工場に納入された世界初の産業用ロボットUnimate 1900である。Unimateは油圧アクチュエータと磁気ドラムメモリでダイカスト鋳物の取り出しを反復した。学術側では、1969年スタンフォードAI研究所のVictor ScheinmanによるStanford Arm、同年SRI InternationalのShakey the Robot、1973年早稲田大学加藤一郎研究室のWABOT-1、1978年のPUMA（Programmable Universal Machine for Assembly）が並ぶ。日本では1972年の川崎重工によるUnimateライセンス生産が、世界最大のロボット産業基盤を生んだ。</p>
+
+<p>1980年代以降は、アクチュエータと身体構造の革新が続く。1995年のGill Pratt Series Elastic Actuator（SEA）は剛体駆動からCompliant Actuationへの転換点となり、力制御精度を1-2桁改善した。1986年に起動したHonda P-Seriesは2000年にASIMOとして結実し、日本の人型ロボット研究の象徴となる。Boston Dynamicsは2005年のBigDog（DARPA資金）、2013年のAtlas（油圧版）、そして2024年のAtlas Electric（完全電動化）と進み、油圧から電動への世代交代を完成させた。2024-2026年のヒューマノイド市場は、Figure AI 02、1X Neo、Tesla Optimus V2、Apptronik Apollo、Unitree H1/G1、XPeng PX5、Agility Robotics Digitなど20種以上の汎用プラットフォームが並立する状態にある。Goldman Sachsの2024年予測では2030年累計100-200万台、価格2-5万ドル、連続稼働4-8時間が中央値である。</p>
+
+<h2 class="article-h2">第二系統 ── 古典制御・モーションプランニング（1960年代以降）</h2>
+
+<p class="no-indent">ロボット工学の運動学的・動力学的基礎は、1955年のDenavit-Hartenberg parameter、1965年のDonald PieperによるInverse Kinematics解法、1969年のDaniel WhitneyによるResolved Motion Rate Controlで確立された。1980年代にはLagrange/Newton-Euler動力学、1983年のRoy Featherstone Articulated-Body Algorithm、1985年のComputed Torque Controlが体系化される。1986年のRodney Brooks Subsumption Architecture（IEEE J. Robotics 2(1):14）は、世界モデル不要・反射的階層制御の積層で昆虫的知能を実現する設計を提案し、Good Old-Fashioned AIへの最初の体系的反論となった。</p>
+
+<p>2010年代に入ると、Convex MPC for Legged Robots（Di Carlo et al. 2018）に代表されるModel Predictive Controlが、四足・二足ロボットの動的制御の標準となる。2026年現在、産業標準は「MPC + RL ハイブリッド」の二層構造である。低レベルの姿勢・接触制御をConvex MPCが担い、高レベルの歩行・操作を学習ポリシー（Diffusion Policy, ACT, VLA）が担う。Boston Dynamics Atlas、Figure Helix、NVIDIA GR00Tがすべてこの共通スタックに収束した。古典制御が消えたわけではない。むしろ、学習ベースの上位層が成立したことで、古典制御は下位層として剛性を高めた。</p>
+
+<h2 class="article-h2">第三系統 ── 機械学習・強化学習（1989年以降）</h2>
+
+<p class="no-indent">この系統の臨界点は2013年のDQN（Mnih et al. 2013, arXiv:1312.5602、Nature掲載は2015年）であった。深層ニューラルネットと強化学習が結合し、Atariゲームを画像入力から学習できることが実証された。続く2015年のTRPO、2017年のPPO（Schulman et al. 2017, arXiv:1707.06347）、2018年のSAC（Haarnoja et al. 2018, arXiv:1801.01290）が連続制御に拡張された。2018年のOpenAI Dactyl（arXiv:1808.00177）は、シミュレーション学習のロボットハンドが実機で巧緻操作を行う最初の実証となり、Domain Randomization（2017）がsim-to-realのボトルネックを部分的に解いた。</p>
+
+<p>2019年のANYmal Sim2Real（Hwangbo et al., Science Robotics 4(26)）は、四足ロボットでsim-to-realが実機で動くことを示した。2021年のRapid Motor Adaptation（Kumar et al., arXiv:2107.04034）、MIT Mini Cheetah RLが続き、Convex MPCと深層RLのハイブリッドが脚式移動の標準となる。2023年のDiffusion Policy（Chi et al., arXiv:2303.04137）は拡散モデルを行動生成に転用、ACT/ALOHA（Zhao et al. 2023）が低コスト両手協調プラットフォームを実証し、Open X-Embodiment（22機種・527スキル・160万エピソード）が「ロボティクス版ImageNet」を生んだ。</p>
+
+<h2 class="article-h2">第四系統 ── 基盤モデル・VLM/VLA（2017年以降）</h2>
+
+<p class="no-indent">最も若いが、現在の合流の主役である。2017年のTransformer（Vaswani et al., arXiv:1706.03762）が自己注意機構のみでSeq2Seqを実現し、BERT（2018）・GPT-3（Brown et al. 2020, arXiv:2005.14165）・PaLM・GPT-4の系譜を生んだ。2021年のCLIP（Radford et al., arXiv:2103.00020）が画像-言語埋め込みを統一しゼロショット転移を実現、CLIPort（Shridhar et al. 2021）がそれをマニピュレーションに転移した。</p>
+
+<p>ロボティクスへの本格流入は、2022年4月のSayCan（Ahn et al. 2022, arXiv:2204.01691）に始まる。LLMでサブゴール分解、affordance scoreで実行可能性を評価する枠組みが提示された。同年末のRT-1（Brohan et al. 2022, arXiv:2212.06817）、2023年のPaLM-E（Driess et al. arXiv:2303.03378）、RT-2（Brohan et al. 2023, arXiv:2307.15818）で、視覚・言語・行動を単一トランスフォーマで結ぶ「ロボット用基盤モデル」が成立した。2024年のOpenVLA（Kim et al. arXiv:2406.09246）、Octo（arXiv:2405.12213）、π0（Physical Intelligence）、GR00T N1（NVIDIA）、2025年のHelix（Figure AI）、π0.5、RDTで、「単一モデルが複数機種で複数タスクを実行する」段階が確立した。AGI-DBの能力マイルストーンMS-019（Manipulation Generalization, 2023）はこの転換点を記録している。</p>
+
+<h2 class="article-h2">第五系統 ── シミュレーション・データ生成（1996年以降）</h2>
+
+<p class="no-indent">1996年のWebotsとOpen Dynamics Engineに始まり、2002年のGazebo、2010年のV-REP（後のCoppeliaSim）、2014年のToyota Research Institute Drakeが順次登場した。2015年のMuJoCo（Todorov et al.、後にDeepMindが買収・2023年オープン化）、2020年のNVIDIA Isaac Sim/Isaac Lab（OmniverseおよびOpenUSD基盤）、2024年のGenesis（マルチフィジクス統合）が現在の標準となる。同時に、生成的世界モデルとして、World Models（Ha-Schmidhuber 2018, arXiv:1803.10122）、DreamerV3（Hafner et al. 2024, Nature 626:982）、Sora（OpenAI 2024）、Genie 2（DeepMind 2024）、Cosmos（NVIDIA 2025）が立ち上がり、訓練データそのものを生成する経路が開かれた。</p>
+
+<p>2023年のOpen X-Embodimentと2024年のDROID（Khazatsky et al. arXiv:2403.12945、564シーン・86千デモ・13機関連携）は、実機データとシミュレーションデータの両輪を整えた。「データ希少性」というPhysical AIの構造的ボトルネックへの組織的回答が、フリート学習・遠隔操縦・自律収集・合成データ生成の四方向で進展している。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;height:auto;">
+<!-- 時間軸 -->
+<line x1="60" y1="340" x2="640" y2="340" stroke="#121212" stroke-width="1.5"/>
+<text x="60" y="360" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">1950</text>
+<text x="180" y="360" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">1980</text>
+<text x="300" y="360" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">2000</text>
+<text x="420" y="360" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">2017</text>
+<text x="540" y="360" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">2023</text>
+<text x="620" y="360" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">2026</text>
+
+<!-- 5系統 -->
+<!-- HW -->
+<path d="M 60,60 Q 200,65 380,75 Q 480,85 560,150" stroke="#555555" stroke-width="2" fill="none"/>
+<text x="65" y="55" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" font-weight="700">stream_hw</text>
+<text x="65" y="70" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">Unimate 1961 / ASIMO 2000 / Atlas Electric 2024</text>
+
+<!-- CTRL -->
+<path d="M 60,100 Q 200,105 380,115 Q 480,125 560,160" stroke="#555555" stroke-width="2" fill="none"/>
+<text x="65" y="95" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" font-weight="700">stream_ctrl</text>
+<text x="65" y="110" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">DH 1955 / Subsumption 1986 / Convex MPC 2018</text>
+
+<!-- RL -->
+<path d="M 230,150 Q 350,160 440,170 Q 500,175 560,175" stroke="#555555" stroke-width="2" fill="none"/>
+<text x="235" y="145" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" font-weight="700">stream_rl</text>
+<text x="235" y="160" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">DQN 2013 / PPO 2017 / Dactyl 2018 / Diffusion Policy 2023</text>
+
+<!-- SIM -->
+<path d="M 300,200 Q 400,205 480,210 Q 530,215 560,190" stroke="#555555" stroke-width="2" fill="none"/>
+<text x="305" y="195" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" font-weight="700">stream_sim</text>
+<text x="305" y="210" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">Gazebo 2002 / MuJoCo 2015 / Isaac Sim 2020 / Genesis 2024</text>
+
+<!-- FM -->
+<path d="M 420,250 Q 470,255 510,250 Q 540,240 560,205" stroke="#CC1400" stroke-width="2.5" fill="none"/>
+<text x="425" y="245" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" font-weight="700">stream_fm</text>
+<text x="425" y="260" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">Transformer 2017 / GPT-3 2020 / RT-2 2023 / OpenVLA 2024</text>
+
+<!-- 合流点 -->
+<circle cx="560" cy="175" r="22" fill="none" stroke="#CC1400" stroke-width="2"/>
+<text x="560" y="178" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">合流</text>
+<text x="560" y="135" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-style="italic">2023-2026</text>
+
+<!-- 単一身体方向 -->
+<line x1="582" y1="175" x2="615" y2="175" stroke="#CC1400" stroke-width="2" marker-end="url(#arrow)"/>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+<polygon points="0,0 0,6 9,3" fill="#CC1400"/>
+</marker>
+</defs>
+<text x="625" y="170" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="start" font-weight="700">VLA</text>
+<text x="625" y="185" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B" text-anchor="start">単一身体</text>
+
+<!-- 軸ラベル -->
+<text x="350" y="320" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">時間 →</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図2-1: 5系統合流の系譜（1950-2026）。独立に発生した5系統が2023-2026年にVLA基盤モデルを介して合流。</figcaption>
+</figure>
+
+<h2 class="article-h2">5系統の合流点 ── 5つの閾値超え</h2>
+
+<p class="no-indent">5系統がどこで具体的に交差したかは、5つの閾値超えとして記述できる。第一の閾値は知覚の身体化（2015-2018）であり、ORB-SLAM2やDROID-SLAM（Teed-Deng 2021, arXiv:2108.10869）に至る系統で深層学習がSLAMパイプラインに本格混入した。第二の閾値は強化学習の実機化（2018-2020）であり、OpenAI Dactyl、ANYmal、Mini Cheetah RLがsim-to-realの最初の実証群となった。</p>
+
+<p>第三の閾値は言語条件付け（2022）であり、SayCanとRT-1で「自然言語で命じればロボットが実行する」が研究室レベルで成立した。第四の閾値はVLA基盤モデル化（2023-2025）であり、RT-2／OpenVLA／GR00T／Helix／π0が「汎用VLMをロボット出力にfine-tuneする」アプローチを確立した。第五の閾値は大規模実機データ収集（2023-2026）であり、Open X-EmbodimentとDROIDが「データ希少性」というボトルネックへの組織的回答を提示した。これら5つの閾値超えが、5系統を結びつける接続点として並んでいる。</p>
+
+<h2 class="article-h2">2026年の合流地点で見えるもの</h2>
+
+<p class="no-indent">5系統合流の現在地は、整理すると次の三つの像として読める。第一に、機械の身体（hw + ctrl）はほぼ成熟域にある。アクチュエータ・センサ・低位制御の組み合わせで「動く身体」を作る課題は、コスト・稼働時間・耐久性の漸進改善を残すのみで、構造的な未解決問題はない。第二に、知能の中核（rl + fm + sim）は急成長期にあり、まだ標準化が確定していない。VLAの100Bパラメータ標準化、推論時計算スケーリング、世界モデルの物理整合性などが、Phase A（2026-2030）の中心課題として残る。第三に、両者をつなぐ「身体と知能の翻訳」が、現在の主戦場である。VLAは言語と視覚から行動への翻訳器であり、それを高速化・汎化・低エネルギー化することが、2026-2030年の技術的アジェンダの中核となる。</p>
+
+<p>合流の比喩を、5本の川がひとつの河口に注ぐ図として読んでもよい。それぞれの川は、上流に独自の地形と歴史を持つ。Wienerのフィードバック制御、Devolの産業ロボット、SuttonとBartoの強化学習、VaswaniのTransformer、TodorovのMuJoCo ── これらの源流のうち一つでも欠けていたなら、現在の河口は存在しない。Physical AIはこれら5本の合流の上にしか立ち上がりえなかった。そして合流したいま、それぞれの上流が依然として独立に流れつづけていることも忘れてはならない。古典制御の理論的精緻化は、VLAの登場後もなお進んでいる。MoE型LLMのスケーリングは、ロボティクス領域とは別の速度で展開している。合流とは融解ではなく、複数の流れが重ね描きされる場のことである。</p>
+
+<div class="finding-box">
+<p><strong>本章のまとめ</strong></p>
+<p>Physical AIは5系統 ── ハードウェア（1950）・古典制御（1960）・強化学習（1989）・基盤モデル（2017）・シミュレーション（1996）── の合流体である。それぞれの系統が独立の長い系譜を持ち、2010年代後半から急速に交差した。合流点は5つの閾値超え（知覚の身体化、RLの実機化、言語条件付け、VLA基盤モデル化、大規模実機データ）として読める。2026年現在、機械の身体は成熟域、知能の中核は急成長期、両者をつなぐ翻訳層が主戦場である。合流とは融解ではなく重ね描きであり、5本の源流は依然として独立に流れている。</p>
+</div>
+</section>
+
+
+<!-- 第3章 -->
+<section class="chapter-section" id="ch3">
+<div class="chapter-number-label">CHAPTER 03</div>
+<h2 class="chapter-title">8系統への拡張</h2>
+
+<div class="epigraph">
+<p>身体は、認知が立ち上がる場である。知性を理解することは、身体を理解することに等しい。</p>
+<span class="attribution">— Rolf Pfeifer, Josh Bongard『How the Body Shapes the Way We Think』（2007年、MIT Press）</span>
+</div>
+
+<p class="no-indent">前章で記述した5系統合流モデルは、2026年時点の Physical AI を読むための最小限の枠組みである。しかし、2030-2100年の長い時間軸で運動を追跡するには、この5系統では足りない。Phase 2 の5系統精緻化チームが調査を進めるなかで、横断的に伏在していた3つの系統が独立化されるべきだという結論が浮上した。バイオ・神経模倣・生命系製造系（stream_bio、起源1943年）、マテリアル・エネルギー系（stream_mat、起源1947年）、認知科学・脳科学・身体性認知系（stream_cog、起源1948年）の3つである。本章では、なぜこれら3系統を独立化する必要があるのか、そしてそれによってPhysical AIの全体像がどう変わるのかを記述する。</p>
+
+<h2 class="article-h2">第六系統 ── バイオ・神経模倣・生命系製造（1943年以降）</h2>
+
+<p class="no-indent">この系統は三層からなる。第一層は神経模倣ハードウェアであり、起点はMcCulloch-Pittsの形式ニューロン（1943, Bulletin of Mathematical Biophysics 5:115-133）にある。Rosenblatt Perceptron（1958）、Hebb学習則（1949）から Liquid State Machine（Maass-Natschläger-Markram 2002, Neural Computation 14:2531）、IBM TrueNorth（Merolla et al. 2014, Science 345:668-673）、Intel Loihi 2（2021、114万ニューロン×128コア）、IBM NorthPole（2023, Science）と進む。Event Camera（Lichtsteiner et al. 2008, IEEE JSSC）は網膜の非同期スパイク発火を模した視覚センサで、Prophesee・iniVationが量産化している。</p>
+
+<p>第二層は身体模倣（Bio-mimicry）であり、McKibben Pneumatic Artificial Muscle（1957）に始まる。Whitesides Lab のSoft Robotics（2008）、Octobot（Wehner et al. 2016, Nature 536:451 ── 完全untethered化学駆動）、RoboBee（Ma et al. 2013, Science 340:603）、Origami Robot（Felton et al. 2014, Science）と連なる。Stanford OceanOneK（Khatib 2022, Science Robotics 7:65）は深海200mで触覚フィードバック付き操作を実証した。</p>
+
+<p>第三層が現在進行形で立ち上がっている生命系製造であり、Adleman DNA Computing（1994, Science 266:1021）、Rothemund DNA Origami（2006, Nature 440:297）を遠い起源としつつ、決定的事象はXenobot（Kriegman, Blackiston, Levin, Bongard 2020, PNAS 117(4):1853）である。アフリカツメガエル細胞から自己組織化するロボットが報告され、2021年には自己複製版（PNAS 118(49)）、2023年には成人肺細胞由来のAnthrobot（Gumuskaya et al. 2023, Advanced Science 10(34)）が続いた。並行して自律実験化学ロボットが立ち上がる。Liverpool Mobile Chemist（Burger et al. 2020, Nature 583:237）、A-Lab（Szymanski, Ceder et al. 2023, Nature 624:86 ── 17日間で41の新規無機材料を合成）、Coscientist（Boiko et al. 2023, Nature 624:570 ── GPT-4ベース化学合成）。AI設計薬では Isomorphic Labs（DeepMind系）がAlphaFold 3（Abramson et al. 2024, Nature 630:493）を基盤に動き、Insilico Medicineの Rentosertib（旧INS018_055）が2024年フェーズII到達（Nature Biotechnology 42:1099）となった。</p>
+
+<p>この三層を束ねる必要がある理由は明確である。生命と機械の境界が、物質的に再定義されつつあるからである。Soft Robotics・Neuromorphic Chip・Xenobot・Plant-AIは、5系統の単純な拡張ではなく、機械の身体素材を生体組織へ、計算アーキテクチャを神経模倣へ、製造プロセスを生命系へと同時に注入する一つの運動の異なる断面である。書籍『深い知が拓く2100年』第二部の中核予測である2070年「生命系製造期」は、この系統の合流到達点として位置づけられる。</p>
+
+<h2 class="article-h2">第七系統 ── マテリアル・エネルギー（1947年以降）</h2>
+
+<p class="no-indent">この系統は、Physical AIを支える物質基盤と、Physical AIによって加速される対象の両方を兼ねる二重性を持つ。1947年Bell Labsの点接触トランジスタ（Bardeen-Brattain-Shockley）に始まる半導体史、1859年Plantéの鉛蓄電池から1991年Sony 18650セルを経て2024年の270-300 Wh/kg級NMC811に至るバッテリー史、1976年の106 USD/Wから2024年の0.10-0.13 USD/Wへと約1000倍下落したc-Si太陽光モジュールのSwanson曲線、1982年のFeynman量子計算講演から2024年Google Willowの表面符号エラー訂正しきい値突破（Nature 638:920）に至る量子計算史。この四つの柱が並列して進む。</p>
+
+<p>Physical AI文脈での決定的事象は、2023年のDeepMind GNoME（Merchant et al., Nature 624:80 ── 220万件の新規結晶構造候補生成、うち38万件がDFT安定）と、それと連動したA-Lab（Szymanski et al. 2023, Nature 624:86 ── 17日間で41種を合成成功）である。これによって従来5-10年かかった新材料発見が数週間-数ヶ月に短縮する基盤が整った。同時期、Toyotaが2023年6月に2027-2028年の全固体BEV商用化（航続1200km・充電10分以下）を公式宣言、Samsung SDIが2024年にS-Line全固体パイロットライン稼働、Mercedes-Benz/Stellantisにサンプル出荷を開始した。固体電池はヒューマノイドの稼働時間を4-8時間から16-24時間に質的に転換する律速要因である。</p>
+
+<p>エネルギー側では、SMRと核融合が二正面で進む。NuScale VOYGR、GE Hitachi BWRX-300（Ontario Power Generation 2029稼働予定）、TerraPower Natrium（Wyoming 2030稼働予定）、Rolls-Royce SMR。核融合では Commonwealth Fusion Systems SPARC（2026-2027稼働予定）、Helion Energy（Microsoftと2028年から50MW PPA契約）、TAE Technologies、ITER First Plasma（2025-2026予定）。データセンター電力需要は IEA Electricity 2024 推計で2022年460TWhから2026年最大1050TWhへ倍増。米国のPJM系統では2024年に容量市場価格が前年比9倍に高騰し、データセンター需要が直接の原因として指摘された。MicrosoftのThree Mile Island Unit 1再稼働契約（2024年9月、Constellation Energyと20年PPA）は、AIと原子力の構造的合流を象徴する。</p>
+
+<p>この系統を独立化する根拠は、AIとエネルギーの相互依存にある。OpenAI GPT-4の訓練電力は推定50 GWh、Meta Llama 3.1 405Bは約30 GWh（Patterson et al. 2021 手法による推計）。1台のヒューマノイドが24時間稼働するとき、本体バッテリー消費（数 kWh）よりクラウド推論コスト（数十 kWh 換算）の方が大きくなる可能性がある。Physical AIの軌道は、stream_matの進捗に物理的に律速される。stream_matを独立系統として扱わない限り、楽観過剰または悲観過剰のどちらかに振れる。</p>
+
+<h2 class="article-h2">第八系統 ── 認知科学・脳科学・身体性認知（1948年以降）</h2>
+
+<p class="no-indent">この系統は、Physical AIの「内側」── 何が知性として立ち上がるのか ── を規定する。第一波は1943年のMcCulloch-Pittsから1948年のWiener Cybernetics（MIT Press）へ。1956年のダートマス会議がAIを「記号操作」と再定義し、Cyberneticsの身体性的視座から離反した。1969年Minsky-Papert『Perceptrons』がパーセプトロンの表現限界を示し、ニューラルネットと身体性の研究は1970年代に主流から退いた。</p>
+
+<p>第二波は1980-1990年代のEmbodied Cognitionである。Lakoff-Johnson『Metaphors We Live By』（1980）と『Philosophy in the Flesh』（1999）、Maturana-Varela のオートポイエーシス論（1980）、Varela-Thompson-Rosch『The Embodied Mind』（1991, MIT Press）でEnactivism（行為遂行主義）が提唱された。ロボティクス側ではBrooks Subsumption Architecture（1986）とIntelligence without Representation（1991, AI 47:139）が記号AIへの最も明確な反論となった。</p>
+
+<p>第三波は2000-2010年代の4E Cognition（Embodied・Embedded・Enacted・Extended）とPredictive Codingである。Clark-Chalmers「The Extended Mind」（1998, Analysis 58:1）、Clark『Supersizing the Mind』（2008）が拡張認知を体系化。Karl Friston「The Free-Energy Principle: A Unified Brain Theory?」（2010, Nature Reviews Neuroscience 11:127）が脳の働きを「自由エネルギー最小化」として統一的に説明する枠組みを提示し、Active Inference理論が立ち上がった。機械学習側では、World Models（Ha-Schmidhuber 2018, arXiv:1803.10122）がFriston的予測脳の工学的実装を示し、LeCun JEPA（2022, Open Review）がLLM中心パラダイムへの代替を提示した。</p>
+
+<p>第四波は2020年代のBMIと身体性AI実装期である。Neuralinkは2024年1月にNoland Arbaughへの1024電極N1チップ移植を公開、Synchronは血管内ステント型Stentrodeで2022年からFDA監督下臨床試験を開始、2025年時点で10名以上の被験者が日常生活で使用している。Italian Institute of TechnologyのiCub（Metta et al. 2010, Neural Networks 23:1125）は15年以上にわたり発達ロボティクスのプラットフォームとして稼働しており、2024年版iCub 3.0は遠隔操作と自律学習を統合した。Active Inference for Roboticsは Pezzulo（CNR-ISTC, Rome）とFristonによるLanillos et al.「Active Inference in Robotics and Artificial Agents」（2021, arXiv:2112.01871）に整理されている。</p>
+
+<p>この系統を独立化する根拠は、Physical AIの最適化目標そのものを規定する役割にある。RL（stream_rl）は与えられた報酬関数を最大化する。FM（stream_fm）は与えられた損失関数を最小化する。これに対し、stream_cogは「何を最適化するべきか」「身体性とは何か」「知性が立ち上がる条件は何か」という根源的問いを扱う。Friston自由エネルギー原理、Varela Enactivism、Clark Extended Mind、Hutchins分散認知 ── これらは Physical AI の設計原理として、5系統の上に立つメタ層を構成する。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;height:auto;">
+<!-- 三層フレーム -->
+<rect x="60" y="40" width="580" height="80" fill="none" stroke="#CC1400" stroke-width="1.2" stroke-dasharray="4,3"/>
+<rect x="60" y="140" width="580" height="80" fill="none" stroke="#121212" stroke-width="1.2"/>
+<rect x="60" y="240" width="580" height="100" fill="none" stroke="#121212" stroke-width="1.2"/>
+
+<!-- 層ラベル -->
+<text x="68" y="58" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" font-weight="700">第三層：学習・知能層</text>
+<text x="68" y="73" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">機械に知性を注入。2010s後半から急発展</text>
+
+<text x="68" y="158" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" font-weight="700">第二層：実装層</text>
+<text x="68" y="173" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">物理身体・制御・訓練環境。工学的成熟度が高い</text>
+
+<text x="68" y="258" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" font-weight="700">第一層：物理基盤層</text>
+<text x="68" y="273" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B">他の全系統の物理的可能性を規定する</text>
+
+<!-- 系統ボックス -->
+<!-- 第三層 stream_rl, stream_fm, stream_bio, stream_cog -->
+<rect x="100" y="85" width="115" height="28" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="158" y="103" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#121212" text-anchor="middle">stream_rl</text>
+
+<rect x="230" y="85" width="115" height="28" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="287" y="103" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#121212" text-anchor="middle">stream_fm</text>
+
+<rect x="360" y="85" width="135" height="28" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="427" y="103" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">stream_bio（新）</text>
+
+<rect x="510" y="85" width="125" height="28" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="572" y="103" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">stream_cog（新）</text>
+
+<!-- 第二層 stream_hw, stream_ctrl, stream_sim -->
+<rect x="100" y="180" width="155" height="28" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="178" y="198" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#121212" text-anchor="middle">stream_hw</text>
+
+<rect x="275" y="180" width="155" height="28" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="353" y="198" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#121212" text-anchor="middle">stream_ctrl</text>
+
+<rect x="450" y="180" width="180" height="28" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="540" y="198" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#121212" text-anchor="middle">stream_sim</text>
+
+<!-- 第一層 stream_mat -->
+<rect x="100" y="280" width="530" height="40" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="365" y="304" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">stream_mat（新） ── 半導体・電池・太陽光・核分裂/融合・量子・新材料</text>
+
+<!-- 矢印（駆動順序） -->
+<line x1="365" y1="278" x2="365" y2="222" stroke="#555" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="365" y1="178" x2="365" y2="122" stroke="#555" stroke-width="1" stroke-dasharray="3,3"/>
+
+<!-- bio/cog の双方向矢印（フィードバック） -->
+<line x1="427" y1="120" x2="427" y2="180" stroke="#CC1400" stroke-width="0.8" stroke-dasharray="2,2"/>
+<text x="450" y="155" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#CC1400" font-style="italic">境界に位置</text>
+
+<!-- タイトル -->
+<text x="350" y="370" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle">8系統の3層構造（赤＝Phase 2で独立化された新系統）</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図3-1: 8系統の3層モデル。物理基盤層（stream_mat）の上に実装層（hw/ctrl/sim）、その上に学習・知能層（rl/fm/bio/cog）が乗る。stream_bioは第二層と第三層の境界に位置する。</figcaption>
+</figure>
+
+<h2 class="article-h2">8系統の3層構造と駆動順序</h2>
+
+<p class="no-indent">3つの新系統を加えると、Physical AIは8系統からなることになる。これら8系統は対等に並列するのではなく、依存関係と駆動順序を持つ。第一層は物理基盤層であり、stream_mat 単体である。半導体・バッテリー・エネルギー・新材料が、他の全系統の物理的可能性を規定する。第二層は実装層であり、stream_hw（物理身体）・stream_ctrl（制御理論）・stream_sim（訓練環境）からなる。第三層は学習・知能層であり、stream_rl・stream_fm・stream_bio・stream_cog の4系統が並ぶ。</p>
+
+<p>時間軸で見ると、8系統は次の順序で互いを駆動する。stream_mat（物質）→ stream_hw, stream_ctrl（実装）→ stream_sim（訓練環境）→ stream_rl, stream_fm（知能注入）→ stream_bio, stream_cog（関係・生命・認知）。ただしこの矢印は一方通行ではない。stream_bio（A-Lab・GNoME）はstream_matに対して新材料発見の正のフィードバックを返す。stream_cog（Active Inference）はstream_rlに新しい最適化目標を提供する。stream_fm（VLA）はstream_hw（ヒューマノイド）の応用範囲を再定義する。これら相互作用が、第2部で扱う7フェーズロードマップ（Phase A 2026-2030 から Phase G 2090-2100）の推進力となる。</p>
+
+<p>stream_bioは特殊な位置にある。Soft Robotics・Neuromorphic Chipは第二層（実装）として、Xenobot・A-Labは第三層（生命設計）として機能する。すなわちstream_bioは第二層と第三層の境界に位置し、両層をまたぐ。書籍『深い知が拓く2100年』第十一章の関係論的存在論は、まさにこの境界が物質的に揺らぐ事態を扱う。Soft RoboticsとXenobotが進展するほど、機械と生命の二項対立は物質的に破綻する。stream_bioを独立化することは、その破綻を学術DBのスキーマに正面から書き込むことに等しい。</p>
+
+<h2 class="article-h2">なぜいま3系統を独立化するのか</h2>
+
+<p class="no-indent">8系統への拡張は、単なるDBスキーマの整理ではない。それは、Physical AIの定義そのものを書き換える動作である。5系統モデルでは、Physical AIは「身体を持つAI」とほぼ同義になる。これに対し、8系統モデルでは、Physical AIは「物質・生命・認知が知性と統合される74年の運動」となる。前者は2025年時点のNVIDIA Jensen Huang流の定義に近く、後者は2070年「生命系製造期」を視野に入れた書籍系の定義である。本書は後者を採る。</p>
+
+<p>3系統独立化の根拠は、それぞれ次の通りである。stream_bioについては、Xenobot/Anthrobot/A-Lab/AlphaFold 3 の臨界事象群が2020-2024年に並んで起き、生命と機械の境界が物質的に動き始めた。stream_matについては、GNoME × A-Lab の正のフィードバック、固体電池量産化、核融合複数機並走、データセンター電力需要倍増という4つの事象が、AIとエネルギーの相互依存を構造的事実にした。stream_cogについては、Active Inference の産業実装（VERSES AI Genius 2024）、Neuralink Phase I、World Models のロボット標準層化が、認知科学が抽象哲学から実装規格へと移行する転換点を示した。三系統とも、2020年代前半に独立化を正当化する事象群が立ち上がっている。</p>
+
+<p>3系統を独立化することの実務的含意は、Phase B（2030-2040）以降のロードマップが質的に変わる、ということである。5系統だけで2040-2100を語ろうとすると、たとえばXenobotやA-Labの動向は「stream_simの拡張」「stream_hwの素材革新」として処理されてしまう。これは2070年生命系製造期や2100年知性のオーケストラを正しく描けない。8系統への拡張は、Physical AIの長期軌道を解像度高く読むための解析装置である。</p>
+
+<h2 class="article-h2">8系統オーケストラの先取り</h2>
+
+<p class="no-indent">第2部以降で詳述する7フェーズロードマップを、ここで8系統の言葉で先取りしておく。Phase A（2026-2030 VLA基盤定着期）は、stream_fmとstream_hwの合流が完成期に入り、stream_ctrlとstream_simが共通スタックを固める段階である。stream_matの全固体電池量産とSMR商用初号機がここで起き、Physical AI普及の物理基盤が整う。stream_bioは神経模倣エッジAIで普及層に入り、stream_cogはWorld Modelsが標準層に上がる。Phase B（2030-2040 物理操作汎化期）でVLAがクロスエンボディメント転移を完成、非構造環境50%タスクで人間並みに到達する。Phase C（2040-2050 人間-機械並走期）で汎用AGIが形式的厳密な意味で到達、Cognitive Stackが産業標準として確立する。</p>
+
+<p>Phase D（2050-2060 自律物理エージェント期）で AIエージェントが組織を持ち、目標設定から実行までを一貫して自律で行う段階に入る。stream_bioでは合成生物・人工臓器のAI設計が一般化、Bio-Hybrid Robotが日用品レベルで使用され、修理ではなく「再生」される製品系統が立ち上がる。Phase E（2060-2075 知性のオーケストラ生成期）で書籍中心命題が現実化を始め、stream_bioの「生命系製造期」が到来する。Phase F（2075-2090 ポスト人間中心物理エコシステム期）で Physical AI は「個別機械」から「分散身体」へ転換、ロボットという概念が消え、物理操作能力が環境・建物・道具・身体に分散的に埋め込まれる（ambient embodiment）。そして Phase G（2090-2100 関係論的物理生態系期）で、Physical AIは他のAI形態（LLM・生体AI・量子AI・分散AI）と境界が溶解した状態に到達する。</p>
+
+<p>この長い軌道で見ると、8系統への拡張は、5系統モデルが扱えなかった「合流の先」を解像度高く描くための装置だとわかる。2026年の合流地点はゴールではなく出発点である。74年のロードマップの最後で待っているのは、合流の先の発散 ── 多様な知性が並列に存在する状態 ── である。8系統は、その発散を地図として持ち歩くための分節装置である。</p>
+
+<div class="finding-box">
+<p><strong>本章のまとめ</strong></p>
+<p>5系統合流モデルは2026年時点の Physical AI を読むための最小限の枠組みだが、2030-2100年の長い時間軸を扱うには不十分である。Phase 2 の精緻化チームは、横断的に伏在していた3系統 ── バイオ・神経模倣・生命系製造系（stream_bio、起源1943）、マテリアル・エネルギー系（stream_mat、起源1947）、認知科学・脳科学・身体性認知系（stream_cog、起源1948）── の独立化を提案した。8系統は対等に並列せず、物理基盤層（mat）→実装層（hw/ctrl/sim）→学習・知能層（rl/fm/bio/cog）の3層構造をなす。stream_bioは第二層と第三層の境界に位置する特殊系統である。8系統への拡張は、Physical AIを「身体を持つAI」から「物質・生命・認知が知性と統合される74年の運動」へと再定義する動作であり、本書のロードマップ全体を解像度高く描くための解析装置である。</p>
+</div>
+</section>

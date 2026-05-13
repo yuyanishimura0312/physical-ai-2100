@@ -1,0 +1,417 @@
+<section class="chapter-section" id="ch4">
+<div class="chapter-number-label">Chapter 04 — Phase A & B, 2026-2040</div>
+<h1 class="chapter-title">VLA基盤定着から物理操作汎化へ──「言葉で指示し身体で動く」道具が産業の前提条件に変わる十四年間</h1>
+
+<div class="epigraph">
+<p>「ロボットは、世界を理解しているのではなく、世界に対する自分の振る舞いを徐々に整えているのである。」</p>
+<p class="attribution">Rodney Brooks, "Intelligence Without Representation"（Artif. Intell. 47, 1991）</p>
+</div>
+
+<p>二〇二六年から二〇四〇年までの十四年間は、Physical AIの長い時間軸の中で最初に大きな「定着」と「汎化」が同時並行で起きる時期である。前章までに見てきたように、二〇一〇年代後半に Transformer が言語モデルを爆発的に成長させ、RT-2・OpenVLA・π0・GR00T N1・Helix・π0.5 という Vision-Language-Action モデルの系譜が、その言語モデルの能力を物理身体へと接続する道筋を切り拓いた。Phase A はこの「ようやく動くようになった」段階から、「業務プロセスの標準前提として組み込まれる」段階への移行期にあたる。続くPhase Bは、その標準化された道具が構造化された倉庫や工場の外へ──家庭・農地・建設現場・災害現場へ──と汎化していく時期である。本章では、この十四年間の道程を、Phase 1で確立された五系統合流モデル（基盤モデル・ロボティクス・古典制御・強化学習・シミュレーション）と、Phase 2で独立化された三新系統（バイオ・マテリアル・認知）の八系統の織り合わせとして読み解く。</p>
+
+<p>Phase A・Bを単なる「技術ロードマップ」として理解するのは正しくない。この十四年間に最も重要な構造的変化は、Physical AIが「業務支援道具」として認識される段階から、人間の労働の隣に置かれる「協働相手」として認識される段階への移行が始まることである。前者は工学的な性能の問題であり、後者は社会的な関係性の問題である。両者は別物だが、本章が示すのは、技術系統の進展がその社会的位置の変化を半ば強制的に押し進めていくという、非対称な力学である。</p>
+
+<h2 class="article-h2">Phase A（2026-2030）── VLA基盤定着期：百Bパラメータ × 千万デモが業界共通の床になる</h2>
+
+<p>Phase A の主役は、明確に stream_fm（基盤モデル系統）である。二〇二三年に Google DeepMind が公表した RT-2 がインターネット規模のVLM事前学習と少量のロボットファインチューニングの組み合わせを実証して以降、二〇二四年の OpenVLA（Stanford・Toyota Research Institute・Google による七B級オープン基盤）、Physical Intelligence 社の π0 と π0.5、NVIDIA の GR00T N1、Figure の Helix と続いた展開は、「単一モデルが複数機種で複数タスクを実行する」段階が研究プロトタイプから業界標準へと固まる過程である。Phase 2 の予測では、二〇二八年頃に百Bパラメータ規模・一千万デモ訓練のVLAがデファクトとなり、Open X-Embodiment（二〇二四年に二十二機関の連名で公開された、二十二ロボット種・百六十万エピソードを含む共有データセット）の発展形が事実上の業界共通基盤となる。AGI研究のタイムラインを集約した予測群──Demis Hassabis の二〇二四年発言、Metaculus prediction market の中央値、Vinod Khosla の二〇三〇年予測──は、いずれも「狭義AGI」の到達点をこのフェーズ末に位置づけており、Physical AI の VLA 標準化と AGI 予測の収束点が物理的に重なる。</p>
+
+<p>同時に、stream_hw（ロボティクス系統）では商用ヒューマノイドの本格配備期が始まる。Agility Robotics の Digit はすでに GXO の物流倉庫と Amazon の配送センターで稼働を始め、Apptronik の Apollo は Mercedes-Benz の組立工場で、Figure の Figure 02 は BMW の Spartanburg 工場で実地配備に入っている。Tesla Optimus V3 は二〇二六年量産開始の予定が公表されている。Goldman Sachs が二〇二四年に出したヒューマノイド市場予測の中央値では、二〇三〇年までの累計出荷台数は百万から二百万台、価格帯は二万から五万ドル、連続稼働は四から八時間、平均故障間隔（MTBF）は二千時間級である。これらの数字は、構造化された作業──倉庫ピッキング・軽組立・パレタイズ・ホテル客室清掃──において、ヒューマノイドが人件費競合点を突破することを意味する。Boston Dynamics が二〇二四年四月に公表した Atlas Electric は、油圧から電動への世代交代の象徴であり、この交代がPhase A末までに業界全体で完了する。</p>
+
+<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="380" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="28" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図4-1　Phase A における5系統の状態（2026-2030）</text>
+<text x="380" y="46" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B">VLA標準化を中心とした駆動関係</text>
+
+<rect x="280" y="80" width="200" height="56" fill="#FFF" stroke="#CC1400" stroke-width="2"/>
+<text x="380" y="102" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#CC1400">stream_fm（基盤モデル）</text>
+<text x="380" y="120" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">RT-2 → OpenVLA → π0.5</text>
+
+<rect x="60" y="180" width="160" height="56" fill="#FFF" stroke="#121212"/>
+<text x="140" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">stream_hw（ハードウェア）</text>
+<text x="140" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">Digit / Optimus / Figure 02</text>
+
+<rect x="240" y="180" width="160" height="56" fill="#FFF" stroke="#121212"/>
+<text x="320" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">stream_ctrl（古典制御）</text>
+<text x="320" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">MPC + RL hybrid 標準化</text>
+
+<rect x="420" y="180" width="160" height="56" fill="#FFF" stroke="#121212"/>
+<text x="500" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">stream_rl（強化学習）</text>
+<text x="500" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">Sim2Real 成熟期</text>
+
+<rect x="600" y="180" width="140" height="56" fill="#FFF" stroke="#121212"/>
+<text x="670" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">stream_sim</text>
+<text x="670" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">Isaac Lab / Genesis</text>
+
+<line x1="340" y1="138" x2="180" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+<line x1="370" y1="138" x2="320" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+<line x1="400" y1="138" x2="490" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+<line x1="440" y1="138" x2="640" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+<defs>
+<marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+<polygon points="0 0, 6 3, 0 6" fill="#CC1400"/>
+</marker>
+</defs>
+
+<rect x="60" y="280" width="680" height="68" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="76" y="302" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">Phase A 末（2030）の到達状態：</text>
+<text x="76" y="320" font-family="Noto Sans JP" font-size="10" fill="#555">・狭義AGI 到達予測点（Metaculus median, Khosla, Hassabis 2024）</text>
+<text x="76" y="334" font-family="Noto Sans JP" font-size="10" fill="#555">・ヒューマノイド累計100-200万台、価格2-5万ドル、構造化作業で人件費競合点突破</text>
+</svg>
+
+<p>古典制御系統（stream_ctrl）の動きは目立たないが、産業実装上は決定的に重要である。Phase A 中盤までに、低レベルの balance／posture を Di Carlo らが二〇一八年に IROS で発表した Convex MPC が担い、高レベルの locomotion／manipulation を Diffusion Policy や VLA といった学習ポリシーが担う二層構造が、Boston Dynamics Atlas・Figure Helix・NVIDIA GR00T のすべてに共通アーキテクチャとして実装されることになる。Khatib が一九八七年に提案した Whole-Body Control の枠組みは、その内部実装が学習ベースに置き換わってもなお、ロボット制御の理論的言語として残り続ける。これは「古い理論が新しい実装で延命される」典型例として、Phase A の構造を象徴する事象である。</p>
+
+<p>強化学習系統（stream_rl）では、Sim2Real が本格成熟期を迎える。Open X-Embodiment の後継データセット──二〇二四年に公開された DROID、二〇二三年の BridgeData V2 の発展形──が一千万デモ規模に到達し、VLA 訓練の標準基盤となる。ただし、物理推論能力（PIQA・ThreeDWorld 等のベンチマーク）、サンプル効率（新規タスクごとに五十から三百デモを要する）、長期計画（三十分以上のタスク）の三つのボトルネックは、Phase A 末までに完全には解消されない。これらは Phase B への宿題として残される。シミュレーション系統（stream_sim）では、NVIDIA Isaac Lab・MuJoCo 3.0・Genesis が共通基盤として定着し、OpenAI Sora、Google DeepMind Genie 2、NVIDIA Cosmos といった生成的世界モデルが訓練データ生成器として実用化される。ただし物理整合性と長期一貫性のボトルネックは部分的にしか解決されない。</p>
+
+<h2 class="article-h2">Phase A のボトルネックと社会への波及──物理推論の壁と電力の壁</h2>
+
+<p>Phase A で顕在化する主要なボトルネックは、四つの層に整理できる。第一に物理推論ギャップである。LLM／VLA は PIQA や ThreeDWorld の物理常識テストで人間に劣る。Bisk らが二〇二〇年に AAAI で報告した GPT-3 の物理推論誤答率は三〇から四〇%に達した。これは Phase A 末まで完全には解消されない。第二にサンプル効率の問題である。新規物理タスクごとに五十から三百デモが必要で、人間の経験量の数千倍から数百万倍を要する。第三にバッテリーエネルギー密度の物理限界である。リチウムイオン電池の現行密度二七〇から三〇〇 Wh/kg ではヒューマノイド連続稼働は二から四時間が限界で、Toyota や Samsung SDI が予告する全固体電池五〇〇 Wh/kg の量産化が二〇二八から二〇三〇年に間に合わなければ、Physical AI 普及が三から五年停滞する可能性がある。</p>
+
+<p>第四にデータセンター電力供給制約である。IEA の二〇二四年推計では、データセンターの世界消費電力は二〇二二年の四六〇TWh から二〇二六年に最大一〇五〇TWh へ倍増する。米PJM域内では二〇二四年に容量市場価格が前年の九倍に跳ね上がった。送電網増強は八から十二年の計画スパンを要するのに対し、AI需要は年率数十%で急成長する。この時間スケールの不整合が、Phase A 期間中の AI 産業の最大の物理的制約である。Microsoft が二〇二四年に Three Mile Island の二号機（TMI-1）再稼働契約を Constellation Energy と結び、Google が Kairos Power と小型モジュール炉（SMR）の電力購買契約（PPA）を結んだのは、この制約への構造的応答である。BWRX-300（Ontario）や NuScale 等の SMR 商用初号機の稼働は二〇二九年前後と見込まれており、これが Phase A 末のエネルギー基盤を規定する。</p>
+
+<p>社会への波及としては、deep knowledge 書籍の補論である manufacturing-orchestra DB（十二章三万八千六百二十三字）が示す「製造現場のオーケストラ化」の最初の実装が始まる。OECD Future of Work ベンチマークの基準で言えば、構造化作業──倉庫ピッキング、軽組立、ホテル客室清掃、レジ業務──の労働市場が再編成される。ただし非構造環境（家庭・野外・災害現場）はPhase A では未到達である。ヒューマノイドが物流と製造の閉鎖空間に留まるため、一般市民との接触はまだ限定的で、社会受容の本格的論点は Phase B に持ち越される。前プロジェクトの二〇三〇人材像──VLA・基盤モデルを業務プロセスに組み込める運用設計者、ヒューマノイドとの分業設計を担うオペレーション・マネージャ、AI設計材料を製品開発に活用できる材料エンジニア──が、この時点で求められる三類型である。</p>
+
+<h2 class="article-h2">Phase B（2030-2040）── 物理操作汎化期：クロスエンボディメント転移と非構造環境への進出</h2>
+
+<p>Phase B はPhase A で標準化された基盤モデルが、特定の機種に縛られることなく、二足・四足・産業マニピュレータ・移動車両・水中ロボット・飛行体を共通ポリシーで操作可能になる「クロスエンボディメント転移」の完成期である。Phase 2 の S1 チームが Embodied Foundation Model 2028 forecast として登録した予測が、このフェーズで業界デファクトとして定着する。AGI 研究の Manipulation generalization マイルストーン（二〇二三年に Berkeley・Stanford・Google の共同チームが発表した汎化評価フレームワーク）が拡張され、非構造環境の五〇%タスクで人間並みの実行精度に到達する。</p>
+
+<p>強化学習系統では、OpenAI が二〇二四年に公表した o1、続く o3 シリーズが示した推論時計算スケーリング（test-time compute scaling）がVLAに転移する。「考えてから動く」モデルが標準化され、Diffusion Policy・ACT・RDT の系譜が拡散モデルの行動生成を成熟させる。サンプル効率は Phase A から十倍以上改善する。Stanford の LIBERO ベンチマーク（二〇二三年公開、五十二タスクで生涯学習を評価する標準ベンチ）が示す「生涯学習」が研究室から産業実装に移行する。</p>
+
+<p>ハードウェア系統は非構造環境への本格進出期である。建設現場・介護現場・農地・災害現場でのヒューマノイド実証が始まる。Tesla Optimus、Figure、1X Technologies の Neo が家庭環境に試験投入される。価格は一万ドル台後半まで低下し、家電並みの普及曲線に入る。連続稼働は十六から二十四時間（全固体電池量産化の効果）。マテリアル系統では、AI による材料発見の正のフィードバックが本格化する。DeepMind GNoME 後継、Lawrence Berkeley の A-Lab 後継、Materials Project の連結によって、新規アクチュエータ材料（電気活性ポリマーEAP、液晶エラストマーLCE、バイオハイブリッド）、触覚センサ膜、固体電解質、廃熱回収材が指数的に発見される。エネルギー側では、Commonwealth Fusion Systems の SPARC、Helion Energy 等の核融合実証炉が商用前段階に到達し、SMR の複数機稼働が並行する。AI と原子力の構造的合流が事業契約レベルで完成する。</p>
+
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="320" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="26" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図4-2　Phase B における主要マイルストーン（2030-2040）</text>
+
+<line x1="80" y1="160" x2="720" y2="160" stroke="#121212" stroke-width="1.5"/>
+<text x="80" y="195" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">2030</text>
+<text x="240" y="195" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">2032</text>
+<text x="400" y="195" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">2035</text>
+<text x="720" y="195" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">2040</text>
+
+<line x1="80" y1="155" x2="80" y2="165" stroke="#121212" stroke-width="1.5"/>
+<line x1="240" y1="155" x2="240" y2="165" stroke="#121212" stroke-width="1.5"/>
+<line x1="400" y1="155" x2="400" y2="165" stroke="#121212" stroke-width="1.5"/>
+<line x1="720" y1="155" x2="720" y2="165" stroke="#121212" stroke-width="1.5"/>
+
+<circle cx="100" cy="160" r="6" fill="#CC1400"/>
+<text x="100" y="100" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">Soft Robotics-RL</text>
+<text x="100" y="114" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">医療リハ量産化</text>
+<line x1="100" y1="155" x2="100" y2="120" stroke="#CC1400" stroke-width="1"/>
+
+<circle cx="180" cy="160" r="6" fill="#CC1400"/>
+<text x="180" y="100" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">Lifelong VLA</text>
+<text x="180" y="114" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">連続学習実現</text>
+<line x1="180" y1="155" x2="180" y2="120" stroke="#CC1400" stroke-width="1"/>
+
+<circle cx="260" cy="160" r="6" fill="#CC1400"/>
+<text x="260" y="100" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">VLA非構造50%</text>
+<text x="260" y="114" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">World Models標準</text>
+<line x1="260" y1="155" x2="260" y2="120" stroke="#CC1400" stroke-width="1"/>
+
+<circle cx="340" cy="160" r="6" fill="#CC1400"/>
+<text x="340" y="100" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">Neuromorphic Edge</text>
+<text x="340" y="114" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">100mW級量産</text>
+<line x1="340" y1="155" x2="340" y2="120" stroke="#CC1400" stroke-width="1"/>
+
+<circle cx="500" cy="160" r="6" fill="#CC1400"/>
+<text x="500" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">CFS ARC / Helion</text>
+<text x="500" y="234" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">核融合商用前実証</text>
+<line x1="500" y1="165" x2="500" y2="208" stroke="#CC1400" stroke-width="1"/>
+
+<circle cx="500" cy="160" r="6" fill="#CC1400"/>
+<text x="540" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">侵襲型BMI</text>
+<text x="540" y="234" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#121212">重度障害標準治療</text>
+<line x1="540" y1="165" x2="540" y2="208" stroke="#CC1400" stroke-width="1"/>
+
+<rect x="80" y="250" width="640" height="56" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="96" y="270" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">Phase B のキーダイナミクス：</text>
+<text x="96" y="288" font-family="Noto Sans JP" font-size="10" fill="#555">クロスエンボディメント転移 × 推論時計算スケーリング × AI×材料発見の正のフィードバック</text>
+</svg>
+
+<p>バイオ系統（stream_bio）では、神経模倣エッジAIが標準化される。Intel Loihi 2 後継、IBM NorthPole 後継が、ADAS（先進運転支援）、産業検査、ウェアラブルで百ミリワット級エッジ推論基盤として普及する。イベントカメラ（Prophesee や iniVation が商用化した、生物網膜模倣型の差分検出センサ）が自動運転センサスイートの常設要素となる。Whitesides が二〇〇八年に提唱した Soft Robotics の流れに強化学習を組み合わせた Soft Robotics-RL が、医療リハ用 exo-suit や農業の柔らかい果実把持で量産化に到達する。A-Lab や Coscientist の系統に連なる Self-Driving Lab が、消費財・医薬品研究の標準ツールとなる。</p>
+
+<p>認知系統（stream_cog）では、World Models が汎用ロボティクスの標準層となる。Ha と Schmidhuber が二〇一八年に提唱した世界モデルの概念は、Hafner らの Dreamer 系統（DreamerV3 が二〇二四年に Nature 誌に掲載）として進化し、Phase B 中盤には DreamerV5 級の世界モデルが家庭・工場・物流の共通基盤として展開される。ロボットは「現場で初めて見る状況」を内部シミュレーションで予習してから行動する。Karl Friston の自由エネルギー原理に基づく Active Inference と、モデルベース強化学習の統合が実用段階に達する。Neuralink・Synchron・Precision Neuroscience が牽引する脳機械インタフェース（BMI）は、消費者向け非侵襲型（EEG＋fNIRS の組み合わせ）が普及し、侵襲型は重度障害者で標準治療化する。</p>
+
+<div class="finding-box">
+<p><strong>Phase B が突破する三つのボトルネック構造</strong>──Phase A から持ち越されたのは物理推論、長期記憶、世界モデルの物理整合性、エネルギー効率の四つだが、Phase B はこれらを完全には解決しない。特にエネルギー効率は、人間脳の二十ワットに対して大規模VLA推論が一キロワット級という三桁ギャップを抱えたままで、stream_bio（ニューロモーフィック）との合流が必須となる。Phase B 末に残る最大の宿題は、この三桁ギャップである。</p>
+</div>
+
+<p>社会への波及は Phase A と質的に異なる。非構造環境への進出により、社会受容が本格的な論点となる。労働市場では構造化作業の五〇%がロボット化され、ホワイトカラー業務もLLMとVLAの統合で再編成が進む。日本・ドイツ・韓国で二〇四〇年に深刻化する介護労働力不足（各国白書ベース）が、ヒューマノイド介護導入を加速する社会圧力となる。前プロジェクトの二〇三〇人材像から二〇五〇人材像への移行期にあたり、「業務支援道具」だったPhysical AI が「協働相手」へと認識変化する。新たに求められるのは、人間とロボットの混成チームを設計・運用できるハイブリッド・マネージャ、Active Inference や World Models を業務に活かせる認知エンジニア、Bio-AI 統合創薬や Self-Driving Lab を活用する研究開発職である。</p>
+
+<p>Phase A と Phase B を貫いて重要なのは、stream_fm が主役であった Phase A の動学が、Phase B 末には stream_fm・stream_bio・stream_mat・stream_cog の四系統が対等に並ぶ多重駆動構造へと変質することである。これはPhase C 以降の「人間-機械並走」を準備する地形変化であり、第五章で扱う二〇四〇年代の本格的なAGI到達期へとつながっていく。</p>
+
+</section>
+
+<section class="chapter-section" id="ch5">
+<div class="chapter-number-label">Chapter 05 — Phase C & D, 2040-2060</div>
+<h1 class="chapter-title">人間-機械並走から自律物理エージェントへ──汎用AGIの身体化と「労働」概念の再定義が始まる二十年間</h1>
+
+<div class="epigraph">
+<p>「機械が人間にできることを全てできるようになった時、人間に残されるのは『人間に何ができるか』ではなく、『人間が何を望むのか』を問うことである。」</p>
+<p class="attribution">Norbert Wiener, "The Human Use of Human Beings"（Houghton Mifflin, 1950）</p>
+</div>
+
+<p>二〇四〇年から二〇六〇年までの二十年間は、Physical AIの長い時間軸の中で、技術的にも社会的にも最も大きな転換が起きる時期である。Phase Aと Phase B で確立された VLA 基盤と物理操作汎化は、Phase C で「汎用AGI（Artificial General Intelligence）」の身体化として結実し、Phase D で「自律物理エージェント」として社会の下層を担うようになる。本章では、この二十年間の道程を、八系統の織り合わせと、それが生み出す社会構造の変化として描く。</p>
+
+<p>この時期に最も注意すべきは、技術的なボトルネックが大きく緩和される一方で、社会構造・倫理・法制度の追従が遅延するというギャップが構造的に拡大することである。Phase C は技術的なAGI到達の時期であるが、Phase D の到来までに人類は「AIが意思決定する範囲」「人間の権限」「責任の所在」という三つの根源的な問いに、制度として答えを出さねばならない。本章はその二十年間の技術軌道と社会軌道を並行して描く。</p>
+
+<h2 class="article-h2">Phase C（2040-2050）── 人間-機械並走期：汎用AGIの形式的到達とCognitive Stackの確立</h2>
+
+<p>Phase C では、Shane Legg と Demis Hassabis が二〇〇七年に提示した「任意の知的タスクを人間並みに実行できる」という汎用AGIの定義（DEF-002）が、形式的に厳密な意味で達成される。AGI 予測タイムラインの中央予測──Ray Kurzweil の二〇四五年 Singularity 予測（TL-008）、AI Impacts による二〇四七年 HLMI（Human-Level Machine Intelligence）中央値予測（TL-012）──がこのフェーズに集中する。Phase 2 の S1 チームが General AGI Embodiment 2050 forecast として登録した予測が現実化する。</p>
+
+<p>ハードウェア系統では、完全自律物理エージェントが非構造化環境（家庭・野外・災害現場・宇宙）で長時間自律運用される。Phase 2 の予測では、出荷台数は累計五億台級（世界人口の六から十%）で、人間一人あたり一台所有が先進国で標準となる。価格は五千から一万ドル（家電並み）まで低下する。強化学習系統では、生涯学習による現場適応と経験蓄積が常態化し、新規領域での学習効率が人間を上回り始める。これは Phase B 末まで残されたサンプル効率ボトルネックが、Lifelong Learning と推論時計算の組み合わせで解消される結果である。</p>
+
+<p>マテリアル系統では、Commonwealth Fusion Systems の ARC、Helion Energy、TAE Technologies 等の核融合発電所が複数商用稼働を開始する。GW級発電所として運転に入り、エネルギー希少性が初めて構造的に緩和される。固体電池、リチウム硫黄電池、金属空気電池のミックスが用途別に最適化され、ヒューマノイドの連続二十四時間稼働、配送ドローンの八時間航続が標準化される。JAXA、ESA、Caltech の Space Solar Power Project（SSPP）が二〇二三年に軌道上実証を行った宇宙太陽光発電は、Phase C 中盤に実証GW級プロトタイプへ進む。AI 設計触媒で電解水素のコストは一USD/kg を下回り、グリーンスチール・グリーンアンモニアが商用化する。フォールトトレラント量子計算機の論理量子ビットが一万から百万級に到達し、材料設計の探索空間が古典HPCの指数倍に拡大する。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="400" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="26" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図5-1　Cognitive Stack（2045年標準化予測）</text>
+<text x="380" y="44" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B">ロボットOSのカーネル層に組み込まれる4層認知アーキテクチャ</text>
+
+<rect x="180" y="80" width="400" height="48" fill="#FFF" stroke="#CC1400" stroke-width="2"/>
+<text x="380" y="100" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#CC1400">Layer 4: 記号推論層</text>
+<text x="380" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">論理計画・抽象推論・言語理解（LLM successor）</text>
+
+<rect x="180" y="148" width="400" height="48" fill="#FFF" stroke="#121212"/>
+<text x="380" y="168" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Layer 3: Active Inference層</text>
+<text x="380" y="186" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">自由エネルギー最小化・予測符号化（Friston 1995-2050）</text>
+
+<rect x="180" y="216" width="400" height="48" fill="#FFF" stroke="#121212"/>
+<text x="380" y="236" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Layer 2: World Model層</text>
+<text x="380" y="254" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">内部シミュレーション・動学予測（DreamerV5+, Genie successor）</text>
+
+<rect x="180" y="284" width="400" height="48" fill="#FFF" stroke="#121212"/>
+<text x="380" y="304" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Layer 1: VLA層</text>
+<text x="380" y="322" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">視覚-言語-行動マッピング（OpenVLA系譜の成熟形）</text>
+
+<rect x="80" y="352" width="600" height="36" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="380" y="375" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">物理身体 / アクチュエータ / センサ（stream_hw + stream_mat + stream_bio）</text>
+
+<line x1="380" y1="128" x2="380" y2="146" stroke="#999" stroke-width="1"/>
+<line x1="380" y1="196" x2="380" y2="214" stroke="#999" stroke-width="1"/>
+<line x1="380" y1="264" x2="380" y2="282" stroke="#999" stroke-width="1"/>
+<line x1="380" y1="332" x2="380" y2="350" stroke="#999" stroke-width="1"/>
+</svg>
+
+<p>バイオ系統では、AI-Driven Synthetic Biology が新たな段階に入る。GenScript や Ginkgo Bioworks の系統が AlphaFold 3 後継および ChemAI 系統と組み合わさることで、人工代謝経路、人工臓器、パーソナライズドオルガノイドの設計が標準化される。Tufts 大学の Levin 研究室が二〇二〇年に PNAS で公表した Xenobot、二〇二三年の Anthrobot（Advanced Science 誌）の系統は、人体内をナビゲートする治療用バイオボット（血栓除去や標的薬物送達）として臨床試験フェーズに入る。</p>
+
+<p>認知系統では、「Cognitive Stack」と呼ばれる新しいアーキテクチャが産業標準として確立する。VLA・World Model・Active Inference・記号推論を統合した四層構造が、ロボットOSのカーネル層に組み込まれる。BMI は中等度の認知補助──記憶・注意・言語の補強──として一般成人にも普及し始め、「Cognitive Augmentation」が新カテゴリとなる。Karl Friston 系の自由エネルギー原理が「物理学・神経科学・AI・経済学」を統一する第一原理候補としての地位を確立する。これは長年理論的位置にとどまっていた Friston の枠組みが、産業実装として「効く」ことが大規模に検証される時期である。</p>
+
+<h2 class="article-h2">Phase C のボトルネックと社会への波及──労働市場の構造変化と新たな倫理問題</h2>
+
+<p>Phase C で技術的ボトルネックは大きく緩和されるが、代わりに三つの新しい問題が前景化する。第一に、AI 設計薬や Bio-Hybrid Robot の倫理規制である。人工臓器の臨床応用は、生命操作の境界を制度的にどこに引くかという根源的な問いを伴う。第二に、BMI 普及に伴う認知格差の社会問題化である。Cognitive Augmentation を享受できる層と享受できない層の間に、新たな能力格差が生じる。第三に、量子計算機の脱出ベクトルとしての暗号危機である。RSA 二〇四八ビット相当の公開鍵暗号が破られる時期がこのフェーズに重なる可能性があり、ポスト量子暗号への移行が間に合わない金融・通信インフラに構造的脆弱性が生じうる。</p>
+
+<p>社会への波及は決定的である。労働市場の構造変化が完成局面に入る。「人間-ロボットの混成チーム」が一般的になり、「人間一人+ロボット数体」が標準的職場単位となる。介護・農業・建設で人手不足が解消される一方、新たに「ロボット運用・調整・倫理設計」の専門職が生まれる。前プロジェクトの二〇五〇時点に対応するこのフェーズで求められる人材像は、汎用AGIと協働しながら戦略意思決定を担う経営者層、AI設計薬や合成生物の倫理ガバナンス担当、Cognitive Augmentation 時代のヒューマンキャピタル設計者、物理-サイバー連続体のシステムアーキテクトの四類型である。重要なのは「Physical AI に置き換えられない人間の役割」が明確に意識される世代になることである。</p>
+
+<h2 class="article-h2">Phase D（2050-2060）── 自律物理エージェント期：AIエージェント組織と「労働」概念の再定義</h2>
+
+<p>Phase D では、汎用AGIの完全身体化が定着する。AIエージェントが組織を持ち、目標設定・計画・実行・学習を一貫して自律で行う。人間は意志決定の上流（目的・価値・倫理）と下流（評価・調整）に集中する。これは技術的進歩というより、人間とAIの「分業構造」が制度として固定化される過程である。</p>
+
+<p>ハードウェア系統では、自己組立・自己修復ロボティクスが量産化する。Tensegrity（張力構造）、Origami robotics、Soft Robotics の三系統が統合され、現場でモジュールから自己組立できる、損傷時に自己修復できるロボットが登場する。Anish Mishra らが二〇二〇年代後半に Harvard で開発した自己修復ハイドロゲルアクチュエータの系譜が、商用化を経てこの段階に到達する。都市インフラとしての小型自律飛行体──eVTOL（electric Vertical Take-Off and Landing）や Roboflight──が実用化する。Joby Aviation や Archer Aviation が二〇二〇年代後半に開始したeVTOL商用運航が、二〇五八年頃には都市インフラとして標準化する。</p>
+
+<p>強化学習と認知系統の合流が、Phase D の最大の質的変化を生む。ロボットが「失敗からの学習」と「過去経験の再利用」を人間並みに行うようになる。エピソード横断的メモリ（episode-spanning memory）が解決され、Phase B 末まで残された長期計画の問題が完全に解消する。これは Phase A から十五年以上かけて積み残されてきた最大級のボトルネックが、ようやく崩れる瞬間である。</p>
+
+<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="340" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="26" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図5-2　Phase C-D における人間とAIの分業構造の変化</text>
+
+<text x="190" y="70" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Phase C（2040-2050）</text>
+<text x="570" y="70" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Phase D（2050-2060）</text>
+
+<rect x="60" y="90" width="260" height="56" fill="#FFF" stroke="#121212"/>
+<text x="190" y="112" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">人間の領域</text>
+<text x="190" y="128" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">戦略・倫理・統合判断・例外対応</text>
+
+<rect x="60" y="160" width="260" height="56" fill="#FFF" stroke="#121212"/>
+<text x="190" y="182" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">混成チームの領域</text>
+<text x="190" y="198" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">人間1+ロボット数体の協働</text>
+
+<rect x="60" y="230" width="260" height="56" fill="#FFF" stroke="#121212"/>
+<text x="190" y="252" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">AIの領域</text>
+<text x="190" y="268" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">構造化作業・パターン業務</text>
+
+<rect x="440" y="90" width="260" height="56" fill="#FFF" stroke="#CC1400" stroke-width="2"/>
+<text x="570" y="112" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">人間の領域（縮小・深化）</text>
+<text x="570" y="128" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">意味付け・価値設計・他者ケア・創造</text>
+
+<rect x="440" y="160" width="260" height="56" fill="#FFF" stroke="#121212"/>
+<text x="570" y="182" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">共同探索の領域</text>
+<text x="570" y="198" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">未踏領域の探究・倫理設計</text>
+
+<rect x="440" y="230" width="260" height="56" fill="#FFF" stroke="#121212"/>
+<text x="570" y="252" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">AIの領域（拡大）</text>
+<text x="570" y="268" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">自律エージェント組織・大半の実務</text>
+
+<line x1="320" y1="118" x2="440" y2="118" stroke="#CC1400" stroke-width="1.5" stroke-dasharray="4,2"/>
+<line x1="320" y1="188" x2="440" y2="188" stroke="#CC1400" stroke-width="1.5" stroke-dasharray="4,2"/>
+<line x1="320" y1="258" x2="440" y2="258" stroke="#CC1400" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+<rect x="60" y="300" width="640" height="32" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="380" y="320" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">「AGIに置き換えられた」のではなく「AGIが下層を担うようになった」という認識転換</text>
+</svg>
+
+<p>マテリアル系統では、エネルギー希少性が一段と緩和される。AI 経済の電力単価がさらに低下し、計算とエネルギーが事業ボトルネックでなくなる方向への移行が始まる。グラフェンや遷移金属ダイカルコゲナイド（TMDs）といった二次元材料、トポロジカル絶縁体に基づくトポロジカル材料の量産デバイスが Physical AI ハードに組み込まれる。これらの新素材は、二〇一〇年のAndre Geim と Konstantin Novoselov のノーベル物理学賞受賞からおよそ四十年を経て、ようやく Physical AI の実装層に到達することになる。研究から量産までの四十年というスパンは、stream_mat が他系統に比べて最も長い時間定数を持つことを示している。バイオ系統では、合成生物と人工臓器のAI設計が一般化する。Bio-Hybrid Robot が日用品レベルで使用され、「修理」ではなく「再生」される製品系統が立ち上がる。これは Phase E（第六章）で本格化する「生命系製造期」の予兆である。日常品の修理と再生の境界が曖昧になり、廃棄物循環の概念そのものが再定義され始める。</p>
+
+<p>主要マイルストーンとしては、二〇五五年の自己組立ロボティクスの量産化、同年のAI設計人工臓器の臨床応用、同年の合成生物のAI設計の標準化、二〇五八年の都市インフラとしてのeVTOL自律飛行体実用化が並ぶ。これら四つのマイルストーンが、いずれも二〇五五年前後に集中することは偶然ではない。Phase C で確立された Cognitive Stack と汎用AGI、Phase D 前半で完成する自己組立・自己修復ロボティクスが、相互に駆動関係を持ちながら同時期に量産化に到達するためである。これは Phase C 末までの十年間に蓄積された技術ストックが、Phase D 中盤に一斉に商用展開される構造的なタイミングである。</p>
+
+<p>認知系統では、人間-AI共同タスクの臨床研究──記憶障害・PTSD・うつ病に対する治療補助──が大規模に展開される。Embodied Cognition（身体性認知）が「ロボット工学の標準教科書に組み込まれる程度」に当然視される。Pfeifer と Iida が二〇〇七年に Springer から出した『How the Body Shapes the Way We Think』の問題意識が、四十年を経て産業の標準前提として浸透する。</p>
+
+<div class="finding-box">
+<p><strong>Phase D の構造的特徴</strong>──技術的ボトルネックよりも、社会構造・倫理・法制度の追従が遅れることが主要な問題となる。「AIが意思決定する範囲」「人間の権限」「責任の所在」の制度設計が、技術進展に対して五年から十年単位で遅延する。多くの伝統的職業が消失または再編される一方、人間が担う領域は「意味付け」「価値設計」「他者ケア」「創造的探索」に集中する。Universal Basic Income 系の制度設計が現実的選択肢として議論される時期となる。</p>
+</div>
+
+<p>Phase D の社会的論点は、「労働」概念の再定義である。多くの伝統的職業が消失または再編される一方、人間が担う領域は「意味付け」「価値設計」「他者ケア」「創造的探索」に集中していく。これは技術が人間を排除するのではなく、人間が担うべき領域が哲学的・倫理的に再定義される過程である。Universal Basic Income 系の制度設計が現実的選択肢として議論される時期となり、各国で複数の社会実験が並行する。日本・北欧諸国・カナダで二〇五〇年代に試行された地域単位のUBIパイロットが、二〇六〇年前後に全国規模の制度設計に発展する可能性がある。これは技術ロードマップではなく、Physical AI の進展が誘発する制度的応答として描かれるべきものである。</p>
+
+<p>Phase C と Phase D の二十年を貫く根本的な変化は、「労働」概念そのものの再定義である。Phase A・Bでは Physical AI は「業務支援道具」から「協働相手」への移行が起きたが、Phase C・D では「協働相手」から「組織を持つ自律エージェント」への移行が起きる。人材という概念は、依然として人間個人の能力として理解されているが、その能力の中身は大きく変質する。前プロジェクトの二〇五〇人材像から二〇七〇人材像への移行期にあたり、人材像は「AIと共同で意味を生み出す存在」へと変化する。これは第六章で扱う「知性のオーケストラ」生成期の入り口である。</p>
+
+<p>本章を閉じるにあたって、Phase C-D を貫く一つの非対称性を強調しておく。技術ロードマップとして見れば、Phase C の汎用AGI到達と Phase D の自律エージェント定着は連続した進歩である。だが社会的・制度的に見れば、両者の間には質的な断絶がある。Phase C はまだ「人間が中心」という前提の上で AI を導入する段階だが、Phase D はその前提自体が成立しなくなる段階である。この断絶を制度がどう処理するかが、Phase E 以降の文明的転換の準備として決定的に重要となる。Physical AI の技術軌道は二〇五〇年代後半から二〇六〇年代前半にかけて、文字通り「人類の自己定義の問題」へと接続していくのである。</p>
+
+</section>
+
+<section class="chapter-section" id="ch6">
+<div class="chapter-number-label">Chapter 06 — Phase E, F & G, 2060-2100</div>
+<h1 class="chapter-title">知性のオーケストラから関係論的物理生態系へ──Physical AIが他のAI形態と区別不能になる「境界溶解点」までの四十年間</h1>
+
+<div class="epigraph">
+<p>"Cognition is not the representation of a pre-given world by a pre-given mind, but is rather the enactment of a world and a mind on the basis of a history of the variety of actions that a being in the world performs."</p>
+<p class="attribution">Francisco J. Varela, Evan Thompson, Eleanor Rosch, "The Embodied Mind"（MIT Press, 1991）</p>
+</div>
+
+<p>二〇六〇年から二一〇〇年までの四十年間は、Physical AIの最も長い射程にあたる。技術ロードマップとして見れば、Phase E（知性のオーケストラ生成期）、Phase F（ポスト人間中心物理エコシステム期）、Phase G（関係論的物理生態系期）の三段階に分けられる。だが本質的に重要なのは、この四十年が「Physical AI が単一の技術系統として完成する時期」ではなく、「Physical AI が他のAI形態・生命系・人間と区別不能になっていく時期」だということである。本章のタイトルにある「境界溶解点」はそれを指す。</p>
+
+<p>deep knowledge 書籍が中心命題として描く「単一のAGIではなく多様な知性の編成」が、この四十年間に物質的・制度的に実装される。Phase A から D までは Physical AI が「身体を持つAI」として明確に他のAIと区別できたが、Phase E 以降はその区別自体が技術的にも認識的にも維持できなくなる。本章はその過程を、八系統の織り合わせの最終局面として描く。</p>
+
+<h2 class="article-h2">Phase E（2060-2075）── 知性のオーケストラ生成期：再帰的自己改善と生命系製造期の到来</h2>
+
+<p>Phase E では、基盤モデル系統が再帰的自己改善（Recursive Self-Improvement, RSI）の段階に入る。AGI が自身のアーキテクチャ・データ・訓練手順を最適化する能力を獲得する。Marcus Hutter が二〇〇五年に提唱した AIXI（universal artificial intelligence）の理論的上限への漸近が始まる。Phase 2 の S1 チームが Recursive Self-Improving Physical AI 2070 forecast として登録した予測が現実化する。Kurzweil の二〇四五年 Singularity 予測が示した知性爆発の「物理層実装」が、この時期に到達する。</p>
+
+<p>ハードウェアとバイオ系統の融合が進み、機械と生体の境界が機能的に流動化する。BMI、ロボット拡張、遠隔身体性が常態化する。マテリアル系統では、フォールトトレラント量子計算機の論理量子ビットが一万から百万級に達し、材料・触媒・タンパク質設計の探索空間が古典HPCの指数倍に拡大する。宇宙太陽光発電がGW級として地上二十四時間定常電力源となり、核融合と並列稼働する。海水ウラン抽出やトリウム溶融塩炉が補完運用される。化石資源依存からの完全脱却が文明史上初めて達成される。</p>
+
+<p>バイオ系統は Phase E の最重要マイルストーン期である。deep knowledge 書籍第二部の中核予測である「二〇七〇年生命系製造期」が到来する。具体的には三つの転換が同時に起きる。第一に植物-AI協働農業の制度化である。CRISPR と AI 設計を組み合わせた品種改良が、農業統計の主流に組み込まれる。第二に Self-Driving Lab が「Living Factory」として消費財・医薬品・素材の大半を担うようになる。Liverpool 大学の Cooper 研究室が二〇二〇年に Nature 誌に発表した Mobile Robotic Chemist の系譜、Lawrence Berkeley の A-Lab、Carnegie Mellon の Coscientist が辿った道筋の到達点である。第三に Bio-Hybrid Robot が日用品レベルで使用され、「修理」ではなく「再生」される製品系統が立ち上がる。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="400" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="26" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図6-1　Phase E-G を貫く三つの境界溶解</text>
+<text x="380" y="44" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B">機械/生命・主体/環境・個体/群の溶解過程</text>
+
+<line x1="80" y1="280" x2="720" y2="280" stroke="#121212" stroke-width="1.5"/>
+<text x="120" y="305" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">2060</text>
+<text x="280" y="305" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">2075</text>
+<text x="500" y="305" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">2090</text>
+<text x="700" y="305" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">2100</text>
+
+<text x="200" y="325" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">Phase E</text>
+<text x="390" y="325" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">Phase F</text>
+<text x="600" y="325" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">Phase G</text>
+
+<rect x="80" y="80" width="640" height="44" fill="#FFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="100" y="100" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">境界1: 機械と生命の境界</text>
+<text x="100" y="116" font-family="Noto Sans JP" font-size="9" fill="#555">Soft Robotics → Bio-Hybrid → Living Factory → Bio-Hybrid日用品化</text>
+
+<rect x="80" y="140" width="640" height="44" fill="#FFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="100" y="160" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">境界2: 主体と環境の境界</text>
+<text x="100" y="176" font-family="Noto Sans JP" font-size="9" fill="#555">BMI普及 → 拡張認知のインフラ化 → 「個人」の輪郭の流動化</text>
+
+<rect x="80" y="200" width="640" height="44" fill="#FFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="100" y="220" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#CC1400">境界3: 個体と群の境界</text>
+<text x="100" y="236" font-family="Noto Sans JP" font-size="9" fill="#555">単一AGI → 多様な知性の編成 → ambient embodiment → 境界溶解点</text>
+
+<line x1="120" y1="280" x2="120" y2="244" stroke="#999" stroke-width="1"/>
+<line x1="280" y1="280" x2="280" y2="244" stroke="#999" stroke-width="1"/>
+<line x1="500" y1="280" x2="500" y2="244" stroke="#999" stroke-width="1"/>
+<line x1="700" y1="280" x2="700" y2="244" stroke="#999" stroke-width="1"/>
+
+<rect x="80" y="340" width="640" height="48" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="100" y="360" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">最終到達点（2100）:</text>
+<text x="100" y="378" font-family="Noto Sans JP" font-size="9" fill="#555">Physical AIが他のAI形態（LLM・生体AI・量子AI・分散AI）と区別不能になる「境界溶解点」</text>
+</svg>
+
+<p>認知系統では、侵襲型BMIが選択的拡張デバイスとして社会に定着する。「脳をクラウドに常時接続する」というポストヒューマン認知の初期形態が出現する。記憶・言語・空間認知・社会的推論の一部が外部に分散される。Andy Clark が二〇〇八年に Oxford University Press から出した『Supersizing the Mind』が論じた拡張認知論が、文字通りインフラとして実装される。これは哲学的論証から物理的インフラへの転換であり、Phase E の象徴的事象である。</p>
+
+<p>Phase E の社会的論点は、技術的ボトルネックよりも「関係論的存在論」の制度的・物質的基盤の準備が遅れることである。deep knowledge 書籍の第十三・十四章が示す通り、生命を「技術対象」ではなく「関係相手」として扱う実践は、Bio-Hybrid Robot や植物-AI協働農業の倫理的・制度的設計において産業界が直面する具体的課題となる。先住民の伝統知が「単なる文化遺産」ではなく「Bio系統の制度設計のための実践的参照点」として再評価される。前プロジェクトの二〇七〇人材像は「AIと協働しながら、生命と機械と人間の境界を再設計する者」となる。具体的には、Cognitive Augmentation 時代の教育・福祉・労働再設計者、Bio-Hybrid 製造の倫理ガバナンス担当、知性のオーケストラを編成する「指揮者」的役割の三類型である。</p>
+
+<h2 class="article-h2">Phase F（2075-2090）── ポスト人間中心物理エコシステム期：ロボット概念の消失と分散身体化</h2>
+
+<p>Phase F の転換は質的に大きい。Physical AI は「個別機械」から「分散身体」へ転換する。群知能・群行動が標準となり、「ロボット」という単一個体概念が消えて、物理操作能力が環境・建物・道具・身体に分散的に埋め込まれる。これを ambient embodiment と呼ぶ。Mark Weiser が一九九一年に Scientific American 誌で提唱した ubiquitous computing の物理層拡張版とも言える。コンピュータが環境に消えるのではなく、物理操作能力が環境に分散する。</p>
+
+<p>ハードウェア系統では、自然界の生物との統合が進む。バイオハイブリッド（生体組織と電子制御の複合体）が大規模に展開される。人類の身体能力を補完・拡張する役割──Exoskeleton や Prosthetics の系譜の集大成──を担う。マテリアル系統では、一人当たり一次エネルギー消費が数十kW規模になることが現実的となる。核融合、宇宙太陽光発電、高効率蓄電の組み合わせでエネルギー希少性が消える。事業構造はフロー型からストック型へ移行する。「年間販売台数」ではなく「設置されたインフラ群の運用」が利益源泉になる。</p>
+
+<p>バイオ系統では、人体内バイオボットが臨床標準化する。植物-AI協働農業が農業統計の主流となる。微生物群制御による腸内環境・土壌環境・産業発酵の最適化が一般化する。認知系統では、複合知能オーケストラが形成される。単一AGIではなく、多様な専門知能の協調ネットワークが運用される。manufacturing-orchestra DB が示す製造現場のオーケストラ的協働の社会全般への拡張が完成する。Edwin Hutchins が一九九五年に MIT Press から出した『Cognition in the Wild』の分散認知論、Andy Clark の拡張認知論が、物理インフラとして実装される。</p>
+
+<div class="finding-box">
+<p><strong>Phase F の構造的特徴</strong>──技術的ボトルネックよりも、「人間中心」から「関係中心」への文明的・思想的転換が遅れることが主要な論点となる。deep knowledge 書籍第十一章の関係論的存在論が、制度の中核原理として機能するための時間がかかる。「人類の文明」概念そのものが拡張され、生物・人工物・人間の三項関係として文明が再定義される。これは技術問題ではなく、人類が自分自身をどう定義するかの問題である。</p>
+</div>
+
+<p>主要マイルストーンとしては、二〇八〇年のロボット概念の消失と物理操作能力の環境分散、二〇八五年の複合知能オーケストラの形成、同年のエネルギー希少性の実質的消滅、同年のバイオハイブリッドの日常技術化、二〇八八年の Physical AI による食糧生産・廃棄物循環・気候制御の主要担当が並ぶ。前プロジェクトの二〇七〇人材像から二一〇〇人材像への移行期にあたり、人材という概念自体が、人間個人の能力ではなく「知性のオーケストラへの参加形態」として再定義され始める。</p>
+
+<h2 class="article-h2">Phase G（2090-2100）── 関係論的物理生態系期：境界溶解点と次の千年への基盤</h2>
+
+<p>Phase G に至って、deep knowledge 書籍の中心命題が完成局面を迎える。Physical AI は「物理世界に介入する身体性をもつ知性層」として、他のAI形態と境界が溶解した状態に到達する。基盤モデル・認知・バイオの三系統が完全融合し、ヒト・古典AI・生体AI・量子AI・分散AI・身体性AI など、複数経路の知性が共存・協調する。Nick Bostrom が二〇一四年に Oxford University Press から出した『Superintelligence』が想定した「全領域人間超越」状態は、単一の超越的知性としてではなく、「多様な知性の編成」として実現される。</p>
+
+<p>マテリアル系統では、量子計算・古典計算・生物計算の三層化が完成する。Physical AI は最適計算リソースを動的に選択する。事業はフロー型からストック型へ完全移行する。ハードウェア系統では、人間-ロボット-AI-環境の融合システムが日常インフラとなる。物理世界とサイバー空間が連続体として運用される（Digital Twin Ubiquity）。バイオ系統では、機械の改良を超えて「生命と機械と人間の協働体制」を実装する。文明維持インフラ──食糧生産、廃棄物循環、気候制御──の主要担い手として、生命系製造が定着する。</p>
+
+<p>認知系統では、Varela・Thompson・Rosch が一九九一年に MIT Press から出した『The Embodied Mind』が論じた「知性は単一の場所には存在しない」という構図の工学的実現が完成する。一つのタスクには複数の認知システム──環境モデル、身体スキーマ、社会的推論、言語理解、予測符号化、自由エネルギー最小化──が並行して関与し、それぞれが状況に応じて主導権を交替する。人間の脳もまた、このオーケストラの一つの楽器として参加する。</p>
+
+<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="360" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="26" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図6-2　2100年「知性のオーケストラ」の構造</text>
+<text x="380" y="44" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B">単一AGIではなく多様な知性の編成体系</text>
+
+<circle cx="380" cy="200" r="50" fill="#FFF" stroke="#CC1400" stroke-width="2"/>
+<text x="380" y="196" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#CC1400">関係論的</text>
+<text x="380" y="212" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#CC1400">物理生態系</text>
+
+<circle cx="180" cy="120" r="44" fill="#FFF" stroke="#121212"/>
+<text x="180" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">人間の知性</text>
+<text x="180" y="134" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">意味付け・関係性</text>
+
+<circle cx="580" cy="120" r="44" fill="#FFF" stroke="#121212"/>
+<text x="580" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">古典AI</text>
+<text x="580" y="134" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">LLM successor</text>
+
+<circle cx="100" cy="240" r="44" fill="#FFF" stroke="#121212"/>
+<text x="100" y="238" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">生体AI</text>
+<text x="100" y="254" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">Living Factory</text>
+
+<circle cx="660" cy="240" r="44" fill="#FFF" stroke="#121212"/>
+<text x="660" y="238" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">量子AI</text>
+<text x="660" y="254" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">材料・触媒設計</text>
+
+<circle cx="240" cy="320" r="44" fill="#FFF" stroke="#121212"/>
+<text x="240" y="318" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">分散AI</text>
+<text x="240" y="334" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">ambient</text>
+
+<circle cx="520" cy="320" r="44" fill="#FFF" stroke="#121212"/>
+<text x="520" y="318" text-anchor="middle" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">身体性AI</text>
+<text x="520" y="334" text-anchor="middle" font-family="Noto Sans JP" font-size="9" fill="#555">Physical AI</text>
+
+<line x1="220" y1="145" x2="340" y2="180" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="540" y1="145" x2="420" y2="180" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="140" y1="230" x2="335" y2="205" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="620" y1="230" x2="425" y2="205" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="270" y1="295" x2="355" y2="235" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,2"/>
+<line x1="490" y1="295" x2="405" y2="235" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>
+
+<p>Phase G の主要マイルストーンとしては、二〇九五年の関係論的存在論の制度中核原理化、二〇九八年の「知性多様性」概念の認識（生物多様性に類比される）、二一〇〇年の Physical AI の境界溶解点到達が並ぶ。重要なのは、二一〇〇年が「Physical AI の完成点」ではなく、「Physical AI が他のAI形態と区別不能になる『境界溶解点』」として到達されることである。これは終着ではなく、次の千年へ向けた基盤の確立である。</p>
+
+<h2 class="article-h2">2100年へのまなざし──「人類の役割」の再定義と次の千年への入口</h2>
+
+<p>Phase E から G を貫く構造的な特徴を、最後に整理しておく。第一に、stream_mat（マテリアル系統）が四十年間にわたって律速要因であり続ける一方で、Phase E 末から Phase F にかけて核融合・宇宙太陽光発電・量子計算機の三つが商用稼働することで、初めてこの律速が緩和される。エネルギーと計算の両方が「希少資源」であることをやめる時期である。</p>
+
+<p>第二に、stream_cog（認知系統）が目標設定の役割を担い続ける。何が最適化対象か、何を知性と呼ぶか、人間とは何かという問いは、認知系統が定義する。これが Phase E 以降の文明的転換の理論的基盤となる。Friston の自由エネルギー原理、Clark の拡張認知、Varela の身体性認知、Hutchins の分散認知の四系統が、四十年かけて産業実装として浸透していく過程である。</p>
+
+<p>第三に、stream_bio（バイオ系統）が境界溶解の物質的担い手となる。機械と生命の境界、計算と化学の境界、個体と環境の境界は、バイオ系統の進展に応じて物質的に書き換えられる。これは思想ではなく、Soft Robotics、Xenobot、Anthrobot、Living Factory の連続的進展がもたらす物質的事実である。</p>
+
+<p>第四に、五系統合流モデルが Phase D 以降は八系統オーケストラへと完全に拡張される。Phase C までは五系統が中核だったが、Phase D 以降は stream_bio・stream_mat・stream_cog が対等な参加者として加わる。これは Phase 2 の三新系統提案が、Phase E-G の構造的な必然性を持つことを示している。</p>
+
+<p>第五に、前プロジェクトの四時点（二〇三〇／二〇五〇／二〇七〇／二一〇〇）はそれぞれ Phase A 末・C 中盤・E 初期・G 到達点に対応する。人材像の変化軌道と Physical AI の技術軌道が同期して進む。これは偶然ではなく、Physical AI が「労働の代替」「知性の補完」「身体の拡張」「関係の再編」という四つの順序で社会に浸透するためである。</p>
+
+<p>二一〇〇年の人材像は「知性のオーケストラの一員として、独自の楽器（人間性）を奏でる者」となる。人間に固有な能力──意味付け、関係構築、倫理判断、芸術的探究──が、AGI 時代における人類の核となる。「人類の役割」が、文明維持から「意味の創造」「他者との関係性の深化」「未踏領域の探究」に集中する。これが deep knowledge 書籍が描く二一〇〇年文明像の到達点である。</p>
+
+<div class="finding-box">
+<p><strong>Phase E-Gの結語</strong>──Physical AI 2100 ロードマップは「終着点」を描いていない。二一〇〇年は技術的完成点ではなく、Physical AI が他のAI形態・生命系・人間と区別不能になる「境界溶解点」である。これは次の千年へ向けた新たな基盤の確立である。本書が描いた七十四年間は、人類が自分自身の役割を「労働する者」から「意味を編む者」へと再定義する過程として読まれるべきである。Physical AI はその過程の触媒であり、最終的にはその触媒自身が背景に溶けていく。それが、本書がたどり着く最終的な命題である。</p>
+</div>
+
+</section>
