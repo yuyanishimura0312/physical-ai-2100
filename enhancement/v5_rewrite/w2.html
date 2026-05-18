@@ -1,0 +1,484 @@
+<section class="chapter-section" id="ch4">
+<div class="chapter-number-label">Chapter 04 — フェーズA・B、2026-2040</div>
+<h1 class="chapter-title">視覚言語行動モデル基盤の定着から物理操作の汎化へ──「言葉で指示し身体で動く」道具が産業の前提条件に変わる十四年間</h1>
+
+<div class="epigraph">
+<p>「ロボットは、世界を理解しているのではなく、世界に対する自分の振る舞いを徐々に整えているのである。」</p>
+<p class="attribution">ロドニー・ブルックス (米 Rodney Brooks)『表象なき知能』(一九九一)</p>
+</div>
+
+<p>二〇二六年から二〇四〇年までの十四年間は、フィジカルAIの長い時間軸の中で最初に大きな「定着」と「汎化」が同時並行で起きる時期である。前章までに見てきたように、二〇一〇年代後半に注意機構を中核に据えた基盤技術が言語モデルを爆発的に成長させ、米グーグル系列のロボット基盤モデルが二〇二二年に登場して以降、視覚と言語の事前学習を物理身体へ橋渡しする視覚言語行動モデル (英略VLA) の系譜が次々と登場した。二〇二三年の RT-2、二〇二三年末に二十二機関が連名で公開した大規模多機種データ集（二十二ロボット種・五百二十七スキル・十六万タスクを集積）、二〇二四年の OpenVLA、米フィジカルインテリジェンス社の π0、米エヌビディアのヒューマノイド基盤モデル、米フィギュアAI社のヒューマノイド連続制御モデル、米フィジカルインテリジェンス社のオープンワールド汎化モデルへと続く道筋は、言語モデルの能力を物理身体へと接続する道を切り拓いた。学術界の論文蓄積を辿ると、二〇二三年以降の視覚言語行動モデル関連の累積被引用は年率三倍を超えており、二〇一七年以降の言語モデル領域の加速曲線にほぼ重なる。フェーズAはこの「ようやく動くようになった」段階から、「業務プロセスの標準前提として組み込まれる」段階への移行期にあたる。続くフェーズBは、その標準化された道具が構造化された倉庫や工場の外へ──家庭・農地・建設現場・災害現場へ──と汎化していく時期である。本章では、この十四年間の道程を、五系統合流モデル（基盤モデル・ロボティクス・古典制御・強化学習・シミュレーション）と独立化された三新系統（バイオ・マテリアル・認知）の八系統の織り合わせとして読み解く。</p>
+
+<p>この十四年間に最も重要な構造的変化は、フィジカルAIが「業務支援道具」として認識される段階から、人間の労働の隣に置かれる「協働相手」として認識される段階への移行が始まることである。前者は工学的な性能の問題であり、後者は社会的な関係性の問題である。両者は別物だが、本章が示すのは、技術系統の進展がその社会的位置の変化を半ば強制的に押し進めていくという、非対称な力学である。日本の研究系譜では、西川徹と岡野原大輔の率いる Preferred Networks が二〇二五年十二月に発表した自律稼働デバイス向け軽量視覚言語モデルと、ギル・プラット (米トヨタ研究所長) の戦略のもとで開発された Large Behavior Models が二〇二五年八月に米ボストン・ダイナミクスのヒューマノイドに搭載され、移動と物体操作を含む長い連続タスクの実行に成功した事例が、フェーズAの入口における日本系研究の実質的な貢献点を示す。プラットの戦略は「視覚言語行動モデルを別系統で開発するのではなく、模倣学習と拡散方策と振る舞い複製を統合する」点に独自性がある。同じく東京大学の松尾豊と國吉康夫は、それぞれ「世界モデルと身体性」「胎児期からの身体スキーマ獲得」を理論的に主導しており、フェーズAの視覚言語行動モデル議論にとっての日本側の知的足場を形成している。</p>
+
+<h2 class="article-h2">フェーズA (二〇二六-二〇三〇) ── 視覚言語行動モデル基盤の定着期：百Bパラメータ × 千万デモが業界共通の床になる</h2>
+
+<p>フェーズAの主役は、明確に基盤モデル系統である。二〇二三年に RT-2 がインターネット規模の視覚言語事前学習と少量のロボット微調整の組み合わせを実証して以降、わずか二年で OpenVLA 七B、π0、その高速化版、Stanford 系の効率化版（標準ベンチで成功率七六.五%から九七.一%へ、行動生成スループット二十六倍を達成）、米エヌビディアのヒューマノイド基盤、米フィギュアAI社の連続制御モデル、米フィジカルインテリジェンス社のオープンワールド版、軽量化された四百五十Mパラメータ版、中国科学院計算技術研究所の一ビット版（メモリ二九.八%削減）、香港科技大学の統合拡散モデル（自己回帰型比四倍高速）と展開された。これは「単一モデルが複数機種で複数タスクを実行する」段階が研究プロトタイプから業界標準へと固まる過程である。二〇二八年頃には百Bパラメータ規模・一千万デモ訓練の視覚言語行動モデルがデファクトとなり、先述の大規模多機種データ集の発展形が事実上の業界共通基盤となる見込みである。汎用人工知能 (AGI) 研究のタイムラインを集約した予測群──デミス・ハサビス (米 Demis Hassabis) の二〇二四年発言、市場予測プラットフォームの中央値、ヴィノド・コースラ (米 Vinod Khosla) の二〇三〇年予測──は、いずれも「狭義の汎用人工知能」の到達点をフェーズA末に位置づけており、フィジカルAIの視覚言語行動モデル標準化と汎用人工知能予測の収束点が物理的に重なる。学術界の見通しでは、視覚言語行動モデルが複数ロボット種で五十%タスク汎化を達成する時期は、メインストリーム化までの残期間がおよそ二.三年と推計される。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:36px 0;width:100%;height:auto;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:24px 12px;">
+<line x1="50" y1="370" x2="710" y2="370" stroke="#121212" stroke-width="1"/>
+<text x="50" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2017</text>
+<text x="135" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2020</text>
+<text x="220" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2021</text>
+<text x="305" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2022</text>
+<text x="390" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2023</text>
+<text x="475" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2024</text>
+<text x="560" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2025</text>
+<text x="645" y="388" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">2026→</text>
+
+<text x="380" y="20" font-family="Noto Sans JP" font-size="13" fill="#121212" text-anchor="middle" font-weight="700">図4-N5　視覚言語モデル → 視覚言語行動モデル → 汎言語行動モデル 進化系統樹 (二〇一七-二〇二六 / フェーズA入口まで)</text>
+<text x="380" y="36" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">系譜 = 二〇一七 注意機構基盤から二〇二六 汎言語行動モデル 1.0 まで 9 年で 4 世代</text>
+
+<rect x="22" y="328" width="56" height="22" fill="#FFF" stroke="#CC1400" stroke-width="1.2" rx="3"/>
+<text x="50" y="343" font-family="Noto Sans JP" font-size="9" fill="#CC1400" text-anchor="middle" font-weight="700">注意機構基盤</text>
+
+<rect x="107" y="290" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="135" y="305" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">大規模言語M</text>
+<line x1="50" y1="328" x2="135" y2="312" stroke="#555" stroke-width="0.8"/>
+
+<rect x="192" y="245" width="56" height="22" fill="#FFF" stroke="#CC1400" stroke-width="1.2" rx="3"/>
+<text x="220" y="260" font-family="Noto Sans JP" font-size="9" fill="#CC1400" text-anchor="middle" font-weight="700">視覚言語対照</text>
+<text x="220" y="278" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">視覚言語M 始点</text>
+<line x1="135" y1="290" x2="220" y2="267" stroke="#555" stroke-width="0.8"/>
+
+<rect x="277" y="220" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="305" y="235" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">言語→行動</text>
+<rect x="277" y="250" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="305" y="265" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">ロボ基盤M</text>
+<line x1="220" y1="245" x2="305" y2="231" stroke="#555" stroke-width="0.8"/>
+<line x1="220" y1="245" x2="305" y2="261" stroke="#555" stroke-width="0.8"/>
+
+<rect x="362" y="170" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="390" y="185" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">具身言語M</text>
+<rect x="362" y="200" width="56" height="22" fill="#FFF" stroke="#CC1400" stroke-width="1.2" rx="3"/>
+<text x="390" y="215" font-family="Noto Sans JP" font-size="9" fill="#CC1400" text-anchor="middle" font-weight="700">視覚言語行動M</text>
+<text x="390" y="232" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">VLA 始点</text>
+<line x1="305" y1="220" x2="390" y2="181" stroke="#555" stroke-width="0.8"/>
+<line x1="305" y1="250" x2="390" y2="211" stroke="#555" stroke-width="0.8"/>
+
+<rect x="447" y="130" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="475" y="145" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">公開VLA</text>
+<rect x="447" y="158" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="475" y="173" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">流れ整合VLA</text>
+<rect x="447" y="186" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="475" y="201" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">ヒト型基盤</text>
+<line x1="390" y1="200" x2="475" y2="141" stroke="#555" stroke-width="0.8"/>
+<line x1="390" y1="200" x2="475" y2="169" stroke="#555" stroke-width="0.8"/>
+<line x1="390" y1="200" x2="475" y2="197" stroke="#555" stroke-width="0.8"/>
+
+<rect x="532" y="100" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="560" y="115" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">連続制御</text>
+<rect x="532" y="128" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="560" y="143" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">家庭汎化</text>
+<rect x="532" y="156" width="56" height="22" fill="#FFF" stroke="#121212" stroke-width="0.8" rx="3"/>
+<text x="560" y="171" font-family="Noto Sans JP" font-size="9" fill="#121212" text-anchor="middle">拡散方策</text>
+<line x1="475" y1="130" x2="560" y2="111" stroke="#555" stroke-width="0.8"/>
+<line x1="475" y1="158" x2="560" y2="139" stroke="#555" stroke-width="0.8"/>
+<line x1="475" y1="186" x2="560" y2="167" stroke="#555" stroke-width="0.8"/>
+
+<rect x="617" y="55" width="56" height="26" fill="#CC1400" opacity="0.15" stroke="#CC1400" stroke-width="1.5" rx="3"/>
+<text x="645" y="68" font-family="Noto Sans JP" font-size="9" fill="#CC1400" text-anchor="middle" font-weight="700">汎言語行動M 1.0</text>
+<text x="645" y="78" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle">(予測)</text>
+<text x="645" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">汎用 言語-行動 モデル</text>
+<line x1="560" y1="100" x2="645" y2="65" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="560" y1="128" x2="645" y2="68" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,3"/>
+
+<rect x="50" y="50" width="14" height="14" fill="#FFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="70" y="62" font-family="Noto Sans JP" font-size="10" fill="#CC1400">パラダイム転換点</text>
+<rect x="220" y="50" width="14" height="14" fill="#FFF" stroke="#121212" stroke-width="0.8"/>
+<text x="240" y="62" font-family="Noto Sans JP" font-size="10" fill="#555">主要モデル</text>
+</svg>
+
+<p>同時に、ロボティクス系統では商用ヒューマノイドの本格配備期が始まる。配備事例を整理すると、米アジリティの Digit はすでに大手物流企業と二〇二四年に複数年契約を結び、米アマゾンの産業革新基金からも投資を受けて配備が進む。製造拠点はオレゴン州で初期能力<strong>年一万台</strong>規模を公表した。米アプトロニクの Apollo は独メルセデス・ベンツの組立工場で実地配備に入り（二〇二四年三月契約）、米フィギュアAI社の Figure 02 は独BMWのスパルタンバーグ工場で稼働を開始した（二〇二四年一月契約）。Figure 03 は二〇二五年十月に発表された量産志向モデルで、量産拠点について<strong>年一万二千台、四年以内に十万台規模</strong>へ拡張する計画が公表されている。米テスラの Optimus V3 は二〇二六年量産開始の予定だが、二〇二五年四月の報道では希土類磁石の中国輸出規制が当初の<strong>年五千台</strong>目標達成を阻む可能性が示唆された。中国ユニツリーの G1 は<strong>一万六千ドル</strong>の公式価格で開発者市場を席巻し、上位機種 H1 は約九万ドル級で大型機を市販化、中国UBTECHのWalker S 系列は中国の主要自動車メーカーとの協業を相次ぎ発表した。米ゴールドマン・サックスが二〇二四年に出したヒューマノイド市場予測では、<strong>二〇三五年市場規模三八〇億ドル、二〇三〇年出荷二五万台超、二〇三五年出荷一四〇万台規模</strong>が示されている。これらの数字は、構造化された作業──倉庫ピッキング、軽組立、パレタイズ、ホテル客室清掃──において、ヒューマノイドが人件費競合点を突破することを意味する。米ボストン・ダイナミクスが二〇二四年四月に公表した Atlas Electric は、油圧から電動への世代交代の象徴であり、この交代がフェーズA末までに業界全体で完了する。</p>
+
+<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="380" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="28" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図4-1　フェーズAにおける5系統の状態 (二〇二六-二〇三〇)</text>
+<text x="380" y="46" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B">視覚言語行動モデル標準化を中心とした駆動関係</text>
+
+<rect x="280" y="80" width="200" height="56" fill="#FFF" stroke="#CC1400" stroke-width="2"/>
+<text x="380" y="102" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#CC1400">基盤モデル系統</text>
+<text x="380" y="120" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">視覚言語行動Mの世代交代</text>
+
+<rect x="60" y="180" width="160" height="56" fill="#FFF" stroke="#121212"/>
+<text x="140" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">ハードウェア系統</text>
+<text x="140" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">商用ヒューマノイド配備</text>
+
+<rect x="240" y="180" width="160" height="56" fill="#FFF" stroke="#121212"/>
+<text x="320" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">古典制御系統</text>
+<text x="320" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">モデル予測制御＋強化学習</text>
+
+<rect x="420" y="180" width="160" height="56" fill="#FFF" stroke="#121212"/>
+<text x="500" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">強化学習系統</text>
+<text x="500" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">シミュレーション→実機 成熟期</text>
+
+<rect x="600" y="180" width="140" height="56" fill="#FFF" stroke="#121212"/>
+<text x="670" y="202" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">シミュレーション</text>
+<text x="670" y="220" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">主要プラットフォーム標準化</text>
+
+<line x1="340" y1="138" x2="180" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+<line x1="370" y1="138" x2="320" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+<line x1="400" y1="138" x2="490" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+<line x1="440" y1="138" x2="640" y2="178" stroke="#CC1400" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+<defs>
+<marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+<polygon points="0 0, 6 3, 0 6" fill="#CC1400"/>
+</marker>
+</defs>
+
+<rect x="60" y="280" width="680" height="68" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="76" y="302" font-family="Noto Sans JP" font-size="10" font-weight="700" fill="#121212">フェーズA末 (二〇三〇) の到達状態：</text>
+<text x="76" y="320" font-family="Noto Sans JP" font-size="10" fill="#555">・狭義の汎用人工知能 到達予測点 (主要研究者・市場予測の収束点)</text>
+<text x="76" y="334" font-family="Noto Sans JP" font-size="10" fill="#555">・ヒューマノイド累計100-200万台、価格2-5万ドル、構造化作業で人件費競合点突破</text>
+</svg>
+
+<p>古典制御系統の動きは目立たないが、産業実装上は決定的に重要である。フェーズA中盤までに、低レベルのバランス・姿勢制御を二〇一八年に発表された凸最適化ベースのモデル予測制御が担い、高レベルの歩行・物体操作を拡散方策や視覚言語行動モデルといった学習ポリシーが担う二層構造が、米ボストン・ダイナミクスのアトラス、米フィギュアAI社のヒューマノイド、米エヌビディアの基盤モデルのすべてに共通アーキテクチャとして実装されることになる。一九八七年に提案された全身制御の枠組みは、その内部実装が学習ベースに置き換わってもなお、ロボット制御の理論的言語として残り続ける。これは「古い理論が新しい実装で延命される」典型例として、フェーズAの構造を象徴する事象である。強化学習系統では、シミュレーションから実機への転移が本格成熟期を迎える。先述の大規模多機種データ集の後継──二〇二四年公開の家庭・産業混成データ集、その発展形──が一千万デモ規模に到達し、視覚言語行動モデル訓練の標準基盤となる。ただし、近年公開された堅牢性ベンチマークが示したように、<strong>標準ベンチで九五%級に見える視覚言語行動モデルが、視点・初期姿勢の小さな摂動で三〇%未満へ落ちる</strong>事例があり、物理推論能力、サンプル効率（新規タスクごとに五十から三百デモを要する）、長期計画（三十分以上のタスク）の三つのボトルネックは、フェーズA末までに完全には解消されない。これらはフェーズBへの宿題として残される。シミュレーション系統では、米エヌビディアの統合プラットフォーム、物理エンジン基盤、新興のオープン基盤が共通基盤として定着し、世界モデルとの統合で<strong>全体成功率が五〇%向上</strong>する事例も登場している。生成的世界モデル（米オープンAI社の動画生成、米グーグルの相互作用シミュレータ、米エヌビディアの三系統世界モデル）が訓練データ生成器として実用化される。ただし、初期の動画生成モデルは物理整合性ベンチマークで<strong>10.0%</strong>に留まる事例もあり、視覚的リアリズムが物理理解を意味しないという制約は部分的にしか解決されない。</p>
+
+<h2 class="article-h2">フェーズAのボトルネックと社会への波及──物理推論の壁と電力の壁</h2>
+
+<p>フェーズAで顕在化する主要なボトルネックは、四つの層に整理できる。第一に物理推論ギャップである。大規模言語モデルや視覚言語行動モデルは物理常識テストで人間に劣る。二〇二〇年の研究では、当時の最先端言語モデルの物理推論誤答率は三〇から四〇%に達した。これはフェーズA末まで完全には解消されない。第二にサンプル効率の問題である。新規物理タスクごとに五十から三百デモが必要で、人間の経験量の数千倍から数百万倍を要する。第三にバッテリーエネルギー密度の物理限界である。リチウムイオン電池の現行密度二七〇から三〇〇 Wh/kg ではヒューマノイド連続稼働は二から四時間が限界で、トヨタや韓国サムスンSDIが予告する全固体電池五〇〇 Wh/kg の量産化が二〇二八から二〇三〇年に間に合わなければ、フィジカルAI普及が三から五年停滞する可能性がある。米アプトロニクの Apollo が交換式バッテリーを特徴にし、米ボストン・ダイナミクスのアトラスのような高運動性能機が稼働時間制約を抱えるのは、この物理制約が根本的だからである。手指系統も同様で、カナダの開発企業や米フィギュアAI社が訴求する把持精度は、研究室で数十回成功することと現場で数十万回失敗しないことの間に大きな距離がある。</p>
+
+<p>第四にデータセンター電力供給制約である。国際エネルギー機関 (英略IEA) の二〇二四年推計では、データセンターの世界消費電力は二〇二二年の四六〇TWhから二〇二六年に最大一〇五〇TWhへ倍増する。米PJM域内では二〇二四年に容量市場価格が前年の九倍に跳ね上がった。送電網増強は八から十二年の計画スパンを要するのに対し、人工知能需要は年率数十%で急成長する。この時間スケールの不整合が、フェーズA期間中の人工知能産業の最大の物理的制約である。米マイクロソフトが二〇二四年にスリーマイル島一号機の再稼働契約を米コンステレーション社と結び、米グーグルが米カイロス・パワー社と小型モジュール炉の電力購買契約を結んだのは、この制約への構造的応答である。カナダ・米国の小型モジュール炉商用初号機の稼働は二〇二九年前後と見込まれており、これがフェーズA末のエネルギー基盤を規定する。エネルギー三制約は次のように要約できる──二〇二六年は電力軸が最大の制約となるが、二〇五〇年頃には三制約（計算・データ・電力）が均衡し、二〇七五─二一〇〇年は実機データの希少性が新たな主制約として浮上する。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:36px 0;width:100%;height:auto;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:24px 12px;">
+<text x="380" y="22" font-family="Noto Sans JP" font-size="13" fill="#121212" text-anchor="middle" font-weight="700">図4-N4　エネルギー三制約三角形 (二〇二六 → 二一〇〇)</text>
+<text x="380" y="38" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">フィジカルAIの主制約は時代で「電力→均衡→データ」へ遷移する</text>
+<polygon points="380,70 660,350 100,350" fill="none" stroke="#121212" stroke-width="1.5"/>
+<polygon points="380,133 540,293 220,293" fill="none" stroke="#D9D9D9" stroke-width="0.6" stroke-dasharray="2,3"/>
+<polygon points="380,196 484,276 276,276" fill="none" stroke="#D9D9D9" stroke-width="0.6" stroke-dasharray="2,3"/>
+<text x="380" y="58" font-family="Noto Serif JP" font-size="14" fill="#CC1400" text-anchor="middle" font-weight="700">計算 (演算量)</text>
+<text x="680" y="365" font-family="Noto Serif JP" font-size="14" fill="#CC1400" text-anchor="start" font-weight="700">データ (情報量)</text>
+<text x="80" y="365" font-family="Noto Serif JP" font-size="14" fill="#CC1400" text-anchor="end" font-weight="700">エネルギー (電力)</text>
+<circle cx="220" cy="310" r="7" fill="#CC1400"/>
+<text x="220" y="332" font-family="Noto Sans JP" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">2026</text>
+<text x="220" y="344" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">電力制約</text>
+<circle cx="350" cy="240" r="7" fill="#CC1400"/>
+<text x="350" y="228" font-family="Noto Sans JP" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">2050</text>
+<text x="350" y="216" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">三制約均衡</text>
+<circle cx="450" cy="260" r="7" fill="#CC1400"/>
+<text x="450" y="248" font-family="Noto Sans JP" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">2075</text>
+<text x="450" y="236" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">データ不足顕在化</text>
+<circle cx="540" cy="310" r="7" fill="#CC1400"/>
+<text x="540" y="332" font-family="Noto Sans JP" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">2100</text>
+<text x="540" y="344" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">データ制約</text>
+<path d="M 220,310 L 350,240 L 450,260 L 540,310" stroke="#CC1400" stroke-width="1.8" fill="none"/>
+<polygon points="540,310 532,303 532,317" fill="#CC1400"/>
+<text x="380" y="390" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle" font-style="italic">出典: 主要研究機関・国際機関の統計から制約軌跡を統合</text>
+</svg>
+
+<p>社会への波及としては、製造現場の構造的変化を扱う長期予測でも示されている通り、「製造現場のオーケストラ化」の最初の実装が始まる。経済協力開発機構の労働の未来ベンチマークの基準で言えば、構造化作業──倉庫ピッキング、軽組立、ホテル客室清掃、レジ業務──の労働市場が再編成される。国際労働機関の二〇二三年作業文書は事務職タスクの高曝露二四%・中曝露五八%を示し、国際通貨基金の二〇二四年スタッフ討議ノートは世界雇用の約四〇%が人工知能高曝露職業にあり、<strong>先進国では約六〇%、新興国約四〇%、低所得国約二六%</strong>と推計した。米ゴールドマン・サックスの二〇二三年生成人工知能推計では世界で約三億人分のフルタイム雇用が自動化曝露に置かれる可能性が示され、米国・欧州では作業時間の約四分の一が自動化可能、世界 GDP を長期的に約七%押し上げる可能性が指摘された。ただし、ヒューマノイドが物流と製造の閉鎖空間に留まるため、一般市民との接触はフェーズAではまだ限定的で、非構造環境（家庭・野外・災害現場）には未到達である。社会受容の本格的論点はフェーズBに持ち越される。前プロジェクトの二〇三〇人材像──視覚言語行動モデル・基盤モデルを業務プロセスに組み込める運用設計者、ヒューマノイドとの分業設計を担うオペレーション・マネージャ、人工知能設計材料を製品開発に活用できる材料エンジニア──が、この時点で求められる三類型である。</p>
+
+<h2 class="article-h2">フェーズAの地政学 ── 米中欧日 + 印の四極ダイヤモンド</h2>
+
+<p>フェーズA (二〇二六-二〇三〇年) のフィジカルAI実装は、米中欧日の三極──実質的には米中欧日と新興のインドを加えた四極──構造で進む。米国は米エヌビディア（GPU・世界モデル）、米テスラ（ヒューマノイド・自動運転）、米ボストン・ダイナミクス（アトラス・スポット）、米フィギュアAI社、ノルウェー 1X 社などの民間先行で、政策面では米国の半導体および科学法が半導体製造補助・研究開発・労働力育成を通じて米国内の計算基盤を回復しつつある（五〇〇億ドル規模、うち三九〇億ドルが施設・設備、一一〇億ドルが研究開発）。軍事面では米国防総省のレプリケータ計画が二〇二三年八月に開始され、全領域・消耗可能・自律システムを一八-二四か月で複数千規模配備する構想で、量産型ロボット兵器というフィジカルAIの軍事応用を先取りする。米国防高等研究計画局の高速無人地上車計画、都市環境の小型無人機群計画、自律システムへの信頼可能なニューロシンボリック学習・推論計画が共通課題を軍事予算で押し上げる。人工知能ガバナンスは二〇二三年十月の前政権大統領令から二〇二五年一月の現政権の撤回大統領令へと振れたが、フィジカルAIには商用化・防衛・製造の速度優先シグナルとして作用する。</p>
+
+<p>中国は二〇一五年の「中国製造2025」と二〇二三年十月の工業情報化部「人型ロボット革新発展指導意見」で国家戦略化、中国ユニツリー・XPeng・小米・BYD・UBTECH・Fourier が大量生産で先行。指導意見は二〇二五年までに人型ロボットのイノベーション体系を初歩的に構築し、「大脳（人工知能大規模モデル）」「小脳（運動制御）」「肢体（アクチュエータ）」で突破を得ること、二〇二七年までに国際競争力ある産業生態を形成することを掲げた。二〇二五年三月には工業情報化部が具身知能に関する政策文書を掲載、北京の人型ロボット革新中心の具身知能プラットフォームが「一脳多能」「一脳多機」を掲げる。米ゴールドマン・サックス推計では<strong>二〇三〇年に世界ヒューマノイド販売数の四〇%を中国が占める</strong>見込み。中国UBTECHは二〇二三年十二月に香港取引所メインボード上場を行い、中国ユニツリーは二〇二四年に G1 を発表（一万六千ドル）、XPENGはEV・飛行車・ヒューマノイドを一体の具身知能エコシステムとして説明し IRON を披露した。</p>
+
+<p>欧州はEU人工知能法（二〇二四年八月一日発効）の規制ベースで先行、スイス・スウェーデンのABB、独KUKA、独Festo、デンマークのユニバーサル・ロボットなど伝統的ロボティクス企業が産業ロボットからフィジカルAIへ進化する。Horizon Europe（二〇二一-二〇二七、総額約九五五億ユーロ）は二〇二五年に「堅牢かつ信頼可能なロボティクス・産業自動化向け生成人工知能」トピック（八五〇〇万ユーロ）を出し、ドイツはシュトゥットガルトのアリーナ計画、フランスはフランス2030から約二五億ユーロを人工知能に投じる。日本は経済産業省「人工知能ロボティクスの社会実装に向けた政府の方向性」（二〇二六年三月）、ムーンショット目標1「2050年までに、人が身体、脳、空間、時間の制約から解放された社会」とムーンショット目標3「2050年までに、人工知能とロボットの共進化により、自ら学習・行動し人と共生するロボットを実現」が長期軸を提供する。韓国の人型ロボット連合（二〇二五年四月設立、二〇三〇年までに一兆ウォン超投資、サムスンがレインボー・ロボティクスの株式三五%取得）、インド電子情報技術省のロボティクス国家戦略草案（製造・農業・医療・国家安全保障四分野）+インド人工知能ミッション（一兆三七二.九二億ルピー予算）、アラブ首長国連邦の研究機関と米エヌビディアによる中東初の人工知能・ロボティクス共同研究ラボ、サウジアラビアのNEOM建設ロボティクスが補完極を成す。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:36px 0;width:100%;height:auto;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:24px 12px;">
+<text x="380" y="22" font-family="Noto Sans JP" font-size="13" fill="#121212" text-anchor="middle" font-weight="700">図4-N3　フィジカルAI地政学 四極ダイヤモンド (二〇二六-二〇三〇)</text>
+<text x="380" y="38" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">中央の視覚言語行動M / 汎言語行動M 標準競争を巡って 4 極が押し合う構造</text>
+<polygon points="380,60 670,210 380,360 90,210" fill="none" stroke="#D9D9D9" stroke-width="1" stroke-dasharray="4,4"/>
+<circle cx="380" cy="60" r="57" fill="#CC1400" opacity="0.18" stroke="#CC1400" stroke-width="1.5"/>
+<text x="380" y="58" font-family="Noto Serif JP" font-size="18" fill="#CC1400" text-anchor="middle" font-weight="700">米国</text>
+<text x="380" y="78" font-family="Noto Sans JP" font-size="10" fill="#121212" text-anchor="middle">政策強度 95 / 100</text>
+<text x="380" y="92" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">半導体法 / 自律システム量産 / 軍事研究</text>
+<circle cx="670" cy="210" r="53" fill="#CC1400" opacity="0.18" stroke="#CC1400" stroke-width="1.5"/>
+<text x="670" y="208" font-family="Noto Serif JP" font-size="18" fill="#CC1400" text-anchor="middle" font-weight="700">中国</text>
+<text x="670" y="228" font-family="Noto Sans JP" font-size="10" fill="#121212" text-anchor="middle">政策強度 88 / 100</text>
+<text x="670" y="242" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">人型ロボット指導意見 / 工業情報化部</text>
+<circle cx="380" cy="360" r="37" fill="#CC1400" opacity="0.12" stroke="#CC1400" stroke-width="1.2"/>
+<text x="380" y="358" font-family="Noto Serif JP" font-size="16" fill="#CC1400" text-anchor="middle" font-weight="700">欧州 + 日本</text>
+<text x="380" y="378" font-family="Noto Sans JP" font-size="10" fill="#121212" text-anchor="middle">政策強度 62 / 100</text>
+<circle cx="90" cy="210" r="23" fill="#CC1400" opacity="0.08" stroke="#CC1400" stroke-width="1"/>
+<text x="90" y="208" font-family="Noto Serif JP" font-size="14" fill="#CC1400" text-anchor="middle" font-weight="700">インド</text>
+<text x="90" y="230" font-family="Noto Sans JP" font-size="10" fill="#121212" text-anchor="middle">38</text>
+<text x="525" y="130" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">半導体・輸出管理</text>
+<text x="525" y="290" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">標準化・世界貿易</text>
+<text x="235" y="290" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">人材・南南協力</text>
+<text x="235" y="130" font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">規制・人工知能法</text>
+<circle cx="380" cy="210" r="22" fill="#FFF" stroke="#CC1400" stroke-width="1" stroke-dasharray="2,2"/>
+<text x="380" y="206" font-family="Noto Sans JP" font-size="9" fill="#CC1400" text-anchor="middle" font-weight="700">視覚言語行動M</text>
+<text x="380" y="218" font-family="Noto Sans JP" font-size="9" fill="#CC1400" text-anchor="middle">標準競争</text>
+</svg>
+
+<p>サプライチェーン争点は三層に整理できる。第一に人工知能計算基盤──ヒューマノイドを大量に学習・シミュレーションするにはGPUクラスタ・ロボットデータ・シミュレータが必要で、米エヌビディアエコシステムと中国の国産人工知能チップ政策が競合する。第二にロボット部品──高トルク密度アクチュエータ、精密減速機（日本のナブテスコ・ハーモニックドライブの優位）、軽量材料、バッテリー、安全センサーが実機性能とコストを決める。第三に重要鉱物──国際エネルギー機関の二〇二四年見通しが示す銅・リチウム・ニッケル・コバルト・グラファイト・レアアース、特にネオジム・鉄・ボロン磁石、ジスプロシウム、テルビウム、シリコンカーバイド、窒化ガリウム、ガリウム、ゲルマニウムの供給集中である。米テスラのヒューマノイド生産が中国レアアース輸出規制で停滞した事例は、フィジカルAIの地政学が部品輸出管理に深く規定されることを示す。三極の制度設計差は、フェーズAのフィジカルチェーン分布を大きく規定する。日本の戦略的位置は、ファナック・安川電機・川崎重工・三菱電機・オムロン・THK・ナブテスコ等の産業用ロボット・部品の蓄積を基盤モデル時代の具身知能に接続できるかにかかる。</p>
+
+</section>
+
+<section class="chapter-section" id="ch4b">
+<div class="chapter-number-label">Chapter 05 — フェーズA→B 連鎖</div>
+<h1 class="chapter-title">フェーズA→Bの四段連鎖──視覚言語行動モデル基盤からマルチエンボディメントへ、8系統対等駆動への移行</h1>
+
+<div class="epigraph">
+<p>「身体は行為が起こる場所ではない。計算そのものの一部である。」</p>
+<p class="attribution">ロルフ・ファイファー＆ジョシュ・ボンガード (スイス Rolf Pfeifer / 米 Josh Bongard) 『身体が思考を形づくる』 (二〇〇七)</p>
+</div>
+
+<h2 class="article-h2">フェーズA→Bの連鎖 ── 視覚言語行動モデル基盤からマルチエンボディメントへの四段ステップ</h2>
+
+<p>フェーズA（視覚言語行動モデル基盤定着）からフェーズB（物理操作汎化）への遷移は、四つの連鎖ステップで進む。第一ステップは<strong>百Bパラメータ × 千万デモの達成</strong>（二〇二八年想定）──業界共通の基盤モデルが確立し、効率化済みモデルが達成した処理速度と、オープンワールド版が示した家庭汎化が一つのモデル内で両立する。第二ステップは<strong>クロスエンボディメント転移</strong>（二〇三二年想定）──同一の視覚言語行動モデルが複数のロボット形態（ヒューマノイド・四足・アーム・ドローン・水中ロボット・飛行体）に適用可能になる。具身基盤モデルが業界デファクトとして定着する。汎用人工知能研究の物体操作汎化マイルストーン（二〇二三年に米バークレー・スタンフォード・グーグルの共同チームが発表した汎化評価フレームワーク）が拡張され、非構造環境の五〇%タスクで人間並みの実行精度に到達する。</p>
+
+<p>第三ステップは<strong>非構造環境適応</strong>（二〇三五年想定）──工場・倉庫を超えて、家庭・屋外・災害現場での動作。第四ステップは<strong>多重駆動構造への移行</strong>（二〇三八年想定）──基盤モデル単独からバイオ・マテリアル・認知系統との四系統対等駆動へ。この四ステップ連鎖が、フェーズCの汎用人工知能到達への前提条件となる。学術界の予測力評価では、第一ステップ（百B×千万デモ）は信頼度が比較的高いが、第二ステップ（クロスエンボディメント）以降は段階的に下がる──これは「合流」の予測可能性が時間と共に減衰することを示す。フェーズA→B連鎖が同時並行で進む点は、RT-2 を開発した米グーグルの研究グループが二〇二三年に予想した「視覚言語モデル拡張で視覚言語行動モデルへ、世界モデル統合で汎言語行動モデルへ」というロードマップとほぼ一致しており、この一致自体が研究コミュニティ内の予測収束を示す重要な証拠である。</p>
+
+<svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;background:#FFF;border:1px solid #D9D9D9;padding:16px;">
+<text x="380" y="28" font-family="Noto Sans JP" font-size="14" font-weight="700" fill="#121212" text-anchor="middle">図4-12　フェーズA→Bにおける5系統の重み変化 (二〇二六-二〇四〇)</text>
+<text x="380" y="46" font-family="Noto Sans JP" font-size="11" fill="#6B6B6B" text-anchor="middle">フェーズAは基盤モデル系統が主軸として駆動、フェーズB中盤で5系統がほぼ均衡しマイルストーンが集中する</text>
+<line x1="80" y1="300" x2="700" y2="300" stroke="#121212" stroke-width="1.5"/>
+<g font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">
+<text x="80" y="318">2026</text>
+<text x="180" y="318">2028</text>
+<text x="280" y="318">2030</text>
+<text x="380" y="318">2032</text>
+<text x="480" y="318">2034</text>
+<text x="580" y="318">2037</text>
+<text x="680" y="318">2040</text>
+</g>
+<line x1="280" y1="80" x2="280" y2="300" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="180" y="76" font-family="Noto Sans JP" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">フェーズA (二〇二六-二〇三〇)</text>
+<text x="180" y="92" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">視覚言語行動M基盤定着</text>
+<text x="480" y="76" font-family="Noto Sans JP" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">フェーズB (二〇三〇-二〇四〇)</text>
+<text x="480" y="92" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">物理操作汎化</text>
+<path d="M 80,300 L 80,290 Q 280,285 480,280 Q 580,278 680,275 L 680,300 Z" fill="#7A0A00" opacity="0.55"/>
+<text x="105" y="297" font-family="Noto Sans JP" font-size="9" fill="#FFFFFF" font-weight="700">ハード</text>
+<path d="M 80,290 L 80,275 Q 280,268 480,260 Q 580,255 680,250 L 680,275 Q 580,278 480,280 Q 280,285 80,290 Z" fill="#9C1200" opacity="0.6"/>
+<text x="105" y="285" font-family="Noto Sans JP" font-size="9" fill="#FFFFFF" font-weight="700">制御</text>
+<path d="M 80,275 L 80,250 Q 280,238 480,225 Q 580,218 680,210 L 680,250 Q 580,255 480,260 Q 280,268 80,275 Z" fill="#D85040" opacity="0.65"/>
+<text x="105" y="265" font-family="Noto Sans JP" font-size="9" fill="#FFFFFF" font-weight="700">模擬</text>
+<path d="M 80,250 L 80,210 Q 280,195 480,180 Q 580,170 680,160 L 680,210 Q 580,218 480,225 Q 280,238 80,250 Z" fill="#CC1400" opacity="0.75"/>
+<text x="105" y="235" font-family="Noto Sans JP" font-size="9" fill="#FFFFFF" font-weight="700">強化学習</text>
+<path d="M 80,210 L 80,140 Q 180,128 280,125 Q 380,128 480,138 Q 580,148 680,140 L 680,160 Q 580,170 480,180 Q 280,195 80,210 Z" fill="#FF4030" opacity="0.85"/>
+<text x="180" y="180" font-family="Noto Sans JP" font-size="11" fill="#FFFFFF" font-weight="700" text-anchor="middle">基盤モデル (主軸)</text>
+<text x="180" y="195" font-family="Noto Sans JP" font-size="9" fill="#FFFFFF" text-anchor="middle">視覚言語行動Mの世代交代</text>
+<g font-family="Noto Sans JP" font-size="9" fill="#121212">
+<circle cx="330" cy="345" r="5" fill="#CC1400"/>
+<line x1="330" y1="340" x2="330" y2="305" stroke="#CC1400" stroke-width="0.8"/>
+<text x="330" y="362" text-anchor="middle">軟体ロボ×強化学習</text>
+<text x="330" y="374" fill="#6B6B6B" font-size="8" text-anchor="middle">2031: 医療リハ量産</text>
+<circle cx="430" cy="345" r="5" fill="#CC1400"/>
+<line x1="430" y1="340" x2="430" y2="305" stroke="#CC1400" stroke-width="0.8"/>
+<text x="430" y="362" text-anchor="middle">生涯学習型VLA</text>
+<text x="430" y="374" fill="#6B6B6B" font-size="8" text-anchor="middle">2033: 連続学習</text>
+<circle cx="490" cy="345" r="5" fill="#CC1400"/>
+<line x1="490" y1="340" x2="490" y2="305" stroke="#CC1400" stroke-width="0.8"/>
+<text x="490" y="362" text-anchor="middle">VLA 非構造 50%</text>
+<text x="490" y="374" fill="#6B6B6B" font-size="8" text-anchor="middle">2034: 世界モデル標準</text>
+<circle cx="540" cy="395" r="5" fill="#CC1400"/>
+<line x1="540" y1="305" x2="540" y2="390" stroke="#CC1400" stroke-width="0.8"/>
+<text x="540" y="410" text-anchor="middle">神経模倣エッジ</text>
+<text x="540" y="422" fill="#6B6B6B" font-size="8" text-anchor="middle">2035: 100mW級量産</text>
+<circle cx="600" cy="395" r="5" fill="#CC1400"/>
+<line x1="600" y1="305" x2="600" y2="390" stroke="#CC1400" stroke-width="0.8"/>
+<text x="600" y="410" text-anchor="middle">核融合商用前実証</text>
+<text x="600" y="422" fill="#6B6B6B" font-size="8" text-anchor="middle">2037: 米CFS / 米Helion</text>
+<circle cx="660" cy="395" r="5" fill="#CC1400"/>
+<line x1="660" y1="305" x2="660" y2="390" stroke="#CC1400" stroke-width="0.8"/>
+<text x="660" y="410" text-anchor="middle">侵襲型脳機械IF</text>
+<text x="660" y="422" fill="#6B6B6B" font-size="8" text-anchor="middle">2039: 重度障害標準</text>
+</g>
+<rect x="80" y="335" width="200" height="100" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="1"/>
+<text x="92" y="354" font-family="Noto Sans JP" font-size="10" fill="#121212" font-weight="700">フェーズA末 (二〇三〇) 到達状態</text>
+<text x="92" y="372" font-family="Noto Sans JP" font-size="9" fill="#555">・狭義の汎用人工知能 到達予測点</text>
+<text x="98" y="385" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B">  主要研究者・市場予測の収束点</text>
+<text x="92" y="400" font-family="Noto Sans JP" font-size="9" fill="#555">・ヒューマノイド累計 100-200 万台</text>
+<text x="92" y="413" font-family="Noto Sans JP" font-size="9" fill="#555">・価格 2-5 万ドル</text>
+<text x="92" y="426" font-family="Noto Sans JP" font-size="9" fill="#555">・構造化作業で人件費競合点突破</text>
+<rect x="300" y="445" width="400" height="28" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="1"/>
+<g font-family="Noto Sans JP" font-size="9">
+<rect x="310" y="453" width="14" height="12" fill="#7A0A00" opacity="0.55"/>
+<text x="328" y="463" fill="#121212">ハード</text>
+<rect x="354" y="453" width="14" height="12" fill="#9C1200" opacity="0.6"/>
+<text x="372" y="463" fill="#121212">制御</text>
+<rect x="402" y="453" width="14" height="12" fill="#D85040" opacity="0.65"/>
+<text x="420" y="463" fill="#121212">模擬</text>
+<rect x="450" y="453" width="14" height="12" fill="#CC1400" opacity="0.75"/>
+<text x="468" y="463" fill="#121212">強化学習</text>
+<rect x="495" y="453" width="14" height="12" fill="#FF4030" opacity="0.85"/>
+<text x="513" y="463" fill="#121212">基盤M (主軸)</text>
+<circle cx="595" cy="459" r="4" fill="#CC1400"/>
+<text x="605" y="463" fill="#121212">フェーズBマイルストーン</text>
+</g>
+</svg>
+
+<div class="finding-box">
+<p><strong>フェーズA→B連鎖の構造的特徴</strong>──第一段から第四段にかけて、駆動主体が「単一巨大な視覚言語行動モデル」から「視覚言語モデルと身体的推論モデル、行動モデル、世界モデル、批評・報酬モデル」の複合システムへと不可逆的に変化する。フェーズA末では基盤モデル一軸が全駆動寄与の五〇%以上を占めるが、フェーズB末では基盤モデル・バイオ・マテリアル・認知の四系統がほぼ均等に駆動寄与する。学術界の論文蓄積でも、二〇二六年は視覚言語行動モデル論文が中心ノードだが、二〇三五年には世界モデル・神経模倣・軟体ロボット論文が独立クラスタを形成する見込みで、この構造遷移を裏付ける。</p>
+</div>
+
+</section>
+
+<section class="chapter-section" id="ch4c">
+<div class="chapter-number-label">Chapter 06 — フェーズB、2030-2040</div>
+<h1 class="chapter-title">フェーズB 物理操作汎化期──非構造環境への進出と「協働相手」への認識転換</h1>
+
+<div class="epigraph">
+<p>「機械が労働を奪うのではない。機械が労働の概念そのものを書き換える。」</p>
+<p class="attribution">デイヴィッド・オーター (米 David Autor) 『なぜこれほど多くの仕事が残っているのか』 (二〇一五)</p>
+</div>
+
+<h2 class="article-h2">フェーズB (二〇三〇-二〇四〇) ── 物理操作汎化期：クロスエンボディメント転移と非構造環境への進出</h2>
+
+<p>フェーズBはフェーズAで標準化された基盤モデルが、特定の機種に縛られることなく、二足・四足・産業マニピュレータ・移動車両・水中ロボット・飛行体を共通ポリシーで操作可能になる「クロスエンボディメント転移」の完成期である。具身基盤モデルがこのフェーズで業界デファクトとして定着する。汎用人工知能研究の物体操作汎化マイルストーン（二〇二三年に米バークレー・スタンフォード・グーグルの共同チームが発表した汎化評価フレームワーク）が拡張され、非構造環境の五〇%タスクで人間並みの実行精度に到達する。中国・浙江省の研究機関が示した世界モデル統合は、フェーズBの標準アーキテクチャの先取りであり、二〇二四年に英ネイチャー誌に掲載された世界モデル学習エージェント（アタリやマインクラフトなど百五十超タスクをカバー）が次世代版へと進化する。</p>
+
+<p>強化学習系統では、米オープンAI社が二〇二四年に公表した推論強化モデル、続くシリーズが示した推論時計算スケーリングが視覚言語行動モデルに転移する。「考えてから動く」モデルが標準化され、拡散方策、行動チャンクモデル、動作モデル、二〇二五年に登場した拡散型視覚言語行動モデル（標準ベンチ平均九六.四%、実機での箱詰めピッキング達成）、香港科技大学の統合拡散モデルなどの系譜が拡散モデルの行動生成を成熟させる。サンプル効率はフェーズAから十倍以上改善する。二〇二三年公開の生涯学習ベンチマーク（五十二タスクで生涯学習を評価する標準ベンチ）が示す「生涯学習」が研究室から産業実装に移行する。中国科学院計算技術研究所の一ビット視覚言語行動モデルの系譜は、エッジ推論コストを劇的に下げ、ヒューマノイド1台あたり推論電力をフェーズAの一キロワット級から二〇〇ワット級へ低下させる。仏ハギングフェイスのオープンロボット基盤は二〇二六年に発表され、データ収集・保存・ストリーミング・学習・評価のスタックを統合化し、主要な視覚言語行動モデルの実装基盤となる。</p>
+
+<p>ハードウェア系統は非構造環境への本格進出期である。建設現場・介護現場・農地・災害現場でのヒューマノイド実証が始まる。米テスラの Optimus、米フィギュアAI社、ノルウェー 1X 社の家庭用ヒューマノイド（二〇二五年公開）が家庭環境に試験投入される。価格は一万ドル台後半まで低下し、家電並みの普及曲線に入る。連続稼働は十六から二十四時間（全固体電池量産化の効果）。マテリアル系統では、人工知能による材料発見の正のフィードバックが本格化する。米グーグル・ディープマインドの材料発見後継、米ローレンス・バークレー研の自律実験室後継、材料データベース統合プラットフォームの連結によって、新規アクチュエータ材料（電気活性ポリマー、液晶エラストマー、バイオハイブリッド）、触覚センサ膜、固体電解質、廃熱回収材が指数的に発見される。エネルギー側では、米コモンウェルス・フュージョン・システムズの実証炉、米ヘリオン・エナジーなどの核融合実証炉が商用前段階に到達し、小型モジュール炉の複数機稼働が並行する。人工知能と原子力の構造的合流が事業契約レベルで完成する。</p>
+
+<p>バイオ系統では、神経模倣エッジ人工知能が標準化される。米インテルの神経模倣チップ後継、米IBMのアナログ推論チップ後継が、先進運転支援、産業検査、ウェアラブルで百ミリワット級エッジ推論基盤として普及する。イベントカメラ（仏プロフェジー社、スイス・イニビジョン社が商用化した、生物網膜模倣型の差分検出センサ）が自動運転センサスイートの常設要素となる。二〇〇八年にハーバード大の研究者が提唱した軟体ロボティクスの流れに強化学習を組み合わせた軟体ロボット×強化学習が、医療リハ用外骨格や農業の柔らかい果実把持で量産化に到達する。自律実験室の系統に連なる自己駆動型実験室が、消費財・医薬品研究の標準ツールとなる。認知系統では、世界モデルが汎用ロボティクスの標準層となる。二〇一八年にデイヴィッド・ハ＆ユルゲン・シュミットフーバー (独 Jürgen Schmidhuber) が提唱した世界モデルの概念は、Dreamer 系統として進化し、フェーズB中盤には次世代版の世界モデルが家庭・工場・物流の共通基盤として展開される。ロボットは「現場で初めて見る状況」を内部シミュレーションで予習してから行動する。カール・フリストン (英 Karl Friston) の自由エネルギー原理に基づく能動的推論と、モデルベース強化学習の統合が実用段階に達する。米ニューラリンク、米シンクロン、米プレシジョン・ニューロサイエンスが牽引する脳機械インターフェースは、消費者向け非侵襲型（脳波と機能的近赤外分光の組み合わせ）が普及し、侵襲型は重度障害者で標準治療化する。</p>
+
+<div class="finding-box">
+<p><strong>フェーズBが突破する三つのボトルネック構造</strong>──フェーズAから持ち越されたのは物理推論、長期記憶、世界モデルの物理整合性、エネルギー効率の四つだが、フェーズBはこれらを完全には解決しない。特にエネルギー効率は、人間脳の二十ワットに対して大規模視覚言語行動モデル推論が一キロワット級という三桁ギャップを抱えたままで、神経模倣系統との合流が必須となる。フェーズB末に残る最大の宿題は、この三桁ギャップである。物理整合性ベンチマークで主要モデルは段階的改善を見せるが、一〇〇%の物理現実性にはフェーズB末でも遠い。これはフェーズCへ持ち越される根本宿題となる。</p>
+</div>
+
+<h2 class="article-h2">フェーズBの人材論 ── ハイブリッド・マネージャの登場と労働市場の構造再編</h2>
+
+<p>フェーズB (二〇三〇-二〇四〇年) の人材論では、新職種「ハイブリッド・マネージャ」が登場する。ハイブリッド・マネージャは、人間とフィジカルAIの混成チームを設計・運用する専門職で、五つのスキルセットを要求される。第一に<strong>視覚言語行動モデル基盤の理解</strong>──主要モデル（米エヌビディアの世界モデル、米グーグルのロボティクス基盤、米テスラのヒューマノイド、米フィギュアAI社の連続制御モデル）の能力と限界の言語化。第二に<strong>能動的推論の応用</strong>──フリストン理論の業務応用判断。第三に<strong>認知アーキテクチャの設計</strong>──人間判断と人工知能判断の分担設計。第四に<strong>関係性労働の評価</strong>──心理的安全性・関係資本の指標化。第五に<strong>規制対応</strong>──EU人工知能法・米国の医療機器規制・各国製造人工知能規制の遵守設計。ハイブリッド・マネージャは二〇三〇年代後半から本格需要が立ち上がり、二〇五〇年に全管理職の三〇%を占めると予測される。</p>
+
+<p>労働市場への波及を世界経済フォーラムの仕事の未来レポート2025（千社超、一四〇〇万人以上、五十五経済圏調査）の数値で確認すると、二〇二五-二〇三〇年に現在の正式雇用の<strong>二二%</strong>に相当する構造的変化が起こると推計され、内訳は<strong>新規創出一.七億人、喪失九,二〇〇万人、純増七,八〇〇万人</strong>、二〇三〇年までに必要スキルの<strong>三九%</strong>が変化する。米ゴールドマン・サックス（二〇二三）は世界 GDP を長期的に約七%押し上げる可能性、二〇二四年更新版ヒューマノイド分析は二〇三五年市場規模三八〇億ドル、二〇三〇年出荷二五万台超、二〇三五年出荷一四〇万台規模、米製造業労働力不足の<strong>四%</strong>を二〇三〇年までに、世界高齢者ケア需要の<strong>二%</strong>を二〇三五年までに埋める可能性を示す。米マッキンゼーの生成人工知能の経済ポテンシャル分析（六十三ユースケース）は年間二.六-四.四兆ドルの価値、現在の従業員時間の六〇-七〇%に相当する作業活動が理論上自動化可能、五〇%自動化到達時期の中位が二〇四五年へ約十年前倒しと示した。国際通貨基金の補完性軸では、先進国の高曝露労働者ほど代替リスクと補完利益の両方を抱える。</p>
+
+<p>日本では、人工知能・フィジカルAIの労働影響は「失業を生む技術」より先に「足りない労働をどう補うか」という問題として現れる。内閣府の令和六年度経済財政白書は、二〇二四年現在の人手不足感が非製造業・中小企業を中心に歴史的水準にあるとし、その根本要因を生産年齢人口の長期減少に置いている。パーソル総合研究所・中央大学の「労働市場の未来推計2030」は、二〇三〇年に労働需要七,〇七三万人に対し供給六,四二九万人、<strong>六四四万人不足</strong>と推計する。厚生労働省の介護人材推計では、二〇二二年度の介護職員約二一五万人に対し、二〇四〇年度には約二七二万人が必要となり、約<strong>五七万人</strong>の追加確保が必要である。これは、フィジカルAIの最重要市場が日本では介護・医療・生活支援になることを示す。日本・ドイツ・韓国で二〇四〇年に深刻化する介護労働力不足が、ヒューマノイド介護導入を加速する社会圧力となる。前プロジェクトの二〇三〇人材像から二〇五〇人材像への移行期にあたり、「業務支援道具」だったフィジカルAIが「協働相手」へと認識変化する。新たに求められるのは、人間とロボットの混成チームを設計・運用できるハイブリッド・マネージャ、能動的推論や世界モデルを業務に活かせる認知エンジニア、バイオ×人工知能統合創薬や自己駆動型実験室を活用する研究開発職である。</p>
+
+<p>ダロン・アセモグル (米 Daron Acemoglu) の「人工知能のシンプルなマクロ経済学」（二〇二四 全米経済研究所ワーキングペーパー）は、人工知能による GDP 押し上げを過度に大きく見る議論に慎重で、今後十年で人工知能が影響するタスク比率・実際に導入可能な範囲・生産性改善率を控えめに置くと、全要素生産性や GDP への効果は米ゴールドマン・サックスや米マッキンゼーの上限推計より小さい可能性があるとする。アセモグル＆レストレポの「ロボットと雇用」（二〇一七）では、米国ローカル労働市場でロボット一台追加が地域雇用を約<strong>五.六人</strong>減らす推計が報告されている。ただしこれは過去の産業ロボット導入の地域比較であり、今後のヒューマノイドが同じ効果を持つとは限らない。デイヴィッド・オーターの「人工知能を中間層の仕事の再建に活かす」は、人工知能が専門家の判断を補助し、非専門家がより高品質な判断をできるようにすれば、中間層の仕事を再建し得ると主張する。フィジカルAIでは、熟練技能をロボットに吸収して低賃金化する設計も、熟練者が複数ロボットを率いて生産性と賃金を上げる設計も可能である。フェーズB末の労働制度は、この設計選択の集積として現れる。</p>
+
+<h2 class="article-h2">フェーズA+B サブタペストリー ── 知覚・行動・学習・安全・計算・社会・政策の七層展開</h2>
+
+<p>フェーズAからフェーズBにかけての一四年間を、七層（知覚・行動・学習・安全・計算と通信・市場と社会・政策と規制）の同時展開として読み直すと、各層の臨界点がほぼ同時期に揃って到来することがわかる。下記タペストリーは、二〇二六-二〇二八、二〇二八-二〇三〇、二〇三〇-二〇三二、二〇三二-二〇三五、二〇三五-二〇四〇の五区間で七層の状態を並べたものである。注目すべき臨界点は、二〇三〇年のEU人工知能法完全運用、二〇三五年の家庭ロボ普及前夜、二〇四〇年の物流八割自動化である。市場規模は二〇二六-二〇二八年の五〇〇億ドルから、二〇三五-二〇四〇年の一.五兆ドルへと三〇倍に達する見込みで、これは米ゴールドマン・サックスの三八〇億ドル推計（二〇三五年単年）をフェーズB末まで延伸した累積市場として整合する。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;background:#FFFFFF;border:1px solid #D9D9D9;padding:4px;">
+<text x="20" y="22" font-family="Noto Sans JP" font-size="14" font-weight="600" fill="#121212">サブタペストリー A — 二〇二六-二〇四〇 萌芽から実装へ</text>
+<text x="20" y="36" font-family="Noto Sans JP" font-size="10" fill="#555">フェーズA (二〇二六-二〇三〇) + フェーズB (二〇三〇-二〇四〇) を区間別に七層展開</text>
+<line x1="20" y1="44" x2="740" y2="44" stroke="#121212" stroke-width="1.5"/>
+<g transform="translate(0, 55)">
+<rect x="140" y="0" width="120" height="22" fill="#F7F7F5"/>
+<rect x="260" y="0" width="120" height="22" fill="#FFFFFF"/>
+<rect x="380" y="0" width="120" height="22" fill="#F7F7F5"/>
+<rect x="500" y="0" width="120" height="22" fill="#FFFFFF"/>
+<rect x="620" y="0" width="120" height="22" fill="#F7F7F5"/>
+<text x="200" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="middle">2026-2028</text>
+<text x="320" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="middle">2028-2030</text>
+<text x="440" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="middle">2030-2032</text>
+<text x="560" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="middle">2032-2035</text>
+<text x="680" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="middle">2035-2040</text>
+</g>
+<line x1="140" y1="77" x2="140" y2="340" stroke="#D9D9D9"/>
+<line x1="260" y1="77" x2="260" y2="340" stroke="#D9D9D9"/>
+<line x1="380" y1="77" x2="380" y2="340" stroke="#D9D9D9"/>
+<line x1="500" y1="77" x2="500" y2="340" stroke="#D9D9D9"/>
+<line x1="620" y1="77" x2="620" y2="340" stroke="#D9D9D9"/>
+<line x1="740" y1="77" x2="740" y2="340" stroke="#D9D9D9"/>
+<g transform="translate(0, 82)">
+<rect x="20" y="0" width="120" height="36" fill="#F7F7F5"/>
+<rect x="20" y="2" width="3" height="32" fill="#1F4E5F"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">知覚</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">深度＋慣性 統合</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">物体 100 クラス</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">触覚 高密度 / 自己位置推定</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">音響シーン理解</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">マルチセンサ融合</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">物体姿勢推定 普及</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">皮膚感覚 商品化</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">物体 1万クラス</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">完全多感覚</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">家庭環境 完備</text>
+</g>
+<g transform="translate(0, 118)">
+<rect x="20" y="0" width="120" height="36" fill="#FFFFFF"/>
+<rect x="20" y="2" width="3" height="32" fill="#2E5E3E"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">行動</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">産業 ピック＆プレース</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">2足歩行 屋内 80%</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">物流倉庫 全自動</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">屋外 4 足 試行</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">家庭調理 試作</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">布操作 / 階段</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">介護動作 標準</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">器用さ 人並み</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">職人技 部分再現</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">全国規模 配送</text>
+</g>
+<g transform="translate(0, 154)">
+<rect x="20" y="0" width="120" height="36" fill="#F7F7F5"/>
+<rect x="20" y="2" width="3" height="32" fill="#5A3E1F"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">学習 視覚言語行動M</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">第一世代視覚言語行動M</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">模擬→実機 70%</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">同モデル 1B 量産</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">模擬 90%</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">同モデル 10B 普及</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">家事 500 タスク</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">身体基盤モデル</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">100B 物理規模</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">継続学習 確立</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">転移 秒オーダー</text>
+</g>
+<g transform="translate(0, 190)">
+<rect x="20" y="0" width="120" height="36" fill="#FFFFFF"/>
+<rect x="20" y="2" width="3" height="32" fill="#6E1F4A"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">安全</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">国際安全規格 拡張</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">緊急停止 5ms</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">家庭ロボ 認証</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">保険 標準化</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">形式検証</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">行動制約 保証</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">分散冗長 標準</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">フェイルセーフ階層</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">公共空間 規範</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">事故率 1/1000</text>
+</g>
+<g transform="translate(0, 226)">
+<rect x="20" y="0" width="120" height="36" fill="#F7F7F5"/>
+<rect x="20" y="2" width="3" height="32" fill="#1F3F5F"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">計算/通信</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">エッジ高性能 / 5G</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">3nm 量産</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">2nm 量産</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">専用チップ 多様化</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">エッジ ペタ演算</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">6G 標準化</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">3D 積層 / インメモリ計算</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">フォグ層 確立</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">機械間直接通信</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">遅延 1ms / 神経模倣 萌芽</text>
+</g>
+<g transform="translate(0, 262)">
+<rect x="20" y="0" width="120" height="36" fill="#FFFFFF"/>
+<rect x="20" y="2" width="3" height="32" fill="#CC1400"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">市場/社会</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">産業ロボ 5百万台</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">市場 500億ドル</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">市場 1,200億ドル</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">人型ロボ商用化</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">家庭ロボ 3千万台</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">市場 2,500億ドル</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">家庭 1億台</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">市場 4,000億ドル</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">人型 5億台超</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">物流 80% 自動 / 1.5兆ドル</text>
+</g>
+<g transform="translate(0, 298)">
+<rect x="20" y="0" width="120" height="36" fill="#F7F7F5"/>
+<rect x="20" y="2" width="3" height="32" fill="#CC1400"/>
+<text x="135" y="14" font-family="Noto Sans JP" font-size="10" font-weight="600" fill="#121212" text-anchor="end">政策/規制</text>
+<text x="144" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">EU人工知能法 発効</text>
+<text x="144" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">米中 半導体規制</text>
+<text x="264" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">家庭ロボ 法整備</text>
+<text x="264" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">輸出規制 強化</text>
+<text x="384" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">国際標準化 加速</text>
+<text x="384" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">最低所得保障 試行国 増加</text>
+<text x="504" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">機械倫理 教育義務</text>
+<text x="504" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">設計者 免許制</text>
+<text x="624" y="14" font-family="Noto Sans JP" font-size="9" fill="#121212">国際倫理憲章</text>
+<text x="624" y="26" font-family="Noto Sans JP" font-size="8" fill="#555">兵器転用 制限</text>
+</g>
+<line x1="20" y1="345" x2="740" y2="345" stroke="#121212"/>
+<text x="20" y="375" font-family="Noto Sans JP" font-size="10" fill="#555">凡例: 知覚=濃青/行動=濃緑/学習=茶/安全=紫/計算=藍/市場・政策=赤白CI</text>
+<text x="20" y="392" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" font-style="italic">注: 二〇三〇 EU人工知能法 完全運用 / 二〇三五 家庭ロボ普及前夜 / 二〇四〇 物流8割自動化が転換点</text>
+</svg>
+
+<h2 class="article-h2">フェーズAとフェーズBを貫く構造変化 ── 単一駆動から多重駆動構造へ</h2>
+
+<p>フェーズAとフェーズBを貫いて重要なのは、基盤モデル系統が主役であったフェーズAの動学が、フェーズB末には基盤モデル・バイオ・マテリアル・認知の四系統が対等に並ぶ多重駆動構造へと変質することである。これはフェーズC以降の「人間-機械並走」を準備する地形変化であり、次章で扱う二〇四〇年代の本格的な汎用人工知能到達期へとつながっていく。社会への波及はフェーズAと質的に異なる。非構造環境への進出により、社会受容が本格的な論点となる。労働市場では構造化作業の五〇%がロボット化され、ホワイトカラー業務も大規模言語モデルと視覚言語行動モデルの統合で再編成が進む。米ゴールドマン・サックスの予測（ヒューマノイドが世界高齢者ケア需要の二%を二〇三五年までに埋める可能性）は、日本の介護五七万人不足、ドイツ・韓国の同様の構造的不足と直接接続する。前プロジェクトの二〇三〇人材像から二〇五〇人材像への移行期にあたり、「業務支援道具」だったフィジカルAIが「協働相手」へと認識変化する。新たに求められるのは、人間とロボットの混成チームを設計・運用できるハイブリッド・マネージャ、能動的推論や世界モデルを業務に活かせる認知エンジニア、バイオ×人工知能統合創薬や自己駆動型実験室を活用する研究開発職である。フェーズB末の二〇四〇年に立った時に振り返ると、二〇二六年から始まった一四年間は「視覚言語行動モデルという一つの技術系統の標準化が、最終的にロボティクス・バイオ・マテリアル・認知という四系統の同時駆動構造を生み、ハイブリッド・マネージャという新職種と人間-機械協働という新概念を社会に書き込んだ時代」として記録されるだろう。次章フェーズC-D（二〇四〇-二〇六〇）は、この多重駆動構造の上で「自律物理エージェント」がいかにして登場し、人間-機械並走の社会契約をどのように再交渉していくかを扱う。</p>
+
+</section>
