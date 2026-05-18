@@ -1,0 +1,199 @@
+OpenAI Codex v0.128.0 (research preview)
+--------
+workdir: /Users/nishimura+/projects/research/agent-registry-db
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/nishimura+/.codex/memories]
+reasoning effort: none
+reasoning summaries: none
+session id: 019e392a-7dbe-7ff1-a458-93312828d2b6
+--------
+user
+あなたは Physical AI 2100 教科書のリサーチ専門家です。以下のテーマを深堀りリサーチし、構造化された日本語のMarkdownレポートを作成してください。
+
+# テーマ4: 製造業オートメーション
+
+## 必須カバー対象
+- Dark factory / Lights-out manufacturing の進化 (Xiaomi, Foxconn, Siemens Amberg)
+- Tesla Giga Factory (Berlin, Texas, Shanghai, Nuevo León) - 自動化率、生産能力 2025-2026
+- BMW iFactory (Debrecen, Hungary) - 持続可能性とAI統合
+- 中国汎用ロボット (Unitree H1/H2/G1, Fourier GR-1, Xpeng Iron, UBTECH Walker S, Agibot)
+- コボット (Collaborative robots):
+  - Universal Robots UR シリーズ (UR3e, UR5e, UR10e, UR20)
+  - Techman Robot TM5/TM12
+  - FANUC CRX
+  - 安川電機 MOTOMAN HC10/20
+- 日本機関 (川崎重工 duAro, デンソーウェーブ COBOTTA, 不二越, ファナック必ず含める)
+- AI統合 (NVIDIA Isaac, GR00T N1, Skild AI, Covariant, Physical Intelligence π0)
+- リショアリング動向 (米CHIPS Act, 日本「半導体・デジタル産業戦略」)
+- 2025-2026 World Robotics Report (IFR) データ
+
+## 出力フォーマット
+1. # エグゼクティブサマリ (300字)
+2. ## 自動化レベル別ファクトリー類型 (Dark/Lights-out/Smart/Cobot)
+3. ## 中国汎用ロボット爆発的増加 (2024-2026)
+4. ## コボット市場の急成長 (IFR データ、メーカー別シェア)
+5. ## Tesla / BMW / Toyota / Hyundai のAI製造戦略
+6. ## 日本機関の独自貢献
+7. ## NVIDIA Isaac + Physical AI 統合動向
+8. ## 主要論文・統計・一次資料 (10件以上、各 source_url 必須)
+9. ## 2030 製造業景観予測
+
+## 品質要件
+- 全主張に source_url を併記 (IFR, McKinsey, BCG, 公式IR, Nature Manufacturing 優先)
+- 2025-2026年の最新情報を必ず含める
+- 日本機関の動向を必ず含める
+- 推測や曖昧な表現禁止、年代・数値を必ず明示
+- 8000字以上、12000字以下
+
+リサーチを開始してください。
+
+codex
+調査を開始します。2025-2026の数値が多く含まれるため、公式発表・IFR・企業資料を優先して確認し、確認できない値は断定しない形で整理します。
+web search: 
+web search: IFR World Robotics 2025 industrial robots installations manufacturing 2024 2025 report
+web search: 
+web search: Tesla 2025 2026 Gigafactory Berlin Texas Shanghai Nuevo Leon annual production capacity official
+web search: 
+web search: Xiaomi smart factory dark factory lights-out manufacturing 2024 2025 official 24 hours
+web search: 
+web search: BMW iFACTORY Debrecen Hungary 2025 AI sustainability official production start
+web search: 
+web search: Unitree H1 H2 G1 humanoid robot specifications official 2025 2026
+web search: 
+web search: Unitree G1 official specification price 2024 2025 Unitree Robotics
+web search: 
+web search: collaborative robot market share Universal Robots 2025 cobot market share
+web search: 
+web search: Yaskawa MOTOMAN HC10 HC20 collaborative robot specifications payload reach official
+web search: 
+web search: Kawasaki duAro collaborative robot official dual arm payload specs
+web search: 
+web search: site:kawasakirobotics.com duAro collaborative robot payload reach specifications
+web search: 
+web search: NVIDIA Isaac GR00T N1 2025 physical AI robotics factory official
+web search: 
+web search: CHIPS and Science Act manufacturing reshoring semiconductor 2025 official Commerce investments
+web search: 
+web search: Toyota manufacturing AI robotics 2025 NVIDIA Omniverse factory official
+web search: 
+web search: Toyota manufacturing AI factory robots 2025 official industrial digital twin
+web search: 
+web search: Covariant RFM-1 robot foundation model 2024 2025 warehouses manufacturing official
+web search: 
+web search: Interact Analysis collaborative robot market share Universal Robots 2024 2025
+codex
+# エグゼクティブサマリ
+
+製造業オートメーションは、2024-2026年に「固定治具中心の自動化」から「AI・シミュレーション・汎用ロボットを含むPhysical AI」へ移行した。IFRのWorld Robotics 2025では2024年の世界産業用ロボット新規設置は542,000台、稼働ストックは約466万台、中国は新規設置の54%を占めた。Xiaomi、Tesla、BMW、Hyundaiは工場をAI訓練場化し、日本勢は高信頼な協働・制御・FA基盤で差別化している。
+
+## 自動化レベル別ファクトリー類型
+
+| 類型 | 定義 | 代表例 | 2025-2026年の位置づけ |
+|---|---|---|---|
+| Dark factory / Lights-out | 人の常駐を前提にしない、照明不要の高自動化工場 | Xiaomi EV HyperFactory、Foxconnの仮想工場化、Siemens Amberg | 「完全無人」より、夜間・工程単位の無人化が現実解。source_url: https://www.siemens.com/en-us/technology/lights-out-factory/ |
+| Smart factory | センサー、MES、AI品質検査、デジタルツインを統合 | BMW Debrecen、Tesla Giga factories | AIQX、Omniverse、Isaac Simなどで品質・物流・立上げを仮想検証。source_url: https://www.bmwgroup.com/en/news/general/2025/series-production-of-the-BMW-iX3.html |
+| Cobot factory | 人と同一空間でロボットが補助作業 | UR、FANUC CRX、Yaskawa HC、DENSO COBOTTA | 中小製造業・多品種少量・検査・パレタイジングに拡大。IFRは2023年の協働ロボット比率を10.5%と公表。source_url: https://ifr.org/ifr-press-releases/news/how-robots-work-alongside-humans |
+| Physical AI factory | ロボット基盤モデル、VLA、合成データ、シミュレーションでロボットを学習 | NVIDIA Isaac GR00T、Skild AI、Physical Intelligence π0 | 2025年以降、工場が「生産拠点」かつ「ロボット学習環境」になる。source_url: https://nvidianews.nvidia.com/news/nvidia-isaac-gr00t-n1-open-humanoid-robot-foundation-model-simulation-frameworks |
+
+Xiaomiは2025年、北京EV工場で「76秒に1台」のラインタクト、700台超のロボット、主要工程100%自動化を公表・報道ベースで示した。これは1台を76秒で作る意味ではなく、完成車が76秒間隔でラインオフするという量産タクトである。source_url: https://global.chinadaily.com.cn/a/202506/17/WS6851302ba310a04af22c6cd2.html / https://www.streetinsider.com/PRNewswire/Xiaomi%2BFactory%2BRolls%2Ba%2BNew%2BCar%2BEvery%2B76%2BSeconds/25209900.html
+
+Siemens Amberg Electronics Plantは、Industry 4.0型スマートファクトリーの古典的基準点であり、PLC生産で75%自動化とされる。2025-2026年の論点は、Amberg型の高制御・高品質工場に、生成AI・ロボット基盤モデル・工場デジタルツインをどう重ねるかである。source_url: https://www.plm.automation.siemens.com/media/global/it/Siemens-PLM-Smart-manufacturing-for-electronics-wp_tcm56-57766.pdf
+
+Foxconnは「無人工場」単体より、NVIDIA Omniverse、Isaac Sim、Metropolisを用いた仮想工場・検査・AMR検証の事例が重要である。2024年にNVIDIAはFoxconnが工場デジタルツインを用いてAMRとAIロボットアームを検証すると公表し、2025年にはFANUCとFoxconn FiiがNVIDIA Mega Omniverse Blueprintにロボットモデルを接続する初期企業として挙げられた。source_url: https://investor.nvidia.com/news/press-release-details/2024/Robotic-Factories-Supercharge-Industrial-Digitalization-as-Electronic-Makers-Adopt-NVIDIA-AI-and-Omniverse/ / https://nvidianews.nvidia.com/news/nvidia-us-manufacturing-robotics-physical-ai
+
+## 中国汎用ロボット爆発的増加（2024-2026）
+
+中国の強みは、EV・電池・産業ロボット・減速機・サーボ・量産EMSの供給網が一体化している点である。IFR World Robotics 2025では、中国は2024年に世界新規設置の54%、約295,000台を占め、稼働ストックは約202.7万台と報じられた。source_url: https://www.statista.com/chart/amp/31337/operational-stock-and-new-installations-of-industrial-robots-by-country/ / https://www.china.org.cn/world/Off_the_Wire/2025-09/25/content_118098031.shtml
+
+UnitreeはH1/H1-2、G1、H2で「低価格・高速デモ・研究者向け量産」に寄せた。G1は2024年発表、2025年時点で研究・実験用途の代表的安価ヒューマノイドとなり、H2は2025年10月に公開されたフルサイズ機として報じられた。source_url: https://shop.unitree.com/collections/humanoid-robot/products/unitree-g1 / https://www.livescience.com/technology/unitrees-h2-robot-poses-pirouettes-and-pulls-off-deft-karate-moves-with-eerily-lifelike-movement
+
+Fourier GR-1は医療・リハビリ由来のアクチュエーションとヒューマノイド量産の橋渡しである。GR-1は2023年末から量産計画が示され、2024年にGR-2が公開された。工場適用では、NVIDIA Isaac/Omniverseを使う中国勢の一角として位置づく。source_url: https://www.uscc.gov/sites/default/files/2024-10/Humanoid_Robots.pdf
+
+XPeng IRONは自動車会社が自社工場をロボット訓練場にする典型例である。XPengは2025年AI DayでVLA 2.0、Robotaxi、次世代IRONを発表し、広州に embodied intelligence data factory を設けたと説明した。2026年第1四半期にVLA 2.0をUltraモデルへ展開する計画も示した。source_url: https://www.xpeng.com/pressroom/news/019a56f54fe99a2a0a8d8a0282e402b7
+
+UBTECH Walker Sは、自動車生産ラインへの実投入を前面に出す中国勢である。UBTECHはWalker Sシリーズが複数の車両会社の生産ラインに入っていると説明し、2025年11月にWalker S2の量産・納入開始を公表した。source_url: https://www.ubtrobot.com/en/about/company-profile
+
+Agibotは2023年設立の新興企業ながら、2025年1月に1,000台、2025年12月に5,000台目の量産ヒューマノイドのロールアウトを発表した。これは「デモ機」から「台数を伴う商用配備」への移行を示す最重要指標である。source_url: https://agibot.com/about/%2A.htm / https://www.prnewswire.com/news-releases/agibot-announces-the-rollout-of-its-5-000th-mass-produced-humanoid-robot-302635127.html
+
+## コボット市場の急成長（IFRデータ、メーカー別シェア）
+
+IFRは2024年12月、協働ロボットが2023年の世界産業用ロボット新規設置の10.5%に達したと公表した。これはコボットが「特殊カテゴリ」から、産業用ロボット市場の1割を超える標準選択肢になったことを意味する。source_url: https://ifr.org/ifr-press-releases/news/how-robots-work-alongside-humans
+
+メーカー別シェアはIFRの無料公開資料では詳細公表されていないため、一次資料で確認できるのは製品仕様と市場地位、民間調査で確認できるのは推定値である。Universal Robotsは2022年時点で40-50%程度のシェアとされ、2025-2026年も市場リーダーと扱われる。source_url: https://en.wikipedia.org/wiki/Universal_Robots / https://www.universal-robots.com/media/1831386/project-list-2024-updated.pdf
+
+主要製品の仕様は以下である。
+
+| メーカー | モデル | 代表仕様 | 戦略的位置 |
+|---|---|---|---|
+| Universal Robots | UR3e / UR5e / UR10e / UR20 | UR3e 3kg、UR5e 5kg級、UR10e 12.5kg、UR20 20kg・1,750mm級 | SME・研究・組立の標準プラットフォーム。source_url: https://www.universal-robots.com/media/1826690/01_2023_collective_data_sheet-1.pdf |
+| Techman Robot | TM5 / TM12 | TM12は長リーチ・高可搬、内蔵ビジョンが特徴 | 電子・検査・ビジョン統合。source_url: https://www.tm-robot.com/en/tm12/ |
+| FANUC | CRX | 3-30kg、CRX-20iA/Lは20kg・1,418mm、CRX-30iAは30kg級 | FANUCの産業品質を協働領域へ展開。source_url: https://www.fanuc.co.jp/ja/product/robot/f_r_collabo.html |
+| Yaskawa | MOTOMAN HC10/HC20/HC30 | HC10は10kg、HCシリーズは10/20/30kg級 | 溶接・組立・パレタイジング。source_url: https://www.motoman.com/en-us/products/robots/industrial/assembly/hc-series |
+| Kawasaki | duAro | 双腕SCARA、duAro1は各腕2kg・760mm、duAro2は各腕3kg級 | 人作業置換、食品・軽作業・日本型現場改善。source_url: https://robotics.kawasaki.com/ja1/R-search/?applicationid=15&maxpayload=0-5&minreach= |
+| DENSO WAVE | COBOTTA / COBOTTA PRO | COBOTTAは約4kg本体・500g可搬、COBOTTA PRO 900/1300は6kg/12kg | 小型・高速・AI/3Dビジョン接続。source_url: https://www.denso-wave.com/en/robot/product/collabo/cobotta.html / https://www.denso-wave.com/en/robot/ex/cobottapro_product.html |
+| NACHI | CZ10 | 5kg・927mm | 日本勢のスリム協働ロボット。source_url: https://www.nachi-robotics.de/robot-by-axes/collaborative/cz-series/cz10.html |
+
+## Tesla / BMW / Toyota / Hyundai のAI製造戦略
+
+Teslaの2025年IR資料では、上海Model 3/Yが年産能力95万台超、Berlin Model Yが37.5万台超、Texas Model Yが25万台超、Cybertruckが12.5万台超と示された。Nuevo León/Mexicoは2025年Q2/Q3の「Current Installed Annual Vehicle Capacity」表に記載がなく、2025-2026年時点で公表済み稼働能力は確認できない。source_url: https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf / https://electrek.co/wp-content/uploads/sites/3/2025/10/TSLA-Q3-2025-Update.pdf
+
+Teslaの自動化率は工場・工程別に異なる。上海では2024年に95%自動化と報じられたが、Teslaの2025 IR容量表は生産能力を示すだけで工程別自動化率を示していない。したがって、上海95%は「報道・現地説明ベース」、Berlin/Texas/Nuevo Leónの2025-2026自動化率は公式未確認として扱う。source_url: https://www.reddit.com/r/teslainvestorsclub/comments/1e79ukc / https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf
+
+BMW Debrecenは2025年9月に正式開所し、2025年10月末にNeue Klasse最初の量産モデルBMW iX3の生産開始予定を公表した。DebrecenはBMW iFACTORYの中核で、化石燃料を通常操業で使わない、デジタル計画、AIQXによるカメラ・センサー品質検査を特徴とする。source_url: https://www.bmwgroup.com/en/news/general/2025/series-production-of-the-BMW-iX3.html
+
+Toyotaは2025年統合報告書でAIを「人と協調する重要技術」と位置づけ、Discovery、Manufacturing、RoboticsなどにAIを展開すると記した。2025年にはNVIDIAがToyotaをOmniverse工場デジタルツイン採用企業として挙げ、2026年にはToyota CanadaがAgility RoboticsのDigitをRAV4工場に導入する報道も出た。source_url: https://global.toyota/pages/global_toyota/ir/library/annual/2025_001_integrated_en.pdf / https://nvidianews.nvidia.com/news/nvidia-us-manufacturing-robotics-physical-ai / https://techcrunch.com/2026/02/19/toyota-hires-seven-agility-humanoid-robots-for-canadian-factory/
+
+Hyundaiは2026年CESでAI Robotics Strategy、Software-Defined Factory、Robot Metaplant Application Centerを発表した。Boston Dynamicsは2026年1月、量産版Atlasを公表し、HyundaiとGoogle DeepMindへの2026年配備、Hyundai工場への2028年展開予定を示した。source_url: https://www.hyundai.com/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100 / https://bostondynamics.com/blog/atlas-evolution-from-research-robot-to-industrial-humanoid/
+
+## 日本機関の独自貢献
+
+日本勢の強みは、ヒューマノイドの派手なデモより、FA制御、サーボ、CNC、信頼性、安全規格対応、保守ネットワークである。FANUCはCRXを3-30kg級まで拡張し、食品・塗装・溶接など既存工場の現実タスクに寄せた。source_url: https://www.fanuc.co.jp/ja/product/robot/f_r_collabo.html
+
+川崎重工duAroは「人1人分の作業空間に双腕SCARAを置く」設計思想が独自である。人手作業の置換、冶具削減、安全柵削減、省資源性を重視し、日本型セル生産と親和性が高い。source_url: https://www.khi.co.jp/rd/magazine/178/nj178tr01.html / https://www.khi.co.jp/sustainability/earth/green/2019/duAro.html
+
+デンソーウェーブはCOBOTTAで小型・ポータブル、COBOTTA PROで高速・安全・3Dビジョン/AI接続を打ち出した。COBOTTA PRO 1300は最大可搬12kg、最大リーチ1,463mm、非協働状態TCP最大2,500mm/sを仕様として示す。source_url: https://www.denso-wave.com/en/robot/ex/cobottapro_product.html
+
+安川電機MOTOMAN HCシリーズは10/20/30kg級で、人協働と産業速度の切替を前提にする。NACHIはCZ10で5kg・927mmのスリム協働ロボットを提供する。source_url: https://www.motoman.com/en-us/products/robots/industrial/assembly/hc-series / https://www.nachi-robotics.de/robot-by-axes/collaborative/cz-series/cz10.html
+
+## NVIDIA Isaac + Physical AI 統合動向
+
+NVIDIAは2025年3月、Isaac GR00T N1を「オープンなヒューマノイド基盤モデル」として発表した。GR00T N1は人間視点動画、実ロボット軌道、シミュレーション軌道、合成データを用いる。source_url: https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots
+
+2025年8月にはOmniverse SDK、Cosmos world foundation models、Isaac Sim 5.0、Isaac Lab 2.2が発表され、工場デジタルツインとロボット学習が同じ開発パイプラインに入った。source_url: https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Opens-Portals-to-World-of-Robotics-With-New-Omniverse-Libraries-Cosmos-Physical-AI-Models-and-AI-Computing-Infrastructure/default.aspx
+
+Skild AIは2025年7月、単一の「general-purpose robotic brain」を複数タスク・複数身体に汎化させる方針を発表した。Covariantは2024年にRFM-1を発表し、Amazonは2024年にCovariantの基盤モデルをライセンスし創業者を採用した。source_url: https://www.skild.ai/blogs/building-the-general-purpose-robotic-brain / https://covariant.ai/rfm/ / https://www.aboutamazon.com/news/company-news/amazon-covariant-ai-robots
+
+Physical Intelligenceのπ0は2025年RSS論文で、Vision-Language-Action flow modelとして一般ロボット制御を扱った。これは「特定エンドエフェクタ用の制御」から「言語・視覚・行動を統合するロボット基盤モデル」への移行を示す。source_url: https://www.roboticsproceedings.org/rss21/p010.pdf
+
+## リショアリング動向
+
+米国CHIPS and Science Actは半導体製造補助390億ドル、R&D 110億ドルを含み、NISTのCHIPS for Americaは国内研究・製造基盤を再構築する政策である。source_url: https://www.nist.gov/chips
+
+米商務省は2025年1月、CHIPS政策により電子製造投資が過去30年を上回り、計画投資が約4,500億ドルに達したと説明した。source_url: https://www.commerce.gov/news/press-releases/2025/01/four-years-transformation-department-commerce
+
+日本の「半導体・デジタル産業戦略」は、半導体、情報処理基盤、高度情報通信インフラ、蓄電池を政策対象にし、Society 5.0、経済安全保障、DX/GXを結びつける。2025年には半導体工場OTセキュリティガイドラインも整備された。source_url: https://www.meti.go.jp/policy/mono_info_service/joho/conference/semicon_digital.html / https://www.meti.go.jp/english/press/2025/1024_003.html
+
+## 主要論文・統計・一次資料
+
+1. IFR World Robotics 2025 Industrial Robots Executive Summary。2024年世界設置542,076台、電子128,899台など。source_url: https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf  
+2. IFR Collaborative Robots position paper。2023年コボット比率10.5%。source_url: https://ifr.org/ifr-press-releases/news/how-robots-work-alongside-humans  
+3. Tesla Q2 2025 Update。上海95万台超、Berlin37.5万台超、Texas Model Y25万台超、Cybertruck12.5万台超。source_url: https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf  
+4. BMW Debrecen official release。2025年10月末iX3量産、AIQX、化石燃料なし通常操業。source_url: https://www.bmwgroup.com/en/news/general/2025/series-production-of-the-BMW-iX3.html  
+5. Xiaomi EV factory report。76秒タクト、700台超ロボット。source_url: https://global.chinadaily.com.cn/a/202506/17/WS6851302ba310a04af22c6cd2.html  
+6. NVIDIA Isaac GR00T N1 research page。2025年3月、オープンヒューマノイド基盤モデル。source_url: https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots  
+7. NVIDIA Omniverse / Cosmos / Isaac Sim 5.0発表。source_url: https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Opens-Portals-to-World-of-Robotics-With-New-Omniverse-Libraries-Cosmos-Physical-AI-Models-and-AI-Computing-Infrastructure/default.aspx  
+8. Physical Intelligence π0 RSS 2025。source_url: https://www.roboticsproceedings.org/rss21/p010.pdf  
+9. Covariant RFM-1。source_url: https://covariant.ai/rfm/  
+10. Skild AI general-purpose robotic brain。source_url: https://www.skild.ai/blogs/building-the-general-purpose-robotic-brain  
+11. Hyundai CES 2026 AI Robotics Strategy。source_url: https://www.hyundai.com/worldwide/en/newsroom/detail/hyundai-motor-group-announces-ai-robotics-strategy-to-lead-human-centered-robotics-era-at-ces-2026-0000001100  
+12. METI 半導体・デジタル産業戦略。source_url: https://www.meti.go.jp/policy/mono_info_service/joho/conference/semicon_digital.html  
+
+## 2030 製造業景観予測
+
+2030年の製造業は、完全無人工場が全面化するのではなく、工程別に4層へ分かれる。第1層はXiaomi型の高タクトEV・電子工場で、ボディ、塗装、搬送、検査の無人化が進む。第2層はBMW Debrecen型のサステナブル・デジタルツイン工場で、AI品質保証と仮想立上げが標準化する。第3層はUR、FANUC、Yaskawa、DENSO、Kawasakiのコボットが担う多品種少量現場である。第4層はHyundai Atlas、XPeng IRON、Agibot、Unitree、Skild/π0/GR00T系の汎用ロボットが、物流・部品供給・検査・軽組立から限定導入される。source_url: https://nvidianews.nvidia.com/news/nvidia-us-manufacturing-robotics-physical-ai / https://bostondynamics.com/blog/atlas-evolution-from-research-robot-to-industrial-humanoid/
+
+最大の制約は、ロボット本体価格ではなく、安全認証、稼働率、保守、サイバーセキュリティ、現場データ、失敗時責任である。したがって2030年の勝者は「最も人間に似たロボット」ではなく、工場デジタルツイン、AI品質、FA制御、ロボット安全、データ取得を閉ループ化できる企業になる。日本勢はFANUC、安川、川崎、デンソー、不二越の高信頼FA資産をPhysical AIに接続できるかが競争軸となる。source_url: https://www.meti.go.jp/english/press/2025/1024_003.html / https://www.fanuc.co.jp/ja/product/robot/f_r_collabo.html
+tokens used
+125,530

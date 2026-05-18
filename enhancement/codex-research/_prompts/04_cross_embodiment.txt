@@ -1,0 +1,30 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Comprehensive research on Cross-embodiment transfer learning in robotics, 2023-2026.
+
+SCOPE (must cover all):
+- Open X-Embodiment dataset (2023 launch, 22 embodiments, 60+ datasets)
+- RT-X / RT-1-X / RT-2-X (Google DeepMind)
+- AnyBody / AnyTask / AnySkill embodiment-agnostic methods
+- BridgeData V2, RoboMimic, RoboCasa
+- DROID dataset (Stanford, 2024)
+- Galaxea, Mobile ALOHA, Universal Manipulation Interface (UMI)
+- Latent action representation: Octo, RDT-1B (Chinese)
+- Cross-embodiment foundation models 2025: π0, OpenVLA-OFT cross-embodiment evaluation
+- Sim-to-real cross-embodiment: Isaac Lab, MuJoCo Playground, ManiSkill
+- Japan: 産総研ロボット技術, 東大 JSK Cross-embodiment 研究
+
+DELIVERABLE: Markdown report ≥ 2,500 words 地の文, structured:
+1. Why cross-embodiment matters (3 paragraphs: 身体多様性問題・データ scalability・現状のボトルネック)
+2. Dataset catalog: Open X-Embodiment / DROID / RoboMimic / each: contributors, embodiment count, episode count, source URL
+3. Methods deep dive: latent action / shared tokenizer / hardware abstraction / 各手法の長所短所
+4. Benchmarks: 異身体間 transfer success rate の論文での実測値
+5. 制約: physical morphology gap, sensor diversity, control frequency mismatch
+6. 日本機関の cross-embodiment 研究 (必須)
+7. 2026-2030 outlook
+
+CITATIONS: arXiv / GitHub / project page URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.

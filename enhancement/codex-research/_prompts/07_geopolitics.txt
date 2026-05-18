@@ -1,0 +1,51 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Geopolitics of Physical AI / humanoid robotics — US, China, EU, Japan national policy comparison, 2024-2026.
+
+SCOPE (must cover all):
+- 米国:
+  - CHIPS and Science Act (2022) and 2024-2025 expansions
+  - National Robotics Initiative 3.0
+  - DoD Replicator initiative (2023 launch, autonomous attritable systems)
+  - DARPA RACER, OFFSET, ANSR programs
+  - White House AI Executive Order (2023-10, Biden) → Trump 2025 EO rollback
+  - Manufacturing USA institutes (ARM, MxD)
+- 中国:
+  - 「具身智能」(Embodied Intelligence) 白書 2025 - MIIT
+  - 14th Five-Year Plan Robotics Industry Development Plan (2021-2025)
+  - 15th Five-Year Plan (2026-2030) drafts
+  - Made in China 2025 → 2035
+  - 人形机器人创新发展指导意见 (2023-10 humanoid robot innovation guidance)
+  - Beijing Humanoid Robot Innovation Center, Shanghai 国地中心
+  - Major Chinese companies: UBTECH (HKEX上場), XPENG Robotics, Unitree, Fourier
+- 欧州:
+  - EU AI Act (規制軸)
+  - Horizon Europe Robotics programme
+  - SPARC partnership / euRobotics
+  - Germany: ARENA2036, KI-Strategie 2025
+  - France: AI for Humanity strategy
+- 日本:
+  - 経産省ロボット戦略 (NEDO ロボット白書 2024)
+  - ムーンショット目標1「身体的能力拡張」目標3「AI技術と共生する社会」
+  - 内閣府 SIP「AIロボット」
+  - 統合イノベーション戦略 2025
+  - AIST「次世代AI研究センター」
+  - 産業競争力強化法
+- 韓国: K-Humanoid Alliance (2024), Samsung Rainbow Robotics
+- インド: National Mission on Robotics
+
+DELIVERABLE: Markdown report ≥ 3,000 words 地の文, structured:
+1. Physical AI 地政学の全体像 (4 paragraphs: 産業政策化・軍事化・標準化競争・サプライチェーン)
+2. 米国: 政策・予算・主要プログラム詳細
+3. 中国: 「具身智能」を中心とした産業政策の構造
+4. EU: 規制と投資の二軸
+5. 日本: ムーンショットとロボット白書を軸に詳細（必須・厚く書く）
+6. その他: 韓国、インド、UK、UAE、サウジ NEOM
+7. 半導体・希少金属サプライチェーン
+8. 2026-2030 outlook
+
+CITATIONS: 政府文書URL / 予算額・産業政策の出典必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.

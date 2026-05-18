@@ -1,0 +1,32 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Comprehensive research on World Model AI / Physical World Foundation Models, 2024-2026.
+
+SCOPE (must cover all):
+- NVIDIA Cosmos (Cosmos-1, Cosmos World Foundation Models, CES 2025 announcement)
+- Google DeepMind Genie 2 (2024-12) / Genie 3 (rumored 2025)
+- Meta JEPA / V-JEPA / V-JEPA 2 (Yann LeCun framework)
+- OpenAI Sora 物理理解能力評価 (VBench, physics consistency)
+- Google Lumiere / Veo 2 / Veo 3
+- Runway Gen-3 / Gen-4
+- Tencent Hunyuan-Video
+- China: Vidu (Sengshu), Kling (Kuaishou)
+- World Labs (Fei-Fei Li, 2024 launch, 3D world generation)
+- 1X World Model, Wayve GAIA-1 / GAIA-2 (driving world models)
+- Academic: DreamerV3, GameNGen (Google 2024), DIAMOND (Microsoft 2024)
+- Japan: Sony AI 物理シミュレータ研究, PFN World Model 研究
+
+DELIVERABLE: Markdown report ≥ 3,000 words, 地の文, structured:
+1. World Model paradigm overview (4 paragraphs: 定義・JEPA vs autoregressive vs diffusion・evaluation benchmarks・physics consistency問題)
+2. Per-model deep dive (30 entries):
+   - Model name / institution / release date / parameters / training data / 物理一貫性スコア / 公開ベンチマーク / paper or blog URL
+3. Benchmarks: VBench, Physics-IQ, World Model Benchmark の数値比較
+4. 物理理解の限界: object permanence / gravity / fluid / contact dynamics の各失敗事例
+5. Robotics統合: World ModelをVLAの内部シミュレータとして使う研究 (UniSim, Genie for Robotics 等)
+6. 2026-2030 outlook
+
+CITATIONS: arXiv / company blog / benchmark leaderboard URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.

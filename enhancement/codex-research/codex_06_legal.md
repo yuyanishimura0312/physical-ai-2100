@@ -1,0 +1,93 @@
+# AI Personhood and Embodied AI Legal Frameworks, 2024-2026
+
+調査日: 2026-05-18
+
+## 1. AI規制の現状マップ
+
+2024-2026年のAI規制は、抽象的な倫理原則から、リスク分類、事前適合性評価、事故後責任、国際的な安全性評価へ移行した時期である。EUは[Regulation (EU) 2024/1689, AI Act](https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32024R1689)を2024年8月1日に発効させ、禁止AI、高リスクAI、透明性義務、汎用AIモデル義務という階層的な制度を置いた。米国は包括的連邦AI法ではなく、[NIST AI RMF 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10)、州法、行政命令、分野別執行で進み、2025年以降は連邦政府の姿勢が安全規制重視から競争力・調達・インフラ重視へ振れた。
+
+国際面では、国連総会が2024年3月21日に[A/78/L.49](https://press.un.org/en/2024/ga12588.doc.htm)を無投票採択し、同年9月には国連AI諮問機関の最終報告書[Governing AI for Humanity](https://www.un.org/en/ai-advisory-body)と[Pact for the Future / Global Digital Compact](https://www.un.org/en/node/222117)が出た。これらはAIを人権、SDGs、能力格差、標準化、国際科学パネルの問題として扱い、単一の世界AI規制機関ではなく、分散した国際協調の制度群を志向している。
+
+身体性AI、すなわちロボット、自動運転車、医療ロボット、産業用自律機械、ヒューマノイドは、ソフトウェア規制と製品安全規制の接点に立つ。AI Personhoodの議論は、AIを権利主体にする議論として注目される一方、2024-2026年の実務的焦点は「AIに人格を与える」ことではなく、AIを組み込んだ製品・サービスの提供者、導入者、製造者、運用者、保険者に責任を割り当てることである。EUのAI Act、[Product Liability Directive (EU) 2024/2853](https://eur-lex.europa.eu/eli/dir/2024/2853/oj)、米国のAutopilot訴訟、ALIの[Civil Liability for Artificial Intelligence](https://www.ali.org/project/principles-law-civil-liability-artificial-intelligence)プロジェクトは、この流れを示す。
+
+## 2. EU AI Act 詳細: 高リスクAI区分、身体性AIへの適用、罰則、施行スケジュール
+
+EU AI Actは、AIを「リスクベース」で分類する水平規制である。欧州委員会は2024年8月1日の発効時に、同法がEU全域で統一的な枠組みを設け、健康、安全、基本権を保護しつつ信頼できるAIの普及を促すものだと説明している（[European Commission, AI Act enters into force](https://commission.europa.eu/news/ai-act-enters-force-2024-08-01_en)）。高リスクAIは大きく二つの経路で認定される。第一は、AIが既存のEU製品安全法制の対象製品の安全部品であり、第三者適合性評価を要する場合である。第二は、Annex IIIに列挙された用途、たとえば重要インフラ、教育、雇用、重要な民間・公共サービス、法執行、移民管理、司法・民主的プロセスに使われる場合である。
+
+身体性AIにとって重要なのは、第一の経路である。AIが機械、医療機器、自動車、航空、玩具、リフト、船舶設備などに組み込まれると、AI単体ではなく「製品の安全部品」として高リスク化する。ヒューマノイド介護ロボット、倉庫内自律搬送ロボット、手術支援ロボット、リハビリ用外骨格、農業用自律機械などは、単なる情報サービスではなく、接触、衝突、挟み込み、誤投薬、誤診支援、転倒誘発など身体的損害を発生させうる。EUの[Machinery Regulation (EU) 2023/1230](https://eur-lex.europa.eu/eli/reg/2023/1230/oj)は、自律移動機械や監督機能を明示的に扱い、AI Actとともに「AI安全」と「機械安全」を重ね合わせる。
+
+高リスクAIの提供者には、リスク管理システム、データガバナンス、技術文書、ログ記録、透明性、人間による監督、正確性・堅牢性・サイバーセキュリティ、適合性評価、CEマーキング、市販後監視が求められる。身体性AIでは、これらは抽象的な説明責任では済まない。たとえばヒューマノイドが人に接触する場合、センサー故障時のフェイルセーフ、力制限、緊急停止、運用環境の境界、操作者訓練、事故ログ保存、ソフトウェア更新後の再評価が必要になる。生成AI搭載ロボットでは、言語モデルの幻覚が行動計画に接続されるため、プロンプト安全だけでなく、行動空間の制限と物理的インターロックが重要になる。
+
+罰則は重い。AI Actは違反類型に応じて、禁止AIの違反に最大3,500万ユーロまたは全世界年間売上高7%、その他の義務違反に最大1,500万ユーロまたは3%、当局への不正確情報提供に最大750万ユーロまたは1%の制裁を予定する。これは身体性AIメーカーにとって、製品安全違反だけでなく、AIガバナンス違反が企業リスクになることを意味する。
+
+施行は段階的である。発効は2024年8月1日。禁止AIの規定は2025年2月2日から適用。汎用AIモデル関連義務は2025年8月2日から適用。多くのAnnex III高リスクAI義務は2026年8月2日から適用される。Annex IIの既存製品安全法制と結びつく一部高リスクAIは2027年8月2日が中心になる（欧州委員会の[AI Act implementation timeline](https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline)、[Navigating the AI Act](https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act)）。したがって2025-2026年は、実体義務の本格適用前に標準化、社内AIインベントリ、適合性評価体制を整える移行期である。
+
+EUでは責任法も同時に更新された。[Product Liability Directive (EU) 2024/2853](https://eur-lex.europa.eu/eli/dir/2024/2853/oj)は、ソフトウェア、AIシステム、デジタル製造ファイル、関連サービスを製品責任の射程に入れ、被害者側の証明困難を緩和する方向に進む。他方、AI固有の証拠開示・因果関係推定を狙ったAI Liability Directive案は2025年に撤回方向となり、EUの事故後救済は、AI Act、PLD、各国不法行為法、機械・医療機器などの分野法の組合せで運用される見通しである。
+
+## 3. 米国: 連邦・州法・行政命令の比較
+
+米国の連邦レベルでは、2024-2026年時点でEU AI Actのような包括AI法はない。中心は標準、行政命令、調達、分野別規制、州法である。[NIST AI RMF 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10)は2023年1月26日に公表された任意フレームワークで、Govern, Map, Measure, Manageの機能を通じてAIリスクを管理する。2024年7月26日には生成AI向けプロファイル[NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)が出され、合成コンテンツ、情報完全性、サイバー、CBRN、プライバシー、児童保護、知財、環境負荷など、生成AIで新規または増幅されるリスクを整理した。
+
+バイデン政権の[Executive Order 14110](https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence)は2023年10月に安全・安心・信頼できるAIを掲げたが、NIST自身のページが記録する通り、2025年1月20日に撤回された。続く2025年1月23日の[Executive Order 14179, Removing Barriers to American Leadership in Artificial Intelligence](https://www.whitehouse.gov/presidential-actions/2025/01/removing-barriers-to-american-leadership-in-artificial-intelligence/)は、米国AIリーダーシップと規制障壁除去を掲げ、180日以内のAI Action Plan作成を命じた。2025年7月には[America’s AI Action Plan](https://www.whitehouse.gov/articles/2025/07/white-house-unveils-americas-ai-action-plan/)が公表され、イノベーション促進、AIインフラ、同盟国への米国AI普及が柱となった。つまり連邦政策は、2024年の安全管理から2025年の競争力・調達・インフラへ重心を移した。
+
+州法では、カリフォルニアSB 1047が象徴的である。SB 1047、正式名Safe and Secure Innovation for Frontier Artificial Intelligence Models Actは、大規模フロンティアモデル開発者に安全評価、重大危害の防止、停止措置などを課す構想だったが、2024年9月29日にGavin Newsom知事が拒否した（[veto message PDF](https://www.gov.ca.gov/wp-content/uploads/2024/09/SB-1047-Veto-Message.pdf)）。拒否理由の核心は、モデルの規模・コストだけを基準にし、実際に高リスク環境で使われるか、重要意思決定に関わるか、敏感データを扱うかを十分反映しないという点だった。この拒否は、米国で「基盤モデルそのものを規制するか」「用途・被害・分野で規制するか」という対立を明確にした。
+
+Texas TRAIGAは、2025年に成立した州AI法として重要である。Texas House Bill 149、正式名Texas Responsible Artificial Intelligence Governance Actは2025年6月22日に署名され、2026年1月1日に施行されたとされる（法案本文: [HB 149 enrolled PDF](https://www.legis.state.tx.us/tlodocs/89R/billtext/pdf/HB00149F.pdf)）。同法は、テキサスで事業を行うAI開発者・導入者に対し、AIとの相互作用開示、政府による社会的スコアリング禁止、違法差別目的のAI利用禁止、特定のバイオメトリック・操作的利用への規律などを置く。EU AI Actほど包括的な事前適合性評価制度ではないが、消費者保護、差別、政府利用、透明性に焦点を置く。
+
+なお、Colorado SB24-205も比較上重要である。同法は2024年5月17日に署名され、2026年2月1日施行予定で、高リスクAIシステムによるアルゴリズム差別を対象とする（[Colorado General Assembly SB24-205](https://leg.colorado.gov/bills/SB24-205)、[Colorado AG ADAI](https://coag.gov/ai/)）。米国は連邦包括法より先に州別の高リスクAI、消費者保護、差別防止、ディープフェイク、雇用・住宅・信用スコアリングの規律が発達しており、身体性AIについても自動運転、医療機器、労働安全、製品責任、保険法が分野別に適用される構造である。
+
+## 4. 日本: 政府方針・法案・ガイドラインの現状
+
+日本は2024年時点では、EU型の包括的なAI義務法よりも、ガイドライン、国際原則、事業者の自主的ガバナンスを中心にしていた。総務省と経済産業省は2024年4月19日、[AI事業者ガイドライン（第1.0版）](https://www.meti.go.jp/press/2024/04/20240419004/20240419004.html)を取りまとめた。このガイドラインは、総務省のAI開発ガイドライン・AI利活用ガイドライン、経産省のAI原則実践のためのガバナンス・ガイドラインを統合し、AI開発者、AI提供者、AI利用者を対象とする。対象には政府・自治体等の公的機関も含まれる（内閣府資料: [AI事業者ガイドライン案 第1.0版](https://www8.cao.go.jp/cstp/ai/ai_senryaku/8kai/siryo1.pdf)）。
+
+AI事業者ガイドラインの特徴は、法的強制よりも、リスクベース、アジャイル・ガバナンス、透明性、説明可能性、安全性、公平性、プライバシー、セキュリティ、人間中心、ステークホルダーとの対話を重視する点にある。身体性AIに直接特化した規定ではないが、AI提供者・利用者が安全性、運用環境、事故時対応、データ管理、外部委託、サプライチェーンを管理すべきことは、ロボット・自動運転・医療AIにも適用される。日本の製造業・介護・物流・建設・農業で身体性AIを導入する場合、このガイドラインは社内AI管理規程、リスクアセスメント、取引契約、説明文書の基礎になる。
+
+内閣府ではAI戦略会議の下にAI制度研究会が設置され、2025年2月4日に[中間とりまとめ](https://www8.cao.go.jp/cstp/ai/interim_report.pdf)が公表された。中間とりまとめは、AIの研究開発から活用までを一体的・横断的に捉え、必要に応じた制度整備、関係府省庁が参加する政策推進体制、国際規範との整合を求めた。これは、日本が「規制しない国」から「リスクに応じて制度を置く国」へ移行する前段階であった。
+
+2025年には、人工知能関連技術の研究開発及び活用の推進に関する法律、いわゆるAI推進法が成立した。日本法令索引では、同法は令和7年6月4日法律第53号として掲載されている（[日本法令索引](https://hourei.ndl.go.jp/simple/detail?lawId=0000168047)）。官報掲載情報によれば、目的はAI関連技術が経済社会の発展基盤であることを踏まえ、基本理念、基本計画、人工知能戦略本部の設置を定め、国民生活の向上と国民経済の健全な発展に寄与することにある（[官報検索](https://search.kanpoo.jp/r/20250604g123p38-e/)）。内閣府の概要資料も、人工知能戦略本部の本部長を内閣総理大臣、構成員を全ての国務大臣とする体制を示している（[AI法の概要 PDF](https://www8.cao.go.jp/cstp/ai/ai_hou_gaiyou.pdf)）。
+
+自由民主党側では、2025年2月28日に「AI分野で世界のモデルとなる国へ初のAI法案を通常国会に提出」と発信しており、党内の内閣第二部会、科学技術・イノベーション戦略調査会、デジタル社会推進本部で法案を了承した経緯が示されている（[自民党ニュース](https://www.jimin.jp/news/information/210063.html)）。AIホワイトペーパー2025についても、自民党デジタル社会推進本部からデジタル大臣への申し入れとして言及されている（[小森卓郎議員サイト](https://komoritakuo.jp/news/2383/)）。ただし日本のAI推進法は、EU AI Actのように個別AIシステムの高リスク分類、適合性評価、制裁金を直接定める法律ではなく、基本法・推進法的な性格が強い。
+
+広島AIプロセスは、日本の国際AI政策の軸である。外務省は、2023年12月のG7首脳声明で「全てのAI関係者向けの広島プロセス国際指針」と「高度なAIシステムを開発する組織向けの広島プロセス国際行動規範」を含む包括的政策枠組みが承認されたと説明している（[外務省 AI外交](https://www.mofa.go.jp/mofaj/ecm/st/pagew_000001_01551.html)、[広島AIプロセスに関するG7首脳声明](https://www.mofa.go.jp/mofaj/ecm/ec/page5_000483.html)）。2024年以降も、G7、OECD、国連、フレンズグループを通じて継続され、日本のAI法やガイドラインの国際的基盤になっている。
+
+身体性AIに関して、日本の課題は、AI推進法・AI事業者ガイドラインと、既存の製造物責任法、道路運送車両法、医薬品医療機器等法、労働安全衛生法、介護・福祉機器の安全基準をどう接続するかである。AI推進法が基本計画と戦略本部を作るなら、次段階ではロボット事故報告、ログ保存、保険、認証、標準化、事故調査機関の設計が問われる。
+
+## 5. AI Personhood: 学術論争・政策提案・実例
+
+AI Personhoodは、AIを法的人格、権利主体、義務主体、訴訟主体、財産保有主体、責任主体として扱うべきかという議論である。EUでは2017年、欧州議会がロボティクス民事法規則に関する決議で、長期的には高度自律ロボットに「electronic persons」という特別な法的地位を検討する可能性に言及した（[European Parliament procedure 2015/2103(INL)](https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2015%2F2103%28INL%29)、[採択文書概要PDF](https://oeil.secure.europarl.europa.eu/oeil/en/procedure-file/pdf?reference=2015%2F2103%28INL%29)）。しかし、これはEU法として制度化されなかった。2024年のAI ActもAIに人格を与えず、提供者、導入者、輸入者、販売者、製品製造者など人間・法人側の義務を定める構造を採った。したがって2017年のelectronic personhoodは、現在では政策主流ではなく、むしろ責任逃れを招く懸念のある歴史的提案として扱われる。
+
+Sophiaの事例も同様である。Hanson RoboticsのロボットSophiaは2017年10月、サウジアラビアで市民権を与えられたと報じられた（例: [TechCrunch, 2017](https://techcrunch.com/2017/10/26/saudi-arabia-robot-citizen-sophia/)）。しかし、その法的位置付けは不明確で、通常の国籍法上の権利義務、旅券、納税、訴訟能力、婚姻、財産保有、刑事責任などが実際に認められたわけではない。Harvard Petrie-Flom Centerの解説も、Sophiaを法的人格の枠組みに位置づけようとしつつ、その能力と法的地位の不整合を指摘している（[AI Citizen Sophia and Legal Status](https://petrieflom.law.harvard.edu/2017/11/09/ai-citizen-sophia-and-legal-status/)）。学術的には、Ugo Pagalloの[Vital, Sophia, and Co.](https://www.mdpi.com/2078-2489/9/9/230)や、Sophiaを政治的パフォーマンスとして分析する[AI & Society論文](https://link.springer.com/article/10.1007/s00146-020-01104-w)が参照点になる。
+
+2024-2026年の学術論争は、三つに分かれる。第一は、AIが意識、自己認識、理論的心、持続的アイデンティティを持ちうるなら、限定的な人格・権利を検討すべきだという議論である。AAAI 2025の[Towards a Theory of AI Personhood](https://ojs.aaai.org/index.php/AAAI/article/view/34982)は、AI人格の必要条件としてエージェンシー、他者の心の理解、自己認識を論じる。2025-2026年の[AI as Legal Persons: Past, Patterns, and Prospects](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5032265)は、AI法的人格論の政策サイクルと歴史的パターンを整理する。
+
+第二は、人格を与えずにAIの行為性を管理する議論である。2025年の[Law-Following AI Framework](https://arxiv.org/abs/2509.08009)は、AIに完全な法的人格を与えず、法遵守を上位設計目標として組み込む構想を検討する。2025年の[How Should the Law Treat Future AI Systems?](https://arxiv.org/abs/2511.14964)は、AIを物として扱い続ける選択、フィクションとしての法的人格を与える選択、非フィクションの法的アイデンティティを認める選択を比較する。ここでの中心論点は、AIの内面ではなく、契約、責任、訴訟、財産、停止可能性、監督可能性である。
+
+第三は、AI人格論を危険視する批判である。AI Now Instituteの2025年Landscape Report [Artificial Power](https://ainowinstitute.org/publications/research/ai-now-2025-landscape-report)は、AI企業の権力集中、規制をイノベーション阻害として再構成する言説、公共部門・軍事・監視への浸透を問題にする。人格論は、場合によっては企業や開発者の責任をAIという「主体」に移し、被害者救済を難しくする。Oxford Internet InstituteのSandra Wachterらは、LLMに真実を述べる法的義務があるかを現行法から分析し、AI Act、Digital Services Act、Product Liability Directiveなどの既存枠組みで規律する必要を示した（[OII news](https://www.oii.ox.ac.uk/news-events/do-large-language-models-have-a-legal-duty-to-tell-the-truth/)）。Oxford系では、Jonathan Birchの[The Edge of Sentience](https://academic.oup.com/book/57949?searchresult=1)が、AIを含む境界的存在への慎重なセンチエンス評価を論じるが、これは直ちに法的人格付与を意味しない。
+
+Stanford HAIは、AI Indexや法律・医療AI責任研究を通じ、AIの能力、導入、事故、責任の実証的把握を重視している。Stanford Medicineは2024年、医療AIツールの責任リスクについて、AIソフトウェアが判例にまだ多く現れていないため、従来型ソフトウェアを含む800件超の不法行為事例から責任構造を分析した研究を紹介した（[Stanford Medicine, 2024](https://med.stanford.edu/news/insights/2024/01/liability-risk-ai-tools-patient-care.html)）。これはPersonhoodよりも、医師、病院、開発者、ベンダーの注意義務と標準治療の問題としてAIを扱う方向である。
+
+## 6. 身体性AI固有の論点: 自律ロボット事故の責任、被害者救済、保険
+
+身体性AIの法的特殊性は、AIの出力が物理世界で不可逆の損害を生む点にある。チャットボットの誤情報も重大だが、ヒューマノイドが高齢者を転倒させる、倉庫ロボットが作業員を挟む、手術ロボットが熱損傷を起こす、自動運転車が歩行者をはねる場合、問題は表現の誤りではなく生命・身体・財産への直接侵害である。したがって、説明可能性や透明性だけでなく、設計上の安全、運用制限、緊急停止、冗長センサー、ログ、事故調査、保険が中心になる。
+
+最新の不法行為・製品責任の参照点は、自動運転・運転支援である。2025年8月、Florida連邦陪審はBenavides v. Tesla, Inc.で、2019年のAutopilot関与死亡事故についてTeslaの部分責任を認め、補償的損害と懲罰的損害を含む大きな評決を出したと報じられた（事件資料例: [Case 1:21-cv-21940-BB, order PDF](https://assets.alm.com/6a/6b/8e99de0340bebf23c463f9f38c73/2025-06-25-benavides-msj-order.pdf)、報道: [Axios](https://www.axios.com/2025/08/01/tesla-crash-autopilot-jury-florida)）。争点は、Autopilotの利用範囲、ジオフェンスしなかったこと、マーケティング表示、ユーザー誤用の予見可能性である。これは身体性AI全般に、メーカーが「ユーザーが誤用した」と主張しても、誤用が予見可能なら設計・警告・運用制限の責任が残りうることを示す。
+
+医療ロボットでも同様である。Sultzer v. Intuitive Surgical, Inc., No. 9:24-cv-80137では、da Vinci XIロボット手術システムを用いた手術後の熱損傷に関し、過失、厳格製造物責任、設計欠陥、製造欠陥、警告欠陥が争われた（[case summary](https://app.midpage.ai/case/sultzer-v-intuitive-surgical-inc-1000405231171)）。医療ロボットの場合、責任はメーカー、病院、医師、メンテナンス業者、ソフトウェア更新者に分散する。AIが自律性を増すほど、医師の操作ミスだけでなく、訓練データ、制御アルゴリズム、UI、警告、ログ、アップデート後検証が争点になる。
+
+産業ロボットについては、OSHAの事故記録が実務上重要である。2024年2月22日のOSHA事故記録には、作業員がロボットアームに胸部を圧迫され死亡した事例が記録されている（[OSHA accident detail](https://www.osha.gov/ords/imis/accidentsearch.accident_detail?id=164368.015)）。また2024年の研究[Robot-related injuries in the workplace](https://www.sciencedirect.com/science/article/abs/pii/S0003687024001017)は、2015-2022年のOSHA Severe Injury Reportsから77件のロボット関連事故を分析している。これらはAI Personhoodとは無関係に、隔離、ロックアウト・タグアウト、セーフティライトカーテン、協働ロボットの力制限、作業員訓練が不可欠であることを示す。
+
+ヒューマノイド事故については、2024-2026年時点で、自動車のAutopilot判例ほど確立した大規模判例は確認できない。したがって教材上は「ヒューマノイドロボット事故」は仮想事例として扱うのが正確である。たとえば、家庭用ヒューマノイドが介護施設で入居者を抱え上げようとして転倒させた場合、責任候補は、製造者の設計欠陥、ソフトウェア提供者の制御欠陥、施設側の運用過失、保守業者の点検過失、利用者設定の誤り、学習データやアップデートの欠陥に分かれる。AIを法的人格にして賠償義務を負わせても、AI自体に資産も保険もなければ被害者救済にならない。したがって制度設計上は、強制保険、メーカー責任、運用者責任、事故基金、ログ開示、事故調査が優先される。
+
+保険は身体性AIの中核制度になる。自動車では既に強制保険とメーカー責任の組合せがあるが、配送ロボット、介護ロボット、警備ロボット、外骨格、農業ロボットでは、誰が保険契約者になるかが明確でない。EU型では製品安全・製品責任と市場監視を通じてメーカーに圧力をかける。米国型では州法、契約、保険、訴訟が中心になる。日本ではPL法、自賠責類似制度の拡張、介護施設・医療機関の賠償責任保険、ロボットメーカーの製造物責任保険をどう接続するかが課題になる。
+
+## 7. 2026-2030 規制トレンド予測
+
+第一に、AI規制は「モデル規制」だけではなく「用途・製品・事故責任」へ収束する。SB 1047の拒否理由が示した通り、モデルのサイズや学習計算量だけで危険性を測る制度は政治的に不安定である。一方、EU AI ActのAnnex III、製品安全法制、ColoradoやTexasの州法は、雇用、信用、医療、重要インフラ、身体的安全、政府利用など、被害領域ごとに義務を置く方向である。2026-2030年には、汎用モデル義務と用途別義務が二層化し、ロボットや自動運転は後者の中心になる。
+
+第二に、身体性AIでは「ログと事故調査」が標準化する。自律ロボット事故では、誰が何を判断したかを人間の証言だけで再構成できない。センサー入力、モデル出力、制御命令、警告表示、操作者介入、通信状態、ソフトウェアバージョン、環境条件を保存する必要がある。航空機のフライトレコーダー、自動車EDR、医療機器ログに近い仕組みが、ヒューマノイドや協働ロボットにも拡張されるだろう。
+
+第三に、AI Personhoodは短期的には主流制度にならない。EU AI Act、日本AI推進法、NIST AI RMF、Texas TRAIGA、国連文書はいずれも、AIを権利主体にするより、人間・法人・国家の責任を強化する。Personhood論は、将来の高自律AIやセンチエンス疑義を扱う哲学・法理論として残るが、2030年までの実務は、AIの権利ではなく、AIによる損害から人間を守る制度に集中する。
+
+第四に、国際枠組みはAsilomar PrinciplesからBletchley、Seoul、Paris、国連Global Digital Compactへ続く。2017年の[Asilomar AI Principles](https://futureoflife.org/ai-principles/)は研究倫理と長期安全の原則だった。2023年の[Bletchley Declaration](https://www.gov.uk/government/news/countries-agree-to-safe-and-responsible-development-of-frontier-ai-in-landmark-bletchley-declaration)はフロンティアAIの深刻リスクに関する共通理解を形成した。2024年の[Seoul Declaration](https://www.gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024)は安全、イノベーション、包摂を並べ、2025年の[Paris AI Action Summit](https://www.diplomatie.gouv.fr/en/presse-et-ressources/decouvrir-et-informer/actualites/sommet-pour-l-action-sur-l-intelligence-artificielle)は公共利益、標準、持続可能性、AI普及へ焦点を広げた。2026-2030年には、安全性評価機関ネットワーク、標準化、モデル評価、事故情報共有が国際協調の実務になる。
+
+第五に、日本の課題は、推進法を実効的な安全制度に翻訳することである。AI推進法は国家戦略と司令塔を作ったが、身体性AIの事故責任、保険、認証、ログ、事故調査、リコール、アップデート後再認証はまだ分野別に散在している。Physical AI 2100の観点では、日本はロボット導入先進国になりうる一方、高齢者介護、災害対応、物流、医療、公共空間で事故が起きた時の救済制度を先に設計しなければならない。2030年までに求められるのは、「AIに人格を与える法」ではなく、「AIを身体化した製品が人を傷つけた時、誰が、どの証拠に基づき、どの保険・基金で、どれだけ速く救済するか」を定める制度である。

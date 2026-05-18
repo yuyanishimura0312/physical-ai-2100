@@ -1,0 +1,171 @@
+OpenAI Codex v0.128.0 (research preview)
+--------
+workdir: /Users/nishimura+/projects/research/agent-registry-db
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/nishimura+/.codex/memories]
+reasoning effort: none
+reasoning summaries: none
+session id: 019e392a-7dbe-7e42-a0c8-9c29514aa5f2
+--------
+user
+あなたは Physical AI 2100 教科書のリサーチ専門家です。以下のテーマを深堀りリサーチし、構造化された日本語のMarkdownレポートを作成してください。
+
+# テーマ3: 医療・介護ロボット
+
+## 必須カバー対象
+- Da Vinci (Intuitive Surgical) Xi/SP/5 の最新世代、2025年 Da Vinci 5 進捗
+- 後続手術ロボット (Medtronic Hugo, J&J Ottava, CMR Versius, ME-RB, Microbot)
+- リハビリロボット (Cyberdyne HAL, Ekso, ReWalk, Honda 歩行アシスト)
+- 介護ロボット:
+  - Robear (理研-住友理工)
+  - Care-O-bot (Fraunhofer IPA)
+  - Stevie (Trinity College Dublin)
+  - Toyota HSR (Human Support Robot)
+  - Panasonic Resyone (移乗支援)
+  - Cyberdyne HAL 介護用
+- 2026年厚労省「ロボット介護機器開発・標準化推進事業」結果
+- AMED「介護現場の声を反映したロボット介護機器開発・標準化推進事業」進捗
+- 日本介護ロボット普及状況 (経産省・AMED統計、必ず含める)
+- 海外動向 (Sanctuary AI, Figure AI 介護応用)
+- 倫理・規制 (FDA, PMDA, CEマーキング)
+
+## 出力フォーマット
+1. # エグゼクティブサマリ (300字)
+2. ## 領域別ロボット成熟度マトリクス (手術/リハビリ/介護)
+3. ## 手術ロボット市場 2025-2026 (Intuitive vs Medtronic vs J&J)
+4. ## 介護ロボット普及データ (日本、欧米、中国)
+5. ## 2026年厚労省・AMED 事業結果分析
+6. ## 日本機関の独自貢献
+7. ## 規制・倫理動向
+8. ## 主要論文・一次資料 (10件以上、各 source_url 必須)
+9. ## 2030-2050 普及シナリオ
+
+## 品質要件
+- 全主張に source_url を併記 (NEJM, JAMA, Lancet Robotics, IEEE Robotics, 公式IR 優先)
+- 2025-2026年の最新情報を必ず含める
+- 日本機関の動向を必ず含める
+- 推測や曖昧な表現禁止、年代・数値を必ず明示
+- 8000字以上、12000字以下
+
+リサーチを開始してください。
+
+codex
+リサーチを開始します。2025-2026年の情報と一次資料指定が強いので、公式IR・規制当局・AMED/厚労省・メーカー資料を優先して確認します。
+web search: 
+web search: Intuitive Surgical da Vinci 5 2025 progress annual report 2025 FDA clearance Xi SP source
+web search: 
+web search: 厚生労働省 ロボット介護機器開発 標準化推進事業 2026 結果
+web search: 
+web search: Cyberdyne HAL medical 2025 annual report rehabilitation robot FDA PMDA
+web search: 
+web search: Robear RIKEN Sumitomo Riko care robot official 2015
+web search: 
+web search: Panasonic Resyone transfer assist robot bed wheelchair official 2025
+web search: 
+web search: Intuitive Surgical 2025 annual report da Vinci 5 installed systems procedures revenue 2025
+web search: 
+web search: CMR Surgical Versius 2025 official CE FDA installed base procedures
+web search: 
+web search: FDA robotic-assisted surgery safety communication 2021 2025 official
+web search: 
+web search: https://www.digital.go.jp/resources/govdashboard/nursing-care-productivity/description
+web search: 
+web search: "ICT・介護ロボット等の導入事業者割合" 2025 数値
+web search: 
+web search: https://www.mhlw.go.jp/content/12300000/001684357.pdf
+web search: 
+web search: '事業成果' in https://www.mhlw.go.jp/content/12300000/001684357.pdf
+web search: 
+web search: https://www.mhlw.go.jp/content/12300000/001684357.pdf
+web search: 
+web search: "介護現場の声を反映したロボット介護機器開発・標準化推進事業" AMED
+web search: 
+web search: NEJM robot-assisted radical prostatectomy open randomized trial 2018 Yaxley DOI
+codex
+# エグゼクティブサマリ
+
+医療・介護ロボットは、2025-2026年時点で成熟度が二極化している。手術ロボットはIntuitive Surgicalのda Vinci Xi/SP/5が臨床・規制・商用化で先行し、2025年にda Vinci手術は約315.3万件、da Vinci 5設置は870台まで拡大した。後続ではMedtronic Hugoが2025年12月に米FDA泌尿器適応を取得し、J&J Ottavaは2025年にIDE臨床試験へ入った。リハビリ外骨格はHAL、Ekso、ReWalkが医療機器・償還の段階に達する一方、介護ロボットは日本の補助・リビングラボ・標準化で導入支援が進むが、移乗・入浴など身体介助の完全自動化は研究・限定実証段階にとどまる。
+
+## 領域別ロボット成熟度マトリクス
+
+| 領域 | 2026年時点の成熟度 | 代表機器 | 根拠 |
+|---|---:|---|---|
+| 手術支援 | 商用成熟・更新期 | da Vinci Xi/SP/5、Hugo、Versius、hinotori、Ottava | Intuitiveは2025年にda Vinci手術約315.3万件、da Vinci設置1,721台、うちda Vinci 5が870台。Hugoは2025年12月に米FDA泌尿器適応取得。Ottavaは2025年4月に初症例を完了。[Intuitive 2025 results](https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-preliminary-fourth-quarter-and-full-year-5), [Medtronic Hugo FDA](https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures), [J&J Ottava](https://www.jnj.com/media-center/press-releases/johnson-johnson-medtech-announces-completion-of-first-cases-with-ottava-robotic-surgical-system) |
+| リハビリ | 医療機器として普及途上 | Cyberdyne HAL、EksoNR/Indego、ReWalk 7 | HALは希少神経筋疾患で多施設ランダム化クロスオーバー試験が報告され、Eksoは2025年10-Kで医療外骨格を継続、ReWalk 7は2025年に米国ローンチ・保険承認を進めた。[HAL trial](https://link.springer.com/article/10.1186/s13023-021-01928-9), [Ekso 2025 10-K](https://www.sec.gov/Archives/edgar/data/1549084/000143774926005086/ekso20251231_10k.htm), [Lifeward ReWalk 7](https://ir.rewalk.com/static-files/0fade6e3-1777-4b3a-ab18-f3277d89dbdc) |
+| 介護 | 導入支援・標準化期 | HAL腰タイプ、HSR、Resyone、Robear、Care-O-bot、Stevie | 厚労省は「重点分野」を6分野13項目として開発・導入を支援し、2025年度報告では全国8リビングラボが142社・延べ304件を支援した。[厚労省](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000209634.html), [令和7年度事業報告書PDF](https://www.mhlw.go.jp/content/12300000/001684357.pdf) |
+
+## 手術ロボット市場 2025-2026: Intuitive vs Medtronic vs J&J
+
+**Intuitive Surgical。** da Vinci 5は2024年3月14日に米FDA 510(k)クリアランスを取得した第5世代マルチポートシステムで、同社は当初「少数顧客から学習して広げる」段階的投入を示した。[source_url](https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-fda-clearance-fifth-generation-robotic) 2025年には商用拡大が明確化し、同年のda Vinci手術は約315.3万件、前年比約18%増、2025年売上は約100.6億ドル、da Vinci設置は1,721台、そのうちda Vinci 5は870台であった。[source_url](https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-preliminary-fourth-quarter-and-full-year-5) 2025年9月にはda Vinci 5向けリアルタイム外科インサイト機能を発表し、Xi比で1万倍超の計算能力を持つプラットフォームを、単なるマニピュレータからデータ駆動型手術基盤へ拡張している。[source_url](https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-introduces-real-time-surgical-insights-da-vinci-5/) SPは単孔式プラットフォームで、2025年12月に米国で胆嚢摘出・鼠径ヘルニアなどへ適応を拡大し、欧州・日本・韓国でも複数領域で承認済みと公表された。[source_url](https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-expanded-indications-da-vinci-sp)
+
+**Medtronic Hugo。** Hugo RASは2025年12月3日に米FDAから泌尿器手術、具体的には前立腺摘除、腎摘除、膀胱摘除などでクリアランスを受けた。[source_url](https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures) MedtronicはExpand URO IDE試験を「米国最大規模のマルチポート泌尿器RAS試験」と位置づけ、安全性・有効性の主要評価項目を達成したと説明した。[source_url](https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures) 欧州では2025年7月にLigaSure血管シーリング技術のHugo向けCEマーキング取得が報じられ、エネルギーデバイス統合が競争軸となった。[source_url](https://www.medtechdive.com/news/Medtronic-LigaSure-Hugo-robot-CE-mark/753072/)
+
+**J&J Ottava。** Ottavaは2025年4月14日にIDE承認下の臨床試験で初症例を完了した。症例はUTHealth Houston/Memorial HermannでのRoux-en-Y胃バイパスで、J&Jは多診療科対応の軟部組織手術ロボットとして臨床証拠を収集する段階にある。[source_url](https://www.jnj.com/media-center/press-releases/johnson-johnson-medtech-announces-completion-of-first-cases-with-ottava-robotic-surgical-system) 2026年時点では商用市場でIntuitiveに対抗する前段階、つまり臨床・規制リスクを解く段階である。
+
+**CMR Versius、Medicaroid hinotori、Microbot。** Versius Plusは2025年12月16日に米FDA 510(k)でクリアされた。[source_url](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K252111) Medicaroidのhinotoriは2020年8月に日本で承認された国産手術支援ロボットで、2025年2月にはNTT・弘前大学・Medicaroid等がIOWN APNで遠隔手術支援実証、2025年6月にはストラスブール-神戸間で遠隔手術実証を行った。[source_url](https://group.ntt/en/newsrelease/2025/02/28/250228a.html), [source_url](https://www.ntt.com/en/about-us/press-releases/news/article/2025/0617_2.html) Microbot MedicalのLIBERTYは2025年9月8日に米FDA 510(k)を取得した末梢血管内ロボットで、単回使用・遠隔操作型という点でda Vinci型とは別市場を狙う。[source_url](https://www.sec.gov/Archives/edgar/data/883975/000164117225026815/ex99-1.htm)
+
+## 介護ロボット普及データ
+
+**日本。** 厚労省・経産省は介護ロボットを「センサー系、知能・制御系、駆動系」を有し、自立支援・介護者負担軽減に役立つ機器と定義し、重点分野を6分野13項目として開発・導入を支援している。[source_url](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000209634.html) 2025年10月更新のデジタル庁ダッシュボード定義では、「ICT・介護ロボット等の導入事業者割合」は介護サービス情報公表システムにおけるICT・見守り機器・介護ロボット・センサー等の導入記載割合として集計される。[source_url](https://www.digital.go.jp/resources/govdashboard/nursing-care-productivity/description) 政府KPIでは2023年度暫定値29%、2026年度目標50%、2029年度目標90%が示されている。[source_url](https://www.techno-aids.or.jp/robot/file05/2023forum_docall.pdf) 2026年2月報道された厚労省の2024年度介護報酬改定効果検証調査では、2025年9-11月に6,876事業所が回答し、特養493カ所の約9割が介護用リフト・見守り支援機器など介護テクノロジーを導入していた。[source_url](https://www.cbnews.jp/news/entry/20260218174816)
+
+**欧米。** 欧州はCare-O-botやStevieのような社会支援・施設支援ロボットの研究実証が厚く、Care-O-botはFraunhofer IPAが1990年代から継続開発するサービスロボット基盤で、RoPHaでは食事支援など在宅高齢者支援の操作技術を検証した。[source_url](https://www.ipa.fraunhofer.de/en/reference_projects/RoPHa.html) 米国は介護施設ロボットよりも、ReWalkやEksoなど医療リハビリ・保険償還が先行し、ReWalk 7は2025年に米国市場ローンチと主要保険者の購入承認を進めた。[source_url](https://ir.rewalk.com/node/12741/pdf)
+
+**中国。** 2026年時点で、介護施設におけるロボット導入率について日本の介護サービス情報公表システムに相当する公的・国際比較可能な統計は確認できない。産業政策上はヒューマノイド、サービスロボット、スマート養老の市場投入が進むが、介護の身体接触タスクは安全認証、責任分界、施設運用標準が未整備で、統計比較では「普及率」よりも「実証・調達・政策支援件数」で見る必要がある。
+
+## 2026年厚労省・AMED事業結果分析
+
+厚労省の令和7年度「介護現場の生産性向上に向けた介護テクノロジー開発等支援事業」報告書は2026年3月に公表され、全国8カ所の基幹型リビングラボと7カ所の支援型リビングラボで、企業の製品評価・効果検証・実証支援を行った。[source_url](https://www.mhlw.go.jp/content/12300000/001684357.pdf) 2026年3月13日時点で、リビングラボは月平均23.8件、延べ286件の相談に対応し、124企業の相談を受け、41企業には複数回対応した。[source_url](https://www.mhlw.go.jp/content/12300000/001684357.pdf) 年度全体では142社に延べ304件の支援を実施し、内訳は相談286件、ラボ検証10件、実証8件であった。[source_url](https://www.mhlw.go.jp/content/12300000/001684357.pdf) 支援対象分野は「その他、ADL評価アプリ・ヒト型介護助手ロボット・ベッド用グリップ等」28%、見守り・コミュニケーション施設23%、移乗支援装着19%、介護業務支援19%で、現場側の要求は身体介助そのものよりも見守り、情報統合、業務支援へ広がっている。[source_url](https://www.mhlw.go.jp/content/12300000/001684357.pdf)
+
+AMEDの「ロボット介護機器開発等推進事業」は令和6年度終了課題の事後評価を2026年4月22日に掲載し、開発補助ではマッスルの普及型抱き上げ式ロボット介護機器、善光総合研究所の介護生産性向上・標準化プラットフォーム、海外展開ではDFree、FUJI Hug、Cyberdyne HAL腰タイプ介護支援を評価対象とした。[source_url](https://www.amed.go.jp/program/list/12/02/003_r6_jigo_robot.html) 一方、令和6年度採択のRT.ワークス歩行支援ロボット課題は中間評価で「中断・中止等の措置が必要」とされ、令和6年度で補助終了となった。[source_url](https://www.amed.go.jp/program/list/12/02/003_r6_chukan.html) これは、政府事業が件数拡大だけでなく、実現可能性・効果・安全性・海外展開体制をゲート審査する方向へ移行したことを示す。
+
+## 日本機関の独自貢献
+
+**Cyberdyne HAL。** HAL医療用下肢タイプは神経・筋疾患リハビリでエビデンスを積み、2021年のNCY-3001多施設ランダム化クロスオーバー試験では、希少神経筋疾患患者の歩行機能改善と安全性が報告された。[source_url](https://link.springer.com/article/10.1186/s13023-021-01928-9) 介護用ではHAL腰タイプ介護支援用が日本国内向け製品として、入浴介助を含む腰部負担軽減、IPX4防水、重量3.1kg、稼働約4.5時間を公表している。[source_url](https://www.cyberdyne.jp/english/products/Lumbar_CareSupport.html)
+
+**Toyota HSR。** Toyota Human Support Robotは2012年に初公開された生活支援ロボットで、2025年のToyota公式記事では、HSRの自律移動技術が病院内搬送ロボットPotaroへ、物体認識・判断・動作実行技術が工場ロボットへ応用されたと説明された。[source_url](https://global.toyota/en/mobility/frontier-research/44105171.html) HSRは介護現場の量産機というより、家庭・病院・工場を横断する生活支援AIロボット研究基盤である。
+
+**Robear。** RIKENと住友理工は2015年にRobearを発表し、ベッドから車椅子への移乗や立ち上がり支援を狙った。重量は140kgで、RIBA-IIの230kgから軽量化し、トルクセンサーとSmart Rubber触覚センサーを備えた。[source_url](https://www.riken.jp/en/news_pubs/research_news/pr/2015/20150223_2/) ただしRIKENは同ページで、RIKEN-SRK連携センターが2015年3月末に閉鎖され、同プロジェクトはRIKENで継続していないと追記している。[source_url](https://www.riken.jp/en/news_pubs/research_news/pr/2015/20150223_2/)
+
+**Panasonic Resyone。** Resyone Plusはベッドの一部が電動車椅子として分離する移乗支援ロボットで、Panasonicは「ベッドから出る」支援ロボットとして開発経緯を公開した。[source_url](https://tech.panasonic.com/global/robot/column/20190909.html) ただし製品ページではResyone Plusは2022年4月に生産終了と明記されており、2026年時点では現行普及機ではなく、移乗支援設計の先行事例と位置づけるべきである。[source_url](https://sumai.panasonic.jp/agefree/products/resyoneplus/)
+
+**hinotori。** Medicaroidのhinotoriは日本初の手術支援ロボットとして2020年8月に承認され、2025年には日本、シンガポール、マレーシア承認、欧州MDR CEマーキング申請中と公表された。[source_url](https://www.ntt.com/en/about-us/press-releases/news/article/2025/0617_2.html) 日本の独自貢献は、ロボット単体ではなく、NTT IOWN/APNのような低遅延ネットワークと組み合わせた遠隔手術実証にある。[source_url](https://group.ntt/en/newsrelease/2025/02/28/250228a.html)
+
+## 規制・倫理動向
+
+**FDA。** 米国では多くの手術支援ロボットが510(k)で上市され、510(k)は「既存合法販売機器と同等に安全・有効である」ことを示す市販前届出である。[source_url](https://www.fda.gov/medical-devices/products-and-medical-procedures/device-approvals-and-clearances) 未承認機器の臨床試験ではIDEが必要で、OttavaのようにIDE承認後に初症例へ進む流れとなる。[source_url](https://www.jnj.com/media-center/press-releases/johnson-johnson-medtech-announces-completion-of-first-cases-with-ottava-robotic-surgical-system) FDAはコンピュータ支援手術システムについて、患者・医療者向け推奨事項と、女性医療・がん関連手術での慎重使用に関する安全情報を公開している。[source_url](https://www.fda.gov/medical-devices/surgery-devices/computer-assisted-surgical-systems)
+
+**PMDA/MHLW。** 日本では医療機器の承認・認証・届出はPMD法に基づき、MHLWとPMDAが規制当局として関与する。[source_url](https://www.pmda.go.jp/english/review-services/reviews/0004.html) PMDAは年度別の医療機器承認品目一覧を公開しており、手術ロボット、リハビリロボット、AI支援医療機器はいずれも適応、クラス分類、臨床評価、製造販売後安全管理が論点となる。[source_url](https://www.pmda.go.jp/review-services/drug-reviews/review-information/devices/0018.html)
+
+**CEマーキング。** EUではMDR 2017/745が2021年5月26日から適用され、EUDAMED、UDI、製造業者監視、市販後監視が強化された。[source_url](https://health.ec.europa.eu/medical-devices-sector/new-regulations_en) 2025年にはEUDAMEDの一部モジュールの機能仕様充足が公表され、医療機器トレーサビリティが段階的に強化されている。[source_url](https://health.ec.europa.eu/medical-devices-eudamed/overview_en)
+
+**倫理。** 手術ロボットの倫理論点は、訓練格差、患者説明、費用対効果、事故時責任、遠隔手術の通信障害、AIによる術中助言の説明可能性である。介護ロボットでは、見守りカメラ・センサーによるプライバシー、認知症高齢者の同意能力、身体接触ロボットの転倒・圧迫事故、ロボットによる孤立代替のリスクが主要論点である。Robot-assisted surgeryの系統的倫理レビューでも、患者が脆弱な状態にある近接技術として、倫理議論が技術進展に追いついていないと整理されている。[source_url](https://arxiv.org/abs/2411.11637)
+
+## 主要論文・一次資料
+
+1. Intuitive Surgical, da Vinci 5 FDA clearance, 2024. source_url: https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-fda-clearance-fifth-generation-robotic  
+2. Intuitive Surgical, preliminary FY2025 results, 2026. source_url: https://investor.intuitivesurgical.com/news-releases/news-release-details/intuitive-announces-preliminary-fourth-quarter-and-full-year-5  
+3. Medtronic, Hugo FDA clearance, 2025. source_url: https://news.medtronic.com/2025-12-03-Medtronic-announces-FDA-clearance-of-Hugo-TM-robotic-assisted-surgery-system-for-urologic-surgical-procedures  
+4. Johnson & Johnson, Ottava first clinical cases, 2025. source_url: https://www.jnj.com/media-center/press-releases/johnson-johnson-medtech-announces-completion-of-first-cases-with-ottava-robotic-surgical-system  
+5. FDA 510(k), Versius Surgical System Plus K252111, 2025. source_url: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K252111  
+6. NTT/Medicaroid, hinotori remote surgery demonstration, 2025. source_url: https://www.ntt.com/en/about-us/press-releases/news/article/2025/0617_2.html  
+7. 厚労省, 介護ロボットの開発・普及の促進. source_url: https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000209634.html  
+8. 厚労省, 令和7年度介護テクノロジー開発等支援事業報告書, 2026. source_url: https://www.mhlw.go.jp/content/12300000/001684357.pdf  
+9. AMED, ロボット介護機器開発等推進事業 令和6年度終了課題事後評価, 2026. source_url: https://www.amed.go.jp/program/list/12/02/003_r6_jigo_robot.html  
+10. Nakajima et al., HAL NCY-3001 trial, Orphanet Journal of Rare Diseases, 2021. source_url: https://link.springer.com/article/10.1186/s13023-021-01928-9  
+11. Miller et al., robot-assisted abdominopelvic surgery systematic review, Annals of Internal Medicine, 2021. source_url: https://pubmed.ncbi.nlm.nih.gov/34181448/  
+12. Kressler et al., ReWalk SCI cohort, Journal of NeuroEngineering and Rehabilitation, 2019. source_url: https://jneuroengrehab.biomedcentral.com/articles/10.1186/s12984-019-0585-x  
+13. FDA, Computer-Assisted Surgical Systems. source_url: https://www.fda.gov/medical-devices/surgery-devices/computer-assisted-surgical-systems  
+14. PMDA, medical device approval/certification in Japan. source_url: https://www.pmda.go.jp/english/review-services/reviews/0004.html  
+15. European Commission, MDR and EUDAMED overview. source_url: https://health.ec.europa.eu/medical-devices-eudamed/overview_en  
+
+## 2030-2050 普及シナリオ
+
+**2030年。** 手術ロボットはda Vinci 5世代のデータ基盤化、Hugo・Versius・hinotori・Ottavaの参入で価格競争が始まる。泌尿器・婦人科・一般外科の標準病院では複数ロボット保有が一般化し、遠隔支援は教育・プロクタリングから始まり、完全遠隔手術は限定施設・限定回線で運用される。介護では日本のKPIどおりICT・介護ロボット等導入事業者割合90%が政策目標となるが、中心は見守り、記録、インカム、排泄予測、腰部アシストであり、Robear型の全身移乗ロボットは限定実証にとどまる。
+
+**2040年。** 介護人材不足が深刻化し、施設ではセンサー統合、夜間見守り、転倒予測、記録自動化、リフト・装着型アシストのパッケージ導入が標準化する。ヒューマノイドはSanctuary AIやFigure AIのような汎用作業ロボットから介護周辺業務、例えば配膳、清掃、リネン、物品搬送、会話、巡回へ入る。身体介助は医療機器・福祉用具・労働安全の境界領域となり、各国で事故報告、ログ保存、遠隔監督、施設責任者資格が求められる。
+
+**2050年。** 手術では術中AIが解剖認識、危険領域警告、縫合品質評価を常時支援するが、執刀責任は医師に残る。介護では家庭内ロボットが生活支援、服薬確認、転倒時通報、買い物・家事支援を担い、施設では介護職1人あたりの利用者比率を維持するための標準インフラになる。ただし、認知症ケア、終末期ケア、疼痛・不安への対応は人間の専門職が中心であり、ロボットは「人を置き換える装置」ではなく、身体負荷・監視負荷・記録負荷を削減する社会基盤として普及する。
+tokens used
+133,143

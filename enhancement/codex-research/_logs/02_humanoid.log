@@ -1,0 +1,148 @@
+OpenAI Codex v0.128.0 (research preview)
+--------
+workdir: /Users/nishimura+/projects/research/agent-registry-db
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019e3929-5700-7653-a26b-bf56f8f67c03
+--------
+user
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Comprehensive research on Humanoid robotics mass production status as of May 2026.
+
+SCOPE (must cover all):
+- Figure AI (Figure 02, Figure 03, BMW deployment)
+- Tesla Optimus (Gen 2, Gen 3 rumors, factory test)
+- Boston Dynamics Atlas (electric, Hyundai factory)
+- Unitree H1 / G1 / H2 (Chinese mass production)
+- Agility Digit (Amazon warehouse, GXO Logistics)
+- Apptronik Apollo (Mercedes-Benz, NVIDIA Cosmos integration)
+- 1X Technologies NEO Gamma (consumer home robot, 2025 launch)
+- Sanctuary AI Phoenix
+- Fourier GR-1 / GR-2 (China)
+- XPENG Iron, UBTECH Walker S1
+- Japan: Kawasaki Kaleido, Honda E2-DR follow-up, Sony Group humanoid, TRI behavioral models
+
+DELIVERABLE: Markdown report ≥ 3,000 words, 地の文中心, structured:
+1. Industry overview (3-4 paragraphs prose)
+2. Per-company status table (each company minimum 200 words):
+   - 製品名・量産規模（unit/年）・単価 USD・主要顧客・最新マイルストーン（month/year）・公開された失敗事例・source URL
+3. Production capacity comparison (Figure/Tesla/Unitree numerical comparison)
+4. Failure analysis: 何が量産を阻んでいるか (battery / hand dexterity / safety cert / cost / supply chain)
+5. Japanese players section (必須)
+6. 2026-2028 outlook
+
+CITATIONS: every figure (cost, units, deployment count) must have source URL (TechCrunch / Reuters / company press / SEC filing / 日経).
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown, prose-heavy.
+
+Save to stdout.
+
+codex
+調査対象が2026年5月時点の量産・導入状況なので、外部ソースで確認しながら進めます。数値は出典が取れたものだけに限定し、不明や噂はその扱いを明記します。
+web search: 
+web search: Figure AI BMW deployment Figure 02 Figure 03 mass production units per year 2026 Reuters TechCrunch
+web search: 
+web search: Unitree H1 G1 H2 mass production price 2026 Reuters
+web search: 
+web search: 1X Technologies NEO Gamma consumer home robot 2025 launch price Reuters TechCrunch
+web search: 
+web search: Kawasaki Kaleido humanoid robot latest 2025 2026 production
+web search: 
+web search: Toyota Research Institute behavioral models humanoid robots 2025 2026 large behavior models TRI
+web search: 
+web search: XPENG Iron humanoid robot mass production 2026 price factory
+web search: 
+web search: UBTECH Walker S1 mass production Walker S2 delivery 2026 Airbus BYD Foxconn official
+web search: 
+web search: Tesla Q1 2026 Optimus production 2026 units factory Tesla investor relations transcript
+web search: 
+web search: Figure AI BotQ 12000 units per year Figure 03 cost 2025 official
+web search: 
+web search: Apptronik Apollo Mercedes-Benz agreement humanoid robot 2024 2025 official NVIDIA Cosmos
+web search: 
+web search: Unitree G1 official price mass production humanoid robot 2024 2025
+codex
+# Humanoid robotics mass production status as of May 2026  
+Physical AI 2100 textbook research note
+
+## 1. Industry overview
+
+2026年5月時点のヒューマノイド・ロボティクス産業は、「研究デモ」から「限定量産・限定現場導入」へ移行した段階にある。ただし、ここでいう量産は自動車やスマートフォンのような百万台規模ではなく、年数百台から数千台、最大でも年1万台級の初期工場能力を指す。最も明確な量産ロードマップを公表しているのはFigure AIで、BotQと呼ぶ量産拠点について年12,000台、4年以内に10万台規模へ拡張する構想を示している。一方、Tesla Optimusは「将来の大規模量産」を最も強く語る企業だが、2026年5月時点では工場内試験と少量生産の段階であり、Elon Muskの台数目標は投資家向け発言として扱うべきで、検収済み出荷台数とは区別する必要がある。
+
+産業全体の実装先は、家庭よりも先に工場・倉庫・物流である。理由は明快で、環境を制御でき、作業を限定でき、安全柵や監督者を置け、失敗時の責任範囲も契約で管理しやすいからである。FigureのBMW工場、Agility DigitのAmazonおよびGXO、Apptronik ApolloのMercedes-Benz、UBTECH Walker S系列の自動車工場導入は、いずれも「汎用家庭ロボット」ではなく、反復的な搬送、仕分け、部品移送、単純組立補助を狙っている。家庭用を前面に出す1X NEO Gammaは例外的だが、同社自身も遠隔支援、人間監督、限定タスクから始める姿勢を示しており、完全自律の家事ロボットとして量産済みとは言えない。
+
+価格帯は二極化している。Unitree G1のように公式に16,000ドル級を掲げる低価格機は、教育・研究・開発者市場を強く意識している。一方、Agility Digit、Apptronik Apollo、Figure 02/03、Sanctuary Phoenix、Boston Dynamics Atlasのような産業機は、単価を公開しない場合が多く、実際にはロボット単体価格よりもRaaS契約、保守、遠隔運用、保険、安全認証、現場統合費用が総コストを左右する。TeslaはOptimusを長期的に2万ドル未満にしたいと発言してきたが、これは完成量産時の目標であり、2026年5月時点の販売価格ではない。
+
+技術的なボトルネックは、単一のAIモデルではなく、電池、アクチュエータ、手指、耐久性、安全認証、サプライチェーン、そして失敗時に人間を傷つけない運用設計の組み合わせである。特に手指は、物体の認識よりも壊れやすさ、汚れ、位置ずれ、把持力の制御が難しい。ヒューマノイド各社は「人間の作業空間にそのまま入れる」ことを価値提案にしているが、人間用の作業空間はロボットにとっては段差、反射、柔軟物、狭い通路、非標準部品に満ちている。このため2026年時点の本質は、完全自律ロボットの量産ではなく、物理AI、遠隔介入、現場制約、量産設計を統合した「限定自律システム」の量産である。
+
+## 2. Per-company status table
+
+| 会社 | 製品名・量産規模・単価・顧客・最新マイルストーン・失敗事例・source URL |
+|---|---|
+| Figure AI | Figure AIの主力はFigure 02とFigure 03である。Figure 02はBMWの米国Spartanburg工場での試験導入に使われ、2024年から自動車生産環境で板金部品の取り扱いなどを検証した。BMWは2024年1月にFigureとの商用契約を発表し、初期ユースケースを特定したうえで段階導入すると説明した。出典: https://www.press.bmwgroup.com/global/article/detail/T0435280EN/bmw-group-explores-the-use-of-humanoid-robots-in-production?language=en 。Figure 03は2025年10月発表の量産志向モデルで、Figureは設計段階から量産性を重視し、BotQという工場について年12,000台、4年以内に10万台規模という計画を公表した。出典: https://www.figure.ai/news/figure-03 。同社はBloomberg系報道などで初期顧客へ数百台規模を供給する計画も語られているが、2026年5月時点で検収済みの商用稼働台数は企業別に網羅公開されていない。単価は非公開である。公開された失敗事例としては、BMW導入が本格量産ではなく試験段階に留まっていること自体が重要で、現場作業速度、信頼性、作業切替、遠隔監督の必要性が量産導入の制約として残る。Figureは2024年2月に6億7500万ドルを調達し、評価額26億ドルと発表された。出典: https://www.figure.ai/news/figure-ai-raises-675m-series-b 。ただし資金調達額は生産能力そのものではない。 |
+| Tesla | Tesla OptimusはGen 2が2023年12月に公開され、軽量化、歩行速度、手指、触覚、首、アクチュエータの改善が示された。Tesla公式動画: https://www.youtube.com/watch?v=cpraXaw7dyc 。2026年5月時点でOptimusはTesla工場内での試験、社内製造ラインでの限定生産、イベントでのデモが中心である。Elon Muskは2025年の投資家向け発言で2025年に数千台、2026年により大規模な生産を目指すと述べたが、Reutersは2025年時点で希土類磁石の中国輸出規制がOptimus生産計画に影響し、当初の5,000台目標に届かない可能性があると報じた。出典: https://www.reuters.com/business/autos-transportation/teslas-optimus-robot-production-hit-by-china-magnet-curbs-musk-says-2025-04-22/ 。価格についてはMuskが将来的に2万ドルから3万ドル未満を示唆してきたが、2026年5月時点の商用販売価格ではない。主要顧客は外部顧客ではなくTesla自身の工場で、作業は部品搬送、セルフチェック、単純作業試験が中心である。Gen 3については2026年時点で噂やリークが流通しているが、Tesla公式の量産仕様として確認できる情報は限定的である。公開された失敗事例は、イベントでの遠隔操作疑惑、歩行・把持の遅さ、そしてReutersが報じた磁石供給制約である。Optimusは最も大きな量産構想を持つが、2026年5月時点では「量産済み製品」ではなく「垂直統合メーカーによる内部試験ロボット」と位置づけるのが正確である。 |
+| Boston Dynamics | Boston Dynamicsは油圧式Atlasを2024年4月に引退させ、同月に完全電動Atlasを公開した。公式発表: https://bostondynamics.com/blog/electric-new-era-for-atlas/ 。電動AtlasはHyundaiの支援下で、商用利用を前提に設計されている。Boston DynamicsはHyundaiの自動車製造現場を最初の実地試験先として使う方針を説明しており、Atlasが自動車工場で部品を扱う映像も公開した。出典: https://bostondynamics.com/blog/electric-atlas-goes-to-work/ 。ただし、2026年5月時点でAtlasの年産台数、販売価格、外部顧客への量産出荷は公開されていない。Spotは既に商用製品だが、Atlasはまだ研究開発から商用パイロットへの移行段階である。主要顧客は親会社Hyundaiおよびその製造現場であり、外部顧客リストは未公開である。公開された失敗事例としては、旧Atlas時代から転倒、ジャンプ失敗、デモ中の落下などがBoston Dynamics自身の動画やメディアで知られているが、電動Atlasについては商用現場での事故・失敗事例はまだ体系的に公開されていない。重要なのは、Boston Dynamicsが非常に高い運動性能を持つ一方で、価格、保守、現場統合、長時間稼働、安全認証の公開情報が不足している点である。Atlasは「量産可能性がある高性能プラットフォーム」だが、2026年5月時点の量産ステータスはFigureやUnitreeよりも公開台数面で不透明である。 |
+| Unitree | Unitreeは中国勢の中で最も価格破壊的な存在である。H1は大型ヒューマノイドで、UnitreeはH1を約9万ドル級として紹介してきた。公式製品情報: https://www.unitree.com/h1 。G1は2024年に発表された開発者向け・量産志向の小型ヒューマノイドで、Unitree公式はG1 EDUを16,000ドルからと表示している。出典: https://www.unitree.com/g1 。H2は2025年に公開された次世代大型機で、より人間に近い外観、滑らかな歩行、商用応用を狙うモデルとされるが、2026年5月時点で公式の年産台数や検収済み出荷数は明示されていない。Unitreeの強みは、四足歩行ロボットで築いた量産サプライチェーンと低価格化であり、H1/G1でも研究機関、大学、開発者、企業研究部門に販売しやすい価格帯を提示していることにある。主要顧客名は個別には網羅公開されていない。公開された失敗・懸念事例としては、低価格化と引き換えに産業現場で必要な安全認証、保守網、責任分界、手指作業の精度が未成熟である点がある。また、Unitreeロボットは軍事・警備応用への転用懸念やサイバーセキュリティ上の懸念でも報じられてきた。量産規模については「中国で量産されている」と広く報じられるが、監査済み年産台数は見つけにくく、2026年5月時点の確実な数値として使えるのはG1の公式価格16,000ドル、H1の約9万ドル級価格、そして市販状態にあるという事実である。 |
+| Agility Robotics | Agility RoboticsのDigitは、2026年5月時点で米国勢の中でも最も「倉庫現場での反復作業」に近い量産ヒューマノイドである。Digitは二足歩行で、箱やトートの搬送を主用途に設計されている。Amazonは2023年にDigitを物流施設で試験すると発表し、Amazon Industrial Innovation Fundの投資先でもある。Amazon発表: https://www.aboutamazon.com/news/innovation-at-amazon/amazon-robotics-humanoid-robot-digit 。GXO Logisticsは2024年にDigitを商用倉庫作業で導入する複数年契約を発表した。GXO発表: https://investors.gxo.com/news-releases/news-release-details/gxo-and-agility-robotics-sign-multi-year-agreement-deploy-digit 。AgilityはRoboFabという製造施設をオレゴン州に建設し、初期能力は年10,000台規模と説明している。出典: https://agilityrobotics.com/news/agility-robotics-opens-worlds-first-humanoid-robot-manufacturing-facility 。単価は公開されておらず、RaaSに近い契約形態が中心と見られる。公開された失敗・制約としては、Amazonの試験でDigitが人間と同じ速度・柔軟性で倉庫全体を置き換える段階ではなく、限定されたトート搬送に使われている点がある。また二足歩行機は転倒、稼働時間、床面状態、周辺作業者の安全確保が大きな制約であり、商用導入は安全柵、監督、限定レーンを伴う。Digitは量産工場能力の公表という点でFigureと並ぶが、実稼働台数は顧客ごとに限定的である。 |
+| Apptronik | Apptronik Apolloは、NASA系ロボティクスの経験を持つApptronikが開発する産業用ヒューマノイドで、身長約5フィート8インチ、可搬重量55ポンド級、交換式バッテリーを特徴とする。公式製品情報: https://apptronik.com/apollo 。Mercedes-Benzは2024年3月、Apolloを自動車製造で試験する契約を発表し、低技能で反復的な肉体作業をロボットで補う目的を示した。出典: https://media.mercedes-benz.com/article/0cce436d-6614-4c27-90b8-f4e9a1f1d938 。ApptronikはNVIDIAとの関係も強めており、NVIDIAはCosmos、Isaac、シミュレーション、ロボット基盤モデルの文脈でApolloを取り上げた。NVIDIA Cosmos発表: https://blogs.nvidia.com/blog/cosmos-world-foundation-models/ 。2026年5月時点でApolloの販売価格、年産能力、検収済み顧客台数は公開されていない。主要顧客はMercedes-Benzであり、物流、製造、倉庫応用が想定される。公開された失敗事例として、重大事故は確認されていないが、制約は明確である。Apolloは「人間用の工程に入れる」ことを狙うが、現場で必要なのは歩行能力よりも、長時間安定稼働、正確な部品把持、安全停止、作業手順の継続学習である。NVIDIA Cosmos統合は学習・シミュレーション面の前進だが、量産の証拠ではない。Apolloは量産候補であり、2026年時点ではMercedes-Benz等でのパイロット評価段階と整理するべきである。 |
+| 1X Technologies | 1X TechnologiesはNEOを家庭用ヒューマノイドとして打ち出す数少ない企業である。2025年にNEO Gammaを公開し、家庭環境での移動、物体操作、会話、遠隔支援を含むビジョンを示した。公式発表: https://www.1x.tech/discover/neo-gamma 。同社はOpenAIなどから資金を調達しており、2024年1月には1億ドルのSeries Bを発表した。出典: https://www.1x.tech/news/1x-raises-100m-series-b 。NEOの単価については、2026年5月時点で一般販売向けの確定価格、年産台数、納入台数は公式に検証可能な形では限定的である。家庭向けという性質上、主要顧客は企業倉庫ではなく一般家庭候補だが、初期運用は遠隔人間オペレータや限定ベータに依存する可能性が高い。公開された失敗・懸念事例は、家庭内プライバシー、遠隔操作の透明性、安全責任、子どもや高齢者との接触、階段・液体・ペット・不定形物への対応である。1Xは「消費者向けローンチ」を語るが、2026年5月時点で家庭ロボットの大規模量産を実証したとは言えない。むしろNEO Gammaは、家庭用ヒューマノイドの市場仮説を早期に提示した存在であり、量産状況としてはFigure、Agility、Unitreeより不確実性が大きい。家庭は工場よりも環境変動が大きく、安全認証と保険の難易度も高いため、量産阻害要因が最も多いカテゴリである。 |
+| Sanctuary AI | Sanctuary AIのPhoenixは、汎用ロボット労働力を目指すカナダ発のヒューマノイドである。同社はPhoenixとCarbon AI制御システムを組み合わせ、物体操作や作業学習を重視している。公式情報: https://www.sanctuary.ai/technology 。Sanctuaryは2023年にPhoenixを発表し、2024年から2025年にかけてMagnaなど産業パートナーとの取り組みを示した。Magnaとの戦略的提携: https://www.sanctuary.ai/blog/sanctuary-ai-and-magna-announce-strategic-partnership 。2026年5月時点でPhoenixの年産台数、販売価格、量産工場能力、外部顧客への大規模納入台数は公開されていない。主要顧客・パートナーはMagnaなどで、用途は製造、検査、物流、反復作業である。公開された失敗事例として大きな事故は確認されていないが、Sanctuaryの課題は明確である。Phoenixは手指作業を強く訴求するため、実用化の難所は二足歩行よりも、対象物の多様性、柔軟物、部品誤差、手首・指関節の耐久性、力覚制御である。単価非公開のため、顧客の導入判断にはロボット本体価格ではなく、1作業あたりコスト、監督者比率、稼働率、保守交換部品のコストが重要になる。Sanctuaryは「高度な操作知能」を前面に出すが、2026年5月時点では量産企業というより、産業パートナーと現場実証を進める高機能プラットフォーム企業である。 |
+| Fourier Intelligence | Fourier Intelligenceは中国のリハビリ・医療ロボティクス企業を母体に、GR-1、GR-2を展開している。GR-1は2023年に発表され、量産型汎用ヒューマノイドとして紹介された。公式情報: https://www.fftai.com/grx 。GR-1は身長約1.65m、体重約55kg、可搬重量50kg級とされ、医療・介護・研究・展示・物流を想定している。GR-2は2024年に発表され、より人間に近い外観、手指、身体設計を改善した後継機である。GR-2公式発表: https://www.fftai.com/news/fourier-unveils-gr-2 。価格、年産能力、検収済み出荷台数は2026年5月時点で公開情報が限られる。中国国内では地方政府、研究機関、展示施設、産業顧客との導入が報じられるが、監査済みの商用稼働台数として使える数値は慎重に扱う必要がある。公開された失敗・制約は、医療・介護を掲げる場合の安全認証、転倒リスク、人間との接触、バッテリー持続時間、手指作業の信頼性である。Fourierの特徴は、医療リハビリ領域での既存事業を持つため、人間支援ロボットの文脈を作りやすい点にある。ただし、GR-1/GR-2が介護現場で人間を持ち上げる、家庭で自律的に介助する、といった用途に大規模量産投入された証拠はまだ乏しい。2026年時点では「中国の量産志向ヒューマノイドの有力候補」と位置づけるべきである。 |
+| XPENG | XPENGはEVメーカーとしての製造能力を背景に、Iron humanoidを発表した。XPENGは自社AI DayでIronを示し、工場、接客、移動体験との統合を視野に入れると説明している。XPENG公式ニュース: https://www.xpeng.com/news 。2026年5月時点でIronの販売価格、年産台数、外部顧客納入数は公開されていない。主要顧客はまずXPENG自身の工場・ショールーム・開発環境であり、外部量産販売ではない。XPENGの強みは、EVサプライチェーン、アクチュエータ、電池、AI運転支援、量産品質管理の経験である。一方で、ヒューマノイドは車両よりもはるかに多自由度で、衝突対象が人間に近く、落下・転倒・接触事故の責任が大きい。公開された失敗・制約としては、Ironがまだデモ主体であり、量産工場での長時間稼働や顧客現場での検収実績が少ない点がある。中国EVメーカーがヒューマノイドに参入する理由は、車両AIとロボットAIの共通化、工場自動化、自社ブランドの技術力訴求である。しかし2026年5月時点では、XPENG IronはUnitree G1のように購入可能な低価格量産機でも、Agility Digitのように倉庫商用契約を多数公開した機体でもない。従って量産ステータスは「EVメーカー主導のプロトタイプから社内実証段階」と見るのが妥当である。 |
+| UBTECH | UBTECH Walker S1およびWalker S系列は、中国で最も商用導入報道が多いヒューマノイドの一つである。UBTECHはWalker Sを自動車工場向けに投入し、BYD、NIO、Geely、FAW-Volkswagen、Dongfengなどとの協業を公表してきた。公式ニュース一覧: https://www.ubtrobot.com/en/news 。Walker S1は産業向けに、検査、搬送、部品取り扱い、品質確認を狙う。2026年5月時点で、販売価格や年産能力の確定値は公式には明確でないが、中国メディアでは量産納入、複数自動車メーカーでの導入が報じられている。UBTECHの強みは教育・サービスロボットでの実績、中国国内顧客網、政府支援を受けやすい産業政策環境である。公開された失敗・制約は、国際的に検証可能な稼働台数が少ないこと、工場での作業が限定タスクに留まること、海外顧客が求める安全認証・データ管理・保守体制に課題があることである。Walker S1は「中国製造業に入り始めたヒューマノイド」として重要だが、外部から確認できる単価、稼働率、MTBF、1台あたり作業量が不足しているため、量産効果を数値で比較するには慎重さが必要である。 |
+| Japan: Kawasaki, Honda, Sony, TRI | 日本勢は2026年5月時点で、量産ヒューマノイドの前線では米中勢に遅れているが、技術資産は厚い。川崎重工のKaleidoは災害対応、人間支援、産業作業を想定したヒューマノイド研究であり、公式には研究開発プラットフォームとして紹介されている。川崎重工: https://robotics.kawasaki.com/ja1/products/humanoid/ 。HondaはASIMO終了後、災害対応ロボットE2-DRを2017年に発表したが、2026年5月時点でE2-DR後継の量産ヒューマノイドを商用展開している公開情報はない。Honda R&D E2-DR論文・発表情報: https://global.honda/en/tech/E2-DR/ 。Sony GroupはAIBOなどロボティクス経験を持つが、2026年5月時点でFigureやUnitreeに相当する量産ヒューマノイド製品を公開していない。Sony AIはロボット学習、AI、エンタテインメント、創造性に関わる研究を進めるが、量産人型機としての公開製品は確認できない。Sony AI: https://ai.sony/ 。TRIは最も重要で、Toyota Research InstituteはLarge Behavior ModelsやDiffusion Policy系のロボット学習を進め、ロボットが少数デモから器用な作業を学ぶ方向を示している。TRI公式: https://www.tri.global/news/toyota-research-institute-unveils-breakthrough-teaching-robots-new-behaviors 。ただしTRIは量産ヒューマノイドメーカーではなく、基盤技術研究機関である。日本勢の失敗・制約は、ASIMO以後の商用継続性、国内市場の慎重さ、労働安全規制、投資規模、ハードウェア量産意思決定の遅さである。 |
+
+## 3. Production capacity comparison: Figure / Tesla / Unitree
+
+Figure AI、Tesla、Unitreeを比較すると、三社は同じ「ヒューマノイド」と呼ばれていても、量産の意味が異なる。Figureは産業顧客向けの垂直統合機を、BotQで年12,000台生産する計画を明確に示した。Figure 03の発表では、量産設計、部品点数、コスト低減、工場能力をセットで語っており、これは研究デモ企業から製造企業へ移る意思表示である。出典: https://www.figure.ai/news/figure-03 。ただし、年12,000台は計画能力であり、2026年5月時点で年間12,000台が顧客現場で稼働しているという意味ではない。
+
+Teslaは潜在的には最大の量産能力を持つ。自動車、電池、パワーエレクトロニクス、工場自動化、サプライチェーンを内製化しており、Optimusを自社工場で使える点も強い。しかし、2026年5月時点の確実な数字は弱い。Muskは数千台から将来数百万台という大きな構想を語るが、Reutersが報じたように中国の希土類磁石輸出規制がOptimus生産に影響した。出典: https://www.reuters.com/business/autos-transportation/teslas-optimus-robot-production-hit-by-china-magnet-curbs-musk-says-2025-04-22/ 。従って比較表では、Teslaを「最大ポテンシャル、最小公開検証」と置くべきである。
+
+Unitreeは最も市販性が高い。G1の16,000ドルという公式価格は、ヒューマノイド研究市場において決定的である。出典: https://www.unitree.com/g1 。H1の約9万ドル級価格も、従来の研究用ヒューマノイドに比べると低い。出典: https://www.unitree.com/h1 。ただしUnitreeは、Figureのように年12,000台というヒューマノイド専用工場能力を英語公式で明確に出しているわけではない。Unitreeの数値比較で使えるのは、販売価格と製品販売状態であり、年産能力や顧客別稼働台数は慎重に扱う必要がある。
+
+| 会社 | 確認できる量産・価格数値 | 解釈 |
+|---|---:|---|
+| Figure AI | BotQ初期能力 年12,000台、4年以内に10万台規模計画 | 産業用ヒューマノイド量産工場として最も明確な計画値 |
+| Tesla | Musk発言では数千台から大規模化構想。ただし2026年5月時点の商用出荷台数は非公開 | 最大潜在能力だが、検証済み実績は限定的 |
+| Unitree | G1公式価格16,000ドルから、H1約90,000ドル級 | 低価格市販機として最も明確。年産能力は未確認 |
+
+## 4. Failure analysis: 何が量産を阻んでいるか
+
+第一の制約はバッテリーである。ヒューマノイドは人間サイズの身体に、歩行、腕、手指、センサー、計算機、通信、冷却を入れる必要がある。工場で8時間働くには、人間のように休憩しながら動くのではなく、高い稼働率で安定して動く必要がある。Apptronik Apolloが交換式バッテリーを特徴にするのは、この制約が根本的だからである。電池を大きくすると重くなり、重くなるとアクチュエータが大きくなり、さらに電池が必要になる。Boston Dynamics Atlasのような高運動性能機は特にこのトレードオフを抱える。
+
+第二の制約は手指である。歩くデモは動画で映えるが、量産現場で価値を生むのは、部品、箱、ケーブル、布、工具、ドア、ボタン、バーコード、異形物を壊さず扱う能力である。Sanctuary PhoenixやFigure 03は手指を強く訴求しているが、手は壊れやすく、汚れや摩耗に弱く、把持失敗のリスクが高い。工場では1日に何千回も同じ動作を繰り返すため、研究室で数十回成功することと、現場で数十万回失敗しないことは別問題である。
+
+第三の制約は安全認証である。ヒューマノイドは重量があり、重心が高く、転倒すれば人間を傷つける。産業用ロボットなら柵内で高速に動けばよいが、ヒューマノイドの価値は人間空間に入ることにある。このため、安全停止、力制限、視覚死角、非常停止、監督者配置、保険、労働組合対応、労災責任が一体になる。AmazonやGXOでDigitが限定用途から始まるのは、技術不足だけでなく安全設計上の必然である。
+
+第四の制約はコストである。Unitree G1の16,000ドルは安いが、産業現場では本体価格だけでは足りない。保守、手指交換、電池交換、遠隔監督、現場マッピング、ソフトウェア契約、安全教育、停止時の代替作業者まで含めると、TCOは大きくなる。Teslaの2万ドル未満構想は市場インパクトが大きいが、2026年5月時点では量産原価ではなく将来目標である。
+
+第五の制約はサプライチェーンである。Reutersが報じたTesla Optimusの希土類磁石問題は象徴的である。ヒューマノイドは高トルク密度モーター、減速機、エンコーダ、力覚センサー、軽量構造材、バッテリー、GPU、カメラを大量に必要とする。自動車より台数が少ない初期段階では、部品単価が下がりにくく、故障率のデータも集まりにくい。
+
+## 5. Japanese players section
+
+日本のヒューマノイド研究は、ASIMO、HRP、Kaleido、E2-DRなど、歴史的には世界の先頭集団にいた。しかし、2026年5月時点での量産競争では、米国と中国が前に出ている。理由は、AI投資額、ベンチャー資金、製造業の労働不足を背景にした実験許容度、政府・資本市場のリスク許容度の違いである。
+
+川崎重工Kaleidoは、災害対応や人間支援を想定した高機能な研究プラットフォームである。日本の重工メーカーらしく、堅牢性、安全性、産業応用への意識は強い。しかし、Figure BotQやAgility RoboFabのような年産1万台級の公開量産計画は確認できない。Kaleidoは技術蓄積として重要だが、市場投入速度では米中勢に遅れている。
+
+Honda E2-DRは、ASIMO後のHondaが災害対応に方向転換した象徴だった。防水、防塵、狭所移動、はしご昇降など、日本の災害大国としての課題に即していた。しかし、E2-DRの後継が2026年時点で商用量産ヒューマノイドとして登場したとは言えない。Hondaはモビリティ企業としてロボティクス資産を持つが、量産人型ロボットの事業化では慎重である。
+
+Sony Groupは、AIBOで家庭ロボットの商用経験を持つ数少ない日本企業である。AI、センサー、エンタテインメント、インタラクション設計では強い。しかし2026年5月時点で、Sonyが人間サイズの量産ヒューマノイドを公表している証拠は見当たらない。Sony AIの研究は重要だが、FigureやUnitreeのような機体販売とは別物である。
+
+TRIは日本企業グループの中で最も世界的に重要なPhysical AI研究拠点である。Toyota Research Instituteは、ロボットに新しい行動を教えるLarge Behavior Modelsや模倣学習、拡散方策の研究を進めている。公式発表では、ロボットが人間のデモから複雑な作業を学習する方向が示された。出典: https://www.tri.global/news/toyota-research-institute-unveils-breakthrough-teaching-robots-new-behaviors 。ただしTRIはヒューマノイド量産メーカーではない。日本の勝ち筋は、完成ヒューマノイド本体の大量販売よりも、行動モデル、安全規格、製造品質、介護・災害・物流の高信頼アプリケーションにある可能性が高い。
+
+## 6. 2026-2028 outlook
+
+2026年から2028年にかけて、ヒューマノイド市場は三層に分かれる可能性が高い。第一層は、Agility Digit、Figure 03、Apptronik Apollo、UBTECH Walker S系列のような産業パイロットから限定商用へ進む機体である。ここでは台数よりも、顧客現場での稼働率、作業単価、停止時間、保守頻度が勝敗を決める。年1万台の工場能力を持っていても、顧客がROIを確認できなければ稼働台数は伸びない。
+
+第二層は、Unitree G1/H1/H2のような低価格開発者向け市場である。ここでは大学、研究機関、スタートアップ、企業研究所が大量に実験を行い、アプリケーション生態系を作る。スマートフォンでAndroid端末が開発者市場を広げたように、Unitreeはヒューマノイドの「安い実機」を供給することで、米国勢とは異なるルートで市場を拡大する可能性がある。
+
+第三層は、Teslaと1Xのような大きな物語を持つ企業である。Teslaは内製量産と自社工場需要を持つため、もしOptimusが工場内で本当に人間作業を置き換え始めれば、最速で台数を伸ばせる。一方で、2026年5月時点では供給制約と技術成熟度が残る。1Xは家庭用という最も大きな市場を狙うが、家庭は最も難しい環境でもある。2028年までに家庭用ヒューマノイドが一般家庭で広く普及する可能性は低く、限定ベータ、遠隔監督、富裕層・研究家庭・開発者向けに留まる可能性が高い。
+
+総合すると、2028年までの現実的な展望は「完全自律の汎用人型労働者」ではなく、「限定タスクを人間監督下でこなす二足または人型ロボットの商用導入拡大」である。最初に量産効果が出るのは、倉庫内トート搬送、自動車工場の部品搬送、検査補助、夜間の単純巡回、研究開発用途である。家庭、介護、災害対応は社会的価値が大きいが、安全と責任が重く、量産は遅れる。2026年5月時点の結論として、ヒューマノイド量産競争は始まっているが、勝者はまだ決まっていない。量産台数を語る段階から、稼働時間、故障率、作業単価、事故率を語る段階へ移れる企業だけが、2028年以降のPhysical AI産業の中心になる。
+tokens used
+11,086

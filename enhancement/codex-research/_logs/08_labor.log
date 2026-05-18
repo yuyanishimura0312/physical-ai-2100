@@ -1,0 +1,223 @@
+OpenAI Codex v0.128.0 (research preview)
+--------
+workdir: /Users/nishimura+/projects/research/agent-registry-db
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019e3929-5713-7f52-9ff0-e7da6236e705
+--------
+user
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Labor economics impact of Physical AI / humanoid robotics — major report synthesis 2024-2026.
+
+SCOPE (must cover all reports):
+- ILO: "Generative AI and Jobs" (2023, updated 2024), "Work for a Brighter Future" Centenary Commission follow-up
+- OECD: "Employment Outlook 2024" (AI chapter), "AI, Data and Competition" 2024
+- WEF: "Future of Jobs Report 2025" (2025-01 Davos), "Jobs of Tomorrow" 2024
+- Goldman Sachs: "The Potentially Large Effects of Artificial Intelligence on Economic Growth" (2023-03) + 2024/2025 update on physical AI specifically
+- McKinsey Global Institute: "The state of AI in early 2024", "The economic potential of generative AI" (2023-06), "A new future of work: The race to deploy AI and raise skills in Europe and beyond" (2024)
+- BCG: "How AI Can Be Regulated to Unlock Its Full Potential" 2024
+- IMF: "Gen-AI: Artificial Intelligence and the Future of Work" Working Paper SDN/2024/001 (2024-01, Cazzaniga et al.)
+- 日本: 経済産業省「DX白書 2024」、内閣府「経済財政白書 2024」AI 章、リクルートワークス研究所「人材マネジメント調査」、パーソル総合研究所「労働市場の未来推計」
+- World Bank: "Digital Progress and Trends Report 2024"
+- UNESCO: AI and Education reports
+
+DATA POINTS to extract:
+- Percentage of jobs at risk of automation (AI vs Physical AI 分離して比較)
+- 職種別 impact: manufacturing / logistics / healthcare / construction / agriculture
+- 賃金への影響: complement vs substitute
+- 国別 impact differential (developed vs developing)
+- Reskilling/upskilling 必要規模
+
+DELIVERABLE: Markdown report ≥ 3,000 words 地の文, structured:
+1. 労働経済学からみた Physical AI (4 paragraphs)
+2. 主要レポート synthesis: 各 report の主要数値・予測・方法論 (one paragraph per report, 12 reports minimum)
+3. 職種別 impact: 詳細データ table（数値必須・source URL付き）
+4. 国別比較: G7 + 中国 + インド
+5. 日本固有: 経産省・厚労省データ、人手不足とAI代替の交差点（必須・厚く書く）
+6. Wage effects: complement-vs-substitute 論争 (Acemoglu, Restrepo, Autor の最新論文)
+7. Reskilling 必要規模と実施事例
+8. 2030 / 2050 / 2100 outlook
+
+CITATIONS: report URL / 論文 DOI / 公的統計 URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.
+
+codex
+主要レポートと統計値を外部ソースで確認してから統合します。特に「Physical AI」と通常の生成AIの分離は、各機関が同じ分類で出していないため、数値の定義を明示して比較します。
+web search: 
+web search: ILO Generative AI and Jobs 2023 updated 2024 pdf exposure automation share clerical jobs
+web search: 
+web search: OECD Employment Outlook 2024 AI chapter share jobs highest risk automation AI occupations percentage
+web search: 
+web search: WEF Future of Jobs Report 2025 22 percent jobs by 2030 170 million 92 million
+web search: 
+web search: Goldman Sachs Potentially Large Effects of Artificial Intelligence on Economic Growth 2023 300 million jobs exposed automation GDP 7 percent
+web search: 
+web search: McKinsey state of AI in early 2024 report gen AI adoption percent
+web search: 
+web search: IMF Gen-AI Artificial Intelligence and the Future of Work SDN/2024/001 40 percent jobs 60 advanced economies exposure Cazzaniga
+web search: 
+web search: World Bank Digital Progress and Trends Report 2024 AI jobs digital skills employment
+web search: 
+web search: METI DX White Paper 2024 AI human resources Japan percent generative AI use
+web search: 
+web search: Acemoglu Restrepo AI automation wage effects tasks 2024 paper DOI
+web search: 
+web search: ILO Work for a brighter future Global Commission on the Future of Work report 2019 human-centred agenda
+web search: 
+web search: OECD AI Data and Competition 2024 report artificial intelligence data competition labour markets
+web search: 
+web search: International Federation of Robotics robot density 2024 manufacturing countries Japan China United States Germany Korea
+web search: 
+web search: 厚生労働省 2024 人手不足 介護 建設 運輸 有効求人倍率 職業別
+web search: 
+web search: site:bcg.com "How AI Can Be Regulated to Unlock Its Full Potential"
+web search: 
+web search: BCG "regulated" "unlock its full potential" AI 2024
+web search: 
+web search: World Robotics 2024 robot density Germany Japan United States France Italy United Kingdom Canada robots per 10000 employees
+codex
+# Physical AI / humanoid robotics が労働経済に与える影響  
+対象: Physical AI 2100 textbook / NPO Miratuku・esse-sense  
+作成日: 2026-05-18  
+注記: 本稿では、生成AI・エージェントAIなどの「情報空間のAI」と、ロボット・自律移動・ヒューマノイド・センサー統合によって物理作業へ作用する「Physical AI」を分けて扱う。各国際機関の多くは Physical AI という語で統計を出していないため、Physical AI 側は産業ロボット密度、ヒューマノイド市場予測、ロボット導入の雇用・賃金研究を代理指標として用いる。
+
+## 1. 労働経済学からみた Physical AI
+
+Physical AI の労働経済上の特徴は、生成AIが主に「認知・言語・情報処理タスク」の限界費用を下げるのに対して、ロボットやヒューマノイドが「移動、把持、搬送、組立、点検、介助、収穫、施工」といった身体的タスクの限界費用を下げる点にある。したがって、生成AIの雇用影響は事務、法務、金融、教育、ソフトウェア、顧客対応などのホワイトカラー中心に観測されやすい。一方、Physical AI は製造、物流、医療・介護、建設、農業、警備、清掃、災害対応といった現場職へ及ぶ。ただし、物理世界では安全規制、環境変動、電池、保守、責任所在、導入資本コスト、既存工程との統合が制約となるため、ソフトウェアAIより普及速度は遅く、短期には「完全代替」よりも「人手不足領域の補完」として現れやすい。
+
+労働経済学のタスク・モデルでみると、AI導入の効果は単純な雇用減少ではない。Acemoglu and Restrepo の枠組みでは、技術は一部タスクを資本に移すことで労働需要を減らす「displacement effect」を生む一方、コスト低下による需要拡大や新タスク創出による「productivity effect」「reinstatement effect」も生む。Physical AI ではこの緊張関係がとくに強い。たとえば倉庫搬送ロボットはピッキング作業者の歩行時間を減らすが、同時に在庫管理、ロボット保守、工程設計、安全監督、例外処理の仕事を増やす。介護ロボットは介護職を消すというより、移乗、見守り、記録、夜間巡回を支援し、介護職の身体負荷と離職を下げる方向で導入される可能性が高い。
+
+ただし、Physical AI は賃金分布に非対称な影響を与える。ロボットが熟練工の判断を補完し、非熟練・反復作業を置換する場合、技能プレミアムは上昇する。逆に、AIが専門家の暗黙知を標準化し、低技能者でも高品質な仕事を遂行できるようにする場合、中間層の賃金を押し上げる可能性がある。David Autor が主張する「AIを中間層再建に使う」論点はここにある。Physical AI の場合、熟練技能をロボット操作・遠隔監督・デジタルツイン設計に埋め込めば、現場の若手や高齢者、女性、障害者、外国人労働者の参加可能性を広げる。一方、ロボットを単なる労務費削減装置として導入すれば、現場の交渉力低下と賃金抑制を招く。
+
+したがって、政策論として重要なのは「AIが何%の仕事を奪うか」だけではなく、どのタスクを自動化し、どのタスクを人間に再配分し、誰が生産性上昇分を受け取るかである。ILO の “human-centred agenda” はこの点を強調しており、技術導入を労働者の能力投資、労働制度、社会保護、団体交渉、ディーセントワークと結びつける。Physical AI 2100 の観点では、ロボットが人間の身体労働を奪う未来だけでなく、高齢化社会で不足する現場労働を補い、人間が危険・重筋・単調作業から離れ、より高い判断・ケア・創造・関係形成へ移る未来を設計対象にすべきである。
+
+## 2. 主要レポート synthesis
+
+1. **ILO “Generative AI and Jobs” 2023 / 2024-2025 update**  
+ILO の 2023 年 Working Paper 96 は、GPT-4 系の生成AIが職業全体を一括で置換するのではなく、職業内のタスクを部分的に自動化・補完するというタスクベース分析を採用した。主要数値は、事務職で高曝露タスクが約24%、中曝露タスクが約58%である一方、その他職業では高曝露タスクは概ね1-4%にとどまるというもの。低所得国では雇用構造上、生成AIによる自動化曝露が小さく、逆に高所得国・上位中所得国で大きい。2025 update / refined index では、音声・画像・動画生成の能力向上により、メディア、ウェブ関連、事務支援の自動化スコアが上方修正された。出典: https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quantity-and-quality / DOI: https://doi.org/10.54394/FHEM8239、更新版: https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure
+
+2. **ILO “Work for a Brighter Future” / Centenary Commission follow-up**  
+2019 年の ILO Global Commission 報告は、AIやロボットの数値予測ではなく、制度設計の基準を提示した。柱は、人間の能力への投資、労働制度への投資、ディーセントで持続可能な仕事への投資である。Physical AI に関しては、技術を「人間中心の成長」に埋め込むこと、全員への生涯学習、移行支援、社会保護、労働時間主権、集団的代表、Universal Labour Guarantee を重視する。生成AI・ロボット導入の補償、再訓練、労使協議を設計する上で基礎文献となる。出典: https://www.ilo.org/publications/work-brighter-future、Centenary Declaration: https://www.ilo.org/about-ilo/mission-and-impact-ilo/ilo-centenary-declaration-future-work-2019
+
+3. **OECD Employment Outlook 2024 / AI関連章の位置づけ**  
+OECD Employment Outlook 2024 自体はネットゼロ移行や労働市場動向を中心に扱うが、OECD の 2023 Employment Outlook AI 章および 2024 “Job Creation and Local Economic Development” の生成AI地域分析と合わせて読む必要がある。OECD は、AI曝露が高い職業ほど直ちに雇用減少している証拠はまだ弱いとしつつ、全自動化技術を含めると OECD 平均で約27%の雇用が高リスク職業にあると整理する。地域差は大きく、生成AI曝露かつ自動化リスクが高い雇用比率は、地域によって1%未満から29%近くまで開く。出典: https://www.oecd.org/en/publications/oecd-employment-outlook-2024_ac8b3538-en/full-report.html、AI章: https://www.oecd.org/en/publications/2023/07/oecd-employment-outlook-2023_904bcef3/full-report/artificial-intelligence-and-jobs-no-signs-of-slowing-labour-demand-yet_5aebe670.html、地域分析: https://www.oecd.org/en/publications/job-creation-and-local-economic-development-2024_83325127-en/full-report/component-7.html
+
+4. **OECD “Artificial Intelligence, Data and Competition” 2024**  
+この OECD Artificial Intelligence Paper は、労働市場レポートではなく競争政策レポートだが、AIの雇用影響を左右する産業構造を扱う。基盤モデル訓練、ファインチューニング、展開というAIバリューチェーンを分け、データ、計算資源、既存プラットフォーム、提携・買収、スイッチングコストが市場集中を生む可能性を論じる。労働市場面では、AI供給が少数企業に集中すると、AI導入の利益が賃金より資本・プラットフォーム利潤に偏るリスクが高まる。Physical AI でも、ロボットOS、視覚基盤モデル、クラウド制御、データ収集基盤が集中すれば、現場労働者の交渉力は弱まる。出典: https://www.oecd-ilibrary.org/en/publications/artificial-intelligence-data-and-competition_e7e88884-en.html / DOI: https://doi.org/10.1787/e7e88884-en
+
+5. **WEF “Future of Jobs Report 2025”**  
+WEF は 1,000 社超、1,400 万人以上、55 経済圏を対象にした雇用者調査と ILO 雇用データを組み合わせ、2025-2030 年に現在の正式雇用の22%に相当する構造的変化が起こると推計した。内訳は新規創出 1.7 億人、喪失 9,200 万人、純増 7,800 万人である。雇用者が最も変革的とみるトレンドはデジタルアクセス拡大、AI・情報処理、ロボティクス・自動化、エネルギー転換などで、2030年までに必要スキルの39%が変化するとされる。Physical AI では、農業機械、配送、倉庫、製造、介護、建設の現場スキル再編がこの「22% churn」の中核になる。出典: https://www.weforum.org/publications/the-future-of-jobs-report-2025/、数値: https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/2-jobs-outlook/
+
+6. **WEF “Jobs of Tomorrow: Large Language Models and Jobs” 2024 系列**  
+WEF / Accenture の Jobs of Tomorrow 系列は、LLMが職務タスクに与える影響を「自動化」「補完」「低曝露」に分け、企業が職務再設計、再訓練、責任ある導入を行うための実務ツールキットを提示する。LLM中心のため Physical AI そのもののレポートではないが、ヒューマノイドや現場ロボットが音声・視覚・計画LLMを組み込むと、現場作業員の指示、記録、例外判断、遠隔支援がLLM化する。したがって、Physical AI の雇用影響は、ロボット本体の代替効果と、LLMによる現場管理・技能伝承の補完効果の合成として読むべきである。出典: https://www.weforum.org/publications/jobs-of-tomorrow-large-language-models-and-jobs-a-business-toolkit/
+
+7. **Goldman Sachs “The Potentially Large Effects of Artificial Intelligence on Economic Growth” 2023**  
+Goldman Sachs は、生成AIが世界で約3億人分のフルタイム雇用を自動化曝露に置く可能性、米国・欧州では作業時間の約4分の1が自動化可能である可能性、世界GDPを長期的に約7%押し上げる可能性を提示した。ただし同レポートは、多くの職業が部分曝露であり、完全代替より補完の可能性が高いとも述べる。重要なのは、Goldman の 2023 年推計は主に情報処理AIであり、建設や屋外・身体作業は短期的には生成AIの影響が小さいと見ている点である。出典: https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.html、PDF: https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.pdf
+
+8. **Goldman Sachs “Humanoid Robot: The AI Accelerant” 2024 update**  
+Goldman Sachs のヒューマノイドロボット分析は、Physical AI の代表的市場予測である。初期見通しではヒューマノイド市場は10-15年で少なくとも60億ドル、米国製造業の労働力不足の4%を2030年までに、世界高齢者ケア需要の2%を2035年までに埋める可能性とされた。2024年更新では、2035年市場規模予測を380億ドルへ引き上げ、2030年出荷25万台超、2035年出荷140万台規模を示す。ここでの雇用影響は「既存雇用の何%を奪うか」よりも、人手不足ギャップの何%を埋めるかとして表現されている。出典: https://www.goldmansachs.com/insights/goldman-sachs-research/global-automation-humanoid-robot-the-ai-accelerant、更新記事: https://www.goldmansachs.com/insights/articles/the-global-market-for-robots-could-reach-38-billion-by-2035
+
+9. **McKinsey “The state of AI in early 2024”**  
+McKinsey の 2024 年調査では、回答企業の65%が少なくとも一つの機能で生成AIを定常利用しており、10か月前からほぼ倍増した。利用はマーケティング・営業、製品・サービス開発、ITで多い。これは生成AIが既に実験段階から業務導入段階へ移ったことを示す。Physical AI の視点では、ロボット単体の導入より、現場データ、保守、シフト、品質検査、予知保全、作業指示に生成AIが先行導入され、その後にロボットが接続されるパターンが現実的である。出典: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024
+
+10. **McKinsey “The economic potential of generative AI” 2023**  
+McKinsey Global Institute は、生成AIが63ユースケースで年間2.6兆-4.4兆ドルの価値を生み、既存AI全体の経済効果を15-40%押し上げる可能性を示した。また、既存技術と生成AIを組み合わせると、現在の従業員時間の60-70%に相当する作業活動が理論上自動化可能となり、50%自動化到達時期の中位が2045年へ約10年前倒しされるとした。ただしこれは「活動時間」の自動化可能性であり「雇用数」の直接減少ではない。出典: https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/The-economic-potential-of-generative-AI-The-next-productivity-frontier
+
+11. **McKinsey “A new future of work: The race to deploy AI and raise skills in Europe and beyond” 2024**  
+MGI は欧州・米国の企業調査と職業・活動・スキルモデルを組み合わせ、2030年までに中位シナリオで現在労働時間の最大30%が自動化され得るとする。欧州は高齢化、労働供給制約、低い生産性成長に直面しており、AI導入と技能向上を同時に進めなければ、競争力と賃金の両方を失う。Physical AI では、欧州の製造、物流、医療介護、建設で人手不足を補う一方、労働者をより高付加価値タスクへ移す訓練が必要になる。出典: https://www.mckinsey.com/mgi/our-research/a-new-future-of-work-the-race-to-deploy-ai-and-raise-skills-in-europe-and-beyond
+
+12. **BCG 2024 AI regulation / Responsible AI 系列**  
+指定タイトル “How AI Can Be Regulated to Unlock Its Full Potential” と完全一致する BCG 公開ページは確認できなかったため、本稿では BCG の 2024 年 AI readiness / risk management / responsible AI 論考を対象にした。BCG は、AIの便益を拡大するには規制を「イノベーションの阻害」ではなく、信頼、説明責任、リスク管理、導入拡大の前提として扱うべきだとする。労働市場面では、AI導入が従業員監視、アルゴリズム管理、差別、データ漏洩を伴うと社会的反発で普及が止まる。Physical AI では安全規格、事故責任、現場データ権利、労使協議が特に重要である。出典: https://www.bcg.com/publications/2024/managing-risks-to-accelerate-ai-transformation、AI readiness: https://www.bcg.com/publications/2024/which-economies-are-ready-for-ai
+
+13. **IMF “Gen-AI: Artificial Intelligence and the Future of Work” SDN/2024/001**  
+IMF の Cazzaniga et al. は、世界雇用の約40%がAI高曝露職業にあり、先進国では約60%、新興国では約40%、低所得国では約26%と推計した。重要なのは、曝露を「高補完性」と「低補完性」に分けた点である。先進国では曝露が高い分、代替リスクも補完利益も大きい。女性、高学歴者は曝露が高いが、補完利益を得る可能性もある。高齢労働者は再訓練・移動に制約がある。出典: https://www.elibrary.imf.org/view/journals/006/2024/001/article-A001-en.xml / DOI: https://doi.org/10.5089/9798400262548.006、IMF blog: https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity
+
+14. **日本: 経済産業省 “生成AI時代のDX推進に必要な人材・スキルの考え方2024” / DX白書文脈**  
+経産省は、生成AI時代のDX人材政策として、AIを単なる効率化ツールではなく、変革のために使う人材・スキル体系を整理した。日本企業の課題は、AIモデルそのものより、業務設計、データ整備、現場実装、経営層の理解、実践の場、人材流動性にある。Physical AI では、製造・物流・介護・建設の現場プロセスをデータ化し、AI・ロボット・設備投資を結ぶDX人材が不足する。出典: https://www.meti.go.jp/press/2024/06/20240628006/20240628006.html、英語版: https://www.meti.go.jp/english/press/2024/0628_003.html
+
+15. **日本: 内閣府 “令和6年度経済財政白書” AI・省力化投資・人手不足章**  
+2024年白書は、日本経済の制約として人手不足を中心に据え、省力化投資、賃金シグナル、労働移動、生産性向上を分析した。2024年時点で人手不足感は非製造業・中小企業を中心に歴史的水準へ高まっており、背景には1995年をピークとする生産年齢人口の減少、2008年以降の総人口減少がある。Physical AI は日本では失業問題だけでなく、供給制約を緩和する成長政策として位置づく。出典: https://www.cao.go.jp/press/new_wave/20240905.html、第2章: https://www5.cao.go.jp/j-j/wp/wp-je24/h02-00.html
+
+16. **World Bank “Digital Progress and Trends Report 2024” / 2025 AI foundations**  
+World Bank は、デジタル化が成長、雇用、レジリエンスを支える一方、低中所得国ではインターネット接続、デジタルスキル、デジタル公共インフラ、データ基盤の不足がAI便益の取り込みを妨げるとする。2025版ではAI基盤を強化する “four Cs” を掲げ、生成AI求人の急増やデジタルスキル需要を扱う。Physical AI の国際格差は、ロボット購入能力だけでなく、通信、電力、クラウド、保守人材、制度能力の格差として現れる。出典: https://www.worldbank.org/en/publication/digital-progress-and-trends-report、2023/2024公表: https://www.worldbank.org/en/news/press-release/2024/03/05/accelerated-by-covid-and-ai-global-digital-landscape-remains-uneven、2025: https://documents1.worldbank.org/curated/en/099112525160536089/pdf/P505350-59c98ca8-0803-4f23-b470-17f3dab010ab.pdf
+
+17. **UNESCO AI and Education reports**  
+UNESCO は教育分野で、AIを教師の代替ではなく、教師・AI・学習者の新しい関係として捉え、教師が習得すべきAIリテラシー、倫理、データ保護、教育設計能力を整理する。教育は労働市場調整の基盤であり、AI・Physical AI による職務変化に対して、学校教育、職業教育、成人学習、教員研修を接続する必要がある。教師自身もAI補完職であり、評価、教材作成、個別化支援が変化する。出典: https://www.unesco.org/en/articles/ai-competency-framework-teachers、UNESCO AI in education: https://www.unesco.org/en/digital-education/artificial-intelligence
+
+## 3. 職種別 impact: detailed data table
+
+| 職種・部門 | 通常AI / 生成AIの自動化・曝露 | Physical AI / ロボットの代替・補完 | 賃金・雇用含意 | Source URL |
+|---|---:|---:|---|---|
+| 事務・管理支援 | ILO: 事務職タスクの高曝露24%、中曝露58% | 物理作業は少ないため Physical AI 直接影響は小 | 生成AIで書類作成・入力・照合が代替。残る仕事は例外処理、対人調整、監査 | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4584219 |
+| 製造 | Goldman 2023では生成AI影響は法務・事務より低い。McKinseyは工場管理、品質、保守でAI活用余地 | IFR: 世界ロボット密度162台/1万人、China 470、Germany 429、Japan 419。Goldman: ヒューマノイドが2030年に米製造業不足の4%を埋める可能性 | 反復組立・搬送は代替、保全・工程設計・ロボット監督は補完。低技能作業者には下押し、高技能現場人材には上押し | https://ifr.org/post/global-automation-in-2023-and-beyond / https://www.goldmansachs.com/insights/articles/humanoid-robots |
+| 物流・倉庫 | 需要予測、配車、在庫、カスタマー対応は生成AI・最適化AIで高補完 | Goldman: ヒューマノイドは倉庫・物流管理、階段搬送など既存ロボットが苦手な領域で有望 | ピッキング・搬送・棚卸しは代替、例外処理・安全監督・保守は補完。人手不足地域で導入が速い | https://www.goldmansachs.com/insights/articles/humanoid-robots |
+| 医療・介護 | IMF: 先進国の高曝露60%の一部。記録、診断補助、予約、請求はAI補完 | Goldman: 世界高齢者ケア需要の2%を2035年までにヒューマノイドが埋める可能性。日本の介護職員は2040年度に約57万人不足 | 介護職の全代替は困難。移乗、見守り、記録、夜勤負荷軽減が中心。賃金は人手不足と補完導入で上昇余地 | https://www.goldmansachs.com/insights/goldman-sachs-research/global-automation-humanoid-robot-the-ai-accelerant / https://www.mhlw.go.jp/stf/newpage_02977.html |
+| 建設 | 設計、積算、工程管理、安全文書は生成AI曝露 | 現場は非定型・屋外・安全制約が強く、短期はドローン測量、重機自動化、資材搬送から | 人手不足が強く、省力化投資は賃金上昇圧力と併存。熟練技能のデジタル化が鍵 | https://www5.cao.go.jp/j-j/wp/wp-je24/h02-00.html |
+| 農業 | 需要予測、栽培計画、画像診断はAI補完 | 自動収穫、除草、選果、ドローン、スマート農機。WEFは農業労働者・配送等の成長も予測 | 季節労働・重労働を補完。小規模農家では資本コストが制約 | https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/2-jobs-outlook/ |
+| 教育 | UNESCO: 教師・AI・学生関係へ変化。教材作成、個別化、評価支援 | Physical AI 直接影響は限定的。ただし特別支援、実験、遠隔臨場ロボットで補完 | 教師代替よりAIリテラシーと教育設計能力が賃金・雇用安定を左右 | https://www.unesco.org/en/articles/ai-competency-framework-teachers |
+| 法務・金融・専門職 | Goldman / IMF / McKinseyで高曝露。文書、検索、分析、契約、レポート作成 | Physical AI 影響は小 | 高補完なら生産性・賃金上昇、低補完ならジュニア業務縮小 | https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity |
+| 警備・清掃・施設管理 | 報告書作成、監視映像要約、異常検知はAI | 巡回ロボット、清掃ロボット、設備点検ロボット。安全・責任制約あり | 単純巡回は代替、トラブル対応・顧客対応は補完 | https://www.oecd-ilibrary.org/en/publications/artificial-intelligence-data-and-competition_e7e88884-en.html |
+
+## 4. 国別比較: G7 + 中国 + インド
+
+IMF の国別グループ推計では、G7 のような先進国は雇用構造が認知集約的であるため、AI高曝露職業が約60%に達する。一方、中国・インドを含む新興国では約40%、低所得国では約26%である。これは「先進国ほど危険」という単純な話ではない。先進国は曝露が高いが、補完性、デジタルインフラ、教育、企業導入能力も高いため、生産性上昇を取り込む余地が大きい。新興国は曝露が相対的に低いが、AI導入の利益を得るための通信、データ、教育、制度が不足すれば、世界的な生産性格差が拡大する。
+
+| 国 | 通常AI曝露 | Physical AI readiness / robot proxy | 労働市場含意 |
+|---|---:|---:|---|
+| 米国 | IMF先進国: 約60% | IFR: 米国ロボット密度は2023年295台/製造業1万人、2024年307台との報道。GoldmanはAIが米国作業時間の25%を自動化可能と推計 | 生成AIは専門・事務に強く、Physical AIは製造回帰、物流、介護で人手不足補完 |
+| カナダ | IMF先進国: 約60% | IFR: 2023年ロボット導入4,311台、2024年3,787-4,616台報道 | 移民政策と技能形成がAI補完利益の鍵 |
+| 英国 | IMF先進国: 約60%、OECD UK noteでは全自動化高リスク職業19% | IFR: UKは2023年3,830台導入、2024年は減少報道 | 事務・専門職の生成AI曝露が中心。製造ロボット密度はG7内で低め |
+| フランス | IMF先進国: 約60% | IFR: 2023年6,386台導入、欧州上位20位内 | 労働保護制度が強く、導入は労使協議と職業訓練が焦点 |
+| ドイツ | IMF先進国: 約60% | IFR: ロボット密度429台/1万人、欧州最大市場 | 製造Physical AIの中心国。熟練工補完と中技能代替が同時進行 |
+| イタリア | IMF先進国: 約60% | IFR: 2023年10,412台導入、EU第2市場 | 中小製造業の省力化と技能継承が課題 |
+| 日本 | IMF先進国: 約60% | IFR: ロボット密度419台/1万人、日本は主要ロボット生産国 | 人口減少・介護不足が強く、Physical AIは雇用代替より供給制約対策 |
+| 中国 | IMF新興国: 約40% | IFR: 2023年ロボット密度470台/1万人、2024年新規導入世界の54%、約29.5万台 | 製造Physical AIは世界最大規模。低技能製造の代替と高度保守人材需要が同時拡大 |
+| インド | IMF新興国: 約40% | IFR: 2023年8,500台導入、前年比+59% | 若年人口が多く、AI代替よりデジタル・ロボット技能の教育拡大が成長制約 |
+
+出典: IMF SDN https://www.elibrary.imf.org/view/journals/006/2024/001/article-A001-en.xml、IFR https://ifr.org/post/global-automation-in-2023-and-beyond、IFR 2024 press data https://ifr.org/ifr-press-releases/news/record-of-4-million-robots-working-in-factories-worldwide、Goldman https://www.goldmansachs.com/insights/articles/how-will-ai-affect-the-us-labor-market
+
+## 5. 日本固有: 人手不足とAI代替の交差点
+
+日本では、AI・Physical AI の労働影響は「失業を生む技術」より先に「足りない労働をどう補うか」という問題として現れる。内閣府の令和6年度経済財政白書は、2024年現在の人手不足感が非製造業・中小企業を中心に歴史的水準にあるとし、その根本要因を生産年齢人口の長期減少に置いている。パーソル総合研究所・中央大学の「労働市場の未来推計2030」は、2030年に労働需要7,073万人に対し供給6,429万人、644万人不足と推計する。これはAI代替リスクより大きなマクロ制約であり、介護、医療・福祉、サービス、建設、運輸、物流で特に深刻である。出典: https://rc.persol-group.co.jp/thinktank/spe/roudou2030/?theme%5B%5D=global
+
+厚生労働省の介護人材推計では、2022年度の介護職員約215万人に対し、2040年度には約272万人が必要となり、約57万人の追加確保が必要である。これは、Physical AI の最重要市場が日本では介護・医療・生活支援になることを示す。ただし、介護は身体介助、観察、感情労働、家族対応、制度記録、緊急判断が絡むため、ヒューマノイドが介護職を全面代替する可能性は低い。現実的には、移乗支援、見守り、排泄・入浴支援、服薬確認、夜間巡回、記録自動化、送迎、施設内搬送を担い、介護職の離職率を下げ、1人あたり担当可能範囲を拡大する形になる。出典: https://www.mhlw.go.jp/stf/newpage_02977.html
+
+建設・運輸・物流も日本固有の焦点である。建設では高齢化、技能継承、2024年時間外労働規制、災害復旧需要が重なり、ドローン測量、BIM/CIM、遠隔重機、自動墨出し、資材搬送ロボット、安全監視AIの導入余地が大きい。運輸・物流では、倉庫内AMR、自動フォークリフト、配送ルート最適化、点呼・安全管理AI、自動運転トラックが人手不足対策になる。ただし、都市部のラストワンマイル、建設現場、介護施設、農地のような非定型環境では、完全自動化より「人間1人が複数ロボットを監督する」モデルが先行する。
+
+日本の賃金構造からみると、Physical AI は低賃金現場職をさらに低賃金化する危険と、逆に技能職の賃金を押し上げる可能性の両方を持つ。人手不足が強い部門では、ロボット導入が労働者の賃金交渉力を奪うとは限らない。むしろ、ロボットを使える介護職、施工管理者、物流管理者、農業経営者、保全技術者は希少になり、賃金プレミアムを得る可能性がある。政策上は、設備投資補助だけでなく、職業訓練、現場データ標準化、ロボット安全資格、介護報酬・診療報酬での省力化評価、建設標準仕様へのロボット対応、地方中小企業への共同利用モデルが必要である。
+
+経産省の生成AI時代DX人材政策は、AIを「使う人材」を増やす方向を示すが、Physical AI ではさらに「現場をデータ化できる人材」「ロボット導入前に工程を再設計できる人材」「安全・品質・労務を同時に理解する人材」が必要になる。日本企業の弱点は、AIモデルを作れないことより、業務プロセスを変えられないこと、PoCから本番化できないこと、現場の暗黙知がデータになっていないことである。Physical AI 2100 の日本章では、AI代替の議論を「失業」だけでなく「高齢化による労働供給制約」「現場技能の継承」「中小企業の導入負担」「地方の公共サービス維持」と結びつける必要がある。
+
+## 6. Wage effects: complement vs substitute 論争
+
+Acemoglu の “The Simple Macroeconomics of AI” は、AIによるGDP押し上げを過度に大きく見る議論に慎重である。彼は、今後10年でAIが影響するタスク比率、実際に導入可能な範囲、生産性改善率を控えめに置くと、全要素生産性やGDPへの効果は Goldman や McKinsey の上限推計より小さい可能性があるとする。賃金への含意は、AIが人間の限界生産性を上げる補完財なら賃金を上げるが、同じタスクを資本へ置き換える代替財なら労働分配率と賃金を押し下げる、という古典的だが重要な整理である。出典: https://www.nber.org/papers/w32487 / DOI: https://doi.org/10.3386/w32487
+
+Acemoglu and Restrepo の “Tasks At Work” および “Tasks, Automation, and the Rise in US Wage Inequality” は、タスク置換が過去の米国賃金格差拡大の主要要因であったと示す。特に、ルーティン中技能タスクが自動化・オフショア化されると、そのタスクに比較優位を持っていた労働者の需要が減り、賃金構造が歪む。産業ロボット研究 “Robots and Jobs” では、米国ローカル労働市場でロボット1台追加が地域雇用を約5.6人減らす推計が報告されている。ただしこれは過去の産業ロボット導入の地域比較であり、今後のヒューマノイドが同じ効果を持つとは限らない。出典: https://www.nber.org/papers/w32872 / DOI: https://doi.org/10.3386/w32872、https://www.nber.org/papers/w28920 / DOI: https://doi.org/10.3386/w28920、https://www.nber.org/papers/w23285 / DOI: https://doi.org/10.3386/w23285
+
+Autor は “Applying AI to Rebuild Middle Class Jobs” で、AIが専門家の判断を補助し、非専門家がより高品質な判断をできるようにすれば、中間層の仕事を再建し得ると主張する。さらに Autor and Thompson の “Expertise” は、技術が専門性を補完する場合と専門性要求を下げる場合で、賃金・雇用効果が逆になり得ることを論じる。Physical AI では、熟練技能をロボットに吸収して低賃金化する設計も、熟練者が複数ロボットを率いて生産性と賃金を上げる設計も可能である。出典: https://www.semanticscholar.org/paper/Applying-AI-to-Rebuild-Middle-Class-Jobs-Autor/c5d73027abada6e012633e2aec03780c79847b8a / DOI: https://doi.org/10.2139/ssrn.4722981、Expertise draft: https://economics.mit.edu/sites/default/files/2025-06/Autor-Thompson-Expertise-22050620.pdf
+
+## 7. Reskilling 必要規模と実施事例
+
+WEF は 2030年までに必要スキルの39%が変わるとし、AI・ビッグデータ、ネットワーク・サイバーセキュリティ、テクノロジーリテラシー、分析的思考、レジリエンス、創造性、リーダーシップを成長スキルに挙げる。McKinsey は 2030年までに現在労働時間の最大30%が自動化され得るとし、単なる研修ではなく、職務再設計、内部移動、採用、AIリーダー育成、現場導入能力を同時に進める必要を示す。IMF は高曝露・低補完性の労働者、とくに高齢者や低学歴者への移行支援を強調する。
+
+Physical AI の reskilling は、通常のデジタルスキルだけでは足りない。必要なのは、ロボット安全、センサー理解、現場データ入力、異常時停止、遠隔操作、保守、工程設計、AI出力の検証、労働安全衛生、サイバーセキュリティ、対人ケアである。製造ではロボットティーチング、協働ロボット安全、品質データ分析。物流ではWMS/AMR運用、例外処理、設備保全。介護では介護記録AI、見守りセンサー、移乗機器、安全・倫理。建設ではBIM/CIM、ドローン、遠隔重機、3D測量。農業ではスマート農機、画像診断、データ駆動栽培が必要になる。
+
+実施事例として、WEF の Reskilling Revolution は2030年までに6億人以上へ教育・技能・雇用機会を提供する目標を掲げ、IBM SkillsBuild はAIスキルを含む訓練を提供する。日本では経産省のDX人材政策、厚労省の人材開発政策、介護人材確保策、リスキリング支援が接続されるべきである。特に日本のPhysical AIでは、公共職業訓練を「ホワイトカラーAI講座」に偏らせず、介護ロボット、建設DX、物流自動化、農業ロボット、設備保全AIへ広げる必要がある。出典: WEF https://www.weforum.org/press/2024/01/reskilling-revolution-providing-over-600-million-people-with-better-education-skills-and-job-opportunities-by-2030/、MHLW人材開発資料 https://www.mhlw.go.jp/content/11801000/001396382.pdf
+
+## 8. 2030 / 2050 / 2100 outlook
+
+**2030年** までは、生成AIは事務・専門職・顧客対応・ソフトウェアで広く普及し、Physical AI は製造・物流・介護・建設の一部工程で局所的に本番導入される。WEF の 22% job churn、McKinsey の最大30%労働時間自動化、IMF の先進国60%曝露は、この時期の職務再編の規模感を示す。ただし、ヒューマノイドが全産業で人間を置換する段階ではなく、Goldman の見通しでも2030年時点のヒューマノイドは主に産業用途25万台超、米製造業不足の4%補填という水準である。日本では644万人不足、介護人材不足、物流・建設制約の緩和が最大テーマとなる。
+
+**2050年** には、Physical AI は単体ロボットではなく、都市・工場・病院・農場・住宅のインフラへ埋め込まれる。製造ではセル生産とヒューマノイドが融合し、物流では自動倉庫、幹線自動運転、ラストワンマイル支援が標準化する。介護では、見守り、移乗、生活支援、認知症ケア補助、遠隔医療が統合される。建設では、設計から施工・保守までデジタルツイン化され、危険作業は遠隔・半自律が中心となる。労働者の仕事は「作業者」から「監督者、設計者、例外処理者、ケア提供者、倫理判断者」へ移る。賃金格差は、教育・訓練・所有構造に依存して拡大も縮小もあり得る。
+
+**2100年** の Physical AI は、人口構造、気候変動、都市形態、ケア需要、宇宙・海洋・災害対応まで含む社会基盤技術になっている可能性が高い。人間の労働は、生活維持のための強制的肉体労働から大きく解放される一方、AI・ロボット資本の所有が集中すれば、雇用なき成長と所得分配危機が起こる。逆に、協同組合、公共ロボット基盤、地域共有ロボット、労働者データ権、教育アクセス、社会保障を設計できれば、Physical AI は高齢化・災害・食料・医療・インフラ維持を支える公共財になる。2100年の論点は「仕事が残るか」ではなく、「人間がどの活動を仕事として尊重し、どの生産性上昇を誰に分配し、身体的制約から解放された時間をどう社会的価値へ変えるか」である。
+tokens used
+103,336

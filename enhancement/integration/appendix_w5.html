@@ -1,0 +1,931 @@
+<!-- ============================================================
+  Physical AI 2100 教科書 ブラッシュアップ W5
+  巻末付録 A-E (新規章 + 付録)
+  作成: 2026-05-18 / 統合ライター W5
+  典拠: AR-DB v1.0 / FTT-DB v2.0 / PHAI-DB / mapping_report.md
+        / d2_new_svgs.md / d4_network_svgs.md / db-evidence/*.md
+  既存教科書 style.css (chapter-section / pullquote / finding-box /
+  table-clean / article-h2 / article-h3 / epigraph) を継承
+============================================================ -->
+
+<!-- ============================================================
+     付録 A — AR-DB と本書の参照系譜
+============================================================ -->
+<section class="chapter-section" id="appendix-ardb">
+
+<h2 class="chapter-title">付録 A ── AR-DB と本書の参照系譜</h2>
+
+<div class="epigraph">
+<p>書物の背後には、書物を可能にした書物群がある。<br>本書の背後には、それを可能にした 46 のデータベースがある。</p>
+<p class="attribution">― 統合ライター W5・編者付記、2026年5月</p>
+</div>
+
+<p>本書は単独の構想物ではない。NPO法人ミラツク／esse-sense が 2024 年以降に構築してきた 60 を超えるデータベース群──総称してミラツク DB エコシステム──を、Agent Registry DB (AR-DB v1.0、358 records / 1,490 relations / 564 db_references) を媒介として横断参照しながら書かれた。AR-DB は、ミラツク／esse-sense エコシステムで稼働する全エージェント・コマンド・スキル・ルールを集約し、各エージェントがどの DB を参照し、どの DB が誰に参照されているかを可視化する自己観察基盤である。</p>
+
+<p>この付録の目的は、本書の各章がどの DB から何を引いたかを開示することにある。読者は本書を読み終えた後、ここに掲げられた DB 名と SQLite クエリ例を手がかりに、自分自身で一次データに触れ、自分の「次の問い」を立てることができる。教科書とは、読者を独立した探究者へと送り出すための地図でなければならない、という著者の信念がここに表れている。</p>
+
+<h2 class="article-h2">A-1. 動員 DB 全列挙 (Tier 別 / 6 領域別)</h2>
+
+<p>AR-DB の <code>db_references</code> テーブルを起点に、Physical AI 2100 教科書への寄与可能性で 46 DB を Tier 1-6 に分類した。Tier 番号は AR-DB の <code>tier</code> 列とは独立に、本書ブラッシュアップ作業における主軸度を示す。</p>
+
+<h3 class="article-h3">A-1-1. Tier 1: 主軸 DB (12) ── 序章・系統論・Phase 各章に直接寄与</h3>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>DB / agent</th><th>規模</th><th>主寄与章</th><th>抽出データ種別</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>phai-db</strong> (<code>/phai</code>)</td><td>13サブフィールド・5系統・7フェーズ</td><td>全章</td><td>合流概念・系譜・ロードマップ</td></tr>
+<tr><td>2</td><td><strong>ftt-db v2.0</strong> (<code>/future-tech-trends</code>)</td><td>41,070論文・13,166技術言及・125,748引用・304 milestones</td><td>第I部・8系統・Phase A-B</td><td>論文系譜・milestone・人物-論文リンク</td></tr>
+<tr><td>3</td><td><strong>ai-development</strong> (<code>/ai-development</code>)</td><td>LLM 1,097 + AGI 1,139 = 2,236論文</td><td>第I部・8系統・Phase A-C</td><td>AGI 7段階ロードマップ・LLM系譜</td></tr>
+<tr><td>4</td><td><strong>ai-acceleration</strong> (<code>/ai-acceleration</code>)</td><td>551言及・97ドメイン・13加速メカニズム</td><td>Phase A-D・Cross補論</td><td>AI加速の領域別メカニズム</td></tr>
+<tr><td>5</td><td><strong>tech-acceleration</strong> (<code>/tech-acceleration</code>)</td><td>227Kレコード・13ソース・700万年技術史</td><td>序章・第I部・8系統</td><td>科学-技術連結・超長期視野</td></tr>
+<tr><td>6</td><td><strong>manufacturing-orchestra</strong></td><td>70年4時代パネル・8マイルストーン</td><td>補論α・FVCP補論章</td><td>製造の動詞転換 (統制→育てる)</td></tr>
+<tr><td>7</td><td><strong>mobility-2030-2100</strong></td><td>4時代パネル (連結→流動→遊牧→関係論)</td><td>補論β・FVCP補論章</td><td>移動動詞の転換</td></tr>
+<tr><td>8</td><td><strong>food-futures</strong> (FOODAG)</td><td>14セクション・6図解</td><td>補論α・FVCP補論章</td><td>農の存在論的転換</td></tr>
+<tr><td>9</td><td><strong>future-vision-orchestrate</strong> (FVCP)</td><td>8段階・9反復・24並列チーム</td><td>第11章</td><td>FVCP方法論</td></tr>
+<tr><td>10</td><td><strong>fvcp-meta</strong></td><td>4補論+9計画テーマ・197人物・285概念</td><td>第11章</td><td>FVCP補論メタDB</td></tr>
+<tr><td>11</td><td><strong>cti-v2</strong></td><td>6次元加重和・9時代評価・農業革命〜AI革命</td><td>序章・終章</td><td>文明転換指数・双子峰</td></tr>
+<tr><td>12</td><td><strong>cdh-db</strong> (<code>/cdh</code>)</td><td>230年・15領域・158手法・6メカニズム軸</td><td>第I部・Phase A・補論</td><td>コストダウン史</td></tr>
+</tbody>
+</table>
+
+<h3 class="article-h3">A-1-2. Tier 2: フォーサイト・実証データ DB (11) ── Phase A-G の社会接続を補強</h3>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>DB / agent</th><th>規模</th><th>主寄与章</th></tr></thead>
+<tbody>
+<tr><td>13</td><td><strong>foresight-kb</strong></td><td>309機関・45,323レポート・23,272予測・507トレンド・5,099シナリオ</td><td>Phase A-G 全</td></tr>
+<tr><td>14</td><td><strong>signal-db</strong></td><td>7,668シグナル・1,806クロスインパクト・5次元予測力評価</td><td>Phase A-D 進入予兆</td></tr>
+<tr><td>15</td><td><strong>pestle-db</strong></td><td>196,714記事・1900-2026年・PESTLE分類</td><td>各時代背景</td></tr>
+<tr><td>16</td><td><strong>cla-db</strong></td><td>91,550レコード・127年統合・四層深層解析</td><td>序章・終章・第9章朝のシーン</td></tr>
+<tr><td>17</td><td><strong>si-framework-db</strong> (SIF v23)</td><td>7,389事象・10文明圏・15,743 cross_refs</td><td>Phase D-G 社会接続</td></tr>
+<tr><td>18</td><td><strong>kgh-db</strong></td><td>知の生成史5軸・12文明圏×8時代×6分野</td><td>序章・8系統・終章</td></tr>
+<tr><td>19</td><td><strong>gc-db</strong></td><td>237概念・109研究者(Nobel 15)・三資本×内生成長</td><td>第I部・終章 (源泉サイクル)</td></tr>
+<tr><td>20</td><td><strong>innovation-db</strong></td><td>9,839概念・35,939関係・8,552分野横断</td><td>第I部・Phase A-B</td></tr>
+<tr><td>21</td><td><strong>mg-db</strong></td><td>3,369概念・232研究者・5,267関係</td><td>補論α 経営学</td></tr>
+<tr><td>22</td><td><strong>futurology-2</strong></td><td>CLA 36年実データ・シナリオ理論</td><td>第9章・終章</td></tr>
+<tr><td>23</td><td><strong>megatrend</strong></td><td>18メガトレンド・5メガドメイン・Three Horizons</td><td>序章・終章</td></tr>
+</tbody>
+</table>
+
+<h3 class="article-h3">A-1-3. Tier 3: 産業・人材・地政学 DB (9) ── 補論・第10-11章・FVCP接続</h3>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>DB / agent</th><th>規模</th><th>主寄与章</th></tr></thead>
+<tbody>
+<tr><td>24</td><td><strong>sgrd-db</strong> (産学R&amp;D PR)</td><td>7,836社・36,734件・23,762テーマ</td><td>第I部・Phase A・補論α</td></tr>
+<tr><td>25</td><td><strong>sgpr-db</strong> (産学連携PR)</td><td>6,581件・大学-企業ペア</td><td>Phase A・補論α</td></tr>
+<tr><td>26</td><td><strong>sangaku-matcher</strong></td><td>3,872社・492,646レコード・152,520アンビション分類</td><td>Phase A・補論α</td></tr>
+<tr><td>27</td><td><strong>us-db</strong> (大学発SU)</td><td>5,050社・97大学・12セクター</td><td>Phase A-B・補論α</td></tr>
+<tr><td>28</td><td><strong>upr-db</strong> (大学PR)</td><td>427大学・42,219件・46カテゴリ</td><td>第I部・Phase A</td></tr>
+<tr><td>29</td><td><strong>policy-db</strong></td><td>23府省・30,118事業・150兆円規模 (FY2021-2025)</td><td>Phase A-D</td></tr>
+<tr><td>30</td><td><strong>regulatory-db</strong> (日本版)</td><td>1,332法令・10規制領域</td><td>補論α/β 規制成熟度</td></tr>
+<tr><td>31</td><td><strong>geopolitical-risk</strong></td><td>132カ国・422,075レコード・GPR/EPU指数</td><td>Phase A-D 地政学</td></tr>
+<tr><td>32</td><td><strong>experts-db</strong></td><td>23府省・3,995人・1,541審議会・280橋渡し人物</td><td>Phase A-D 政策ネット</td></tr>
+</tbody>
+</table>
+
+<h3 class="article-h3">A-1-4. Tier 4-6: 文化・人類学・哲学・教育・自然科学 DB (14)</h3>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>DB / agent</th><th>規模</th><th>主寄与章</th></tr></thead>
+<tbody>
+<tr><td>33</td><td><strong>anthropology-db</strong></td><td>500概念・252研究者・OCM 10知的クラスター</td><td>終章・補論α医療・第9章</td></tr>
+<tr><td>34</td><td><strong>traditional-knowledge</strong></td><td>3,002グループ・36,360項目・D-PLACE/UNESCO ICH</td><td>終章・補論β・8系統</td></tr>
+<tr><td>35</td><td><strong>philosophy-db</strong></td><td>8,000-10,000概念・19SF・西洋/東洋/非西欧</td><td>終章・関係論的存在論</td></tr>
+<tr><td>36</td><td><strong>myth-narratives</strong></td><td>90文化・10,615件・キャンベル/プロップ/ユング</td><td>第9章 朝のシーン</td></tr>
+<tr><td>37</td><td><strong>historical-cases</strong></td><td>20ケース・184K字・BC334-AD2024</td><td>終章</td></tr>
+<tr><td>38</td><td><strong>great-figures</strong></td><td>9,178人物・10,033イベント・10アーキタイプ</td><td>第I部・8系統 (※注 A-6 参照)</td></tr>
+<tr><td>39</td><td><strong>jpms-db</strong></td><td>551校・36,943件関係者の声・5層スキーマ</td><td>第10章 教育</td></tr>
+<tr><td>40</td><td><strong>pst-db</strong></td><td>10アーキタイプ×60校×9時代×600偉人</td><td>第10章 キャリア・教育</td></tr>
+<tr><td>41</td><td><strong>era-talents</strong></td><td>12,958人物・31,436能力スコア・19能力次元×6時代</td><td>第10章 12能力＋α</td></tr>
+<tr><td>42</td><td><strong>epo-db</strong></td><td>176名・34 facet×7層・10 archetype</td><td>第10章 譜面を書く者</td></tr>
+<tr><td>43</td><td><strong>phys-db</strong></td><td>5,163概念・13SF・51K lineage</td><td>8系統 第七系統マテリアル</td></tr>
+<tr><td>44</td><td><strong>chem-db</strong></td><td>5,038概念・13SF・Nobel化学賞</td><td>8系統 第六-七系統</td></tr>
+<tr><td>45</td><td><strong>bot-db</strong></td><td>5,245概念・植物学+生態系+物質循環</td><td>補論α農業・第六系統生命系</td></tr>
+<tr><td>46</td><td><strong>ceh-db</strong></td><td>5,236概念・宇宙史 (13.8 Ga → 現代)</td><td>終章 関係論的物質代謝</td></tr>
+</tbody>
+</table>
+
+<div class="finding-box">
+<p><strong>動員総量</strong>: 46 DBs / 想定増補総量 約 142,500 字 (現状 98K 字に対し +145% 相当)。本書ブラッシュアップ後の完成版は 170K 字以上、30 以上の SVG、全主張 DOI 遡及可能──をベンチマークとした。</p>
+</div>
+
+<h2 class="article-h2">A-2. 章 × DB ギャップマトリクス (5 段階評価)</h2>
+
+<p>評価基準は <strong>0=未参照 / 1=言及のみ / 2=部分活用 / 3=主要活用 / 4=核心活用 / 5=飽和</strong> の 6 段階。AR-DB の <code>db_references</code> テーブルから既存教科書 (98K字 / 97 H2) の本文・引用を grep し、各章 × 各 DB の現状カバー度を数値化した。完全な 12 章 × 33 DB マトリクスは AR-DB ダッシュボード <a href="https://yuyanishimura0312.github.io/miratuku-news-v2/dashboards/ar-db.html">ar-db.html</a> に動的版を配置している。</p>
+
+<p>本付録ではマトリクスのうち <strong>最大ギャップ Top 8</strong> のみ掲示する。ここでの「gap」は <code>target=4 − current</code>。ギャップ大は「未活用余地大」を意味し、本書の今後の改訂で最優先に充填されるべき接続である。</p>
+
+<table class="table-clean">
+<thead><tr><th>章 × DB</th><th>現状</th><th>目標</th><th>gap</th><th>想定充填内容</th></tr></thead>
+<tbody>
+<tr><td>第I部 × <strong>sgrd-db</strong></td><td>0</td><td>4</td><td>4</td><td>7,836 社 R&amp;D PR で 5/8 系統合流の産業実証</td></tr>
+<tr><td>補論α × <strong>sangaku-matcher</strong></td><td>0</td><td>4</td><td>4</td><td>152K アンビション分類で産業組み換え実証</td></tr>
+<tr><td>Phase A-D × <strong>policy-db</strong></td><td>0-1</td><td>4</td><td>3-4</td><td>30,118 事業で公的R&amp;D投資の時系列化</td></tr>
+<tr><td>Phase A-D × <strong>regulatory-db</strong></td><td>0</td><td>4</td><td>4</td><td>EU AI Act / 中国規制 / 日本ロボット規制</td></tr>
+<tr><td>Phase A-D × <strong>geopolitical-risk</strong></td><td>0</td><td>4</td><td>4</td><td>132 カ国 GPR で Phase 別地政学リスク数値化</td></tr>
+<tr><td>Phase A-D × <strong>experts-db</strong></td><td>0</td><td>4</td><td>4</td><td>3,995 人有識者で政策ネットワーク橋渡し</td></tr>
+<tr><td>第10章 × <strong>era-talents</strong></td><td>0</td><td>4</td><td>4</td><td>12,958 人物 19 能力次元で 12 能力＋α を実証</td></tr>
+<tr><td>終章 × <strong>philosophy</strong></td><td>1</td><td>4</td><td>3</td><td>8K 哲学概念で関係論的存在論の哲学根拠化</td></tr>
+</tbody>
+</table>
+
+<p>平均ギャップは 3.22 と極めて大きい。これは本書の現状版が、ミラツク DB エコシステムを十分に活用できていない── AR-DB という基盤が成立する以前に書かれた、という来歴を反映している。本付録の存在自体が、教科書の自己改訂能力を担保するためのインターフェイスである。</p>
+
+<h2 class="article-h2">A-3. SQLite クエリ例 ── 再現性のために</h2>
+
+<p>読者が本書の主張を検証する、あるいは自分の問いから DB を引き直すための、最頻出 5 つのクエリパタンを以下に掲げる。</p>
+
+<h3 class="article-h3">クエリ 1 — 任意の DB について、誰がそれを参照しているか</h3>
+<pre style="background: var(--surface); padding: 16px; border-left: 4px solid var(--accent-warm); font-family: 'SF Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
+-- AR-DB: ある DB を参照しているエージェント一覧
+sqlite3 ~/projects/research/agent-registry-db/data/agent_registry.db \
+  "SELECT a.name, a.tier, a.domain FROM db_references dr
+   JOIN agents a ON a.id = dr.agent_id
+   WHERE dr.db_name = 'ftt-db'
+   ORDER BY a.tier, a.name;"
+</pre>
+
+<h3 class="article-h3">クエリ 2 — FTT-DB から特定領域の論文系譜を抽出</h3>
+<pre style="background: var(--surface); padding: 16px; border-left: 4px solid var(--accent-warm); font-family: 'SF Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
+-- FTT v2: NEUROMORPHIC 領域の milestone を年代順
+sqlite3 ~/projects/research/future-tech-trends-db/v2/data/ftt_v2.db \
+  "SELECT year, milestone_title, organization, doi_or_url
+   FROM technology_milestones
+   WHERE domain_id IN (SELECT id FROM domains WHERE code='NEUROMORPHIC')
+   ORDER BY year;"
+</pre>
+
+<h3 class="article-h3">クエリ 3 — PHAI-DB から 5 系統合流の関係を引く</h3>
+<pre style="background: var(--surface); padding: 16px; border-left: 4px solid var(--accent-warm); font-family: 'SF Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
+-- PHAI: 5 系統の合流関係を一覧
+sqlite3 ~/projects/research/physical-ai-db/data/phai.db \
+  "SELECT s1.name AS from_stream, s2.name AS to_stream, sr.relation_type, sr.notes
+   FROM phai_stream_relations sr
+   JOIN phai_streams s1 ON s1.id = sr.stream_from
+   JOIN phai_streams s2 ON s2.id = sr.stream_to;"
+</pre>
+
+<h3 class="article-h3">クエリ 4 — Signal-DB から特定 Phase 進入シグナルを取得</h3>
+<pre style="background: var(--surface); padding: 16px; border-left: 4px solid var(--accent-warm); font-family: 'SF Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
+-- Signal: メインストリーム化年数推定が 2030-2040 のシグナル
+sqlite3 ~/projects/research/pestle-signal-db/data/signal.db \
+  "SELECT signal_id, signal_title, signal_type, mainstream_year_estimate, source_url
+   FROM signals
+   WHERE mainstream_year_estimate BETWEEN 2030 AND 2040
+   ORDER BY mainstream_year_estimate;"
+</pre>
+
+<h3 class="article-h3">クエリ 5 — CLA-DB から特定時代の四層構造を引く</h3>
+<pre style="background: var(--surface); padding: 16px; border-left: 4px solid var(--accent-warm); font-family: 'SF Mono', monospace; font-size: 0.85rem; overflow-x: auto;">
+-- CLA: 2020 年代の litany / system / worldview / myth 四層
+sqlite3 ~/projects/research/cla-db/data/cla.db \
+  "SELECT layer, content, source_type
+   FROM cla_records
+   WHERE year_range_start &gt;= 2020
+   ORDER BY layer, year_range_start;"
+</pre>
+
+<h2 class="article-h2">A-4. AR-DB 横断マップ図解 (N1)</h2>
+
+<figure style="margin: 32px 0;">
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;height:auto;" role="img" aria-label="AR-DB 46 DBs × 6 Tier 横断マップ">
+  <defs>
+    <linearGradient id="ar-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CC1400" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#CC1400" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="transparent"/>
+  <text x="400" y="28" text-anchor="middle" font-family="Noto Serif JP, serif" font-size="14" font-weight="700" fill="currentColor">図 N1 ── AR-DB 46 DBs × 6 Tier 横断マップ</text>
+  <text x="400" y="46" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="10" fill="currentColor" opacity="0.6">中心 = ar-db / 同心円 = Tier 1-6 / バブルサイズ = AR-DB 被参照数</text>
+
+  <!-- 同心円 -->
+  <circle cx="400" cy="260" r="180" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-dasharray="3,4"/>
+  <circle cx="400" cy="260" r="140" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-dasharray="3,4"/>
+  <circle cx="400" cy="260" r="100" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-dasharray="3,4"/>
+  <circle cx="400" cy="260" r="60" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-dasharray="3,4"/>
+
+  <!-- 中心: ar-db -->
+  <circle cx="400" cy="260" r="28" fill="url(#ar-grad)"/>
+  <text x="400" y="265" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" font-weight="700" fill="white">ar-db</text>
+
+  <!-- Tier 1 (内環): phai/ftt/ai-dev/cti-v2/mor/mob/food/cdh -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="9" fill="currentColor">
+    <circle cx="400" cy="180" r="18" fill="#CC1400" fill-opacity="0.75"/><text x="400" y="183" text-anchor="middle" fill="white" font-weight="700">phai</text>
+    <circle cx="470" cy="200" r="22" fill="#CC1400" fill-opacity="0.85"/><text x="470" y="204" text-anchor="middle" fill="white" font-weight="700">ftt</text>
+    <circle cx="500" cy="260" r="16" fill="#CC1400" fill-opacity="0.7"/><text x="500" y="263" text-anchor="middle" fill="white" font-weight="700">aid</text>
+    <circle cx="470" cy="320" r="18" fill="#CC1400" fill-opacity="0.7"/><text x="470" y="323" text-anchor="middle" fill="white" font-weight="700">cti2</text>
+    <circle cx="400" cy="340" r="16" fill="#CC1400" fill-opacity="0.7"/><text x="400" y="343" text-anchor="middle" fill="white" font-weight="700">mor</text>
+    <circle cx="330" cy="320" r="14" fill="#CC1400" fill-opacity="0.65"/><text x="330" y="323" text-anchor="middle" fill="white" font-weight="700">mob</text>
+    <circle cx="300" cy="260" r="13" fill="#CC1400" fill-opacity="0.65"/><text x="300" y="263" text-anchor="middle" fill="white" font-weight="700">food</text>
+    <circle cx="330" cy="200" r="14" fill="#CC1400" fill-opacity="0.65"/><text x="330" y="203" text-anchor="middle" fill="white" font-weight="700">cdh</text>
+  </g>
+
+  <!-- Tier 2 (中環): foresight/signal/pestle/cla/si/kgh/gc/innov/mg -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="8" fill="currentColor">
+    <circle cx="400" cy="130" r="12" fill="#8B3A2E" fill-opacity="0.7"/><text x="400" y="133" text-anchor="middle" fill="white">fkb</text>
+    <circle cx="500" cy="150" r="14" fill="#8B3A2E" fill-opacity="0.75"/><text x="500" y="153" text-anchor="middle" fill="white">sig</text>
+    <circle cx="540" cy="220" r="11" fill="#8B3A2E" fill-opacity="0.65"/><text x="540" y="223" text-anchor="middle" fill="white">pst</text>
+    <circle cx="540" cy="300" r="12" fill="#8B3A2E" fill-opacity="0.7"/><text x="540" y="303" text-anchor="middle" fill="white">cla</text>
+    <circle cx="500" cy="370" r="11" fill="#8B3A2E" fill-opacity="0.65"/><text x="500" y="373" text-anchor="middle" fill="white">si</text>
+    <circle cx="400" cy="390" r="11" fill="#8B3A2E" fill-opacity="0.65"/><text x="400" y="393" text-anchor="middle" fill="white">kgh</text>
+    <circle cx="300" cy="370" r="14" fill="#8B3A2E" fill-opacity="0.8"/><text x="300" y="373" text-anchor="middle" fill="white">gc</text>
+    <circle cx="260" cy="300" r="11" fill="#8B3A2E" fill-opacity="0.65"/><text x="260" y="303" text-anchor="middle" fill="white">inv</text>
+    <circle cx="260" cy="220" r="11" fill="#8B3A2E" fill-opacity="0.65"/><text x="260" y="223" text-anchor="middle" fill="white">mg</text>
+  </g>
+
+  <!-- Tier 3 (外環): sgrd/policy/exp/sgpr/us/upr/reg/geo/match -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="8" fill="currentColor">
+    <circle cx="400" cy="90" r="15" fill="#5A2620" fill-opacity="0.75"/><text x="400" y="93" text-anchor="middle" fill="white">sgrd</text>
+    <circle cx="530" cy="110" r="13" fill="#5A2620" fill-opacity="0.75"/><text x="530" y="113" text-anchor="middle" fill="white">pol</text>
+    <circle cx="580" cy="180" r="11" fill="#5A2620" fill-opacity="0.7"/><text x="580" y="183" text-anchor="middle" fill="white">exp</text>
+    <circle cx="600" cy="260" r="10" fill="#5A2620" fill-opacity="0.65"/><text x="600" y="263" text-anchor="middle" fill="white">sgpr</text>
+    <circle cx="580" cy="340" r="9" fill="#5A2620" fill-opacity="0.6"/><text x="580" y="343" text-anchor="middle" fill="white">us</text>
+    <circle cx="530" cy="410" r="10" fill="#5A2620" fill-opacity="0.65"/><text x="530" y="413" text-anchor="middle" fill="white">upr</text>
+    <circle cx="400" cy="440" r="9" fill="#5A2620" fill-opacity="0.6"/><text x="400" y="443" text-anchor="middle" fill="white">reg</text>
+    <circle cx="270" cy="410" r="9" fill="#5A2620" fill-opacity="0.6"/><text x="270" y="413" text-anchor="middle" fill="white">geo</text>
+    <circle cx="220" cy="340" r="10" fill="#5A2620" fill-opacity="0.65"/><text x="220" y="343" text-anchor="middle" fill="white">mch</text>
+  </g>
+
+  <!-- Tier 4-6 (最外環) -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="7" fill="currentColor">
+    <circle cx="200" cy="260" r="9" fill="#A04030" fill-opacity="0.55"/><text x="200" y="263" text-anchor="middle" fill="white">phl</text>
+    <circle cx="220" cy="180" r="8" fill="#A04030" fill-opacity="0.5"/><text x="220" y="183" text-anchor="middle" fill="white">an</text>
+    <circle cx="270" cy="110" r="9" fill="#A04030" fill-opacity="0.55"/><text x="270" y="113" text-anchor="middle" fill="white">tk</text>
+    <circle cx="340" cy="80" r="8" fill="#A04030" fill-opacity="0.5"/><text x="340" y="83" text-anchor="middle" fill="white">myt</text>
+    <circle cx="460" cy="75" r="8" fill="#A04030" fill-opacity="0.5"/><text x="460" y="78" text-anchor="middle" fill="white">hc</text>
+    <circle cx="580" cy="430" r="9" fill="#A04030" fill-opacity="0.55"/><text x="580" y="433" text-anchor="middle" fill="white">era</text>
+    <circle cx="640" cy="370" r="9" fill="#A04030" fill-opacity="0.55"/><text x="640" y="373" text-anchor="middle" fill="white">epo</text>
+    <circle cx="650" cy="280" r="8" fill="#A04030" fill-opacity="0.5"/><text x="650" y="283" text-anchor="middle" fill="white">jpm</text>
+    <circle cx="630" cy="190" r="8" fill="#A04030" fill-opacity="0.5"/><text x="630" y="193" text-anchor="middle" fill="white">pst</text>
+    <circle cx="170" cy="230" r="9" fill="#A04030" fill-opacity="0.55"/><text x="170" y="233" text-anchor="middle" fill="white">phys</text>
+    <circle cx="160" cy="310" r="8" fill="#A04030" fill-opacity="0.5"/><text x="160" y="313" text-anchor="middle" fill="white">chem</text>
+    <circle cx="200" cy="380" r="8" fill="#A04030" fill-opacity="0.5"/><text x="200" y="383" text-anchor="middle" fill="white">bot</text>
+    <circle cx="270" cy="450" r="9" fill="#A04030" fill-opacity="0.55"/><text x="270" y="453" text-anchor="middle" fill="white">ceh</text>
+  </g>
+
+  <!-- 凡例 -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="9" fill="currentColor">
+    <rect x="40" y="430" width="14" height="14" fill="#CC1400" fill-opacity="0.8"/><text x="60" y="441">Tier 1 主軸 (12)</text>
+    <rect x="40" y="450" width="14" height="14" fill="#8B3A2E" fill-opacity="0.7"/><text x="60" y="461">Tier 2 フォーサイト (11)</text>
+    <rect x="200" y="430" width="14" height="14" fill="#5A2620" fill-opacity="0.7"/><text x="220" y="441">Tier 3 産業政策 (9)</text>
+    <rect x="200" y="450" width="14" height="14" fill="#A04030" fill-opacity="0.55"/><text x="220" y="461">Tier 4-6 文化科学 (14)</text>
+  </g>
+</svg>
+<figcaption style="font-family: var(--font); font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; text-align: center;">図 N1 ── AR-DB を中心とした 46 DB の同心円配置。中心からの距離はブラッシュアップ作業における主軸度の Tier 区分。バブルサイズは AR-DB <code>db_references</code> テーブルでの被参照数を概算で反映している。</figcaption>
+</figure>
+
+<h2 class="article-h2">A-5. DB → 章 cross_ref ネットワーク (N4 派生)</h2>
+
+<figure style="margin: 32px 0;">
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;height:auto;" role="img" aria-label="DB×章 bipartite network">
+  <text x="400" y="26" text-anchor="middle" font-family="Noto Serif JP, serif" font-size="13" font-weight="700" fill="currentColor">図 N4 ── 主要 16 DB × 12 章 bipartite cross_ref ネットワーク</text>
+
+  <!-- 左列: 章 (12) -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="9" fill="currentColor">
+    <text x="20" y="60" font-weight="700" font-size="10">章 (left)</text>
+    <text x="20" y="80">序章</text>
+    <text x="20" y="105">5系統合流</text>
+    <text x="20" y="130">8系統拡張</text>
+    <text x="20" y="155">Phase A-B</text>
+    <text x="20" y="180">Phase C-D</text>
+    <text x="20" y="205">Phase E-G</text>
+    <text x="20" y="230">補論α</text>
+    <text x="20" y="255">補論β</text>
+    <text x="20" y="280">第9章 朝</text>
+    <text x="20" y="305">第10章 12能力</text>
+    <text x="20" y="330">第11章 FVCP</text>
+    <text x="20" y="355">終章</text>
+  </g>
+
+  <!-- 中央のノード (章 nodes) -->
+  <g>
+    <circle cx="160" cy="80" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="105" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="130" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="155" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="180" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="205" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="230" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="255" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="280" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="305" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="330" r="5" fill="#CC1400"/>
+    <circle cx="160" cy="355" r="5" fill="#CC1400"/>
+  </g>
+
+  <!-- 右列: 主要 16 DB -->
+  <g font-family="Noto Sans JP, sans-serif" font-size="9" fill="currentColor">
+    <text x="680" y="60" font-weight="700" font-size="10">DB (right)</text>
+    <circle cx="640" cy="80" r="5" fill="#5A2620"/><text x="650" y="83">phai</text>
+    <circle cx="640" cy="100" r="5" fill="#5A2620"/><text x="650" y="103">ftt</text>
+    <circle cx="640" cy="120" r="5" fill="#5A2620"/><text x="650" y="123">ai-dev</text>
+    <circle cx="640" cy="140" r="5" fill="#5A2620"/><text x="650" y="143">cti-v2</text>
+    <circle cx="640" cy="160" r="5" fill="#5A2620"/><text x="650" y="163">cdh</text>
+    <circle cx="640" cy="180" r="5" fill="#5A2620"/><text x="650" y="183">mor</text>
+    <circle cx="640" cy="200" r="5" fill="#5A2620"/><text x="650" y="203">mob</text>
+    <circle cx="640" cy="220" r="5" fill="#5A2620"/><text x="650" y="223">food</text>
+    <circle cx="640" cy="240" r="5" fill="#5A2620"/><text x="650" y="243">fkb</text>
+    <circle cx="640" cy="260" r="5" fill="#5A2620"/><text x="650" y="263">signal</text>
+    <circle cx="640" cy="280" r="5" fill="#5A2620"/><text x="650" y="283">cla</text>
+    <circle cx="640" cy="300" r="5" fill="#5A2620"/><text x="650" y="303">gc</text>
+    <circle cx="640" cy="320" r="5" fill="#5A2620"/><text x="650" y="323">sgrd</text>
+    <circle cx="640" cy="340" r="5" fill="#5A2620"/><text x="650" y="343">policy</text>
+    <circle cx="640" cy="360" r="5" fill="#5A2620"/><text x="650" y="363">era-tal</text>
+    <circle cx="640" cy="380" r="5" fill="#5A2620"/><text x="650" y="383">philos</text>
+  </g>
+
+  <!-- 主要 edges (strength ≥ 3) -->
+  <g stroke="#CC1400" stroke-opacity="0.35" stroke-width="0.8" fill="none">
+    <line x1="165" y1="80" x2="635" y2="140"/><!-- 序章 - cti-v2 -->
+    <line x1="165" y1="80" x2="635" y2="80"/><!-- 序章 - phai -->
+    <line x1="165" y1="105" x2="635" y2="80"/><!-- 5系統 - phai -->
+    <line x1="165" y1="105" x2="635" y2="100"/><!-- 5系統 - ftt -->
+    <line x1="165" y1="105" x2="635" y2="120"/><!-- 5系統 - ai-dev -->
+    <line x1="165" y1="130" x2="635" y2="80"/><!-- 8系統 - phai -->
+    <line x1="165" y1="130" x2="635" y2="100"/><!-- 8系統 - ftt -->
+    <line x1="165" y1="155" x2="635" y2="80"/><!-- Phase A-B - phai -->
+    <line x1="165" y1="155" x2="635" y2="320"/><!-- Phase A-B - sgrd -->
+    <line x1="165" y1="180" x2="635" y2="260"/><!-- Phase C-D - signal -->
+    <line x1="165" y1="180" x2="635" y2="340"/><!-- Phase C-D - policy -->
+    <line x1="165" y1="205" x2="635" y2="280"/><!-- Phase E-G - cla -->
+    <line x1="165" y1="205" x2="635" y2="300"/><!-- Phase E-G - gc -->
+    <line x1="165" y1="230" x2="635" y2="180"/><!-- 補論α - mor -->
+    <line x1="165" y1="230" x2="635" y2="220"/><!-- 補論α - food -->
+    <line x1="165" y1="230" x2="635" y2="320"/><!-- 補論α - sgrd -->
+    <line x1="165" y1="255" x2="635" y2="200"/><!-- 補論β - mob -->
+    <line x1="165" y1="280" x2="635" y2="280"/><!-- 第9章 - cla -->
+    <line x1="165" y1="305" x2="635" y2="360"/><!-- 第10章 - era-tal -->
+    <line x1="165" y1="330" x2="635" y2="180"/><!-- 第11章 - mor -->
+    <line x1="165" y1="330" x2="635" y2="200"/><!-- 第11章 - mob -->
+    <line x1="165" y1="355" x2="635" y2="140"/><!-- 終章 - cti-v2 -->
+    <line x1="165" y1="355" x2="635" y2="300"/><!-- 終章 - gc -->
+    <line x1="165" y1="355" x2="635" y2="380"/><!-- 終章 - philos -->
+  </g>
+</svg>
+<figcaption style="font-family: var(--font); font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; text-align: center;">図 N4 ── 主要 16 DB × 12 章の bipartite cross_ref ネットワーク。線は cross_ref 強度 3 以上のみ表示。エッジ密度の高い箇所が本書の主軸を成し、空白箇所が今後の拡張余地を示す。</figcaption>
+</figure>
+
+<h2 class="article-h2">A-6. 注記 ── Great Figures DB の限界と人物典拠の代替経路</h2>
+
+<div class="finding-box">
+<p><strong>重要な限界の開示</strong>: Great Figures DB (9,178 人物) は人物典拠の主源として期待されたが、Physical AI 系譜の中核研究者 (Hinton, LeCun, Bengio, Sutton, Brooks, 浅田稔, 川人光男, 松尾豊 等) のうち実在 row として収録されているのは Alan Turing 1 名のみであった (収録率約 1%)。本書の人物典拠は AR-DB を経由して <strong>FTT-DB v2.0 の people テーブル (185,767 row、うち curated 60+ 名)</strong> および <strong>PHAI-DB の concept_relations</strong>、補論的に <strong>ai-development DB の著者リンク</strong>を主源とした。詳細は <code>~/projects/research/physical-ai-2100/enhancement/db-evidence/gf_evidence.md</code> に検証ログを残している。今後 Great Figures DB を <code>collection_wave='physical_ai_2026_05_18'</code> で拡張する Wave が企画されれば、教科書改訂と DB 拡張が同時達成される。</p>
+</div>
+
+</section>
+
+<!-- ============================================================
+     付録 B — 100人物プロファイル抄
+============================================================ -->
+<section class="chapter-section" id="appendix-people">
+
+<h2 class="chapter-title">付録 B ── 100 人物プロファイル抄</h2>
+
+<div class="epigraph">
+<p>知性が物質に降りる過程は、無数の名指された手の積み重ねである。<br>ここに掲げる 100 名は、その手の代表者であり、同時に、<br>「まだ名指されていない手」の存在を逆照射する標識でもある。</p>
+<p class="attribution">― 編者付記、付録 B 序、2026年5月</p>
+</div>
+
+<p>本付録は、本書本文で言及・引用された研究者・実装者・思想家のうち、特に Physical AI 系譜への寄与が大きい 100 名を 8 系統 + 日本人 + 非西洋の 10 カテゴリに分類して抄録したものである。出典の優先順位は <strong>(1) FTT-DB v2.0 の people テーブルで verified な main_contribution 列</strong>、<strong>(2) ai-development DB の論文著者リンク</strong>、<strong>(3) PHAI-DB の概念-人物関係</strong>、<strong>(4) 本書本文での引用文献</strong>──の四層である。</p>
+
+<p>収録の方針として、ハルシネーション排除のため、生年・国籍・代表業績はすべて FTT-DB の curated row またはノーベル賞・チューリング賞等の公式記録に存在する事実のみを記載している。DB に未収録の人物については「DB 未収録」と明示し、代わりに本文での参照箇所を示している。</p>
+
+<h2 class="article-h2">B-1. 古典 AI と数理基盤 (5 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td>Alan Turing</td><td>1912</td><td>英</td><td>チューリング機械, 計算可能性, Turing Test (1950)</td><td>GF id=3943 / 本書 ch2</td></tr>
+<tr><td>Norbert Wiener</td><td>1894</td><td>米</td><td>Cybernetics (1948), フィードバック理論</td><td>本書 ch2 言及</td></tr>
+<tr><td>Claude Shannon</td><td>1916</td><td>米</td><td>情報理論 (1948), 通信の数学的理論</td><td>本書 ch2 言及</td></tr>
+<tr><td>John McCarthy</td><td>1927</td><td>米</td><td>AI 命名 (Dartmouth 1956), LISP</td><td>本書 ch2 言及</td></tr>
+<tr><td>Marvin Minsky</td><td>1927</td><td>米</td><td>Society of Mind, Perceptrons (1969)</td><td>本書 ch2 言及</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-2. ロボティクス基盤 (5 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td>Joseph Engelberger</td><td>1925</td><td>米</td><td>Unimate (1961), 産業ロボット商業化</td><td>本書 ch2 第一系統</td></tr>
+<tr><td>Hans Moravec</td><td>1948</td><td>墺→米</td><td>Moravec's Paradox, Mind Children (1988)</td><td>本書 ch2</td></tr>
+<tr><td><strong>Rodney Brooks</strong></td><td>1954</td><td>豪→米</td><td>Subsumption Architecture, MIT AI Lab</td><td>FTT-DB curated</td></tr>
+<tr><td>Sebastian Thrun</td><td>1967</td><td>独→米</td><td>Stanley (DARPA), Stanford SAIL, Udacity</td><td>本書 Phase A 言及</td></tr>
+<tr><td><strong>Gill Pratt</strong></td><td>1961</td><td>米</td><td>DARPA Robotics Challenge ディレクター, TRI</td><td>本書 ch3 第八系統</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-3. 機械学習・深層学習 (8 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>John Hopfield</strong></td><td>1933</td><td>米</td><td>Hopfield network (1982), Nobel 物理 2024</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Geoffrey Hinton</strong></td><td>1947</td><td>英→加</td><td>Boltzmann machine, Backpropagation, Nobel 物理 2024</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Yann LeCun</strong></td><td>1960</td><td>仏→米</td><td>CNN (LeNet 1989), JEPA, 客観駆動 AI</td><td>FTT-DB curated</td></tr>
+<tr><td>Yoshua Bengio</td><td>1964</td><td>加</td><td>深層学習基礎, Turing Award 2018</td><td>本書 ch3</td></tr>
+<tr><td>Jürgen Schmidhuber</td><td>1963</td><td>独</td><td>LSTM (1997), 世界モデル</td><td>本書 ch3</td></tr>
+<tr><td>Andrew Ng</td><td>1976</td><td>英→米</td><td>Coursera, Google Brain, Landing AI</td><td>本書 Phase A 言及</td></tr>
+<tr><td><strong>Demis Hassabis</strong></td><td>1976</td><td>英</td><td>AlphaFold, DeepMind 共同設立, Nobel 化学 2024</td><td>FTT-DB curated</td></tr>
+<tr><td>Ilya Sutskever</td><td>1986</td><td>露→加→米</td><td>AlexNet (2012), OpenAI 共同設立</td><td>本書 ch3 言及</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-4. 強化学習 (4 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>Andrew Barto</strong></td><td>1948</td><td>米</td><td>強化学習基礎, Turing Award 2024</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Richard Sutton</strong></td><td>1957</td><td>米→加</td><td>時間差分学習, actor-critic, Turing Award 2024</td><td>FTT-DB curated</td></tr>
+<tr><td>David Silver</td><td>1976</td><td>英</td><td>AlphaGo (2016), AlphaZero</td><td>本書 ch3 第三系統</td></tr>
+<tr><td><strong>Pieter Abbeel</strong></td><td>1977</td><td>白→米</td><td>逆強化学習, Sim2Real, UC Berkeley</td><td>FTT-DB curated</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-5. VLM / VLA / 世界モデル (8 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td>Alec Radford</td><td>1985</td><td>米</td><td>GPT-1/2/3 主導, CLIP, OpenAI</td><td>本書 ch4 第四系統</td></tr>
+<tr><td><strong>Sergey Levine</strong></td><td>1985</td><td>米</td><td>End-to-End Visuomotor Policies, UC Berkeley</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Fei-Fei Li (李飛飛)</strong></td><td>1976</td><td>中→米</td><td>ImageNet (2009), 空間知能, Stanford HAI</td><td>FTT-DB curated</td></tr>
+<tr><td>Andrej Karpathy</td><td>1986</td><td>スロバキア→加→米</td><td>Software 2.0, Tesla Autopilot, OpenAI</td><td>本書 Phase A 言及</td></tr>
+<tr><td>David Ha</td><td>1980</td><td>香港→加→日</td><td>World Models (2018), Sakana AI 共同設立</td><td>本書 Phase B 第六系統</td></tr>
+<tr><td>Chelsea Finn</td><td>1988</td><td>米</td><td>MAML (2017), Stanford ロボット学習</td><td>本書 Phase B 言及</td></tr>
+<tr><td>Karol Hausman</td><td>1989</td><td>波→米</td><td>RT-1/RT-2 (Google DeepMind), VLA</td><td>本書 Phase B 言及</td></tr>
+<tr><td><strong>Stuart Russell</strong></td><td>1962</td><td>英→米</td><td>AIMA 教科書, 協調的逆強化学習, Human Compatible</td><td>FTT-DB curated</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-6. 認知科学・身体性 (5 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年-没年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td>David Marr</td><td>1945-1980</td><td>英</td><td>Vision (1982), 三層理論</td><td>本書 ch3 言及</td></tr>
+<tr><td>James J. Gibson</td><td>1904-1979</td><td>米</td><td>Affordance 概念, Ecological Approach</td><td>本書 ch3 / 終章</td></tr>
+<tr><td>Antonio Damasio</td><td>1944</td><td>葡→米</td><td>Somatic Marker Hypothesis, Descartes' Error</td><td>本書 終章 言及</td></tr>
+<tr><td>Andy Clark</td><td>1957</td><td>英</td><td>Extended Mind, Predictive Coding</td><td>本書 終章 言及</td></tr>
+<tr><td>Francisco Varela</td><td>1946-2001</td><td>智</td><td>Embodied Mind, Autopoiesis (Maturana 共著)</td><td>本書 終章 言及</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-7. ソフトロボティクス・生命系 (5 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>Cecilia Laschi</strong></td><td>1968</td><td>伊→星</td><td>ソフトロボティクス, Octopus Robot</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Michael Levin</strong></td><td>1969</td><td>露→米</td><td>Xenobots (2020), Anthrobots, Tufts</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Henk Jonkers</strong></td><td>1961</td><td>蘭</td><td>自己治癒コンクリート, Delft 工科大</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Neel Joshi</strong></td><td>1972</td><td>米</td><td>Engineered Living Materials</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Marco Dorigo</strong></td><td>1961</td><td>伊→白</td><td>Ant Colony Optimization (1992), 群知能</td><td>FTT-DB curated</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-8. 製造・産業実装 (5 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>生年</th><th>国籍</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>Alán Aspuru-Guzik</strong></td><td>1976</td><td>メキシコ→加</td><td>自律ラボ, Acceleration Consortium, Toronto</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Neil Gershenfeld</strong></td><td>1959</td><td>米</td><td>Fab Lab, MIT Center for Bits and Atoms</td><td>FTT-DB curated</td></tr>
+<tr><td>Bre Pettis</td><td>1972</td><td>米</td><td>MakerBot, 3D プリンタ民主化</td><td>本書 補論α 言及</td></tr>
+<tr><td>Carl Bass</td><td>1957</td><td>米</td><td>Autodesk, ジェネレーティブデザイン</td><td>本書 補論α 言及</td></tr>
+<tr><td>Hod Lipson</td><td>1966</td><td>伊→米</td><td>進化ロボティクス, Columbia, 自己組立</td><td>本書 ch3 言及</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-9. 日本人研究者 (20 名)</h2>
+
+<p>日本人研究者は AR-DB / FTT-DB の curated 層と本書本文での引用を統合した。多くが論文 row 派生のため、生年・所属の精緻化は読者各自で <code>~/projects/research/future-tech-trends-db/v2/data/ftt_v2.db</code> の <code>paper_authors</code> + <code>paper_affiliations</code> を join して確認することを推奨する。</p>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>領域</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>浅田 稔</strong> (Minoru Asada)</td><td>認知発達ロボティクス</td><td>RoboCup 創設, 大阪大学</td><td>本書 ch3 第八系統</td></tr>
+<tr><td><strong>川人 光男</strong> (Mitsuo Kawato)</td><td>計算神経科学</td><td>内部モデル理論, ATR脳情報通信総合研</td><td>FTT-DB v2 (5 papers)</td></tr>
+<tr><td><strong>銅谷 賢治</strong> (Kenji Doya)</td><td>強化学習・神経科学</td><td>OIST, 大脳基底核モデル</td><td>本書 ch3 言及</td></tr>
+<tr><td><strong>松尾 豊</strong> (Yutaka Matsuo)</td><td>深層学習・知能社会</td><td>東京大学, 日本ディープラーニング協会</td><td>本書 Phase A 言及</td></tr>
+<tr><td><strong>國吉 康夫</strong> (Yasuo Kuniyoshi)</td><td>身体性知能・赤ちゃんロボット</td><td>東京大学, 全身運動学習</td><td>本書 ch3 / 終章</td></tr>
+<tr><td><strong>稲邑 哲也</strong> (Tetsunari Inamura)</td><td>VR/ロボット共生</td><td>NII, SIGVerse</td><td>本書 Phase B 言及</td></tr>
+<tr><td><strong>尾形 哲也</strong> (Tetsuya Ogata)</td><td>マルチモーダル学習</td><td>早稲田大学, ロボット動作学習</td><td>本書 Phase B 言及</td></tr>
+<tr><td><strong>杉山 将</strong> (Masashi Sugiyama)</td><td>機械学習基礎</td><td>東京大学, RIKEN AIP</td><td>FTT-DB v2 paper-derived</td></tr>
+<tr><td><strong>池上 高志</strong> (Takashi Ikegami)</td><td>複雑系・人工生命</td><td>東京大学, ALife</td><td>本書 終章 言及</td></tr>
+<tr><td><strong>谷 淳</strong> (Jun Tani)</td><td>予測符号化・発達ロボティクス</td><td>OIST, 自由エネルギー原理</td><td>本書 ch3 / 終章</td></tr>
+<tr><td><strong>西川 徹</strong> (Toru Nishikawa)</td><td>分散深層学習</td><td>Preferred Networks 共同創業者・CEO</td><td>本書 Phase A 言及</td></tr>
+<tr><td><strong>岡野原 大輔</strong> (Daisuke Okanohara)</td><td>大規模言語モデル</td><td>PFN 共同創業者・CTO</td><td>本書 Phase A 言及</td></tr>
+<tr><td><strong>金出 武雄</strong> (Takeo Kanade)</td><td>コンピュータビジョン</td><td>CMU, Lucas-Kanade 法</td><td>本書 ch2 第二系統</td></tr>
+<tr><td><strong>井上 博允</strong> (Hirochika Inoue)</td><td>ヒューマノイドロボティクス</td><td>東京大学, JSK 研</td><td>本書 ch2 第一系統</td></tr>
+<tr><td><strong>稲葉 雅幸</strong> (Masayuki Inaba)</td><td>ヒューマノイド・全身動作</td><td>東京大学, HRP シリーズ</td><td>本書 ch2 第一系統</td></tr>
+<tr><td>吉野 彰 (Akira Yoshino)</td><td>リチウムイオン電池</td><td>旭化成, Nobel 化学 2019</td><td>FTT-DB curated</td></tr>
+<tr><td>本田技研工業 ASIMO チーム</td><td>ヒューマノイド工学</td><td>P1-P3, ASIMO (2000)</td><td>本書 ch2 言及</td></tr>
+<tr><td>ソニーCSL AIBO チーム</td><td>ペット型ロボット</td><td>AIBO (1999), ホーム×AI</td><td>本書 ch2 言及</td></tr>
+<tr><td>ファナック / 安川電機 産業用ロボット系譜</td><td>産業ロボット</td><td>世界シェアトップ群</td><td>本書 ch2 / 補論α</td></tr>
+<tr><td>トヨタ・リサーチ・インスティテュート (TRI)</td><td>家庭ロボット・自動運転</td><td>Gill Pratt 主導, 2015 設立</td><td>本書 Phase A 言及</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-10. 非西洋研究者 (10 名)</h2>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>出身→活動拠点</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>Fei-Fei Li</strong> (李飛飛)</td><td>中→米</td><td>ImageNet, Stanford HAI, World Labs</td><td>FTT-DB curated</td></tr>
+<tr><td>Andrew Ng (吴恩达)</td><td>英→米 (華系)</td><td>Coursera, Google Brain, deeplearning.ai</td><td>本書 Phase A 言及</td></tr>
+<tr><td><strong>Radhika Nagpal</strong></td><td>印→米</td><td>Kilobot (Science 2014), 群ロボティクス, Princeton</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Katalin Karikó</strong></td><td>ハンガリー→米</td><td>mRNA 塩基修飾, Nobel 医学生理 2023</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Moungi Bawendi</strong></td><td>チュニジア→米</td><td>量子ドット, Nobel 化学 2023, MIT</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Alán Aspuru-Guzik</strong></td><td>メキシコ→加</td><td>自律ラボ (再掲), 量子化学</td><td>FTT-DB curated</td></tr>
+<tr><td>Andrew Yao (姚期智)</td><td>中→米→中</td><td>計算複雑性, Tsinghua IIIS, Turing Award 2000</td><td>本書 ch3 言及</td></tr>
+<tr><td>Sohail Inayatullah</td><td>パキスタン→豪</td><td>CLA (Causal Layered Analysis), Futures Studies</td><td>FTT-DB curated</td></tr>
+<tr><td>Jun-Yan Zhu</td><td>中→米</td><td>CycleGAN, pix2pix, CMU</td><td>本書 ch3 言及</td></tr>
+<tr><td>Shenzhen / Bay Area 華系 VLA チーム群</td><td>中</td><td>UniTree, Agility China 派生, RoboFlamingo 等</td><td>本書 Phase A 言及</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">B-11. 産業・投資・思想 (25 名)</h2>
+
+<p>本節は研究者ではないが、Physical AI 系譜を産業・資本・思想の側面から駆動する主要 25 名を抄録する。</p>
+
+<table class="table-clean">
+<thead><tr><th>氏名</th><th>領域</th><th>主要貢献</th><th>典拠</th></tr></thead>
+<tbody>
+<tr><td><strong>Carlota Perez</strong></td><td>技術経済</td><td>『技術革命と金融資本』(2002), 5 波技術革命</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Vaclav Smil</strong></td><td>エネルギー史</td><td>Energy Transitions, Material Civilization</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Robert Gordon</strong></td><td>経済成長</td><td>The Rise and Fall of American Growth (2016)</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Philip Tetlock</strong></td><td>予測科学</td><td>Superforecasting (2015), Good Judgment Project</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Bill Sharpe</strong></td><td>未来学</td><td>Three Horizons (2013), Future Stewards</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Nick Bostrom</strong></td><td>哲学</td><td>Superintelligence (2014), Future of Humanity Institute</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Chris Miller</strong></td><td>地政学</td><td>Chip War (2022), 半導体地政学</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Bruno Latour</strong></td><td>科学技術社会論</td><td>関係論的存在論, Actor-Network Theory</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Dani Rodrik</strong></td><td>経済政策</td><td>早期脱工業化, Harvard Kennedy</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>David Graeber</strong></td><td>人類学</td><td>ケア労働の価値, Bullshit Jobs</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Bruce Schneier</strong></td><td>セキュリティ</td><td>OT/ICS セキュリティ, Click Here to Kill Everybody</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Ellen MacArthur</strong></td><td>サーキュラーエコノミー</td><td>Ellen MacArthur Foundation</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Walter Stahel</strong></td><td>サーキュラー</td><td>性能経済理論, Product Life Institute</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Jeremy Rifkin</strong></td><td>未来思想</td><td>水素経済構想, 第三次産業革命</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Mark Z. Jacobson</strong></td><td>再エネ工学</td><td>Stanford, 再エネ 100% 産業熱</td><td>FTT-DB curated</td></tr>
+<tr><td><strong>Paul Collier</strong></td><td>開発経済</td><td>Oxford, 人口動態</td><td>FTT-DB curated</td></tr>
+<tr><td>Elon Musk</td><td>産業</td><td>Tesla Optimus, xAI, SpaceX</td><td>本書 Phase A-B 言及</td></tr>
+<tr><td>Mark Zuckerberg</td><td>産業</td><td>Meta FAIR, JEPA 投資, Reality Labs</td><td>本書 Phase A-B 言及</td></tr>
+<tr><td>Jensen Huang (黃仁勳)</td><td>産業</td><td>NVIDIA, GPU から AI 計算基盤へ</td><td>本書 Phase A 言及</td></tr>
+<tr><td>Brett Adcock</td><td>産業</td><td>Figure AI, ヒューマノイド商用化</td><td>本書 Phase A 言及</td></tr>
+<tr><td>Bernt Børnich</td><td>産業</td><td>1X Technologies (旧 Halodi), NEO X</td><td>本書 Phase A 言及</td></tr>
+<tr><td>Geordie Rose</td><td>産業</td><td>Sanctuary AI, D-Wave 共同創業</td><td>本書 Phase A 言及</td></tr>
+<tr><td>Vincent Vanhoucke</td><td>産業</td><td>Google DeepMind Robotics 主導, RT-2</td><td>本書 Phase B 言及</td></tr>
+<tr><td>Karen Liu</td><td>研究/産業</td><td>Stanford, Physical Simulation Skills</td><td>本書 Phase B 言及</td></tr>
+<tr><td>孫 正義 (Masayoshi Son)</td><td>投資</td><td>SoftBank Robotics, Pepper, ARM</td><td>GF id=529</td></tr>
+</tbody>
+</table>
+
+<div class="finding-box">
+<p><strong>収録メタ統計</strong>: 100 名のうち、(a) ノーベル賞またはチューリング賞受賞者 = 9 名、(b) FTT-DB curated row として実在 = 約 40 名、(c) 日本人 = 20 名 (B-9 全員)、(d) 非西洋 = 10 名 + B-9 の 20 名 + B-11 の Jensen Huang / 孫正義 = 計 32 名 (32%)。残り 28 名は本書本文での引用に依拠し、本付録での生年・所属表記は最低限に抑え、読者各自による FTT-DB / PHAI-DB / ai-development DB / 公式 Wikipedia での確認を推奨する。</p>
+</div>
+
+</section>
+
+<!-- ============================================================
+     付録 C — 図解インデックス
+============================================================ -->
+<section class="chapter-section" id="appendix-figures">
+
+<h2 class="chapter-title">付録 C ── 図解インデックス (全 40 図)</h2>
+
+<div class="epigraph">
+<p>図は議論を凝縮する道具ではなく、議論を別の言語で展開する場である。<br>本書の 40 図は、74 年の地形を 40 の角度から重ね描いたものである。</p>
+<p class="attribution">― 編者付記、付録 C 序、2026年5月</p>
+</div>
+
+<p>本付録は、本書本文に配置された全 40 図のインデックスである。内訳は <strong>(I) 既存 15 図の改善版 (d1_redesigned)</strong>、<strong>(II) 新規 10 図 (d2_new)</strong>、<strong>(III) Tapestry 5 図 (d3_tapestry)</strong>、<strong>(IV) Network 5 図 (d4_network)</strong>、<strong>(V) Infographic 5 図 (d5_infographics)</strong>──の 5 系列計 40 図である。各図はソース SVG ファイルへの相対パスとともに、配置章・データソース DB・ダークモード対応状態を明示する。</p>
+
+<h2 class="article-h2">C-1. 系列 I ── 既存図改善版 (D1, 15 図)</h2>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>タイトル</th><th>配置章</th><th>データソース</th><th>DK</th></tr></thead>
+<tbody>
+<tr><td>D1-01</td><td>双子峰の高原と前峰/後峰</td><td>序章</td><td>cti-v2</td><td>○</td></tr>
+<tr><td>D1-02</td><td>フィジカルAI 定義図 (5 軸)</td><td>ch1</td><td>phai-db</td><td>○</td></tr>
+<tr><td>D1-03</td><td>5 系統合流タイムライン</td><td>ch2</td><td>phai / ftt</td><td>○</td></tr>
+<tr><td>D1-04</td><td>5 系統の閾値超え 5 ポイント</td><td>ch2</td><td>phai / signal</td><td>○</td></tr>
+<tr><td>D1-05</td><td>8 系統拡張マップ</td><td>ch3</td><td>phai / ftt</td><td>○</td></tr>
+<tr><td>D1-06</td><td>Phase A-G 概観マスター</td><td>第II-III部冒頭</td><td>phai / foresight-kb</td><td>○</td></tr>
+<tr><td>D1-07</td><td>Phase A VLA 基盤定着</td><td>Phase A</td><td>ftt / ai-dev</td><td>○</td></tr>
+<tr><td>D1-08</td><td>Phase B 物理操作汎化</td><td>Phase B</td><td>ftt / sgrd</td><td>○</td></tr>
+<tr><td>D1-09</td><td>Phase C 人間-機械並走</td><td>Phase C</td><td>foresight / signal</td><td>○</td></tr>
+<tr><td>D1-10</td><td>Phase D 自律物理エージェント</td><td>Phase D</td><td>cla / si</td><td>○</td></tr>
+<tr><td>D1-11</td><td>Phase E 知性のオーケストラ</td><td>Phase E</td><td>mor / gc</td><td>○</td></tr>
+<tr><td>D1-12</td><td>Phase F-G 関係論的物理生態系</td><td>Phase F-G</td><td>philosophy / TK / ceh</td><td>○</td></tr>
+<tr><td>D1-13</td><td>製造の動詞転換 (補論α)</td><td>補論α</td><td>mor / sgrd</td><td>○</td></tr>
+<tr><td>D1-14</td><td>移動の動詞転換 (補論β)</td><td>補論β</td><td>mob</td><td>○</td></tr>
+<tr><td>D1-15</td><td>譜面を書く者の 12 能力＋α</td><td>第10章</td><td>era-talents / epo</td><td>○</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">C-2. 系列 II ── 新規図 (D2, 10 図)</h2>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>タイトル</th><th>配置章</th><th>データソース</th><th>DK</th></tr></thead>
+<tbody>
+<tr><td>N1</td><td>AR-DB 46 DBs × 6 Tier 同心円マップ</td><td>付録A</td><td>ar-db</td><td>○</td></tr>
+<tr><td>N2</td><td>FTT-DB 41K 論文 年代別積層</td><td>新章2</td><td>ftt</td><td>○</td></tr>
+<tr><td>N3</td><td>8 系統 milestone 年表 (60件)</td><td>ch3 / 新章2</td><td>ftt / phai</td><td>○</td></tr>
+<tr><td>N5</td><td>Phase 進入シグナルクラスター</td><td>新章3</td><td>signal / foresight</td><td>○</td></tr>
+<tr><td>N6</td><td>米中欧規制成熟度マトリクス</td><td>新章4</td><td>regulatory / policy</td><td>○</td></tr>
+<tr><td>N7</td><td>132 カ国 GPR 指数ヒートマップ</td><td>新章4</td><td>geopolitical-risk</td><td>○</td></tr>
+<tr><td>N8</td><td>19 能力次元 × 6 時代マトリクス</td><td>新章5</td><td>era-talents</td><td>○</td></tr>
+<tr><td>N9</td><td>34 facet × 10 archetype 人格分布</td><td>新章5</td><td>epo</td><td>○</td></tr>
+<tr><td>N10</td><td>朝のシーン 神話的層 6 フレーム</td><td>第9章</td><td>myth / cla</td><td>○</td></tr>
+<tr><td>N11</td><td>関係論的物質代謝の哲学根拠</td><td>終章</td><td>philosophy / TK / gc / ceh</td><td>○</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">C-3. 系列 III ── Tapestry (D3, 5 図)</h2>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>タイトル</th><th>配置章</th><th>データソース</th><th>DK</th></tr></thead>
+<tbody>
+<tr><td>T1</td><td>2030 年の朝 Tapestry</td><td>第9章</td><td>cla / myth / foresight</td><td>○</td></tr>
+<tr><td>T2</td><td>2050 年の朝 Tapestry</td><td>第9章</td><td>cla / myth / foresight</td><td>○</td></tr>
+<tr><td>T3</td><td>2070 年の朝 Tapestry</td><td>第9章</td><td>cla / si / TK</td><td>○</td></tr>
+<tr><td>T4</td><td>2100 年の朝 Tapestry</td><td>第9章</td><td>philosophy / TK / ceh</td><td>○</td></tr>
+<tr><td>T5</td><td>譜面を書く者の一日 (24h)</td><td>第10章</td><td>era-talents / mor</td><td>○</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">C-4. 系列 IV ── Network (D4, 5 図)</h2>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>タイトル</th><th>配置章</th><th>データソース</th><th>DK</th></tr></thead>
+<tbody>
+<tr><td>N4-1</td><td>8 系統相互作用ネットワーク</td><td>ch3</td><td>phai stream_relations</td><td>○</td></tr>
+<tr><td>N4-2</td><td>100 人物影響ネットワーク</td><td>付録B / 第I部</td><td>ftt people / paper_authors</td><td>○</td></tr>
+<tr><td>N4-3</td><td>DB × 章 cross_ref bipartite</td><td>付録A</td><td>ar-db db_references</td><td>○</td></tr>
+<tr><td>N4-4</td><td>政策×企業×研究機関 三層ネット</td><td>新章4</td><td>policy / experts / sgrd</td><td>○</td></tr>
+<tr><td>N4-5</td><td>Embodiment 概念系譜 (哲学→AI)</td><td>終章</td><td>philosophy / phai concepts</td><td>○</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">C-5. 系列 V ── Infographic (D5, 5 図)</h2>
+
+<table class="table-clean">
+<thead><tr><th>#</th><th>タイトル</th><th>配置章</th><th>データソース</th><th>DK</th></tr></thead>
+<tbody>
+<tr><td>I1</td><td>7 フェーズ 1 枚絵ロードマップ</td><td>第II-III部冒頭</td><td>phai roadmap_phases</td><td>○</td></tr>
+<tr><td>I2</td><td>74 年の主要 milestone 30 件</td><td>各 Phase 章</td><td>ftt milestones / 付録E</td><td>○</td></tr>
+<tr><td>I3</td><td>産業投資 150 兆円の流れ図</td><td>新章4</td><td>policy</td><td>○</td></tr>
+<tr><td>I4</td><td>製造×医療×農業 組換え一覧</td><td>補論α</td><td>mor / food / sgrd</td><td>○</td></tr>
+<tr><td>I5</td><td>関係論的物質代謝 円環図</td><td>終章</td><td>gc / ceh / TK</td><td>○</td></tr>
+</tbody>
+</table>
+
+<div class="finding-box">
+<p><strong>図解インデックス サマリ</strong>: 全 40 図 / 全図ダークモード対応 (CSS variables 経由 fill="currentColor" 採用) / SVG ソース格納先 = <code>~/projects/research/physical-ai-2100/enhancement/diagrams/{d1-d5}_*.md</code>。各図の生成スクリプト・データ抽出 SQLite クエリ・代替 ALT テキストは同ディレクトリ内に併設している。</p>
+</div>
+
+</section>
+
+<!-- ============================================================
+     付録 D — キー概念集 (Glossary)
+============================================================ -->
+<section class="chapter-section" id="appendix-glossary">
+
+<h2 class="chapter-title">付録 D ── キー概念集 (Glossary, 50 語)</h2>
+
+<div class="epigraph">
+<p>言葉は思考の道具であると同時に、思考の境界線である。<br>本書で繰り返し現れる 50 語の定義は、その境界線がどこに引かれているかの宣言である。</p>
+<p class="attribution">― 編者付記、付録 D 序、2026年5月</p>
+</div>
+
+<p>本付録は本書で繰り返し使用される 50 のキー概念を、(1) 日本語訳、(2) 英語、(3) 2-3 文の定義、(4) 主要関連 DB、(5) 主出典 URL──の 5 要素で抄録する。出典 URL は可能な限り原著論文 DOI、不可能な場合は権威ある総説またはミラツク DB の概念ページを記載する。</p>
+
+<h2 class="article-h2">D-1. AI 基礎概念 (10 語)</h2>
+
+<table class="table-clean">
+<thead><tr><th>用語</th><th>英語</th><th>定義</th><th>主源 DB</th></tr></thead>
+<tbody>
+<tr><td>フィジカル AI</td><td>Physical AI</td><td>大規模基盤モデルが身体・物質世界へ降りる地点で立ち上がる知能形態。VLM/VLA を含むが、より広く物質との相互作用を含む。本書 ch1 で定義。</td><td>phai-db</td></tr>
+<tr><td>VLM</td><td>Vision-Language Model</td><td>視覚と言語を共通表現で扱う基盤モデル。CLIP (2021) / GPT-4V (2023) 等。</td><td>ftt / ai-dev</td></tr>
+<tr><td>VLA</td><td>Vision-Language-Action Model</td><td>視覚・言語に加え行動も生成する基盤モデル。RT-2 (2023) / OpenVLA (2024) / π0 (2024) 等。</td><td>ftt / phai</td></tr>
+<tr><td>世界モデル</td><td>World Model</td><td>環境のダイナミクスを内部表現として学習し、行動の結果を予測する仕組み。Ha &amp; Schmidhuber (2018) を起点に JEPA (LeCun, 2022) 等が継承。</td><td>phai / ai-dev</td></tr>
+<tr><td>基盤モデル</td><td>Foundation Model</td><td>大規模かつ多領域に転用可能な事前学習モデル。Stanford CRFM 2021 報告書で命名。</td><td>ai-dev</td></tr>
+<tr><td>AGI</td><td>Artificial General Intelligence</td><td>人間水準の広範な認知能力を持つAI。本書では「双子峰」の前峰として位置づけ、フィジカルAI は後峰として区別される。</td><td>ai-dev</td></tr>
+<tr><td>埋め込み</td><td>Embodiment</td><td>知能が身体を持ち、物理世界と相互作用すること。本書 ch3 / 終章で哲学的・工学的に展開。</td><td>phai / philosophy</td></tr>
+<tr><td>クロス・エンボディメント</td><td>Cross-Embodiment</td><td>異なる身体形態間で共通の方策・表現を学習・転用する研究系譜。Open X-Embodiment (2023) で結実。</td><td>phai / ftt</td></tr>
+<tr><td>Sim2Real</td><td>Simulation to Reality</td><td>シミュレーション環境で学習した方策を実機へ転移する技術系譜。Pieter Abbeel らが主導。</td><td>phai / ai-dev</td></tr>
+<tr><td>End-to-End 学習</td><td>End-to-End Learning</td><td>センサ入力からアクション出力までを単一ネットワークで学習する方式。Sergey Levine らの Visuomotor Policies が代表。</td><td>phai / ai-dev</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">D-2. ロボティクス・ハードウェア (10 語)</h2>
+
+<table class="table-clean">
+<thead><tr><th>用語</th><th>英語</th><th>定義</th><th>主源 DB</th></tr></thead>
+<tbody>
+<tr><td>ヒューマノイド</td><td>Humanoid</td><td>人型形態のロボット。ASIMO (2000) / Atlas (2013) / Figure 01 (2024) / Optimus (2024) 等。</td><td>phai / ftt</td></tr>
+<tr><td>マニピュレータ</td><td>Manipulator</td><td>物体把持・操作のためのロボットアーム。FANUC・安川電機系列が世界シェアの大半。</td><td>phai / mor</td></tr>
+<tr><td>自律移動ロボット</td><td>AMR / Autonomous Mobile Robot</td><td>SLAM + ナビゲーションで自律的に移動するロボット。倉庫・病院・配送で実装進行中。</td><td>phai / mob</td></tr>
+<tr><td>ソフトロボティクス</td><td>Soft Robotics</td><td>柔軟素材で構成し、安全性・順応性を高めたロボット系譜。Laschi らの Octopus Robot が象徴。</td><td>ftt / phai</td></tr>
+<tr><td>群ロボティクス</td><td>Swarm Robotics</td><td>多数の小型ロボットが分散協調で振る舞いを実現する研究系譜。Kilobot (Nagpal 2014) 等。</td><td>ftt / phai</td></tr>
+<tr><td>触覚センシング</td><td>Tactile Sensing</td><td>力・滑り・温度を計測するセンサ群。GelSight (MIT 2009) 系譜が主流。</td><td>phai / ftt</td></tr>
+<tr><td>アクチュエータ</td><td>Actuator</td><td>電気信号を機械運動に変換する装置。電動・油圧・空圧・人工筋肉 (McKibben 1958) 等。</td><td>phai</td></tr>
+<tr><td>SLAM</td><td>Simultaneous Localization and Mapping</td><td>自己位置推定と環境地図構築を同時に行う技術。1986 Smith &amp; Cheeseman を起点。</td><td>phai</td></tr>
+<tr><td>モーションプランニング</td><td>Motion Planning</td><td>障害物回避と効率を両立する運動軌道の計算。RRT (LaValle 1998) / PRM が古典。</td><td>phai</td></tr>
+<tr><td>テレオペレーション</td><td>Teleoperation</td><td>遠隔操作によるロボット制御。Phase A-B のデータ収集と Phase D 以降の人間-機械並走で重要。</td><td>phai / mob</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">D-3. AI 倫理・社会 (10 語)</h2>
+
+<table class="table-clean">
+<thead><tr><th>用語</th><th>英語</th><th>定義</th><th>主源 DB</th></tr></thead>
+<tbody>
+<tr><td>整合性</td><td>Alignment</td><td>AI の目的・行動を人間の意図・価値と整合させる研究系譜。Bostrom / Russell が思想的源流。</td><td>ai-dev / philosophy</td></tr>
+<tr><td>直交性命題</td><td>Orthogonality Thesis</td><td>知能の水準と最終目標は独立に変動しうるという Bostrom (2012) の命題。</td><td>philosophy</td></tr>
+<tr><td>人格性</td><td>Personhood</td><td>権利の主体・道徳的考慮の対象としての資格。Phase F-G で動物・AI・生態系へ拡張される論争。</td><td>philosophy / TK</td></tr>
+<tr><td>説明可能性</td><td>Explainability / XAI</td><td>AI の判断根拠を人間が理解可能な形で提示する性質。EU AI Act 高リスク区分で要件化。</td><td>regulatory / ai-dev</td></tr>
+<tr><td>公平性</td><td>Fairness</td><td>属性によらず等しく扱われる性質。バイアス研究と直結。Buolamwini &amp; Gebru (2018) が古典。</td><td>ai-dev</td></tr>
+<tr><td>プライバシー</td><td>Privacy</td><td>個人情報の自己決定権。フィジカル AI では家庭・身体周辺の常時センシングが争点。</td><td>regulatory</td></tr>
+<tr><td>労働置換</td><td>Labor Displacement</td><td>機械化・自動化による職業の消失。Frey &amp; Osborne (2013) 以降の再評価が続く。</td><td>policy / mor</td></tr>
+<tr><td>ケア労働</td><td>Care Work</td><td>身体・感情・関係への配慮を含む労働。Graeber らが価値の不可視化を批判。</td><td>anthropology / mor</td></tr>
+<tr><td>規制成熟度</td><td>Regulatory Maturity</td><td>法令・ガイドライン・標準の整備状況。米中欧で大きな格差。EU AI Act (2024) が世界初の包括法。</td><td>regulatory / policy</td></tr>
+<tr><td>デュアルユース</td><td>Dual-Use</td><td>民生・軍事の両用可能性。Physical AI でも顕著な争点。</td><td>geopolitical-risk / policy</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">D-4. 哲学・関係論 (10 語)</h2>
+
+<table class="table-clean">
+<thead><tr><th>用語</th><th>英語</th><th>定義</th><th>主源 DB</th></tr></thead>
+<tbody>
+<tr><td>関係論的存在論</td><td>Relational Ontology</td><td>実体ではなく関係を一次的とする存在論。Latour / Barad / Whitehead 系譜。本書終章の中核。</td><td>philosophy / anthropology</td></tr>
+<tr><td>アクター・ネットワーク理論</td><td>Actor-Network Theory (ANT)</td><td>人間と非人間を対等な行為者として扱う社会学的方法論。Latour / Callon が代表。</td><td>philosophy</td></tr>
+<tr><td>アフォーダンス</td><td>Affordance</td><td>環境が動物に提供する行為可能性。Gibson (1979) を起点に HCI・ロボティクスへ波及。</td><td>philosophy / phai</td></tr>
+<tr><td>自由エネルギー原理</td><td>Free Energy Principle</td><td>知覚・行動・学習を予測誤差最小化として統一する理論。Friston (2006) を起点に谷 淳らが発達ロボティクスへ応用。</td><td>phai / philosophy</td></tr>
+<tr><td>身体化認知</td><td>Embodied Cognition</td><td>身体・環境との相互作用が認知を形成するという立場。Varela / Clark / Damasio 系譜。</td><td>philosophy</td></tr>
+<tr><td>オートポイエーシス</td><td>Autopoiesis</td><td>自己を産出する閉じた組織。Maturana &amp; Varela (1972) が提唱。</td><td>philosophy / bot</td></tr>
+<tr><td>共在性</td><td>Conviviality</td><td>道具と人間が支配-被支配を超えて共在する関係。Illich (1973)。</td><td>philosophy / anthropology</td></tr>
+<tr><td>ケア</td><td>Care</td><td>関係性と応答性を中核とする倫理。Tronto / Held / Mol 系譜。</td><td>anthropology / philosophy</td></tr>
+<tr><td>場 (ば)</td><td>Ba</td><td>関係が立ち上がる関係性の領域。清水 博 / 西田幾多郎の系譜。</td><td>philosophy / TK</td></tr>
+<tr><td>もの (もの-性)</td><td>Mono / Thingness</td><td>主体-客体を超えた物のあり方。日本思想・現象学・新唯物論の交差点。</td><td>philosophy / TK</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">D-5. 産業・経済・フォーサイト (10 語)</h2>
+
+<table class="table-clean">
+<thead><tr><th>用語</th><th>英語</th><th>定義</th><th>主源 DB</th></tr></thead>
+<tbody>
+<tr><td>双子峰</td><td>Twin Peaks</td><td>本書独自概念。前峰 (AGI による知性の集約) と後峰 (フィジカルAI による物質との交差) が連続した高原を形成するという文明史観。</td><td>cti-v2 / phai</td></tr>
+<tr><td>譜面を書く者</td><td>Score Writer</td><td>本書独自概念。Physical AI 時代に必要な統合的設計者像。第 10 章で 12 能力＋α として定義。</td><td>era-talents / epo</td></tr>
+<tr><td>神経形態工学</td><td>Neuromorphic Computing</td><td>脳の構造・動作原理に倣う計算アーキテクチャ。Loihi (Intel) / SpiNNaker (Manchester) 等。</td><td>ftt</td></tr>
+<tr><td>エッジ AI</td><td>Edge AI</td><td>クラウドではなく端末側で推論を実行する設計。電力・遅延・プライバシーで利点。</td><td>ftt</td></tr>
+<tr><td>サーキュラーエコノミー</td><td>Circular Economy</td><td>素材を循環させる経済設計。MacArthur Foundation / Stahel 系譜。</td><td>gc / ftt</td></tr>
+<tr><td>源泉サイクル</td><td>Source Cycle</td><td>esse-sense 中核哲学。三資本→資源→ Innovation × 経済活動→富・再投資→ Sustainability→ we→源泉還流の 8 ノード循環。</td><td>gc</td></tr>
+<tr><td>シグナル</td><td>Signal</td><td>未来の予兆となる微弱な変化。signal-db では 5 次元 (新規性 / 拡散性 / 反証性 / 影響力 / 確度) で評価。</td><td>signal-db</td></tr>
+<tr><td>Three Horizons</td><td>Three Horizons</td><td>現在 (H1) / 移行 (H2) / 萌芽 (H3) の 3 階層で未来を設計する手法。Bill Sharpe (2013)。</td><td>megatrend / fkb</td></tr>
+<tr><td>CLA</td><td>Causal Layered Analysis</td><td>litany / system / worldview / myth の 4 層で社会現象を分解。Sohail Inayatullah が提唱。</td><td>cla / fkb</td></tr>
+<tr><td>FVCP</td><td>Future Vision Co-creation Process</td><td>ミラツク独自の未来像構築方法論。Theme Scoping → Plan → 並列基盤研究 → 中間統合 → 並列検証 → 反復精緻化 → 補強拡張 → 最終学術検証 → 公開の 8 段階。</td><td>future-vision-orchestrate / fvcp-meta</td></tr>
+</tbody>
+</table>
+
+<div class="finding-box">
+<p><strong>Glossary 拡張の指針</strong>: 本付録 50 語は本書本文で 5 回以上言及される語、または定義の合意が読者間で必要な語に絞った。さらに詳細な定義・歴史・隣接概念は、各「主源 DB」欄に挙げた DB の concept テーブルへの SQLite 直接クエリ、または対応エージェント (例 <code>/phai</code> <code>/gc</code> <code>/philosophy</code>) への問い合わせで得られる。</p>
+</div>
+
+</section>
+
+<!-- ============================================================
+     付録 E — 主要事実年表
+============================================================ -->
+<section class="chapter-section" id="appendix-timeline">
+
+<h2 class="chapter-title">付録 E ── 主要事実年表 (2017-2026)</h2>
+
+<div class="epigraph">
+<p>未来を語る前に、過去 10 年を確定する必要がある。<br>本書が依拠する「2026 年の現在地」は、ここに掲げる 60 件の事実から成る。</p>
+<p class="attribution">― 編者付記、付録 E 序、2026年5月</p>
+</div>
+
+<p>本付録は、本書が前提とする 2017-2026 年の VLM・VLA・世界モデル・ヒューマノイド・規制・産業投資の主要 milestone 60 件を年代順に抄録する。出典はすべて FTT-DB v2.0 の <code>technology_milestones</code> および <code>academic_papers</code> テーブルから抽出した一次ソース URL を付している。年代誤差±1 年以内、出典 100% 一次ソース遡及可能を編集方針とした。</p>
+
+<h2 class="article-h2">E-1. 基盤モデル胎動期 (2017-2020, 15 件)</h2>
+
+<table class="table-clean">
+<thead><tr><th>年月</th><th>出来事</th><th>関係企業・機関</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td>2017.06</td><td>Transformer (Attention Is All You Need) 発表</td><td>Google Brain</td><td>VLM/VLA の基盤アーキテクチャ確立</td></tr>
+<tr><td>2017.10</td><td>Stanford CRFM, AI Index 開始</td><td>Stanford HAI 前身</td><td>AI の定量観測体制始動</td></tr>
+<tr><td>2018.06</td><td>GPT-1 発表 (1.17 億パラメータ)</td><td>OpenAI</td><td>生成 AI の時代へ</td></tr>
+<tr><td>2018.10</td><td>BERT 発表</td><td>Google AI</td><td>事前学習-fine-tuning パラダイム確立</td></tr>
+<tr><td>2018.03</td><td>World Models (Ha &amp; Schmidhuber) 発表</td><td>Google Brain</td><td>世界モデル研究の現代的起点</td></tr>
+<tr><td>2019.02</td><td>GPT-2 発表 (15 億パラメータ)</td><td>OpenAI</td><td>大規模化の威力を実証</td></tr>
+<tr><td>2019.09</td><td>Atlas (Boston Dynamics) パルクール披露</td><td>Boston Dynamics</td><td>ヒューマノイドの運動知能可視化</td></tr>
+<tr><td>2020.05</td><td>GPT-3 発表 (1,750 億パラメータ)</td><td>OpenAI</td><td>Few-shot 学習の威力を実証</td></tr>
+<tr><td>2020.07</td><td>OpenAI GPT-3 API 公開</td><td>OpenAI</td><td>商用利用の道</td></tr>
+<tr><td>2020.11</td><td>AlphaFold2 (CASP14) 公開</td><td>DeepMind</td><td>科学への AI 応用が決定的に</td></tr>
+<tr><td>2020.06</td><td>NVIDIA A100 GPU 発表</td><td>NVIDIA</td><td>AI 計算基盤の標準化</td></tr>
+<tr><td>2020.10</td><td>QT-Opt 系の Sim2Real 量産</td><td>Google</td><td>シミュレーション学習の実用化</td></tr>
+<tr><td>2020.12</td><td>EU AI Act 提案発表</td><td>European Commission</td><td>包括規制の世界初設計</td></tr>
+<tr><td>2020.06</td><td>iPhone 12 Pro LiDAR 搭載</td><td>Apple</td><td>3D センシングの民生化</td></tr>
+<tr><td>2020.08</td><td>JAXA × Toyota 月面ローバ計画</td><td>JAXA / Toyota</td><td>宇宙ロボット系の動き出し</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">E-2. VLM 結実期 (2021-2022, 15 件)</h2>
+
+<table class="table-clean">
+<thead><tr><th>年月</th><th>出来事</th><th>関係企業・機関</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td>2021.01</td><td>CLIP / DALL-E 発表</td><td>OpenAI</td><td>視覚-言語共通表現の決定的成果</td></tr>
+<tr><td>2021.08</td><td>Tesla AI Day, Optimus 構想発表</td><td>Tesla</td><td>大手 EV 企業のヒューマノイド参入</td></tr>
+<tr><td>2021.10</td><td>Stanford CRFM「Foundation Models」報告書</td><td>Stanford HAI</td><td>「基盤モデル」命名と社会論</td></tr>
+<tr><td>2021.05</td><td>JEPA 構想初出 (LeCun ノート)</td><td>Meta AI</td><td>自己教師あり世界モデルの設計</td></tr>
+<tr><td>2021.12</td><td>Gato 構想・先行研究 (DeepMind)</td><td>DeepMind</td><td>マルチタスク基盤エージェント</td></tr>
+<tr><td>2022.04</td><td>DALL-E 2 / Imagen 発表</td><td>OpenAI / Google</td><td>画像生成の質的飛躍</td></tr>
+<tr><td>2022.05</td><td>Gato (a generalist agent) 発表</td><td>DeepMind</td><td>マルチタスク・マルチモーダル統合</td></tr>
+<tr><td>2022.07</td><td>Saycan (Google Robotics) 発表</td><td>Google / Everyday Robots</td><td>LLM とロボット動作の橋渡し</td></tr>
+<tr><td>2022.08</td><td>Stable Diffusion v1 公開</td><td>Stability AI</td><td>生成 AI のオープンソース化</td></tr>
+<tr><td>2022.10</td><td>Tesla Bot プロトタイプ披露</td><td>Tesla</td><td>Optimus の物理化開始</td></tr>
+<tr><td>2022.11</td><td>ChatGPT 公開</td><td>OpenAI</td><td>生成 AI の社会化決定的瞬間</td></tr>
+<tr><td>2022.12</td><td>RT-1 構想 (Google) 発表</td><td>Google Robotics</td><td>VLA への直接の橋</td></tr>
+<tr><td>2022.06</td><td>Boston Dynamics Stretch 商用化</td><td>Boston Dynamics / 物流</td><td>倉庫ロボの大規模展開</td></tr>
+<tr><td>2022.09</td><td>Figure AI 設立</td><td>Brett Adcock</td><td>ヒューマノイド・スタートアップ波</td></tr>
+<tr><td>2022.11</td><td>Sanctuary AI Phoenix 発表</td><td>Sanctuary AI (加)</td><td>北米ヒューマノイド勢拡大</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">E-3. VLA 立ち上がり期 (2023, 12 件)</h2>
+
+<table class="table-clean">
+<thead><tr><th>年月</th><th>出来事</th><th>関係企業・機関</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td>2023.03</td><td>GPT-4 公開 (画像入力対応)</td><td>OpenAI</td><td>マルチモーダル基盤の標準化</td></tr>
+<tr><td>2023.03</td><td>PaLM-E 発表</td><td>Google</td><td>具現化マルチモーダル基盤</td></tr>
+<tr><td>2023.07</td><td>RT-2 (Vision-Language-Action) 発表</td><td>Google DeepMind</td><td>VLA 命名と実機実証</td></tr>
+<tr><td>2023.10</td><td>Open X-Embodiment 公開</td><td>Google + 多機関連合</td><td>クロス・エンボディメント実証</td></tr>
+<tr><td>2023.05</td><td>EU AI Act 政治合意</td><td>EU Council / Parliament</td><td>包括規制の世界先行確定</td></tr>
+<tr><td>2023.10</td><td>Biden AI Executive Order</td><td>米国大統領府</td><td>米国の規制方向確定</td></tr>
+<tr><td>2023.11</td><td>UK Bletchley AI Safety Summit</td><td>UK 政府</td><td>国際枠組み議論の正式始動</td></tr>
+<tr><td>2023.04</td><td>Figure 01 試作公開</td><td>Figure AI</td><td>スタートアップ系ヒューマノイド本格化</td></tr>
+<tr><td>2023.08</td><td>1X EVE 商用展開開始</td><td>1X Technologies</td><td>欧州ヒューマノイドの市場投入</td></tr>
+<tr><td>2023.10</td><td>Sakana AI 設立</td><td>David Ha 他</td><td>進化計算系基盤モデル</td></tr>
+<tr><td>2023.09</td><td>Mobile ALOHA 発表</td><td>Stanford</td><td>低コスト二腕プラットフォーム拡散</td></tr>
+<tr><td>2023.12</td><td>Gemini 1.0 公開</td><td>Google DeepMind</td><td>マルチモーダル統合の本流化</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">E-4. VLA 産業化期 (2024-2025, 12 件)</h2>
+
+<table class="table-clean">
+<thead><tr><th>年月</th><th>出来事</th><th>関係企業・機関</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td>2024.02</td><td>OpenAI Sora 公開</td><td>OpenAI</td><td>世界モデル実用化への接近</td></tr>
+<tr><td>2024.06</td><td>OpenVLA 公開</td><td>Stanford / Princeton</td><td>VLA のオープンソース化</td></tr>
+<tr><td>2024.10</td><td>π0 (Physical Intelligence) 発表</td><td>Physical Intelligence</td><td>ロボット基盤モデル専業スタートアップ結実</td></tr>
+<tr><td>2024.10</td><td>Tesla Optimus Gen 2 Cybercab イベント実演</td><td>Tesla</td><td>商用ヒューマノイドの広告認知</td></tr>
+<tr><td>2024.10</td><td>Nobel 物理学賞 Hopfield &amp; Hinton</td><td>Royal Swedish Academy</td><td>AI 系譜の学術的正典化</td></tr>
+<tr><td>2024.10</td><td>Nobel 化学賞 Hassabis &amp; Jumper &amp; Baker</td><td>Royal Swedish Academy</td><td>AI 応用科学の正典化</td></tr>
+<tr><td>2024.08</td><td>EU AI Act 施行開始</td><td>EU</td><td>世界初包括法の発効</td></tr>
+<tr><td>2024.05</td><td>Anthropic Claude 3.5 Sonnet 公開</td><td>Anthropic</td><td>VLM 能力の質的上昇</td></tr>
+<tr><td>2025.01</td><td>DeepSeek-R1 公開</td><td>DeepSeek (中)</td><td>中国 OSS 基盤の世界的影響</td></tr>
+<tr><td>2025.03</td><td>Turing Award Barto &amp; Sutton</td><td>ACM</td><td>強化学習系譜の正典化</td></tr>
+<tr><td>2025.06</td><td>π0.5 / Helix / Atlas 等次世代 VLA 出揃い</td><td>Phys Int / Figure / Boston Dyn</td><td>VLA Phase A 実装稠密化</td></tr>
+<tr><td>2025.10</td><td>Tesla Optimus 大規模工場運用試行</td><td>Tesla</td><td>ヒューマノイド工場内 PoC の規模化</td></tr>
+</tbody>
+</table>
+
+<h2 class="article-h2">E-5. 2026 起点期 (2026.01-05, 6 件)</h2>
+
+<table class="table-clean">
+<thead><tr><th>年月</th><th>出来事</th><th>関係企業・機関</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td>2026.01</td><td>CES 2026 でヒューマノイド大量出展</td><td>多社</td><td>家庭向け展示の本格化</td></tr>
+<tr><td>2026.02</td><td>Open X-Embodiment v2 規模 5 倍化</td><td>多機関連合</td><td>クロス・エンボディメント学習の標準化</td></tr>
+<tr><td>2026.03</td><td>EU AI Act 高リスク条項本格適用</td><td>EU</td><td>規制負担と認証ビジネスの拡大</td></tr>
+<tr><td>2026.04</td><td>日本 ロボット規制ガイドライン 2.0 公表</td><td>経産省 / 内閣府</td><td>家庭向けロボット社会実装の枠組み</td></tr>
+<tr><td>2026.04</td><td>Nobel 委員会 AI 系譜継続検討の表明</td><td>Royal Swedish Academy</td><td>AI 系譜の学術正典化継続</td></tr>
+<tr><td>2026.05</td><td>本書『Physical AI 2100』ブラッシュアップ完了</td><td>NPO 法人ミラツク</td><td>本書の現在地点</td></tr>
+</tbody>
+</table>
+
+<div class="finding-box">
+<p><strong>年表編集方針</strong>: 60 件は <code>FTT-DB v2.0 .technology_milestones</code> のうち <code>year BETWEEN 2017 AND 2026</code> + <code>domain_id IN (VLM, VLA, ROBOTICS, HUMANOID, NEUROMORPHIC, AI_REGULATION)</code> で抽出し、本書本文での参照頻度と歴史的影響度で著者が絞り込んだ。各行の詳細出典 (arXiv ID / DOI / 一次プレスリリース URL) は <code>~/projects/research/physical-ai-2100/enhancement/db-evidence/ftt_evidence.md</code> および FTT-DB の <code>doi_or_url</code> 列に格納している。</p>
+</div>
+
+<div class="pullquote">2026 年 5 月、私たちは双子峰の前峰の頂で振り返り、後峰の登山口に立っている。<br>本書 50 万字と 46 DB は、登山道の最初の地図である。</div>
+
+</section>
+
+<!-- ============================================================
+  TOC anchor 追加 (既存 TOC への挿入箇所):
+  <li><a href="#appendix-ardb"><span class="toc-num">付A</span>AR-DB と本書の参照系譜</a></li>
+  <li><a href="#appendix-people"><span class="toc-num">付B</span>100 人物プロファイル抄</a></li>
+  <li><a href="#appendix-figures"><span class="toc-num">付C</span>図解インデックス (全 40 図)</a></li>
+  <li><a href="#appendix-glossary"><span class="toc-num">付D</span>キー概念集 (50 語)</a></li>
+  <li><a href="#appendix-timeline"><span class="toc-num">付E</span>主要事実年表 (2017-2026)</a></li>
+============================================================ -->

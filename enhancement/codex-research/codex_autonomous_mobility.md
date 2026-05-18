@@ -1,0 +1,97 @@
+# エグゼクティブサマリ
+
+2026年5月18日時点で、L4自律モビリティは「技術デモ」から「限定ODD内の商用運行」へ移行した。米国ではWaymoがPhoenix、San Francisco Bay Area、Los Angeles、Austin、Miamiなどで週50万回超の完全自動運転乗車を提供し、累計3億km超のrider-only走行を公表した。Cruiseは2023年事故後にrobotaxi事業を停止し、2025年にGM完全子会社化後、個人車向け自動運転・ADASへ転換した。中国ではBaidu Apollo GoとPony.aiが北京・武漢・広州・深圳・上海で商用化を拡大し、Baiduは2026年2月時点で累計2,000万回超、Pony.aiは香港上場とGen-7量産で拡大資金を確保した。TeslaはFSD v12以降をEnd-to-End神経網へ転換したが、FSDは公式に「監督必須」であり、Waymo型L4とは安全責任の所在が異なる。日本はHonda Legend L3、永平寺町L4、柏市中型バスL4、Tier IV/Autoware、ZMPなどで公共交通型ODDを積み上げている。
+
+## 主要プレイヤー走行マイル/事故率比較表
+
+| プレイヤー | 2025-2026運行状況 | 公開走行・利用規模 | 事故率・安全データの扱い | source_url |
+|---|---:|---:|---|---|
+| Waymo | Phoenix、SF Bay Area、LA、Austin、Atlanta、Miamiなど。2026年5月に11都市・1,400平方マイル超へ拡大予定 | 2026年3月時点で週50万回超の完全自動運転乗車、3億km超のrider-only走行。2025年は14百万 trips超 | 56.7百万mileまでの解析で人間ベンチマーク比、injury/airbag/serious injury+で有意に低い。Waymoは2025年末に「深刻傷害以上10分の1以下」を公表 | https://waymo.com/blog/2025/12/2025-year-in-review/ / https://waymo.com/blog/ / https://arxiv.org/abs/2505.01515 |
+| Cruise / GM | 2023年10月SF事故後に全米driverless停止。2024年12月にGMがrobotaxi開発資金停止、2025年2月完全子会社化 | 過去に5百万driverless miles超をGM側が言及。2025-2026の商用robotaxi再開はなし | NHTSAは2023事故の報告不備でCruiseにconsent order。以後、Cruise単独のL4商用事故率比較は実質停止 | https://investors.gm.com/news-releases/news-release-details/gm-acquires-full-ownership-cruise/ / https://www.nhtsa.gov/press-releases/consent-order-cruise-crash-reporting |
+| Tesla | FSD v12/v13/v14はFSD Supervised。AustinでRobotaxiを段階展開、2026 Q1にDallas/Houstonでunsupervised Robotaxi ridesを開始と発表 | TeslaはFSD v12以降の累積走行を四半期資料で図示。Q4 2025資料はv14、Robotaxi app、Austin rampingを記載。ただしFSDは「active driver supervision required」 | NHTSA SGO対象。Tesla自身もFSD Supervisedは自律車ではないと脚注明記。Waymo型L4事故率と同列比較不可 | https://electrek.co/wp-content/uploads/sites/3/2026/01/TSLA-Q4-2025-Update.pdf / https://electrek.co/wp-content/uploads/sites/3/2026/04/TSLA-Q1-2026-Update.pdf |
+| Pony.ai | 北京・上海・広州・深圳でL4 robotaxi。2025年11月香港dual primary listing、Gen-7商用運行 | 2025年11月時点961台、2025年末1,000台超、2026年末3,000台超目標。50百万km超のglobal autonomous testing、50万時間超driverless operation | 自社指標で人間比最大10倍安全と主張。ただしNHTSA/DMV型の公開事故率データは米国勢ほど比較可能でない | https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-realized-gen-7-robotaxi-city-wide-ue-breakeven-set / https://www.prnewswire.com/news-releases/ponyai-kicks-off-247-robotaxi-operation-in-major-chinese-cities-302513843.html |
+| Baidu Apollo Go | 武漢・北京を中核に中国主要都市、香港、中東、欧州・韓国展開へ拡大 | 2025 Q4に完全無人operational rides 3.4百万、週ピーク30万超。2026年2月時点で累計2,000万 rides超、3億km超、うち完全無人1.9億km超 | 公式IRは「outstanding safety record」と記載するが、都市別事故率・第三者ベンチマークは限定的 | https://ir.baidu.com/static-files/ab19740a-a24d-4052-aae7-5c16523581c1 |
+
+## L4 商用化 普及データ（2025-2026 都市別）
+
+| 都市・地域 | 2025-2026ステータス | 事業者 | 数値・注記 | source_url |
+|---|---|---|---:|---|
+| Metro Phoenix | Waymo One商用運行、2025年11月から一部freeway ridesを有料利用者へ | Waymo | Waymoの初期商用地域。2026年時点で米国複数都市運行の基盤 | https://support.google.com/waymo/answer/9059119?hl=en |
+| San Francisco Bay Area | 商用L4、2025年freeway rides、2026年サービス面積拡大 | Waymo | California DMV/CPUC/NHTSAで事故・走行データが最も観測可能 | https://waymo.com/blog/ |
+| Los Angeles | 商用L4、2025年freeway rides | Waymo | 2024-2026にサービス面積拡張 | https://support.google.com/waymo/answer/9059119?hl=en |
+| Austin | 2025年3月Waymo on Uber開始。37平方マイルから開始 | Waymo/Uber | Uberアプリ経由、2026年には「pilotを超えた」と地域報道 | https://www.uber.com/us/en/newsroom/waymo-on-uber-austin/ |
+| Miami | 2025年有人テスト、2026年1月サービス開始 | Waymo | 2026年5月、Miamiを含む複数都市で1,400平方マイル超へ | https://waymo.com/intl/fil/blog/2026/01/miami-your-waymo-ride-is-ready/ / https://waymo.com/blog/ |
+| Beijing | 商用robotaxi・Apollo Go、Pony.ai/WeRideなど複数社 | Baidu, Pony.ai | Baiduは北京で2021年から有料化、Pony.aiはGen-7を2025年商用投入 | https://ir.baidu.com/static-files/cd96c440-1fbc-4346-9d47-4248b2ef77c0 / https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-realized-gen-7-robotaxi-city-wide-ue-breakeven-set |
+| Wuhan | Apollo Goの代表的な大規模robotaxi都市 | Baidu | Baidu全体で2026年2月累計2,000万 rides超、3億km超 | https://ir.baidu.com/static-files/ab19740a-a24d-4052-aae7-5c16523581c1 |
+| Guangzhou / Shenzhen | 2025年7月からPony.aiが24/7 robotaxi運行 | Pony.ai | 広州・深圳で15時間/日から24時間運行へ。深圳pickup/drop-off 10,000超 | https://www.prnewswire.com/news-releases/ponyai-kicks-off-247-robotaxi-operation-in-major-chinese-cities-302513843.html |
+| Shanghai | 2025年7月、Pony.aiが浦東で完全無人商用robotaxi開始 | Pony.ai | Jinqiao/HuamuからCentury Park等へ拡大 | https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-realized-gen-7-robotaxi-city-wide-ue-breakeven-set |
+| 福井県永平寺町 | 日本初の運転者なしL4移動サービス。2026年4月以降は保守期限満了で当面運休 | ZEN drive等 | 2023年5月21日開始、2026年3月末で運休告知 | https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html / https://www.town.eiheiji.lg.jp/200/206/208/p010484.html |
+| 千葉県柏市 | 2026年1月、中型バスL4運行開始 | RoAD to the L4 / 産総研等 | 2025年12月9日までに道路運送車両法・道路交通法・道路運送法の許認可取得 | https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html |
+
+## Tesla End-to-End vs 従来モジュラー型の論争
+
+Tesla v12以降の本質は「認識、予測、経路生成、制御の大部分をニューラルネットへ寄せる」ことである。2025 Q4資料でTeslaは、FSD Supervised v14を「customer and Robotaxi real-world dataで訓練したend-to-end foundation model」と表現した。同時に資料脚注で「active driver supervision required; does not make the vehicle autonomous」と明記しており、責任主体は依然として人間ドライバーである。source_url: https://electrek.co/wp-content/uploads/sites/3/2026/01/TSLA-Q4-2025-Update.pdf
+
+モジュラー型はWaymo、Mobileye、Aurora、Tier IV/Autowareに代表される。典型構成は、センサ融合、HD mapまたは地図支援、認識、予測、行動計画、軌道計画、制御、安全監視、remote assistance、形式的安全ケースを分ける。Waymoは2026年東京説明で「Waymo Foundation Model」はE2Eの利点を使うが、継続的安全検証と組み合わせると説明した。これは純粋なblack-box E2Eではなく、E2E学習を安全ケース・シミュレーション・ODD制御で囲むハイブリッドである。source_url: https://waymo.com/blog/
+
+論争点は3つある。第一に、スケール則である。Teslaはグローバル車両から「1日500年分相当の運転データ」を収集可能と主張し、long-tailをデータで潰す戦略を採る。第二に、説明可能性と規制適合である。NHTSA、California DMV、国交省の枠組みは事故報告・disengagement・許認可・安全ケースを要求するため、E2Eの内部判断をどう監査するかが問題になる。第三に、ODDの違いである。WaymoやApollo Goは限定都市・限定地理でL4責任をシステムが負う一方、Tesla FSD Supervisedは広域で運転支援を提供するが監督必須であり、L4普及率としては別カテゴリで扱う必要がある。source_url: https://www.nhtsa.gov/es/node/103486 / https://www.dmv.ca.gov/portal/?p=312590
+
+## 日本機関の独自貢献
+
+Hondaは2021年3月5日、Legend Hybrid EX・Honda SENSING Eliteを100台限定・リース販売し、高速道路渋滞時のTraffic Jam Pilotで量産車L3を実用化した。これはL4ではないが、日本が型式認定・保安基準・運転責任移譲の制度設計を先行実装した重要例である。source_url: https://global.honda/content/dam/site/global-en/newsroom-new/cq_img/news/2024/10/c241009eng/c241009eng.pdf / https://news.mynavi.jp/article/20210305-honda-legend/
+
+永平寺町は日本初のL4移動サービスで、国交省は2023年5月21日開始を発表した。車両は運転者を配置しない限定ODDで運行し、道路運送車両法と改正道路交通法の「特定自動運行」を実装した。2026年3月23日の町発表では、保証・保守期間満了により2026年4月1日以降は当面運休となった。これは「初認可」から「持続運用・保守・事業性」へ課題が移ったことを示す。source_url: https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html / https://www.town.eiheiji.lg.jp/200/206/208/p010484.html
+
+Tier IVはAutowareを軸に、日本のL4実装を「オープンソース・ソフトウェア定義車両・認証可能なツールチェーン」へ寄せている。プロダクトページはL4自動運転製品構築に必要なツール群を掲げ、国内外のシャトル・バス・物流ODDに展開する。ZMPはAuto Taxiや歩道配送ロボットで早期から都市内自動運転サービスを実証してきた。source_url: https://tier4.jp/en/products/ / https://esciksp.org/api/home/files?customName=Autonomous-Driving-Taxi-in-Tokyo-ZMP-Inc.pdf&fileDir=202507%2F08&fileName=316fe38a-9411-4bce-aefd-9b89364692ee.pdf
+
+Mobileyeは日本企業ではないが、日本OEM・サプライチェーンに深く関わる実装系である。2025 Q3発表でVolkswagen ID.BuzzのL4 driverless deploymentを2026年に予定し、SuperVision/Chauffeur/Driveの量産ハード・AIスタック進捗を説明した。日本にとっては、Honda型L3、Tier IV型OSS、Mobileye型量産ADAS/L4部品供給が並走する構造になる。source_url: https://ir.mobileye.com/news-releases/news-release-details/mobileye-releases-third-quarter-2025-results-and-provides
+
+## トラック・物流・ドローン自律
+
+自律トラックではAuroraが2025年5月1日、Dallas-Houston間で商用driverless Class 8 truckingを開始した。Auroraは安全ケース完了後、Uber FreightとHirschbach向けに定期無人配送を開始し、発表時点でdriverless 1,200 miles超を記録、2025年末までにEl PasoとPhoenixへ広げる計画を示した。source_url: https://ir.aurora.tech/news-events/press-releases/detail/119/aurora-begins-commercial-driverless-trucking-in-texas
+
+Kodiakは2025年末時点でPermian Basin向け商用driverless truckを拡大し、2025年9月30日時点で10台、5,200時間超の有償driverless service、3百万autonomous miles超を公表した。2026年には長距離driverless launchを目標としている。source_url: https://kodiak.ai/news/best-of-2025
+
+PlusAIはSuperDriveをL4トラック用システムとして位置付け、2025年3月にNVIDIA Cosmos world foundation modelsとの統合、2026年3月にSuperDrive 6.0を発表した。TuSimple後続では、TuSimple自体は米国事業撤退・CreateAI転換後、創業者系のBot AutoなどがTexasで無人商用貨物に参入している。source_url: https://plus.ai/news-and-insights/plus-and-nvidia-collaborate-to-advance-ai-for-level-4-autonomous-trucks-with-large-scale-world-models / https://plus.ai/
+
+ドローン物流は、車両L4よりもODDが明確で、医療・小型小売・郊外配送から商用化が進む。Ziplineは2026年1月に2百万delivery超、600百万ドル超の資金調達、Houston/Phoenix拡大を発表した。Wingは2026年3月にBay Areaで住宅向け配送を発表し、機体は最大約60-65mph、往復12mile、約2.5lb積載を公表している。Amazon Prime AirはFAAのBVLOS追加許可で運用範囲を広げ、MK30は5lb以下を60分以内に配送する設計である。楽天は「楽天無人配送」として日本国内の限定エリア・キャンペーン型運用を継続している。source_url: https://www.zipline.com/newsroom/ / https://wing.com/news/wing-drone-delivery-bay-area / https://wing.com/technology / https://www.aboutamazon.com/news/transportation/amazon-drone-prime-air-expanded-delivery-faa-approval/ / https://drone.rakuten.co.jp/mujin-delivery/pdf/valentine2026.pdf
+
+## 規制・保険・社会受容
+
+米国の中核はNHTSA Standing General Orderである。SGOは、ADSまたはL2 ADASが作動中または直前に関与した一定の衝突を報告させる制度で、Waymo、Cruise、Tesla、Zooxなどの事故比較の基礎になる。ただしSGOは走行距離分母を一律に持たず、会社別ODDも違うため、単純な「事故件数ランキング」は誤解を生む。source_url: https://www.nhtsa.gov/es/node/103486
+
+California DMVはdisengagement reportsとcollision reportsを持つ。2026年2月20日発表では、2024年12月1日から2025年11月30日までにpermit holderがCalifornia公道で9百万mile超を走行した。DMV上のdisengagementは「安全運行のため人間が介入した」試験時の指標であり、Waymoの商用deployment全体を完全に表すものではない。source_url: https://www.dmv.ca.gov/portal/?p=312590 / https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/autonomous-vehicle-collision-reports/
+
+日本は2023年4月施行の改正道路交通法でL4相当の「特定自動運行」を許可制にした。国交省・経産省のRoAD to the L4は2025年度目途に50か所程度の無人自動運転移動サービス実現を目標化し、柏市では2025年12月までに必要許認可を取得し2026年1月に中型バスL4へ進んだ。国交省道路局資料では、2024年度に22自治体で路車協調実証を完了した。source_url: https://www.meti.go.jp/english/press/2023/1019_003.html / https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html / https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/df57d4f2-a125-4764-a6d3-8180aaae2a63/b6ad7ff8/20250327_meeting_mobility-working-group_outline_02.pdf
+
+EUはGSR-IIで2024年7月から全新車にIntelligent Speed Assistance、driver drowsiness/attention warning、cybersecurity、advanced emergency braking、event data recorder等を段階義務化した。これはL4そのものの認可ではないが、自動運転の前提となる車両安全・データ記録・サイバー要件を底上げする。source_url: https://single-market-economy.ec.europa.eu/document/download/cd243af9-c877-401e-9f69-d7d4ab6a90c6_en?filename=Fact+Sheet+General+Safety+regulations_July+2024.pdf
+
+保険では、Teslaが2025 Q4資料で「一部州でFSD Supervised利用に応じた保険割引」を記載した。Waymo型L4では運行事業者・車両・ソフトウェア・遠隔支援・保守の責任が集中し、Tesla型L2+/監督型では運転者責任が残る。社会受容では、Cruise事故後のSF反発、Waymoの動物・歩行者・緊急車両対応への懸念、中国Wuhanの大規模停止報道など、事故だけでなく「停止・渋滞・緊急時対応」が受容を左右する。source_url: https://electrek.co/wp-content/uploads/sites/3/2026/01/TSLA-Q4-2025-Update.pdf / https://www.nhtsa.gov/press-releases/consent-order-cruise-crash-reporting
+
+## 主要論文・統計・一次資料
+
+1. Waymo 2025 Year in Review: 14百万trips、2026年週100万rides目標。source_url: https://waymo.com/blog/2025/12/2025-year-in-review/  
+2. Waymo Tokyo/2026 blog: 週50万rides、3億km、Foundation Model説明。source_url: https://waymo.com/blog/  
+3. Kusano et al. 2025, Waymo 56.7M rider-only miles safety analysis. source_url: https://arxiv.org/abs/2505.01515  
+4. NHTSA Standing General Order crash reporting. source_url: https://www.nhtsa.gov/es/node/103486  
+5. California DMV 2025 disengagement release. source_url: https://www.dmv.ca.gov/portal/?p=312590  
+6. California DMV AV collision reports. source_url: https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/autonomous-vehicle-collision-reports/  
+7. GM Cruise full ownership, 2025. source_url: https://investors.gm.com/news-releases/news-release-details/gm-acquires-full-ownership-cruise/  
+8. NHTSA Cruise consent order. source_url: https://www.nhtsa.gov/press-releases/consent-order-cruise-crash-reporting  
+9. Pony.ai Q3 2025 / Hong Kong listing / Gen-7. source_url: https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-realized-gen-7-robotaxi-city-wide-ue-breakeven-set  
+10. Baidu Q4 2025 Apollo Go IR. source_url: https://ir.baidu.com/static-files/ab19740a-a24d-4052-aae7-5c16523581c1  
+11. Tesla Q4 2025 Update: FSD v14 End-to-End foundation model. source_url: https://electrek.co/wp-content/uploads/sites/3/2026/01/TSLA-Q4-2025-Update.pdf  
+12. Tesla Q1 2026 Update: Cybercab lines, Dallas/Houston Robotaxi. source_url: https://electrek.co/wp-content/uploads/sites/3/2026/04/TSLA-Q1-2026-Update.pdf  
+13. 国交省 永平寺町L4開始。source_url: https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html  
+14. 経産省/国交省 柏市中型バスL4。source_url: https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html  
+15. Aurora commercial driverless trucking. source_url: https://ir.aurora.tech/news-events/press-releases/detail/119/aurora-begins-commercial-driverless-trucking-in-texas  
+16. Kodiak 2025 deployment. source_url: https://kodiak.ai/news/best-of-2025  
+17. EU GSR-II fact sheet. source_url: https://single-market-economy.ec.europa.eu/document/download/cd243af9-c877-401e-9f69-d7d4ab6a90c6_en?filename=Fact+Sheet+General+Safety+regulations_July+2024.pdf  
+
+## 2030-2040 自律モビリティ景観予測
+
+2030年までに、L4 robotaxiは「都市全面」ではなく、空港、繁華街、大学都市、郊外ニュータウン、観光地、深夜交通、医療・高齢者移動に集中する。Waymo型は米国大都市の高需要ODDを増やし、Baidu/Pony型は中国一線都市と中東・アジア輸出で規模を作る。Tesla型はFSD Supervisedの巨大データ基盤を使い、規制承認が取れた地域からRobotaxiへ移すが、2030年時点でも「監督型FSD」と「無人L4」は明確に分けて評価される。
+
+2030年代前半、トラックはrobotaxiより早く利益化しやすい。理由は高速道路ODD、定型幹線、夜間運行、ドライバー不足、荷主とのB2B契約である。Aurora、Kodiak、PlusAI、Bot Auto、Gatik系の中距離・幹線配送はTexas、Sun Belt、港湾、物流拠点から拡大する。日本では新東名の自動運転車優先レーン、V2N、路車協調、遠隔監視が先に実装され、都市robotaxiより幹線物流L4が政策的に優先される。
+
+2040年には、都市モビリティは単一勝者ではなく、3層構造になる。第一層はWaymo/Baidu/Ponyのようなfleet-owned L4、第二層はTesla/Mobileye/各OEMの個人車eyes-off/unsupervised機能、第三層はバス、低速シャトル、配送ロボット、ドローンの公共・物流ODDである。日本は人口減少と運転手不足により、永平寺町型の小規模ODD、柏市型の中型バス、空港・工場・港湾の閉域L4を積み上げる可能性が高い。勝敗を分ける指標は、AI性能そのものより、事故率の第三者検証、遠隔支援1人当たり車両数、清掃・充電・保守コスト、保険料、自治体との合意形成である。

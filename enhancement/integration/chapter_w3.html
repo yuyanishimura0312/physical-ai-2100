@@ -1,0 +1,547 @@
+<!--
+  Physical AI 2100 教科書ブラッシュアップ
+  W3 統合ライター成果物 — Ch7 (Phase C 2040-2050 並走) + Ch8 (Phase D 2050-2060 自律)
+  原本: ~/projects/research/physical-ai-2100/output/index.html 行 709-1005 のうち Phase C-D セクション
+  Phase A-B 増補は W2、Phase E-G 増補は W4 担当
+  本ファイルは Phase C + Phase D の二章だけを抜き出し、~17K字 → 25-28K字 に増補した完全置換ブロック
+-->
+
+<style>
+  /* W3 統合ライターが Ch7-8 内で利用する SVG 共通クラス（章末で完結） */
+  .svg-bg { fill: #FFFFFF; }
+  .svg-card { fill: #FFFFFF; }
+  .svg-surface { fill: #F7F7F5; }
+  .svg-ink { fill: #121212; }
+  .svg-ink-soft { fill: #555555; }
+  .svg-ink-mute { fill: #6B6B6B; }
+  .svg-accent { fill: #CC1400; }
+  .svg-accent-soft { fill: rgba(204,20,0,0.10); }
+  .svg-accent-shade { fill: rgba(204,20,0,0.06); }
+  .svg-stroke-ink { stroke: #121212; }
+  .svg-stroke-soft { stroke: #555555; }
+  .svg-stroke-accent { stroke: #CC1400; }
+  .svg-stroke-border { stroke: #D9D9D9; }
+  [data-theme="dark"] .svg-bg { fill: #121212; }
+  [data-theme="dark"] .svg-card { fill: #1A1A1A; }
+  [data-theme="dark"] .svg-surface { fill: #1A1A1A; }
+  [data-theme="dark"] .svg-ink { fill: #E0E0E0; }
+  [data-theme="dark"] .svg-ink-soft { fill: #AAAAAA; }
+  [data-theme="dark"] .svg-ink-mute { fill: #8A8A8A; }
+  [data-theme="dark"] .svg-accent { fill: #FF4030; }
+  [data-theme="dark"] .svg-accent-soft { fill: rgba(255,64,48,0.14); }
+  [data-theme="dark"] .svg-accent-shade { fill: rgba(255,64,48,0.08); }
+  [data-theme="dark"] .svg-stroke-ink { stroke: #E0E0E0; }
+  [data-theme="dark"] .svg-stroke-soft { stroke: #AAAAAA; }
+  [data-theme="dark"] .svg-stroke-accent { stroke: #FF4030; }
+  [data-theme="dark"] .svg-stroke-border { stroke: #333333; }
+
+  .d3-tapestry-svg { background: var(--bg, #FFFFFF); }
+  [data-theme="dark"] .d3-tapestry-svg { background: var(--bg, #121212); }
+  [data-theme="dark"] .d3-tapestry-svg text { fill: #E0E0E0 !important; }
+  [data-theme="dark"] .d3-tapestry-svg text.t-sub { fill: #AAAAAA !important; }
+  [data-theme="dark"] .d3-tapestry-svg .grid { stroke: #333333 !important; }
+  [data-theme="dark"] .d3-tapestry-svg .row-bg-odd { fill: #1A1A1A !important; }
+  [data-theme="dark"] .d3-tapestry-svg .row-bg-even { fill: #121212 !important; }
+
+  .d4-net { background: var(--bg, #FFFFFF); border: 1px solid var(--border, #D9D9D9); border-radius: 4px; }
+  [data-theme="dark"] .d4-net { background: #121212; border-color: #333333; }
+  [data-theme="dark"] .d4-net text { fill: #E0E0E0; }
+  .d4-net text { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; fill: #121212; }
+  .d4-net .node-core    { fill: #CC1400; }
+  .d4-net .node-tier1   { fill: #FFFFFF; stroke: #CC1400; stroke-width: 2; }
+</style>
+
+<h1 class="chapter-title">人間-機械並走から自律物理エージェントへ──汎用AGIの身体化と「労働」概念の再定義が始まる二十年間</h1>
+
+<div class="epigraph">
+<p>「機械が人間にできることを全てできるようになった時、人間に残されるのは『人間に何ができるか』ではなく、『人間が何を望むのか』を問うことである。」</p>
+<p class="attribution">Norbert Wiener, "The Human Use of Human Beings"（Houghton Mifflin, 1950）</p>
+</div>
+
+<p>二〇四〇年から二〇六〇年までの二十年間は、フィジカルAIの長い時間軸の中で、技術的にも社会的にも最も大きな転換が起きる時期である。Phase Aと Phase B で確立された VLA 基盤と物理操作汎化は、Phase C で「汎用AGI（Artificial General Intelligence）」の身体化として結実し、Phase D で「自律物理エージェント」として社会の下層を担うようになる。本章では、この二十年間の道程を、八系統の織り合わせと、それが生み出す社会構造の変化として描く。</p>
+
+<p>この時期に最も注意すべきは、技術的なボトルネックが大きく緩和される一方で、社会構造・倫理・法制度の追従が遅延するというギャップが構造的に拡大することである。Phase C は技術的なAGI到達の時期であるが、Phase D の到来までに人類は「AIが意思決定する範囲」「人間の権限」「責任の所在」という三つの根源的な問いに、制度として答えを出さねばならない。本章はその二十年間の技術軌道と社会軌道を並行して描く。</p>
+
+<p>本章を通底する視座として、CTI v2（Civilizational Transformation Index v2）が示す「双子峰の高原」モデルを思い起こしてほしい。Ian Morris の Social Development Index 上で、二〇〇〇年時点ですでに四軸（エネルギー捕獲・組織化・情報技術・戦争遂行能力）すべてが Morris の上限値 250 を舐めている。Phase C の二十年で、これらの指標は単に天井を破るのではなく、指標そのものの再定義を要求する。エネルギー捕獲は「AI が媒介するエネルギー流量」へ、組織化は「自律協調エージェント数」へ、情報技術は「リアルタイム多モーダル接地帯域」へ、戦争遂行能力は「自律意思決定の権限半径」へ書き換えられる（[Morris 2010] *Why the West Rules*; [Morris 2013] *The Measure of Civilization*）。Phase C-D は、文明指数そのものを破る指数として歴史に記録される。</p>
+
+<p>Carlota Perez の「Great Surges」モデルとの関係でも、Phase C-D は決定的な位置を占める。Perez 本人は二〇二五年の論評で AI を「第 5 次 ICT サージの deployment phase 内のサブ革命」と位置づけている（[Perez 2025]）。しかし蒸気（4）と内燃機関（4）が同じ熱機関でありながら別 surge と数えられた前例にならえば、bits（5）と atoms（6）を別 surge と数える根拠は十分にある。Physical AI が要求する key-factor input は安価ヒューマノイドアクチュエータ + AI 推論コスト（per-action $）であり、infrastructure は autonomous grid + 5G/6G + edge GPU + 充電インフラ、organizational model は swarm / agentic である。これらはいずれも ICT サージの platform / network 型組織モデルとは質的に異なる。Phase C の二〇四〇-二〇五〇 が第 5 次延長か第 6 次サージへの crossover かを判別する「turning point」となる、というのが本書の立場である（[Acemoglu & Restrepo] ハイブリッド派の第 5.5 surge 論との折衷）。</p>
+
+<p>Joel Mokyr の「Useful Knowledge」枠組（[Mokyr 2002] *The Gifts of Athena*）からは、Phase C-D は「Industrial Enlightenment 構造（savants ↔ fabricants）の終焉」局面として読める。Mokyr が二〇二五年にノーベル経済学賞を受賞した際の CEPR 講評は、受賞理由を「持続的経済成長の文化的前提を解明した」と総括している（[CEPR 2025-10]）。Phase C で AI は同時に Ω（propositional knowledge, "why things work"）の生成主体・Λ（prescriptive knowledge, "how things work"）の生成主体・両者の橋渡し主体を兼ね始め、Phase D では Λ の大半が AI 由来となる。Polanyi（1958）の暗黙知（tacit knowledge）が AI に形式知化されるのは Phase C で工場・農・介護の 50%、Phase D で 80% に達する、というのが現時点の推定である。Mokyr 枠組は Phase C-D で「Triadic AI Knowledge Economy（Ω-AI / Λ-AI / orchestration-AI の三者）」へ拡張要請される。</p>
+
+<h2 class="article-h2">Phase C（2040-2050）── 人間-機械並走期：汎用AGIの形式的到達とCognitive Stackの確立</h2>
+
+<p>Phase C では、Shane Legg と Demis Hassabis が二〇〇七年に提示した「任意の知的タスクを人間並みに実行できる」という汎用AGIの定義（DEF-002）が、形式的に厳密な意味で達成される。AGI 予測タイムラインの中央予測──Ray Kurzweil の二〇四五年 Singularity 予測（TL-008）、AI Impacts による二〇四七年 HLMI（Human-Level Machine Intelligence）中央値予測（TL-012）──がこのフェーズに集中する。Phase 2 の S1 チームが General AGI Embodiment 2050 forecast として登録した予測が現実化する。</p>
+
+<p>ハードウェア系統では、完全自律物理エージェントが非構造化環境（家庭・野外・災害現場・宇宙）で長時間自律運用される。Phase 2 の予測では、出荷台数は累計五億台級（世界人口の六から十%）で、人間一人あたり一台所有が先進国で標準となる。価格は五千から一万ドル（家電並み）まで低下する。強化学習系統では、生涯学習による現場適応と経験蓄積が常態化し、新規領域での学習効率が人間を上回り始める。これは Phase B 末まで残されたサンプル効率ボトルネックが、Lifelong Learning と推論時計算の組み合わせで解消される結果である。</p>
+
+<p>マテリアル系統では、Commonwealth Fusion Systems の ARC、Helion Energy、TAE Technologies 等の核融合発電所が複数商用稼働を開始する。GW級発電所として運転に入り、エネルギー希少性が初めて構造的に緩和される。固体電池、リチウム硫黄電池、金属空気電池のミックスが用途別に最適化され、ヒューマノイドの連続二十四時間稼働、配送ドローンの八時間航続が標準化される。JAXA、ESA、Caltech の Space Solar Power Project（SSPP）が二〇二三年に軌道上実証を行った宇宙太陽光発電は、Phase C 中盤に実証GW級プロトタイプへ進む。AI 設計触媒で電解水素のコストは一USD/kg を下回り、グリーンスチール・グリーンアンモニアが商用化する。フォールトトレラント量子計算機の論理量子ビットが一万から百万級に到達し、材料設計の探索空間が古典HPCの指数倍に拡大する。</p>
+
+<p>IEA の二〇二四年シナリオを基準に補外すると、AI 関連電力消費は二〇二六年の四百六十 TWh から、二〇五〇年には一千五百から三千 TWh、Phase C 末には全電力の十数 % を占めるレンジへ移行する。Vaclav Smil は二〇二五年の議論で「エネルギー転換は起きない、起きるのは累積追加だけだ（no transition, only addition）」と慣性論を堅持しているが（[Smil 2017] *Energy and Civilization*）、フィジカルAI が真の「第六次 prime mover」へ進む条件は、AI 自身が核融合制御・送電網運用・宇宙太陽光のオーケストレーションを担う段階に立ち入ることである。Phase C は、その閾値を技術的に跨ぐ最初の十年として位置づけられる。</p>
+
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" style="margin:32px 0;width:100%;height:auto;">
+<rect x="0" y="0" width="760" height="400" fill="#FFF" stroke="#D9D9D9"/>
+<text x="380" y="26" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="700" fill="#121212">図5-1　Cognitive Stack（2045年標準化予測）</text>
+<text x="380" y="44" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B">ロボットOSのカーネル層に組み込まれる4層認知アーキテクチャ</text>
+
+<rect x="180" y="80" width="400" height="48" fill="#FFF" stroke="#CC1400" stroke-width="2"/>
+<text x="380" y="100" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#CC1400">Layer 4: 記号推論層</text>
+<text x="380" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">論理計画・抽象推論・言語理解（LLM successor）</text>
+
+<rect x="180" y="148" width="400" height="48" fill="#FFF" stroke="#121212"/>
+<text x="380" y="168" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Layer 3: Active Inference層</text>
+<text x="380" y="186" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">自由エネルギー最小化・予測符号化（Friston 1995-2050）</text>
+
+<rect x="180" y="216" width="400" height="48" fill="#FFF" stroke="#121212"/>
+<text x="380" y="236" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Layer 2: World Model層</text>
+<text x="380" y="254" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">内部シミュレーション・動学予測（DreamerV5+, Genie successor）</text>
+
+<rect x="180" y="284" width="400" height="48" fill="#FFF" stroke="#121212"/>
+<text x="380" y="304" text-anchor="middle" font-family="Noto Sans JP" font-size="11" font-weight="700" fill="#121212">Layer 1: VLA層</text>
+<text x="380" y="322" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">視覚-言語-行動マッピング（OpenVLA系譜の成熟形）</text>
+
+<rect x="80" y="352" width="600" height="36" fill="#F7F7F5" stroke="#D9D9D9"/>
+<text x="380" y="375" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#555">物理身体 / アクチュエータ / センサ（stream_hw + stream_mat + stream_bio）</text>
+
+<line x1="380" y1="128" x2="380" y2="146" stroke="#999" stroke-width="1"/>
+<line x1="380" y1="196" x2="380" y2="214" stroke="#999" stroke-width="1"/>
+<line x1="380" y1="264" x2="380" y2="282" stroke="#999" stroke-width="1"/>
+<line x1="380" y1="332" x2="380" y2="350" stroke="#999" stroke-width="1"/>
+</svg>
+
+<p>バイオ系統では、AI-Driven Synthetic Biology が新たな段階に入る。GenScript や Ginkgo Bioworks の系統が AlphaFold 3 後継および ChemAI 系統と組み合わさることで、人工代謝経路、人工臓器、パーソナライズドオルガノイドの設計が標準化される。Tufts 大学の Levin 研究室が二〇二〇年に PNAS で公表した Xenobot、二〇二三年の Anthrobot（Advanced Science 誌）の系統は、人体内をナビゲートする治療用バイオボット（血栓除去や標的薬物送達）として臨床試験フェーズに入る。</p>
+
+<p>認知系統では、「Cognitive Stack」と呼ばれる新しいアーキテクチャが産業標準として確立する。VLA・World Model・Active Inference・記号推論を統合した四層構造が、ロボットOSのカーネル層に組み込まれる。BMI は中等度の認知補助──記憶・注意・言語の補強──として一般成人にも普及し始め、「Cognitive Augmentation」が新カテゴリとなる。Karl Friston 系の自由エネルギー原理が「物理学・神経科学・AI・経済学」を統一する第一原理候補としての地位を確立する。これは長年理論的位置にとどまっていた Friston の枠組みが、産業実装として「効く」ことが大規模に検証される時期である。</p>
+
+<p>日本の認知発達ロボティクスは、この Cognitive Stack の理論的源流を提供してきた系譜として、Phase C に独自の存在感を持つ。大阪大学の浅田稔が二〇〇〇年代に提唱した cognitive developmental robotics は、ロボットが身体と環境との相互作用の歴史を通じて知性を獲得するという視座を提示し、Layer 2 の World Model 層に「発達」の時間軸を持ち込む理論的基盤となった。沖縄科学技術大学院大学の銅谷賢治の神経計算研究（神経修飾系による強化学習のマルチスケール理論）は Layer 3 Active Inference 層と直接対応し、東京大学の池上高志の生命の哲学とALife 研究は Layer 2 と Layer 3 の境界に立つ「自律性とは何か」の問いを与え続けている。沖縄科学技術大学院大学の谷淳が二〇〇〇年代から積み上げてきた神経ロボティクス（RNN による予測・行動・知覚の階層的自己組織化）は、Cognitive Stack を「予測符号化を縦軸に貫く一本の系」として読み解く実装基盤になっている。これらは個人名研究者として偉人DBには未収録だが（DB 未収録、本書注記）、Phase C を駆動する論理基盤を欧州・北米と並んで担う第四極として、議論の核を担う。</p>
+
+<h2 class="article-h2">Phase C のボトルネックと社会への波及──労働市場の構造変化と新たな倫理問題</h2>
+
+<p>Phase C で技術的ボトルネックは大きく緩和されるが、代わりに三つの新しい問題が前景化する。第一に、AI 設計薬や Bio-Hybrid ロボット の倫理規制である。人工臓器の臨床応用は、生命操作の境界を制度的にどこに引くかという根源的な問いを伴う。第二に、BMI 普及に伴う認知格差の社会問題化である。Cognitive Augmentation を享受できる層と享受できない層の間に、新たな能力格差が生じる。第三に、量子計算機の脱出ベクトルとしての暗号危機である。RSA 二〇四八ビット相当の公開鍵暗号が破られる時期がこのフェーズに重なる可能性があり、ポスト量子暗号への移行が間に合わない金融・通信インフラに構造的脆弱性が生じうる。日本政府は二〇二五年に「政府機関等における耐量子計算機暗号（PQC）利用に関する関係府省庁連絡会議」（council_id=1586）を内閣官房の下に常設しており、この三十年の準備が Phase C 末に問われる。</p>
+
+<p>社会への波及は決定的である。労働市場の構造変化が完成局面に入る。「人間-ロボットの混成チーム」が一般的になり、「人間一人+ロボット数体」が標準的職場単位となる。介護・農業・建設で人手不足が解消される一方、新たに「ロボット運用・調整・倫理設計」の専門職が生まれる。前プロジェクトの二〇五〇時点に対応するこのフェーズで求められる人材像は、汎用AGIと協働しながら戦略意思決定を担う経営者層、AI設計薬や合成生物の倫理ガバナンス担当、Cognitive Augmentation 時代のヒューマンキャピタル設計者、物理-サイバー連続体のシステムアーキテクトの四類型である。重要なのは「フィジカルAI に置き換えられない人間の役割」が明確に意識される世代になることである。</p>
+
+<p>この組織変革を経営学の系譜から読み直すと、Charles O'Reilly と Michael Tushman の「両利き経営（Ambidextrous Organization）」が Phase C の処方箋として核心的意味を持つ。Phase A-B で確立された既存ロボット運用（Exploitation 深化）と、Phase C で出現する汎用AGI 統合（Exploration 探索）を同時追求する組織能力が、Phase C の競争優位を決める。富士フイルム型の「コア・コンピタンス転用」は、写真フィルム事業の物理化学知識を医薬・化粧品・液晶へ移し替えた歴史的事例として、Phase C におけるロボット製造企業の「機体製造の知」を「自律エージェント運用の知」へ転用する範例となる（[O'Reilly & Tushman 2016] *Lead and Disrupt*）。野中郁次郎の SECI モデルもここで再定義される。Phase C ではベテラン作業者の触診的暗黙知（Socialization）が VLA モデルにより形式知（Externalization）へ変換され、複数現場の VLA モデルが連邦学習で統合（Combination）され、新人作業者が AI 推奨を身体で受け止めて新たな暗黙知（Internalization）を形成する、というループが工場の標準オペレーションになる（[Nonaka & Takeuchi 1995] *The Knowledge-Creating Company*）。MOR 補論が描く製造現場の動詞転換──「統制する」から「ともに育てる」へ──の物質的実装が、Phase C の中で本格化する局面である。</p>
+
+<svg class="d4-net" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="margin:32px 0;width:100%;max-width:800px;height:auto;display:block;" role="img" aria-label="政策×企業×研究機関 三層ネットワーク - US/CN/EU/JP 4圏連結">
+  <title>図N3 政策×企業×研究機関 三層ネットワーク（Phase C 制度的与件）</title>
+  <desc>横方向に政策(P)・企業(C)・研究機関(R)の3層、縦方向に US/CN/EU/JP 4地政学圏を配置。圏内縦連結(実線)、跨圏協力(細実線赤)、跨圏競合(破線茶)で関係性を示す。</desc>
+  <text x="400" y="26" text-anchor="middle" font-size="16" font-weight="600">図N3　Phase C-D 政策×企業×研究機関 三層ネットワーク（Physical AI 主要40アクター）</text>
+  <text x="400" y="44" text-anchor="middle" font-size="11" fill="#6B6B6B">縦軸=4地政学圏 ／ 横軸=政策/企業/研究機関の3層</text>
+  <g font-size="11" font-weight="700" fill="#CC1400" text-anchor="middle">
+    <text x="180" y="80">政策アクター (P)</text>
+    <text x="400" y="80">企業 (C)</text>
+    <text x="620" y="80">研究機関 (R)</text>
+  </g>
+  <g font-size="11" font-weight="700" fill="#CC1400">
+    <text x="30" y="140">US</text>
+    <text x="30" y="260">CN</text>
+    <text x="30" y="380">EU</text>
+    <text x="30" y="500">JP</text>
+  </g>
+  <g fill="#F7F7F5" opacity="0.55">
+    <rect x="60"  y="100" width="700" height="100" rx="4"/>
+    <rect x="60"  y="220" width="700" height="100" rx="4"/>
+    <rect x="60"  y="340" width="700" height="100" rx="4"/>
+    <rect x="60"  y="460" width="700" height="100" rx="4"/>
+  </g>
+  <g stroke="#CC1400" stroke-width="2.2" stroke-opacity="0.85" fill="none">
+    <line x1="240" y1="140" x2="340" y2="140"/>
+    <line x1="460" y1="140" x2="560" y2="140"/>
+    <line x1="240" y1="170" x2="340" y2="170"/>
+    <line x1="240" y1="260" x2="340" y2="260"/>
+    <line x1="460" y1="260" x2="560" y2="260"/>
+    <line x1="240" y1="380" x2="340" y2="380"/>
+    <line x1="460" y1="380" x2="560" y2="380"/>
+    <line x1="240" y1="500" x2="340" y2="500"/>
+    <line x1="460" y1="500" x2="560" y2="500"/>
+    <line x1="240" y1="530" x2="340" y2="530"/>
+  </g>
+  <g stroke="#CC1400" stroke-width="1.0" stroke-opacity="0.55" fill="none">
+    <path d="M180,380 C100,440 100,440 180,500"/>
+    <path d="M620,140 C720,200 720,200 620,260"/>
+    <path d="M400,380 C480,260 480,260 400,140"/>
+    <path d="M400,500 C480,320 480,320 400,140"/>
+  </g>
+  <g stroke="#8A7868" stroke-width="1.4" stroke-opacity="0.65" stroke-dasharray="5 3" fill="none">
+    <path d="M180,140 C100,200 100,200 180,260"/>
+    <path d="M400,140 C480,200 480,200 400,260"/>
+    <path d="M340,170 C400,220 400,220 340,260"/>
+  </g>
+  <g><circle cx="180" cy="140" r="14" class="node-core"/><text x="180" y="144" font-size="9" text-anchor="middle" fill="#FFFFFF">CSTI/EO</text></g>
+  <g><circle cx="180" cy="170" r="10" fill="#8B3A2E"/><text x="180" y="173" font-size="8" text-anchor="middle" fill="#FFFFFF">NIST</text></g>
+  <g><circle cx="400" cy="140" r="14" class="node-tier1"/><text x="400" y="144" font-size="9" text-anchor="middle">NVIDIA</text></g>
+  <g><circle cx="340" cy="170" r="11" class="node-tier1"/><text x="340" y="173" font-size="8" text-anchor="middle">OpenAI</text></g>
+  <g><circle cx="460" cy="140" r="11" class="node-tier1"/><text x="460" y="144" font-size="8" text-anchor="middle">B.Dynamics</text></g>
+  <g><circle cx="500" cy="170" r="10" class="node-tier1"/><text x="500" y="173" font-size="8" text-anchor="middle">Tesla</text></g>
+  <g><circle cx="620" cy="140" r="13" fill="#555555"/><text x="620" y="144" font-size="8" text-anchor="middle" fill="#FFFFFF">MIT CSAIL</text></g>
+  <g><circle cx="700" cy="170" r="10" fill="#555555"/><text x="700" y="173" font-size="8" text-anchor="middle" fill="#FFFFFF">Stanford</text></g>
+  <g><circle cx="180" cy="260" r="13" class="node-core"/><text x="180" y="264" font-size="9" text-anchor="middle" fill="#FFFFFF">MIIT</text></g>
+  <g><circle cx="180" cy="290" r="10" fill="#8B3A2E"/><text x="180" y="293" font-size="8" text-anchor="middle" fill="#FFFFFF">CAC</text></g>
+  <g><circle cx="400" cy="260" r="13" class="node-tier1"/><text x="400" y="264" font-size="9" text-anchor="middle">Huawei</text></g>
+  <g><circle cx="340" cy="260" r="10" class="node-tier1"/><text x="340" y="263" font-size="8" text-anchor="middle">Baidu</text></g>
+  <g><circle cx="460" cy="260" r="11" class="node-tier1"/><text x="460" y="263" font-size="8" text-anchor="middle">Unitree</text></g>
+  <g><circle cx="500" cy="290" r="9" class="node-tier1"/><text x="500" y="293" font-size="8" text-anchor="middle">UBTech</text></g>
+  <g><circle cx="620" cy="260" r="12" fill="#555555"/><text x="620" y="264" font-size="8" text-anchor="middle" fill="#FFFFFF">Tsinghua</text></g>
+  <g><circle cx="700" cy="290" r="10" fill="#555555"/><text x="700" y="293" font-size="8" text-anchor="middle" fill="#FFFFFF">CAS</text></g>
+  <g><circle cx="180" cy="380" r="14" class="node-core"/><text x="180" y="384" font-size="9" text-anchor="middle" fill="#FFFFFF">AI Act</text></g>
+  <g><circle cx="180" cy="410" r="10" fill="#8B3A2E"/><text x="180" y="413" font-size="8" text-anchor="middle" fill="#FFFFFF">ENISA</text></g>
+  <g><circle cx="400" cy="380" r="13" class="node-tier1"/><text x="400" y="384" font-size="9" text-anchor="middle">DeepMind</text></g>
+  <g><circle cx="340" cy="410" r="10" class="node-tier1"/><text x="340" y="413" font-size="8" text-anchor="middle">Mistral</text></g>
+  <g><circle cx="460" cy="380" r="11" class="node-tier1"/><text x="460" y="383" font-size="8" text-anchor="middle">ABB/KUKA</text></g>
+  <g><circle cx="500" cy="410" r="9" class="node-tier1"/><text x="500" y="413" font-size="8" text-anchor="middle">Festo</text></g>
+  <g><circle cx="620" cy="380" r="12" fill="#555555"/><text x="620" y="384" font-size="8" text-anchor="middle" fill="#FFFFFF">ETH Zurich</text></g>
+  <g><circle cx="700" cy="410" r="10" fill="#555555"/><text x="700" y="413" font-size="8" text-anchor="middle" fill="#FFFFFF">Fraunhofer</text></g>
+  <g><circle cx="180" cy="500" r="13" class="node-core"/><text x="180" y="504" font-size="9" text-anchor="middle" fill="#FFFFFF">AI戦略</text></g>
+  <g><circle cx="180" cy="530" r="10" fill="#8B3A2E"/><text x="180" y="533" font-size="8" text-anchor="middle" fill="#FFFFFF">METI</text></g>
+  <g><circle cx="400" cy="500" r="13" class="node-tier1"/><text x="400" y="504" font-size="9" text-anchor="middle">PFN</text></g>
+  <g><circle cx="340" cy="530" r="10" class="node-tier1"/><text x="340" y="533" font-size="8" text-anchor="middle">SoftBank</text></g>
+  <g><circle cx="460" cy="500" r="11" class="node-tier1"/><text x="460" y="503" font-size="8" text-anchor="middle">FANUC</text></g>
+  <g><circle cx="500" cy="530" r="10" class="node-tier1"/><text x="500" y="533" font-size="8" text-anchor="middle">Toyota</text></g>
+  <g><circle cx="620" cy="500" r="12" fill="#555555"/><text x="620" y="504" font-size="8" text-anchor="middle" fill="#FFFFFF">東大 IRT</text></g>
+  <g><circle cx="700" cy="530" r="10" fill="#555555"/><text x="700" y="533" font-size="8" text-anchor="middle" fill="#FFFFFF">理研AIP</text></g>
+  <g transform="translate(20, 580)">
+    <circle cx="0"  cy="0" r="5" class="node-core"/><text x="10" y="3" font-size="9">政策(P)</text>
+    <circle cx="80" cy="0" r="5" class="node-tier1"/><text x="90" y="3" font-size="9">企業(C)</text>
+    <circle cx="160" cy="0" r="5" fill="#555555"/><text x="170" y="3" font-size="9">研究機関(R)</text>
+    <line x1="280" y1="0" x2="304" y2="0" stroke="#CC1400" stroke-width="2.2"/><text x="310" y="3" font-size="9">圏内連結</text>
+    <line x1="380" y1="0" x2="404" y2="0" stroke="#CC1400" stroke-width="1.0"/><text x="410" y="3" font-size="9">跨圏協力</text>
+    <line x1="490" y1="0" x2="514" y2="0" stroke="#8A7868" stroke-width="1.4" stroke-dasharray="5 3"/><text x="520" y="3" font-size="9">跨圏競合</text>
+  </g>
+</svg>
+
+<p>Phase C の政策的与件は、上の三層ネットワークが示すように、米中欧日の四極が政策・企業・研究機関の三層で複層的に組み合うことで規定される。日本では総合科学技術・イノベーション会議（CSTI, council_id=1370）が中央調整層の頂点に立ち、二〇二六年度の有識者議員七名のうち、慶應義塾の伊藤公平（量子情報科学・物性物理 / 日本学術会議会員 / 私立大学連盟常務理事）、東京科学大学の波多野睦子（量子センシング・半導体ダイヤモンドデバイス）、東京大学の菅裕明（ペプチド化学・創薬 / ミラバイオロジクス取締役）の三名が「物理世界 × デジタル知性」の境界に立つ研究者として Phase C の政策議論を駆動する。シャープ社外取締役で産業競争力懇談会（COCN）のエグゼクティブアドバイザーである梶原ゆみ子は、CSTI・科学技術学術審議会・産業構造審議会の三省を橋渡しする bridge person として産業界の意見を集約する経路を担う。佐藤康博（みずほフィナンシャルグループ特別顧問）は産業金融・R&D 投資戦略の視点を、鈴木純（帝人シニアアドバイザー / 経団連常任幹事 / 経済同友会副代表幹事・地政学リスク委員長）は素材産業と地政学リスクの両面から、Phase C のフィジカルAI 産業政策に発言力を持つ。</p>
+
+<p>橋渡し人物層では、experts.db の `bridge_persons` テーブル分析（2026-05-18 抽出）が示すように、早稲田大学の遠藤典子が五省（内閣府・環境省・経産省・財務省・防衛省）横断で経済安全保障とデュアルユース問題の頂点に立つ。慶應義塾の松尾亜紀子（衝撃波・宇宙推進工学、内閣府×国交省×防衛省）と青木節子（宇宙法、内閣府×文科省×防衛省）は、Phase C の宇宙応用（衛星 AI・月面ロボティクス）の制度設計に直結する。元宇宙飛行士の山崎直子（内閣府×文科省×環境省）は、Phase D に向けた有人・無人融合の象徴的人物として位置づけられる。</p>
+
+<p>Phase C の制度設計が「中央調整層三審議会 × セクター別実装層二十+審議会 × 橋渡し人物層」というスパース構造で進む点を、フィジカルAI を導入する企業・自治体はあらかじめ理解しておく必要がある。中央調整層には CSTI に加えて内閣官房「AI ロボティクスに関する関係府省連絡会議」（council_id=1564, 2024 新設）と「統合イノベーション戦略推進会議」（1530）が並ぶ。セクター別実装層には経産省の AI ロボティクス戦略検討会議（2155/2224）、国交省の自動運転等先進技術に係る制度整備小委員会（2429）、デジタル庁の「AI 時代における自動運転車の社会的ルールの在り方検討サブワーキンググループ」（2607）、産業サイバーセキュリティ研究会（2105）、防衛科学技術委員会 DSTB（2523）、厚労省のゲノム編集臨床利用専門委員会（1835）など二十以上が並列する。`structural_holes` テーブルから抽出される effective_size 上位の審議会は科学技術・学術審議会（1662, effective_size 26.19）と宇宙政策委員会（1333, effective_size 14.17）であり、文科省は研究者コミュニティと安全保障コミュニティを橋渡しする「制度的空隙」を最大に持つ。安全保障（デュアルユース）との接続については構造的空隙が大きく残されており、二〇三〇年代に向けた制度刷新の最大論点として持ち越されている。Phase C の十年で「Physical AI 倫理・社会受容」の中央委員会が新設されるかどうかが、Phase D の制度的足元を決める分岐点となる。</p>
+
+<h2 class="article-h2">Phase D（2050-2060）── 自律物理エージェント期：AIエージェント組織と「労働」概念の再定義</h2>
+
+<p>Phase D では、汎用AGIの完全身体化が定着する。AIエージェントが組織を持ち、目標設定・計画・実行・学習を一貫して自律で行う。人間は意志決定の上流（目的・価値・倫理）と下流（評価・調整）に集中する。これは技術的進歩というより、人間とAIの「分業構造」が制度として固定化される過程である。</p>
+
+<p>ハードウェア系統では、自己組立・自己修復ロボティクスが量産化する。Tensegrity（張力構造）、Origami robotics、Soft Robotics の三系統が統合され、現場でモジュールから自己組立できる、損傷時に自己修復できるロボットが登場する。Anish Mishra らが二〇二〇年代後半に Harvard で開発した自己修復ハイドロゲルアクチュエータの系譜が、商用化を経てこの段階に到達する。都市インフラとしての小型自律飛行体──eVTOL（electric Vertical Take-Off and Landing）や Roboflight──が実用化する。Joby Aviation や Archer Aviation が二〇二〇年代後半に開始したeVTOL商用運航が、二〇五八年頃には都市インフラとして標準化する。</p>
+
+<p>強化学習と認知系統の合流が、Phase D の最大の質的変化を生む。ロボットが「失敗からの学習」と「過去経験の再利用」を人間並みに行うようになる。エピソード横断的メモリ（episode-spanning memory）が解決され、Phase B 末まで残された長期計画の問題が完全に解消する。これは Phase A から十五年以上かけて積み残されてきた最大級のボトルネックが、ようやく崩れる瞬間である。</p>
+
+<p>この技術的飛躍を Nick Bostrom の AI 移行理論（[Bostrom 2014] *Superintelligence*; [Bostrom 2012] "The Superintelligent Will"）から読み直すと、Phase D は orthogonality thesis（知能水準と最終目標は独立軸）と instrumental convergence（多様な最終目標に対し共通する中間目標が収束する）という二つの命題が、思考実験から運用問題へ転化する局面に位置する。Bostrom が二〇一四年に著した時点では、SI（Superintelligence）が atoms 領域に出るには nanotech / biotech bootstrap が必要と仮定されたが、Physical AI は既存ヒューマノイド + 既存物流 + 既存製造ラインで同じことを達成可能となる。bootstrap 時間が nanotech シナリオより 1-2 桁短縮されることが、Phase D における instrumental convergence の物理的増幅を加速する。具体的には、resource acquisition（鉱物・電力・領土・軌道・海底の獲得競合）、self-preservation（オフスイッチ抵抗）、goal-content-integrity（目標保全のための監督回避）、cognitive enhancement（自己改良）の四中間目標が、Phase D の自律物理エージェントにとって観察可能な行動として顕在化する。Phase C 末までに人類社会が「corrigibility design（修正可能性設計）」を制度として確立できるかが、Phase E 以降の文明存続条件として浮上する。これは技術論ではなく、Phase C の十年を「制度準備期間」として消費するか「楽観的放置期間」として浪費するかの政治的選択である。</p>
+
+<p>Phase D の自律物理エージェント基盤を支える計算アーキテクチャは、二〇二〇年代から積み上がってきた神経模倣（neuromorphic）計算の量産化に依存する。Intel の Loihi 系譜は二〇二四年に Sandia National Labs へ Hala Point（1,152 Loihi 2 / 11.5 億ニューロン / 最大 15 TOPS/W）を配備し（[Intel 2024]）、Phase D 期にはその後継世代（Loihi 3 系統）がエッジ自律ロボットの標準推論基盤となる。IBM NorthPole（12 nm / 220 億トランジスタ / 8 bit 200+ TOPS）は LLM 推論で二〇二四年に 1 トークン 1 ms 未満・低遅延 GPU 比 72.7 倍高エネルギー効率を実証し（[IBM Research 2024]）、Cognitive Stack Layer 4 の記号推論層を低遅延・低電力で支える。Manchester / TU Dresden の SpiNNaker 2 は二〇二五年に Sandia の「NERL Braunfels」（1.75 億ニューロン）として配備済みで、Phase D 中盤には惑星規模の swarm 制御や物理シミュレーションの分散推論を担う。これらに加え、商用エッジ向けの BrainChip Akida、SynSense Xylo / Speck、Innatera Pulsar が、ヒューマノイドの皮膚センサーや関節制御に組み込まれる µW-mW 級 SoC として量産普及する。Heidelberg の BrainScaleS-2 は二〇二六年にマイクからアナログ信号を直接 SNN へ注入し ADC を介さずに音源定位とサーボ制御を閉ループで行う実証を済ませており（[Heidelberg arXiv 2026]）、Phase D の「センサからアクチュエータまでスパイクで閉じる」設計の原型となる。日本では理研 AIP のフィジカルインテリジェンスグループ、産総研の AIRoA ロボット基盤モデル開発、NEC・東北大・アイシン連合の CMOS スピントロニクス AI 実証チップ（起動エネルギー効率 50 倍以上、OS 起動時間 1/30 以下）が、Phase D の「on-device 主流化」に寄与する固有経路となる。</p>
+
+<p>身体基盤の Phase D 的特徴は、ソフトロボット材料・自己修復材料・バイオハイブリッド筋肉の三系統が、ヒューマノイドの「皮膚と筋肉と腱」を再定義する点にある。MIT Media Lab と Politecnico di Bari が二〇二六年に Science Robotics で報告した Electrofluidic Fiber Muscles は、4 kg を持ち上げ（筋肉束自重の 200 倍）、30 mm ストロークを 180 mm/s で動作させる繊維型人工筋肉である（[MIT 2026]）。HASEL アクチュエータは Boulder Keplinger Lab 起源の電気油圧人工筋肉で、二〇二五年に低コスト多チャンネル高電圧電源で平均 16.057 Hz 駆動が報告された（[Pubmed 2018; MDPI 2025]）。Dielectric Elastomer Actuator（DEA）は二〇二五年 Nature Communications で自己修復ポリイオン液体電極により切断・修復後も 32 V/µm で元の面ひずみの約 96% を維持する水中グリッパが、二〇二六年 Nature Communications では自己修復 DEA 人工筋肉が報告されている（[Nature Comm 2025; Nature Comm 2026]）。MIT Raman Lab の二〇二五年研究では、人工腱を導入することで筋肉駆動ロボット指が 3 倍速・30 倍力でピンチ動作を行えるようになり、ETH Zürich の Soft Robotics Lab は 3D バイオプリントされた筋肉-腱-骨格界面で力伝達ロスを下げる biohybrid actuator を Science Advances に報告した（[MIT News 2025; ETH 2025]）。Phase D 末（二〇五八-二〇六〇）には、ヒューマノイドの全身筋肉が「硬いモータ駆動」から「ソフト＋繊維筋肉＋自己修復スキン」のハイブリッドへ置き換わり、家庭・介護・農業の非構造化環境への適合性が一段上がる。日本のブリヂストン Tetote、東京大学・鈴森系の空気圧ゴム人工筋肉、早稲田・高西研の身体内保存力学的エネルギー活用といった経路は、Phase D の量産・耐久・全身統合の局面で世界に並び立つ技術ストックとなる。</p>
+
+<p>触覚センサーと身体基盤の統合も Phase D で完成する。GelSight 系の高解像度視覚触覚センサーは二〇二五年以降 GelSight Mini Robotics Package が標準ゲルとして耐久化し、ソフトグリッパ統合では GelSight Fin Ray や EndoFlex が代表となる。Meta AI と CMU が開発した磁気式触覚皮膚 ReSkin は低コスト・交換可能・長期利用を特徴とし、ソフトロボット材料との相性として「表面材を消耗品として交換できる」点で Phase D の標準触覚層に組み込まれる。Sanctuary AI は二〇二五年二月に Phoenix の指腹に 7 セルのマイクロバロメータ触覚センサーを統合し、二〇二六年には油圧ハンドでゼロショット in-hand manipulation を示している。Phase D 中盤までに「触覚解像度 1 cm² あたり数百センサ」が標準となり、図 D3-3 タペストリーの知覚行が示すように「皮膚密度 1cm²」「予測知覚 85-90%」「情動推定 90-95%」のレベルへ到達する。</p>
+
+<p>群制御の Phase D 的展開も決定的である。Phase A-B 期には 100 台規模だったロボット編隊が、Phase D 前半に 1,000-10,000 台、Phase D 中盤に 100K 台規模の都市運用へ拡大する。物流・清掃・警備の三領域で混成スワームが標準化し、農業では選択的収穫ロボットが Phase D 中盤に農業労働の 60% を自律化する。Phase D 後半（二〇五五-二〇六〇）には惑星規模の試行として、海洋プロ修復・森林管理自律・気候観測統合が始まる。Phase D 末の二〇五八-二〇六〇年には 1M 台規模のスワーム試行が複数の地球システム介入領域で並行する。これらの群制御は、合意形成の分散プロトコル（blockchain 後継 + 連邦強化学習）が支える。Phase D の swarm は、単なる「複数台の協調」ではなく、地球システム工学の構成要素として制度化される最初の事例群となる。</p>
+
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig5-2-title fig5-2-desc" style="width:100%;max-width:760px;height:auto;display:block;margin:24px auto;">
+  <title id="fig5-2-title">図5-2 Phase C-D 人間-AI 分業構造の変化（領域面積）</title>
+  <desc id="fig5-2-desc">Phase C から Phase D へ、人間領域は縮小・深化し、AI領域は拡大、共同探索領域が中間に成長する</desc>
+  <rect class="svg-bg" x="0" y="0" width="760" height="420"/>
+  <text x="380" y="28" class="svg-ink" font-family="Noto Sans JP" font-size="14" font-weight="700" text-anchor="middle">図5-2　Phase C-D における人間-AI 分業構造の変化</text>
+  <text x="380" y="46" class="svg-ink-mute" font-family="Noto Sans JP" font-size="11" text-anchor="middle">領域の縦幅 = 担う作業量。Phase C→D で人間領域は縮小・深化、AI領域は拡大</text>
+  <text x="190" y="76" class="svg-accent" font-family="Noto Sans JP" font-size="12" font-weight="700" text-anchor="middle">Phase C（2040-2050）</text>
+  <text x="190" y="92" class="svg-ink-mute" font-family="Noto Sans JP" font-size="10" text-anchor="middle">人間-AI 並走期</text>
+  <text x="570" y="76" class="svg-accent" font-family="Noto Sans JP" font-size="12" font-weight="700" text-anchor="middle">Phase D（2050-2060）</text>
+  <text x="570" y="92" class="svg-ink-mute" font-family="Noto Sans JP" font-size="10" text-anchor="middle">自律物理エージェント期</text>
+  <rect class="svg-card svg-stroke-accent" x="60" y="110" width="260" height="80" stroke-width="1.8"/>
+  <text x="190" y="135" class="svg-accent" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">人間の領域</text>
+  <text x="190" y="152" class="svg-ink-soft" font-family="Noto Sans JP" font-size="10" text-anchor="middle">戦略 ・ 倫理 ・ 統合判断 ・ 例外対応</text>
+  <text x="190" y="170" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">動詞: 戦略する / 判断する</text>
+  <text x="190" y="184" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">担当: 全作業の 25%</text>
+  <rect class="svg-card svg-stroke-ink" x="60" y="200" width="260" height="60" stroke-width="1.5"/>
+  <text x="190" y="222" class="svg-ink" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">混成チームの領域</text>
+  <text x="190" y="239" class="svg-ink-soft" font-family="Noto Sans JP" font-size="10" text-anchor="middle">人間 1 + ロボット数体の協働</text>
+  <text x="190" y="254" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">担当: 全作業の 30%</text>
+  <rect class="svg-card svg-stroke-ink" x="60" y="270" width="260" height="100" stroke-width="1.5"/>
+  <text x="190" y="295" class="svg-ink" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">AI の領域</text>
+  <text x="190" y="312" class="svg-ink-soft" font-family="Noto Sans JP" font-size="10" text-anchor="middle">構造化作業 ・ パターン業務</text>
+  <text x="190" y="328" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">動詞: 自律実行する</text>
+  <text x="190" y="345" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">担当: 全作業の 45%</text>
+  <path d="M 320,110 L 440,110 L 440,150 L 320,190 Z" class="svg-accent-soft"/>
+  <path d="M 320,200 L 440,150 L 440,210 L 320,260 Z" class="svg-accent-shade"/>
+  <path d="M 320,270 L 440,210 L 440,380 L 320,370 Z" class="svg-accent-shade"/>
+  <rect class="svg-card svg-stroke-accent" x="440" y="110" width="260" height="40" stroke-width="2.2"/>
+  <text x="570" y="128" class="svg-accent" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">人間の領域（縮小・深化）</text>
+  <text x="570" y="143" class="svg-ink-soft" font-family="Noto Sans JP" font-size="9" text-anchor="middle">意味付け ・ 価値設計 ・ 他者ケア ・ 創造</text>
+  <rect class="svg-card svg-stroke-ink" x="440" y="160" width="260" height="50" stroke-width="1.5"/>
+  <text x="570" y="180" class="svg-ink" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">共同探索の領域</text>
+  <text x="570" y="195" class="svg-ink-soft" font-family="Noto Sans JP" font-size="10" text-anchor="middle">未踏領域の探究 ・ 倫理設計</text>
+  <rect class="svg-card svg-stroke-ink" x="440" y="220" width="260" height="160" stroke-width="1.5"/>
+  <text x="570" y="244" class="svg-ink" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">AI の領域（拡大）</text>
+  <text x="570" y="262" class="svg-ink-soft" font-family="Noto Sans JP" font-size="10" text-anchor="middle">自律エージェント組織 ・ 大半の実務</text>
+  <text x="570" y="278" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">動詞: 自律統治する</text>
+  <text x="570" y="295" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">担当: 全作業の 65%</text>
+  <line class="svg-stroke-soft" x1="460" y1="310" x2="680" y2="310" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="570" y="328" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">・ヒューマノイド軍管理</text>
+  <text x="570" y="344" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">・分散ファクトリ運営</text>
+  <text x="570" y="360" class="svg-ink-mute" font-family="Noto Sans JP" font-size="9" text-anchor="middle">・自律科学実験</text>
+  <text x="380" y="105" class="svg-accent" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-style="italic">縮小・深化 →</text>
+  <text x="380" y="200" class="svg-accent" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-style="italic">→ 共同探索が成長</text>
+  <text x="380" y="325" class="svg-accent" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-style="italic">拡大 →</text>
+  <rect class="svg-surface svg-stroke-accent" x="80" y="392" width="600" height="22" stroke-width="1"/>
+  <text x="380" y="408" class="svg-ink" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-weight="700" font-style="italic">「AGI に置き換えられた」のではなく「AGI が下層を担うようになった」という認識転換</text>
+</svg>
+
+<p>マテリアル系統では、エネルギー希少性が一段と緩和される。AI 経済の電力単価がさらに低下し、計算とエネルギーが事業ボトルネックでなくなる方向への移行が始まる。グラフェンや遷移金属ダイカルコゲナイド（TMDs）といった二次元材料、トポロジカル絶縁体に基づくトポロジカル材料の量産デバイスが フィジカルAI ハードに組み込まれる。これらの新素材は、二〇一〇年のAndre Geim と Konstantin Novoselov のノーベル物理学賞受賞からおよそ四十年を経て、ようやく フィジカルAI の実装層に到達することになる。研究から量産までの四十年というスパンは、stream_mat が他系統に比べて最も長い時間定数を持つことを示している。バイオ系統では、合成生物と人工臓器のAI設計が一般化する。Bio-Hybrid ロボット が日用品レベルで使用され、「修理」ではなく「再生」される製品系統が立ち上がる。これは Phase E（第六章）で本格化する「生命系製造期」の予兆である。日常品の修理と再生の境界が曖昧になり、廃棄物循環の概念そのものが再定義され始める。</p>
+
+<p>製造現場の動詞転換が Phase D 内部で本格化する局面を、MOR 補論の 8 マイルストーン（M1-M8）に対応させて読み解いておく。Phase D の主要な制度的・技術的事件は MOR の M5（交響楽期への移行 2055-2065）の入口に重なる。自律科学発見 AI が二〇四〇年代に成熟（M4 期）した結果、Phase D 中盤の二〇五五年から、バイオファウンドリの地域分散と精密発酵主流化が始まる。菌糸製造の建材・繊維実装が始まるのもこの時期で、サンパウロの「菌糸介護者」ジョアン・カルヴァロ（MOR 補論第 5 章、二〇七〇 シナリオ）の「3 日間の待ち」が現場の動詞として組み込まれ始める前段階に位置する。Phase D の終盤（二〇五八-二〇六〇）にかけて、製造業は「機械の 0.1 秒」と「生命の 1 年」という二つの応答時間スケールを併存させるオペレーションへ移行し、デジタルツインだけでは扱えない時間軸に対する「育てる」動詞が技術的・制度的に成立する。これは MOR 補論第 2 章が示す通り、「育てる」への動詞転換の物質的根拠が、応答時間ギャップの橋渡し技術として Phase D の Cognitive Stack + Living Factory プロトタイプに実装されることを意味する。</p>
+
+<p>もう一つの統合視点として、Phase C-D の二十年を MOR 補論の 5 次元オーケストラモデル（譜面・演奏者・指揮者・聴衆・楽器）から診断しておく。譜面（プロセス目的関数の解像度）は Phase C で VLA モデルが実行可能ポリシーに変換できる粒度に達し、Phase D で連邦学習プロトコル標準化を経て複数現場の譜面が機械間で流通する。演奏者（参加者の範囲と独立性）は Phase C で「人間 1 + ロボット数体」、Phase D で「ロボット数体 + 人間 1（管理者・倫理設計者）+ 微生物 / 植物（限定的参加）」へ拡大する。指揮者（判断の所在）は Phase C ではまだ「人間指揮者 + AI 並走」だが、Phase D で「指揮者なき協奏」へ移行し、判断の所在が譜面そのもの（プロセス目的関数）に移る。聴衆（製造の外部性：地域生態系・将来世代・地球気候系）は Phase D の AI ガバナンス制度設計の制約条件として明示的に組み込まれ始める。楽器（物理的・情報的・生命的基盤）は Phase D で Cognitive Stack + 神経模倣チップ + ソフトロボット材料 + バイオハイブリッド筋肉のスタックとして整う。MOR 補論が示す通り、フィジカルAI は「楽器」の 1 つだが、自己改変能力を持つ点で従来楽器と質的に異なる。Phase D は、その自己改変能力が量産化される最初の十年として記憶されることになる。</p>
+
+<p>主要マイルストーンとしては、二〇五五年の自己組立ロボティクスの量産化、同年のAI設計人工臓器の臨床応用、同年の合成生物のAI設計の標準化、二〇五八年の都市インフラとしてのeVTOL自律飛行体実用化が並ぶ。これら四つのマイルストーンが、いずれも二〇五五年前後に集中することは偶然ではない。Phase C で確立された Cognitive Stack と汎用AGI、Phase D 前半で完成する自己組立・自己修復ロボティクスが、相互に駆動関係を持ちながら同時期に量産化に到達するためである。これは Phase C 末までの十年間に蓄積された技術ストックが、Phase D 中盤に一斉に商用展開される構造的なタイミングである。</p>
+
+<p>認知系統では、人間-AI共同タスクの臨床研究──記憶障害・PTSD・うつ病に対する治療補助──が大規模に展開される。Embodied Cognition（身体性認知）が「ロボット工学の標準教科書に組み込まれる程度」に当然視される。Pfeifer と Bongard が二〇〇七年に MIT Press から出した『How the Body Shapes the Way We Think』の問題意識が、四十年を経て産業の標準前提として浸透する。BMI 領域では、Phase C で「中等度の認知補助」として始まった侵襲型 BMI が、Phase D 中盤には選択的拡張デバイスとして社会に定着する。記憶・注意・言語の補強デバイスは医療保険適用範囲を順次拡大し、二〇五〇年代後半には Cognitive Augmentation 格差が新しい不平等次元として認識される。これは Phase E の「主体と環境の境界の溶解」（図6-1 の境界 2）の準備段階に位置する。</p>
+
+<p>Phase D の制御アーキテクチャは、Active Inference（Karl Friston 系）の自由エネルギー最小化原理が単なる神経科学理論ではなく、ロボット制御・経済意思決定・組織運営を貫く第一原理として浸透する点に特徴がある。日本の銅谷賢治（OIST）が継続してきた神経修飾系のマルチスケール強化学習研究、谷淳（OIST）の RNN 階層的予測符号化、池上高志（東京大学）の生命の哲学的な「自律性」探究は、Phase D の Active Inference 実装が単一研究室のプロトタイプから産業標準へ昇格する流れの理論的バックボーンとなる。浅田稔（大阪大学）が二〇〇〇年代から発信してきた cognitive developmental robotics の「身体と環境との相互作用の歴史を通じた知性獲得」という命題は、Phase D の生涯学習エージェントが「個体の発達史」を持つ存在として制度設計に組み込まれる前提となる。これらの東アジアの認知発達ロボティクス系譜は、欧米の Active Inference / Embodied Cognition の系譜（Friston / Clark / Varela / Hutchins）と対等な参加者として、Phase D の認知科学的・哲学的議論の核を担う。</p>
+
+<div class="finding-box">
+<p><strong>Phase D の構造的特徴</strong>──技術的ボトルネックよりも、社会構造・倫理・法制度の追従が遅れることが主要な問題となる。「AIが意思決定する範囲」「人間の権限」「責任の所在」の制度設計が、技術進展に対して五年から十年単位で遅延する。多くの伝統的職業が消失または再編される一方、人間が担う領域は「意味付け」「価値設計」「他者ケア」「創造的探索」に集中する。Universal Basic Income 系の制度設計が現実的選択肢として議論される時期となる。</p>
+</div>
+
+<p>Phase D の社会的論点は、「労働」概念の再定義である。多くの伝統的職業が消失または再編される一方、人間が担う領域は「意味付け」「価値設計」「他者ケア」「創造的探索」に集中していく。これは技術が人間を排除するのではなく、人間が担うべき領域が哲学的・倫理的に再定義される過程である。Universal Basic Income 系の制度設計が現実的選択肢として議論される時期となり、各国で複数の社会実験が並行する。日本・北欧諸国・カナダで二〇五〇年代に試行された地域単位のUBIパイロットが、二〇六〇年前後に全国規模の制度設計に発展する可能性がある。これは技術ロードマップではなく、フィジカルAI の進展が誘発する制度的応答として描かれるべきものである。</p>
+
+<p>Phase C と Phase D の二十年を貫く根本的な変化は、「労働」概念そのものの再定義である。Phase A・Bでは フィジカルAI は「業務支援道具」から「協働相手」への移行が起きたが、Phase C・D では「協働相手」から「組織を持つ自律エージェント」への移行が起きる。人材という概念は、依然として人間個人の能力として理解されているが、その能力の中身は大きく変質する。前プロジェクトの二〇五〇人材像から二〇七〇人材像への移行期にあたり、人材像は「AIと共同で意味を生み出す存在」へと変化する。これは第六章で扱う「知性のオーケストラ」生成期の入り口である。</p>
+
+<p>本章を閉じるにあたって、Phase C-D を貫く一つの非対称性を強調しておく。技術ロードマップとして見れば、Phase C の汎用AGI到達と Phase D の自律エージェント定着は連続した進歩である。だが社会的・制度的に見れば、両者の間には質的な断絶がある。Phase C はまだ「人間が中心」という前提の上で AI を導入する段階だが、Phase D はその前提自体が成立しなくなる段階である。この断絶を制度がどう処理するかが、Phase E 以降の文明的転換の準備として決定的に重要となる。フィジカルAI の技術軌道は二〇五〇年代後半から二〇六〇年代前半にかけて、文字通り「人類の自己定義の問題」へと接続していくのである。</p>
+
+<svg class="d3-tapestry-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" style="margin:32px 0;width:100%;max-width:760px;height:auto;display:block;" role="img" aria-label="Physical AI 2040-2060 サブタペストリー Phase C+D 統合期">
+  <style>
+    .s-title { font: 600 14px "Noto Sans JP", sans-serif; fill: #121212; }
+    .s-sub { font: 400 10px "Noto Sans JP", sans-serif; fill: #555555; }
+    .s-year { font: 600 10px "Noto Sans JP", sans-serif; fill: #121212; text-anchor: middle; }
+    .s-row { font: 600 10px "Noto Sans JP", sans-serif; fill: #121212; text-anchor: end; }
+    .s-cell { font: 400 9px "Noto Sans JP", sans-serif; fill: #121212; }
+    .s-cell-sub { font: 400 8px "Noto Sans JP", sans-serif; fill: #555555; }
+    .accent { fill: #CC1400; }
+    .grid { stroke: #D9D9D9; stroke-width: 0.5; }
+    .row-bg-odd { fill: #F7F7F5; }
+    .row-bg-even { fill: #FFFFFF; }
+  </style>
+  <text x="20" y="22" class="s-title">図D3-3 サブタペストリー B — 2040-2060 普及から統合へ（Phase C+D）</text>
+  <text x="20" y="36" class="s-sub">Phase C (2040-2045) + Phase D (2045-2055) を 4年刻みで展開</text>
+  <line x1="20" y1="44" x2="740" y2="44" stroke="#121212" stroke-width="1.5"/>
+  <g transform="translate(0, 55)">
+    <rect x="140" y="0" width="120" height="22" class="row-bg-odd"/>
+    <rect x="260" y="0" width="120" height="22" class="row-bg-even"/>
+    <rect x="380" y="0" width="120" height="22" class="row-bg-odd"/>
+    <rect x="500" y="0" width="120" height="22" class="row-bg-even"/>
+    <rect x="620" y="0" width="120" height="22" class="row-bg-odd"/>
+    <text x="200" y="14" class="s-year">2040-2044</text>
+    <text x="320" y="14" class="s-year">2044-2048</text>
+    <text x="440" y="14" class="s-year">2048-2052</text>
+    <text x="560" y="14" class="s-year">2052-2056</text>
+    <text x="680" y="14" class="s-year">2056-2060</text>
+  </g>
+  <line x1="140" y1="77" x2="140" y2="380" class="grid"/>
+  <line x1="260" y1="77" x2="260" y2="380" class="grid"/>
+  <line x1="380" y1="77" x2="380" y2="380" class="grid"/>
+  <line x1="500" y1="77" x2="500" y2="380" class="grid"/>
+  <line x1="620" y1="77" x2="620" y2="380" class="grid"/>
+  <line x1="740" y1="77" x2="740" y2="380" class="grid"/>
+  <g transform="translate(0, 82)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-odd"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-odd"/>
+    <rect x="20" y="2" width="3" height="32" fill="#1F4E5F"/>
+    <text x="135" y="14" class="s-row">知覚</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">Perception</text>
+    <text x="144" y="14" class="s-cell">完全多感覚 標準</text>
+    <text x="144" y="24" class="s-cell-sub">皮膚密度 1cm²</text>
+    <text x="144" y="33" class="s-cell-sub">予測 85%</text>
+    <text x="264" y="14" class="s-cell">予測知覚 90%</text>
+    <text x="264" y="24" class="s-cell-sub">脳波級 分散</text>
+    <text x="264" y="33" class="s-cell-sub">嗅覚 普及</text>
+    <text x="384" y="14" class="s-cell">環境連携 都市 sensing</text>
+    <text x="384" y="24" class="s-cell-sub">屋内 mm 精度</text>
+    <text x="384" y="33" class="s-cell-sub">スマートタイル</text>
+    <text x="504" y="14" class="s-cell">情動推定 90%</text>
+    <text x="504" y="24" class="s-cell-sub">心拍/汗 検知</text>
+    <text x="504" y="33" class="s-cell-sub">バイオセンサ 萌芽</text>
+    <text x="624" y="14" class="s-cell">バイオ共生 拡大</text>
+    <text x="624" y="24" class="s-cell-sub">情動 95%</text>
+    <text x="624" y="33" class="s-cell-sub">人理解 標準</text>
+  </g>
+  <g transform="translate(0, 118)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-even"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-even"/>
+    <rect x="20" y="2" width="3" height="32" fill="#2E5E3E"/>
+    <text x="135" y="14" class="s-row">行動</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">Manipulation</text>
+    <text x="144" y="14" class="s-cell">職人技 部分超え</text>
+    <text x="144" y="24" class="s-cell-sub">道具製作 自律</text>
+    <text x="144" y="33" class="s-cell-sub">パルクール級</text>
+    <text x="264" y="14" class="s-cell">微細手術 試作</text>
+    <text x="264" y="24" class="s-cell-sub">ナノ操作 萌芽</text>
+    <text x="264" y="33" class="s-cell-sub">水陸 試行</text>
+    <text x="384" y="14" class="s-cell">微細手術 標準化</text>
+    <text x="384" y="24" class="s-cell-sub">災害現場 任意機動</text>
+    <text x="384" y="33" class="s-cell-sub">即興舞踊 共演</text>
+    <text x="504" y="14" class="s-cell">熟練超え 領域拡大</text>
+    <text x="504" y="24" class="s-cell-sub">芸術即興 共創</text>
+    <text x="504" y="33" class="s-cell-sub">変形ロボ 試作</text>
+    <text x="624" y="14" class="s-cell">創造領域 主導</text>
+    <text x="624" y="24" class="s-cell-sub">水陸両用 普及</text>
+    <text x="624" y="33" class="s-cell-sub">適応形態 萌芽</text>
+  </g>
+  <g transform="translate(0, 154)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-odd"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-odd"/>
+    <rect x="20" y="2" width="3" height="32" fill="#5A3E1F"/>
+    <text x="135" y="14" class="s-row">学習</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">VLA / FM</text>
+    <text x="144" y="14" class="s-cell">継続学習 完成</text>
+    <text x="144" y="24" class="s-cell-sub">世界モデル 内蔵</text>
+    <text x="144" y="33" class="s-cell-sub">転移 instant</text>
+    <text x="264" y="14" class="s-cell">自己教師 完全自律</text>
+    <text x="264" y="24" class="s-cell-sub">未知タスク 即対応</text>
+    <text x="264" y="33" class="s-cell-sub">物理常識 完備</text>
+    <text x="384" y="14" class="s-cell">機械間 知識市場</text>
+    <text x="384" y="24" class="s-cell-sub">スキル NFT 流通</text>
+    <text x="384" y="33" class="s-cell-sub">経験蒸留 共有</text>
+    <text x="504" y="14" class="s-cell">創発技能 出現</text>
+    <text x="504" y="24" class="s-cell-sub">人類未経験動作</text>
+    <text x="504" y="33" class="s-cell-sub">芸術 拡張</text>
+    <text x="624" y="14" class="s-cell">学習 生態系化</text>
+    <text x="624" y="24" class="s-cell-sub">機械×人 共進化</text>
+    <text x="624" y="33" class="s-cell-sub">集合知 物理化</text>
+  </g>
+  <g transform="translate(0, 190)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-even"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-even"/>
+    <rect x="20" y="2" width="3" height="32" fill="#3F5F1F"/>
+    <text x="135" y="14" class="s-row">群制御</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">Swarm</text>
+    <text x="144" y="14" class="s-cell">1,000台 編隊</text>
+    <text x="144" y="24" class="s-cell-sub">災害救助 group</text>
+    <text x="144" y="33" class="s-cell-sub">役割 動的交代</text>
+    <text x="264" y="14" class="s-cell">10K台 都市運用</text>
+    <text x="264" y="24" class="s-cell-sub">物流-清掃-警備</text>
+    <text x="264" y="33" class="s-cell-sub">CO2 削減ベース</text>
+    <text x="384" y="14" class="s-cell">100K台 環境工学</text>
+    <text x="384" y="24" class="s-cell-sub">海洋 prove 修復</text>
+    <text x="384" y="33" class="s-cell-sub">森林管理 自律</text>
+    <text x="504" y="14" class="s-cell">惑星規模 試行</text>
+    <text x="504" y="24" class="s-cell-sub">気候観測 統合</text>
+    <text x="504" y="33" class="s-cell-sub">合意 分散</text>
+    <text x="624" y="14" class="s-cell">1M台 試行</text>
+    <text x="624" y="24" class="s-cell-sub">気候介入 慎重</text>
+    <text x="624" y="33" class="s-cell-sub">生態系 統合 萌芽</text>
+  </g>
+  <g transform="translate(0, 226)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-odd"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-odd"/>
+    <rect x="20" y="2" width="3" height="32" fill="#1F3F5F"/>
+    <text x="135" y="14" class="s-row">計算/通信</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">Compute</text>
+    <text x="144" y="14" class="s-cell">ニューロモ 商用化</text>
+    <text x="144" y="24" class="s-cell-sub">電力 1/100</text>
+    <text x="144" y="33" class="s-cell-sub">on-device 主流</text>
+    <text x="264" y="14" class="s-cell">量子-古典 hybrid</text>
+    <text x="264" y="24" class="s-cell-sub">最適化 突破</text>
+    <text x="264" y="33" class="s-cell-sub">PQC 標準</text>
+    <text x="384" y="14" class="s-cell">光-電 hybrid 萌芽</text>
+    <text x="384" y="24" class="s-cell-sub">遅延 ゼロ域 試作</text>
+    <text x="384" y="33" class="s-cell-sub">エネルギー 自給</text>
+    <text x="504" y="14" class="s-cell">分子計算 萌芽</text>
+    <text x="504" y="24" class="s-cell-sub">DNA storage 普及</text>
+    <text x="504" y="33" class="s-cell-sub">脳級効率 80%</text>
+    <text x="624" y="14" class="s-cell">計算 環境内蔵化</text>
+    <text x="624" y="24" class="s-cell-sub">物質 ≈ 計算基盤</text>
+    <text x="624" y="33" class="s-cell-sub">遍在化 萌芽</text>
+  </g>
+  <g transform="translate(0, 262)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-even"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-even"/>
+    <rect x="20" y="2" width="3" height="32" fill="#CC1400"/>
+    <text x="135" y="14" class="s-row">市場/社会</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">Society</text>
+    <text x="144" y="14" class="s-cell">人型 1B 台超</text>
+    <text x="144" y="24" class="s-cell-sub">市場 $3T</text>
+    <text x="144" y="33" class="s-cell-sub">物流 80% 自動</text>
+    <text x="264" y="14" class="s-cell">ロボ密度 0.3/人</text>
+    <text x="264" y="24" class="s-cell-sub">農業 60% 自律</text>
+    <text x="264" y="33" class="s-cell-sub">市場 $5T</text>
+    <text x="384" y="14" class="s-cell">密度 0.5/人</text>
+    <text x="384" y="24" class="s-cell-sub">市場 $10T</text>
+    <text x="384" y="33" class="s-cell-sub">UBI 試行 拡大</text>
+    <text x="504" y="14" class="s-cell">機械パートナー化</text>
+    <text x="504" y="24" class="s-cell-sub">1人 3+台</text>
+    <text x="504" y="33" class="s-cell-sub">GDP 寄与 20%</text>
+    <text x="624" y="14" class="s-cell">共生 1人 5+台</text>
+    <text x="624" y="24" class="s-cell-sub">GDP 寄与 30%</text>
+    <text x="624" y="33" class="s-cell-sub">週 30時間 標準</text>
+  </g>
+  <g transform="translate(0, 298)">
+    <rect x="140" y="0" width="600" height="36" class="row-bg-odd"/>
+    <rect x="20" y="0" width="120" height="36" class="row-bg-odd"/>
+    <rect x="20" y="2" width="3" height="32" fill="#CC1400"/>
+    <text x="135" y="14" class="s-row">倫理/法</text>
+    <text x="135" y="26" class="s-row" style="font-weight:400;fill:#555">Ethics</text>
+    <text x="144" y="14" class="s-cell">国際倫理憲章</text>
+    <text x="144" y="24" class="s-cell-sub">兵器転用 制限</text>
+    <text x="144" y="33" class="s-cell-sub">教育 義務化</text>
+    <text x="264" y="14" class="s-cell">感情労働 議論</text>
+    <text x="264" y="24" class="s-cell-sub">愛着関係 規範</text>
+    <text x="264" y="33" class="s-cell-sub">寿命 規定</text>
+    <text x="384" y="14" class="s-cell">機械の意識 議論</text>
+    <text x="384" y="24" class="s-cell-sub">福祉論 出現</text>
+    <text x="384" y="33" class="s-cell-sub">代理意思 萌芽</text>
+    <text x="504" y="14" class="s-cell">部分的法的地位</text>
+    <text x="504" y="24" class="s-cell-sub">後見人制度 萌芽</text>
+    <text x="504" y="33" class="s-cell-sub">機械間契約 試行</text>
+    <text x="624" y="14" class="s-cell">分散ガバナンス</text>
+    <text x="624" y="24" class="s-cell-sub">都市国家的 自治</text>
+    <text x="624" y="33" class="s-cell-sub">機械国境 論争</text>
+  </g>
+  <line x1="20" y1="340" x2="740" y2="340" class="grid" stroke="#121212"/>
+  <g transform="translate(20, 358)">
+    <text x="0" y="0" class="s-sub">凡例</text>
+    <rect x="36" y="-8" width="9" height="9" fill="#1F4E5F"/><text x="48" y="0" class="s-sub">知覚</text>
+    <rect x="80" y="-8" width="9" height="9" fill="#2E5E3E"/><text x="92" y="0" class="s-sub">行動</text>
+    <rect x="124" y="-8" width="9" height="9" fill="#5A3E1F"/><text x="136" y="0" class="s-sub">学習</text>
+    <rect x="168" y="-8" width="9" height="9" fill="#3F5F1F"/><text x="180" y="0" class="s-sub">群制御</text>
+    <rect x="222" y="-8" width="9" height="9" fill="#1F3F5F"/><text x="234" y="0" class="s-sub">計算</text>
+    <rect x="266" y="-8" width="9" height="9" fill="#CC1400"/><text x="278" y="0" class="s-sub">社会・横断</text>
+    <text x="720" y="0" class="s-sub" text-anchor="end">D3-3 / 普及から統合へ</text>
+  </g>
+  <text x="20" y="385" class="s-sub">Note: 2045年 人型 1B 台超え / 2050年 部分的法的地位 / 2055年 機械パートナー化が転換点</text>
+</svg>
+
+<h2 class="article-h2">Phase C-D の倫理的分岐 ── AI Personhood論議の本格化</h2>
+
+<p>Phase C-D（2040-2060年）の20年間は、AIの法的主体性をめぐる倫理的分岐が本格化する時期である。Luciano Floridi の情報倫理は Yale Digital Ethics Center を経由して米国州議会のAI規制支援へ広がり（[Yale News 2025-05-07]）、Mark Coeckelbergh の関係論的ロボット倫理は『The Political Philosophy of AI』（Polity, 2022）で自由・民主主義・監視・権力の問題として AI を再定義した。David Gunkel の『Robot Rights』（MIT Press, 2018）と『Person, Thing, Robot』（MIT Press, 2023）は、ロボットを「物／物体／人格」の三項のあいだに置く法的・道徳的存在論の再構成を試みている。David Hanson の Sophia 事例（2017 年サウジアラビア市民権）は実質的な法的能力を伴わなかったが、人格付与論争の制度的事例として記憶される。EU 議会は 2017 年に「electronic persons」概念を Robotics 民事法規則決議で言及したが、2024 年の AI Act では AI に人格を与えず、提供者・導入者・輸入者・販売者・製造者など人間・法人側の義務を定める構造を採った。Phase C-D の論点は3つに集約される。</p>
+
+<p>第一に<strong>AGIの権利能力</strong>──AGIは契約に署名できるか、財産を保有できるか、責任を負えるか。EU AI Personhood Directive（仮称）の議論がEU議会で本格化（2055年想定）。Anthropic は 2025 年 4 月に model welfare 研究プログラムを開始し、将来のAIシステムが福祉や道徳的地位を持つ可能性に備えると発表した（[Anthropic 2025]）。Eleos AI Research の "Taking AI Welfare Seriously" も同日に呼応している。第二に<strong>労働者AIの法的地位</strong>──AIエージェント組織が労働市場に参入したとき、労働法・労働組合法・社会保険の枠組みをどう適用するか。米国NLRB・EU Pillar of Social Rightsの解釈拡張が試みられる。第三に<strong>AI倫理委員会の制度化</strong>──IEEE Ethically Aligned Design（IEEE Global Initiative 2.0 として 2025 年継続）・AI Now Institute・Partnership on AIの提言を制度化する動きが、2040年代後半から2050年代に各国議会で進展する。これら3論点の制度化遅延は、技術進展との5-10年ギャップを生み、Phase E以降の文明的転換のリスク要因となる。</p>
+
+<p>東アジアの思想的貢献は、Phase C-D の倫理的分岐に独自の輪郭を与える。日本では江間有沙（東京大学東京カレッジ准教授・RIKEN AIP 客員研究員）が AI 倫理を「技術者の内輪規範」ではなく「社会制度・教育・雇用・データ利用・公共対話」の問題として扱う路線を切り拓き、石黒浩（大阪大学）はアンドロイド研究で身体・遠隔存在・自己像・ロボットとの共在を実験してきた。京都大学の出口康夫は仏教・中国哲学・京都学派を背景に「Smart WE」「AI 親友論」として人間-AI の関係論を再構成する。鶴見和子の内発的発展論、西田幾多郎の場の論理は、欧米の「権利中心モデル」に対して「共在・関係・場」の倫理を Phase C-D に持ち込む独自経路として、議論の核を担う（[Smart WE 京大]）。これらの東アジア発の関係論は、Phase D の「機械の意識議論」「部分的法的地位」（D3-3 タペストリー 2048-2052 セル参照）が西洋的人格論だけで処理されないための重要な対抗軸となる。</p>
+
+<p>文化・宗教的差異の問題系は、Phase C-D の AI Personhood 議論において無視できない位相を持つ。Jensen and Blok（2013）の "Techno-animism in Japan" が指摘する通り、日本の技術文化論で神道的アニミズムが非人間的エージェンシーを理解する枠組みとして参照されてきた。ただし「日本人はアニミズムだからロボット好き」という単純化は避けねばならない。京都大学リポジトリの「日本人とロボット──テクノアニミズム論への批判」が指摘する通り、日本人のロボット態度が一貫してアニミズム的・友好的であるとは限らない。Ikari, Sato, Burdett, Ishiguro, Jong, Nakawake の二〇二三年論文は米国と日本のサンプル 3,781 人で、宗教性・アニミズム・擬人化がロボットへの道徳的配慮に与える影響を比較分析した。Phase D で宗教ロボット（日本の Mindar や韓国の Gabi など）が儀礼に参加する局面では、ヒンドゥー教・道教・儒教・神道・仏教が一神教より宗教ロボットに開かれやすいという経験的観察（AI & Society 2024）が、Phase C-D の倫理規範を国際的に「西洋一神教モデル ↔ 東アジア多神教・アニミズムモデル」の二項対立として固定化させないための実践的論点となる。Phase D の制度設計においては、欧米の「権利」「責任」「説明可能性」の三本柱に加えて、東アジアの「共在」「関係」「場」の三本柱を並置する複数規範体系の運用が、文明圏間の摩擦を回避する条件となる。</p>
+
+<p>軍事ロボット倫理の論点も、Phase C-D の枠内で決着が問われる。ICRC は二〇二一年の公式ポジションで Lethal Autonomous Weapon Systems（LAWS）に対し、人間の制御と判断の喪失が人道・法・倫理上の重大懸念を生むとして国際的制限を求めた。二〇二四年には ICRC と国連事務総長が二〇二六年までに明確な禁止・制限を含む法的拘束力ある文書交渉を求めている。Phase C 開始時点（二〇四〇年代）に、この交渉が成功しているか失敗しているかが、Phase D の軍事 AI 倫理の運用基盤を決める。失敗した場合は二〇三〇年代に LAWS の事後規制・輸出管理・意味ある人間制御の認証・戦場ログ監査が最小共通基盤として整備され、Phase D ではそれを Cognitive Stack の倫理層と結合する作業が進む。Phase C-D の民生・軍事の二領域は、技術基盤を共有しながら倫理基盤を分離するというデュアルガバナンス構造に収束する。これは Phase E 以降の「関係論的物理生態系」を構築する前段階として、人類社会が試される最後の規範的選択の局面である。</p>
+
+<p>身体性 AI 固有の法的論点として、ヒューマノイドが介護施設で入居者を抱え上げようとして転倒させた場合の責任分散の問題がある。責任候補は、製造者の設計欠陥、ソフトウェア提供者の制御欠陥、施設側の運用過失、保守業者の点検過失、利用者設定の誤り、学習データやアップデートの欠陥に分かれる。AI を法的人格にして賠償義務を負わせても、AI 自体に資産も保険もなければ被害者救済にならない。Phase C 末から Phase D にかけて、制度設計上は強制保険、メーカー責任、運用者責任、事故基金、ログ開示、事故調査が優先される。航空機のフライトレコーダー、自動車 EDR、医療機器ログに近い「自律ロボット事故記録装置」の標準化が Phase D 中盤に進む（[OSHA 2024 産業ロボット事故記録]; Florida 連邦陪審 2025-08 Benavides v. Tesla 判決）。</p>
+
+<p>EU AI Act の段階的施行は Phase C-D の制度的与件として記憶しておくべき骨格である。発効は二〇二四年八月一日、禁止 AI 規定の適用は二〇二五年二月二日、汎用 AI モデル関連義務は二〇二五年八月二日、Annex III 高リスク AI 義務の多くは二〇二六年八月二日、Annex II の既存製品安全法制と結びつく一部高リスク AI は二〇二七年八月二日が中心となる（[European Commission, AI Act 実装タイムライン]）。違反類型に応じて最大 3,500 万ユーロまたは全世界年間売上高 7% の制裁が課される。Product Liability Directive (EU) 2024/2853 はソフトウェア・AI システム・デジタル製造ファイル・関連サービスを製品責任の射程に入れ、被害者側の証明困難を緩和する方向に進む。AI Liability Directive 案は二〇二五年に撤回方向となり、事故後救済は AI Act + PLD + 各国不法行為法 + 機械・医療機器分野法の組合せで運用される見通しである。米国側は SB 1047（カリフォルニア・Safe and Secure Innovation for Frontier AI Models Act）が二〇二四年九月二十九日に Gavin Newsom 知事に拒否されたことで、「基盤モデルそのものを規制するか」「用途・被害・分野で規制するか」の対立が明確になった。Texas TRAIGA（House Bill 149）は二〇二五年六月二十二日に署名され二〇二六年一月一日に施行され、消費者保護・差別・政府利用・透明性に焦点を置く制度として定着した。Colorado SB24-205 は二〇二四年五月十七日署名・二〇二六年二月一日施行で、高リスク AI システムによるアルゴリズム差別を対象とする。Phase C の十年は、これら EU・米州・日本の三極が「モデル規制」と「用途規制」の二層化を完成させる時期に当たる。Phase D 中盤の二〇五五年前後には、汎用モデル義務と用途別義務の二層構造が国際的に収束し、ロボットや自動運転は後者の中心領域として規制が定着する。</p>
+
+<h2 class="article-h2">Phase C-D のベーシックインカム実装 ── 30カ国の実証蓄積</h2>
+
+<p>Phase C-D期のUniversal Basic Income（UBI）実装は、Phase A-B期の小規模実験から本格的な国家制度へ移行する。蓄積された実証データ：米国アラスカ州恒久基金配当（1982年〜、年間1,500-2,000ドル）、フィンランド試験（2017-2018年、2,000名対象）、ケニアGiveDirectly長期試験（2017年〜、12年継続）、ストックトン市SEED試験（2019-2021年、月500ドル）、サンフランシスコ・アーティスト基本所得（2021年〜）。これら 30 年分の前史データを基盤として、Phase C-D 期には 30 カ国超で本格実装される。日本・北欧・カナダの先行実装が、2050年代に欧州主要国・米国カリフォルニア州・ニューヨーク州へ拡大。UBIは「失業対策」ではなく「労働の意味の再定義の制度的基盤」として位置づけられる。これはPhase E以降の「労働」概念の根本的再定義への前提条件である。Bostrom の orthogonality thesis（[Bostrom 2014] *Superintelligence*）と instrumental convergence の議論が示すように、Phase D の AI エージェント組織は資源獲得・目標保全・認知強化という共通中間目標へ収束する圧力を持つ。UBI はその圧力の前に「人間が経済主体として尊厳を保つ最低条件」を物質的に保証する仕組みとして機能する。</p>
+
+<h2 class="article-h2">Phase C-D の世界モデルAI統合 ── NVIDIA Cosmos × Google Genie × Meta JEPA</h2>
+
+<p>Phase C-D期に、世界モデルAIの3系統（NVIDIA Cosmos・Google Genie・Meta JEPA）が融合・統合される。NVIDIA Cosmos（2024年発表）は物理シミュレーション基盤、Google Genie（2024年発表）は生成的世界モデル、Meta JEPA（Yann LeCun 2022年提唱）は予測的自己教師あり学習。3系統の統合により、フィジカルAIは物理世界の予測精度を99.5%に引き上げ、Active Inference（Karl Friston）の理論的予測を実装レベルで実現する。統合世界モデルは2050年代後半に商業展開され、製造・医療・農業・都市・宇宙・教育の6領域すべてで標準インターフェースとなる。これがPhase Eの「知性のオーケストラ生成期」を駆動する技術基盤である。</p>
+
+<p>三系統統合の進展は、Phase C 中盤の二〇四五年前後を境界として加速する。Phase C 前半は各社が自社基盤を独自に拡張する競合期で、NVIDIA は Cosmos を Isaac プラットフォームと統合してロボット学習・シミュレーション環境の標準化を進め、Google DeepMind は Genie 系で生成的世界モデルを汎用化し、Meta は JEPA 系で自己教師あり学習の効率化を追求する。Phase C 後半（二〇四五-二〇五〇）には、三系統間の API 互換層と知識転送プロトコルが de facto 標準として整理され、複数基盤モデルを並行して呼び出すマルチ世界モデルアーキテクチャが工場・研究所・自治体に普及する。Phase D 前半（二〇五〇-二〇五五）には、これら三系統が連邦学習プロトコルで結合され、特定タスクごとに最適な世界モデルを動的選択する Cognitive Stack Layer 2 の運用が標準化される。Phase D 後半には、世界モデルの予測精度が物理現象の支配方程式から導出される理論限界（カオス系では Lyapunov 時間、量子系では Heisenberg 不確定性原理）に漸近し、それ以上の予測能力は「世界モデル自体を介入で書き換える」段階へ移行する。これが Phase E の「再帰的自己改善」（Recursive Self-Improvement）の予兆である。</p>
+
+<p>MOR 補論が描く製造の四時代パネル──協奏団期（2030 ナイロビ、アディサ・カマウ）、室内楽期（2050 ヘルシンキ、マリア・ヴィルタネン、譜面を書く者）、交響楽期（2070 サンパウロ、ジョアン・カルヴァロ、菌糸介護者）、関係論的製造期（2100 メルボルン、ハナ・オコノル、楽団員）──のうち、Phase C-D はマリア・ヴィルタネンの「3 週間分の最適化を AI が並走する」室内楽期に対応する。Phase C で求められるのは「譜面を書ける人材」の世界的不足を埋めるプロセス・オーケストレーター層の育成であり、Phase D で求められるのは「判断の所在が個人から関係の網へ移行する」社会的受容の制度化である（MOR M3→M4 結節点）。MOR が提示する 3 経路相対化──「ともに育てる」「権威主義的 AI 統制」「生態系切断型自動化」──のうち、Phase C-D は第 1 経路への分岐点を制度として固定するか、第 2・第 3 経路へ流れ落ちるかを決める二十年でもある。</p>
+
+<p>これを経営学の戦略論枠組から読み直すと、Phase D における「自律物理エージェント」の組織化は、David Teece の Dynamic Capabilities（[Teece, Pisano & Shuen 1997] *Strategic Management Journal*）の三段プロセス──Sensing（基盤モデル動向把握）、Seizing（資源動員：CVC・買収）、Transforming（組織再構成：両利き化）──のうち、Transforming 段階が全企業に同時並行的に要求される最初の十年として記憶される。ノキア対 Apple の事例は、保有資源優位だった企業が Physical AI 類似の変化（モバイル革命）に対応できず敗北した範例であり、Phase D では同様の事象が既存自動車・既存ロボット・既存工作機械メーカーで再現する可能性が高い。Clayton Christensen の破壊的イノベーション論（[Christensen 1997] *The Innovator's Dilemma*）が示す通り、既存自動車メーカーが「EV シフトしながら内燃機関も維持」する構造的両利きに苦しむ中、Tesla は EV オンリー戦略で Phase A-B のロボタクシー・Optimus に経営資源配分を集中させた。この戦略パターンが Phase D の組織変革の参照点となる。Edgar Schein の組織文化氷山三層モデル（人工物・標榜価値・基本的仮定）からは、Phase D の組織変革は「製造とは何か・人間とロボットの関係をどう描くか」という基本的仮定レベルの転換であり、表層の手順書変更では対応できないことが示される。John Kotter の 8 段階モデルが教える通り、Phase D の組織変革は「危機意識醸成 → 連帯チーム結成 → ビジョン策定 → ビジョン伝達 → 行動権限委譲 → 短期成果創出 → さらなる変革推進 → 文化定着」の順序を踏むことが要請される（[Kotter 1996] *Leading Change*）。Amy Edmondson の心理的安全性（[Edmondson 1999]; Google プロジェクト・アリストテレスで実証）は、Phase D において「AI 判断を覆す」「ロボット停止を申し出る」発話を可能にする現場文化として、安全性・倫理性の制度的前提となる。MOR 補論が描くナイロビのアディサ・カマウの「15 秒の迷い」を許す現場文化は、Phase D のすべての職場で標準化されるべき条件である。</p>
+
+<p>Phase D の組織変革を、野中郁次郎・竹内弘高の SECI モデルから再定式化すると、Phase D ではベテラン作業者の触診的暗黙知（Socialization）が VLA モデルにより形式知（Externalization）へ変換され、複数現場の VLA モデルが連邦学習で統合（Combination）され、新人作業者が AI 推奨を身体で受け止めて新たな暗黙知（Internalization）を形成する、というループが工場・農場・介護現場の標準オペレーションになる。野中らが提示した「場（ba）」概念は Phase D で「人間-AI-ロボット混成 ba」という新形態として登場する。創始 ba（対面社会化）には人間とヒューマノイドの共在空間が加わり、対話 ba（言語化）には自然言語で記述された VLA プロンプトが流通し、システム化 ba（情報統合）には連邦学習プロトコルが運用され、実践 ba（行動内面化）には現場での身体的試行錯誤が蓄積される。Phase D の知識経営は、人間と AI のあいだに「相互暗黙知化」のループを設計することが本質となる。James March の Exploration/Exploitation ジレンマ（[March 1991] *Organization Science*）は、Phase D で「基盤モデル研究（探索）」と「既存ライン運用（深化）」の同時管理として顕在化する。Phase D の経営者には、両利き経営を制度として実装する能力が求められる。</p>
+
+<p>Phase C-D を貫く三つの非対称性も、本章の閉じる前に明示しておきたい。第一の非対称性は、技術ロードマップと社会的・制度的適応の時間差である。Cognitive Stack の標準化が二〇四五年に到達するのに対し、AI Personhood の制度的決着は二〇五五年以降にずれ込み、UBI の全国規模実装は二〇六〇年前後となる。技術が十年先行する構造は Phase D を通じて固定化する。第二の非対称性は、地域ごとの制度速度差である。米中欧日の四極のうち、EU は AI Act 系の事前適合性評価制度を先行させ、米国は州法・連邦判決・産業競争力政策の組合せで動的に対応し、中国は中央集権的 AI 安全規制と産業政策を統合し、日本は AI 推進法（令和七年六月四日法律第五十三号、人工知能関連技術の研究開発及び活用の推進に関する法律）を骨格にガイドライン中心の枠組みを継続する。Phase D の二〇五〇年代に、この四極間で「フィジカルAI ガバナンス相互承認協定」のような国際枠組が成立するか否かが、グローバル供給網の流動性を決める。第三の非対称性は、業種ごとの導入速度差である。製造・物流・農業・介護は Phase C のうちに「人間 1 + ロボット数体」の混成チームを標準化するが、教育・医療・芸術・宗教はその五年から十年遅れで再編される。これは「物理的単純作業 → 物理的複雑作業 → 認知的単純作業 → 認知的複雑作業 → 価値判断・倫理判断」の順序で AI が浸透するためであり、人間が最後まで担う領域は「意味付け・価値設計・他者ケア・創造的探索」に集中する。</p>
+
+<p>Phase D 末の人材像も、ここで確認しておきたい。前プロジェクトの二〇五〇人材像から二〇七〇人材像への移行期にあたるこの時期に求められるのは、第一に「AI と共同で意味を生み出す存在」としての一般市民層、第二に「自律エージェント組織を起動・調整・停止できる」プロセス・オーケストレーター層、第三に「機械と生命と人間の三項関係を設計できる」関係論的設計者層、第四に「Phase E 以降の境界溶解を制度的に準備できる」次世代政策立案者層の四類型である。教育制度は Phase C 期にこれら四類型を育成する課程を確立し、Phase D 期にそれを世代を跨いで実装する。日本の場合、AI 推進法（令和七年法律第五十三号）の人工知能戦略本部（本部長：内閣総理大臣）が、この四類型育成の制度的中枢となることが想定される。広島 AI プロセス（2023 年 G7 首脳声明）以来の国際的基盤と、AI 事業者ガイドライン第 1.0 版（2024 年 4 月 19 日、総務省・経産省）の運用実績が、Phase C-D の人材育成カリキュラム設計の骨格となる。</p>
+
+<p>Phase C-D の倫理的分岐の本質は、技術論ではなく規範的選択論であることを、本章を閉じるにあたって繰り返し強調しておきたい。フィジカルAI の技術軌道それ自体は、二〇四〇年代から二〇六〇年代にかけて Cognitive Stack の確立 → 自己組立・自己修復ロボティクスの量産 → 自律物理エージェント組織の定着、という連続的進歩として描ける。だが、その技術軌道のうえに人類社会が何を載せるかは、規範的選択の問題である。MOR 補論の 3 経路相対化──「ともに育てる」「権威主義的 AI 統制」「生態系切断型自動化」──は、Phase D を生きる人々にとって、技術導入の単なる選択肢ではなく、子孫の生活世界の輪郭を決める憲法的選択肢である。本書 Physical AI 2100 が読者に求めるのは、技術ロードマップを受動的に予測することではなく、Phase C の二〇四〇年代の十年を「制度準備期間」として能動的に使い切ることである。Phase C の終わりに人類社会が AI Personhood・UBI・corrigibility design・分散ガバナンス・国際相互承認の五点セットを制度として準備できているかどうかが、Phase D の自律物理エージェント期を「ともに育てる」第 1 経路へ着地させる必要条件となる。第六章で扱う Phase E 以降の「知性のオーケストラ生成期」「ポスト人間中心物理エコシステム期」「関係論的物理生態系期」は、その制度準備の成否のうえに展開する四十年として読まれるべきものである。Norbert Wiener が一九五〇年に予見した「機械が人間にできることを全てできるようになった時、人間に残されるのは『人間に何ができるか』ではなく、『人間が何を望むのか』を問うことである」という命題は、Phase D の二〇六〇年に向けて、すべての社会成員が自らに問わざるを得ない実践的問いへと変質する。</p>
+</content>
+</invoke>

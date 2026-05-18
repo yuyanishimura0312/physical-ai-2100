@@ -1,0 +1,38 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Labor economics impact of Physical AI / humanoid robotics — major report synthesis 2024-2026.
+
+SCOPE (must cover all reports):
+- ILO: "Generative AI and Jobs" (2023, updated 2024), "Work for a Brighter Future" Centenary Commission follow-up
+- OECD: "Employment Outlook 2024" (AI chapter), "AI, Data and Competition" 2024
+- WEF: "Future of Jobs Report 2025" (2025-01 Davos), "Jobs of Tomorrow" 2024
+- Goldman Sachs: "The Potentially Large Effects of Artificial Intelligence on Economic Growth" (2023-03) + 2024/2025 update on physical AI specifically
+- McKinsey Global Institute: "The state of AI in early 2024", "The economic potential of generative AI" (2023-06), "A new future of work: The race to deploy AI and raise skills in Europe and beyond" (2024)
+- BCG: "How AI Can Be Regulated to Unlock Its Full Potential" 2024
+- IMF: "Gen-AI: Artificial Intelligence and the Future of Work" Working Paper SDN/2024/001 (2024-01, Cazzaniga et al.)
+- 日本: 経済産業省「DX白書 2024」、内閣府「経済財政白書 2024」AI 章、リクルートワークス研究所「人材マネジメント調査」、パーソル総合研究所「労働市場の未来推計」
+- World Bank: "Digital Progress and Trends Report 2024"
+- UNESCO: AI and Education reports
+
+DATA POINTS to extract:
+- Percentage of jobs at risk of automation (AI vs Physical AI 分離して比較)
+- 職種別 impact: manufacturing / logistics / healthcare / construction / agriculture
+- 賃金への影響: complement vs substitute
+- 国別 impact differential (developed vs developing)
+- Reskilling/upskilling 必要規模
+
+DELIVERABLE: Markdown report ≥ 3,000 words 地の文, structured:
+1. 労働経済学からみた Physical AI (4 paragraphs)
+2. 主要レポート synthesis: 各 report の主要数値・予測・方法論 (one paragraph per report, 12 reports minimum)
+3. 職種別 impact: 詳細データ table（数値必須・source URL付き）
+4. 国別比較: G7 + 中国 + インド
+5. 日本固有: 経産省・厚労省データ、人手不足とAI代替の交差点（必須・厚く書く）
+6. Wage effects: complement-vs-substitute 論争 (Acemoglu, Restrepo, Autor の最新論文)
+7. Reskilling 必要規模と実施事例
+8. 2030 / 2050 / 2100 outlook
+
+CITATIONS: report URL / 論文 DOI / 公的統計 URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.

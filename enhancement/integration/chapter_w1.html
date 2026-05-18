@@ -1,0 +1,795 @@
+<!-- ============================================================
+  Physical AI 2100 教科書 W1 — 序章 + Ch0.5 + Ch1 + Ch2 + Ch3
+  原本 行 168-548 (序章 + 双子峰 + 5系統 + 8系統) を AR-DB 連動・日本人研究者中核・非西洋系譜・数値根拠強化で大幅再構築
+  デザイン: 赤白CI #CC1400 / Noto Serif JP / dark-mode対応
+============================================================ -->
+
+<!-- ────────────────────────────────────────────
+  序章 ── 知性が物質に降りる夜明け
+  ──────────────────────────────────────────── -->
+<section class="chapter-section" id="prologue">
+<div class="chapter-number-label">PROLOGUE</div>
+<h2 class="chapter-title">序章 ── 知性が物質に降りる夜明け</h2>
+
+<div class="epigraph">
+<p>道具は、ある時点で、私たちを使い始める。</p>
+<span class="attribution">— マーシャル・マクルーハン『メディア論 ── 人間の拡張の諸相』（1964年、ニューヨーク）の警句</span>
+</div>
+
+<p class="no-indent">本書は、フィジカルAIが2026年から2100年までの74年で何を作り、何を組み換え、何を生み出すかを、学術論文の集積と8系統合流のロードマップで描く。フィジカルAIとは、計算機の内側で完結する知性ではなく、身体を持ち、物理空間で動き、生命と協働し、物質を作り直す知性のことである。RT-2、OpenVLA、AlphaFold 3、A-Lab、Xenobot、Neuralink ── これらは別々の技術ではない。すべて、知性が画面の向こうから降りてきて、物質と出会う74年の同じ運動の異なる断面である。</p>
+
+<p>本書の射程は5層である。第一に、技術的精緻さ。フィジカルAIの5つの系統（AI/ML、ロボティクス、Bio、Materials、Cognitive）が学術論文ベースでどう進化してきたかを追跡する。第二に、構造的拡張。5系統が2040年代に8系統オーケストラへ拡張する道筋を示す。第三に、7フェーズの時間軸。Phase A（2026-2030 VLA基盤定着）からPhase G（2090-2100 関係論的物理生態系）までの精緻なロードマップを構築する。第四に、6つの波及分野。製造・医療・農業・都市・宇宙・教育の各領域でフィジカルAIが何を組み換えるかを描く。第五に、4時点の高解像度な未来社会像。2030/2050/2070/2100の朝、人々がどう生きるかを具体的場面で描く。</p>
+
+<p>本書の基盤は二重である。一つは、PHAI-DB（Physical AI Roadmap Database）── 1,879概念、146論文、58マイルストーン、143クロスドメイン関係、24系統間相互作用、11ボトルネック。もう一つは、その背後で本書を支えるAR-DB（Agent Registry Database, v1.0, 358 records / 1,490 relations / 564 db_references）に登録されたミラツク／esse-sense エコシステム46DBの横断知識基盤である。本書は単一領域DBの拡張ではなく、PHAI/FTT/AI-DEV/AI-ACC/TA/CTI/KGH/GC/SI/CLA/PESTLE/SIGNAL/FORESIGHT-KB ほか、Tier 1〜5まで合計32 DBから抽出された一次根拠の織物として書かれる。とりわけ FTT-DB v2.0 は OpenAlex 由来 41,070論文・125,748引用・304マイルストーン・220系譜エッジを擁し、Edge AI 5,818件／Medical 6,695件／Safety AI 6,408件／Cross 4,870件／Brain-Machine 4,079件 ── 計34,000件以上の peer-reviewed evidence を Physical AI 直結10領域に紐付けて提供する。前プロジェクト「企業活動の現場で求められる人材の未来 2030-2100」と書籍『深い知が拓く2100年』case11仕上げ版（21章304,999字）が理論的下敷きとなる。</p>
+
+<div class="pullquote">知性は、ある時点で、画面の向こうから降りてきて、物質と出会う。<br>その出会いの74年を、本書は描く。</div>
+
+<p>2026年5月、東京の研究室で、ある工学博士が午前6時に目を覚ます。机のうえには、彼女が3か月前から開発しているVision-Language-Actionモデルが、夜のあいだに学習を続けたログを並べている。今朝、彼女がこのモデルにロボットアームの制御を渡し、コーヒーを淹れさせる予定だ。失敗するかもしれない。だが、3か月前まで「コーヒーを淹れる」という言葉から動作系列を生成することは技術的に不可能だった。いまは可能性が見える。彼女のロボットの腕の先で、知性が物質に降りるその瞬間が、毎朝、世界中の数千の研究室で同時に起きている。これが本書の起点である。</p>
+
+<p>その「同時性」は印象論ではない。Tech Acceleration DB（TA-DB, 227Kレコード／13ソース）が示すように、計算能力単価 flops_per_dollar は1945年の5×10⁻⁵ FLOPS/$から2024年の1×10¹⁴ FLOPS/$へ ── <strong>79年で20桁（10²⁰倍）の改善</strong>を遂げた。年率1.78倍、すなわち年率56%改善で、これはMoore's Law（18か月で倍化）を超える。AI 訓練計算量に絞れば2012年の0.01 PFlop-daysから2024年の2,000,000 PFlop-daysへ <strong>12年で2億倍</strong>、年率OOMs 0.7という暴力的な曲線である。同じDBが記録する別の数字も無視できない：50百万ユーザー獲得に電話は38年、テレビは13年、Webは4年、iPhoneは3年を要したが、ChatGPTは<strong>0.17年（約2か月）</strong>でそこに到達した。フィジカルAIの社会浸透が、過去のあらゆる技術より高速に走る前提が、すでに整っている。</p>
+
+<p>本書は、序章＋10章＋終章の12章構成で、約60,000字を目指す。図解18点を伴う。各章は5,000-7,000字を基準とする。本書を読み終えるとき、あなたの目の前の机のうえの空気は、いまと少しだけ違って見えるはずだ。コーヒーカップの取っ手、ノートパソコンの蝶番、窓越しの風 ── これら物質の輪郭が、知性と出会いつつあるという感覚で、薄く揺らいで見えるはずだ。本書は、そのために書かれた。</p>
+
+<div class="finding-box">
+<p><strong>DB Evidence ── 序章を支える数値根拠</strong></p>
+<p>flops_per_dollar 79年で<strong>10²⁰倍</strong>（TA-DB / Our World in Data）。AI訓練計算量12年で<strong>2億倍</strong>（同／McCallum 系）。ChatGPTの50M user 到達<strong>0.17年</strong>（同／OWID）。バッテリーコストは1991年$7,500/kWh→2023年$139/kWh で<strong>54倍低下</strong>、ソーラーは1976年$106/W→2024年$0.12/W で<strong>約1,000倍低下</strong>（Swanson曲線・Lazard LCOE）。DNAシーケンスは21年で<strong>50万倍低下</strong>（Carlson Curve）。これら<strong>5つの指数曲線</strong>が74年ロードマップの物理的可能性を規定する。</p>
+</div>
+
+</section>
+
+<!-- ────────────────────────────────────────────
+  Chapter 0.5 ── AR-DB が映すフィジカルAI 知識生態系（新章）
+  ──────────────────────────────────────────── -->
+<section class="chapter-section" id="ch0_5">
+<div class="chapter-number-label">CHAPTER 0.5 ── INTERLUDE</div>
+<h2 class="chapter-title">AR-DB が映すフィジカルAI 知識生態系</h2>
+
+<div class="epigraph">
+<p>地図は領土ではない。だが、領土を歩くためには、誰かが地図を描かなければならない。</p>
+<span class="attribution">— Alfred Korzybski『Science and Sanity』（1933年、Lakeville）。本章ではこの警句を、46DBが描くフィジカルAI地図の前提として用いる。</span>
+</div>
+
+<p class="no-indent">序章で「本書はAR-DB に登録された46DBの横断知識基盤の上に立つ」と宣言した。この章では、その地図を簡潔に開陳しておく。フィジカルAIを一つの専門領域の延長として読むこと、たとえばロボティクスの教科書、あるいはAIの教科書として読むことは、本書の方法と相容れない。フィジカルAIは <strong>74年・8系統・6領域・46DB</strong>の交差点に立ち上がる現象であり、その全貌は単一DBでは捕捉できない。本章は、その「捕捉できなさ」をDBエコシステムの地図として可視化し、後続章の読み方の足場とする。</p>
+
+<h2 class="article-h2">AR-DB ── ミラツク／esse-sense エコシステムの自己観察装置</h2>
+
+<p class="no-indent">AR-DB（Agent Registry Database）は、ミラツク／esse-sense エコシステムで稼働するすべてのエージェント・コマンド・スキル・ルールを集約した v1.0 DB である。2026年5月時点で <strong>358 records（agents 82 + commands 215 + skills 51 + rules 11）+ 1,490 relations + 564 db_references + 43 tools</strong> を保持し、エコシステム自体の自己観察を可能にする「メタ知識基盤」として機能している。エコシステムが日々生み出すDB（PHAI/FTT/AI-DEV/AI-ACC/TA/CTI/KGH/GC/SI/CLA/PESTLE/SIGNAL ほか）の登録・参照関係・モデルティア配置（opus 29／sonnet 58／haiku 7）が、AR-DBに自動同期される。本書の執筆過程そのものが、AR-DBに痕跡を残す。</p>
+
+<p>AR-DB によれば、Physical AI 関連DBは少なくとも12件存在する。PHAI-DB（本書の中核）、FTT-DB v2.0（41,070論文）、AI-DEV-DB（LLM 1,097＋AGI 1,139＝2,236論文）、AI-ACC-DB（551言及・97ドメイン）、TA-DB（227Kレコード・13ソース）、Manufacturing Orchestra DB（62,092字補論v7.2）、Mobility 2030-2100 DB、Food Futures DB、CTI v2-DB（6次元加重和文明転換指数）、CDH-DB（230年コストダウン史）、KGH-DB（知の生成史 5軸・12文明圏）、GC-DB（源泉サイクル 237概念・109研究者）。これら12 DB はそれぞれ独立に構築されたが、PHAI-DB を仲介として <strong>720本以上のcross_db_refs</strong>で相互接続されている。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figN1-title figN1-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="figN1-title">図N1 AR-DB横断マップ</title>
+<desc id="figN1-desc">46 DBを6領域に布置し、Physical AI関連12 DBを赤色ハブとして他DBと12本のエッジで接続</desc>
+<text x="380" y="20" font-family="Noto Sans JP, sans-serif" font-size="13" fill="#121212" text-anchor="middle" font-weight="700">図N1　AR-DB横断マップ（46 DBs / 6領域）</text>
+<rect x="20" y="40" width="220" height="110" fill="#FFF" stroke="#D9D9D9" stroke-width="1" rx="6"/>
+<text x="130" y="58" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">SCIENCE (8 DBs)</text>
+<rect x="260" y="40" width="220" height="110" fill="#FFF" stroke="#D9D9D9" stroke-width="1" rx="6"/>
+<text x="370" y="58" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">SOCIETY (20 DBs)</text>
+<rect x="500" y="40" width="240" height="110" fill="#FFF" stroke="#D9D9D9" stroke-width="1" rx="6"/>
+<text x="620" y="58" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">FORESIGHT (11 DBs)</text>
+<rect x="20" y="270" width="220" height="110" fill="#FFF" stroke="#D9D9D9" stroke-width="1" rx="6"/>
+<text x="130" y="288" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">ENTERPRISE (25 DBs)</text>
+<rect x="260" y="270" width="220" height="110" fill="#FFF" stroke="#D9D9D9" stroke-width="1" rx="6"/>
+<text x="370" y="288" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">CULTURE (13 DBs)</text>
+<rect x="500" y="270" width="240" height="110" fill="#FFF" stroke="#D9D9D9" stroke-width="1" rx="6"/>
+<text x="620" y="288" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">INFRA (11 DBs)</text>
+<!-- Science -->
+<circle cx="55" cy="90" r="6" fill="#555"/><text x="55" y="110" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">PHYS</text>
+<circle cx="90" cy="90" r="6" fill="#555"/><text x="90" y="110" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CHEM</text>
+<circle cx="125" cy="90" r="6" fill="#555"/><text x="125" y="110" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">BOT</text>
+<circle cx="160" cy="90" r="6" fill="#555"/><text x="160" y="110" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">ES</text>
+<circle cx="195" cy="90" r="6" fill="#555"/><text x="195" y="110" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CEH</text>
+<circle cx="55" cy="130" r="6" fill="#555"/><text x="55" y="145" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">TC</text>
+<circle cx="90" cy="130" r="6" fill="#555"/><text x="90" y="145" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">KGH</text>
+<circle cx="125" cy="130" r="6" fill="#555"/><text x="125" y="145" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">HTP</text>
+<!-- Society -->
+<circle cx="285" cy="85" r="6" fill="#555"/><text x="285" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">AN</text>
+<circle cx="320" cy="85" r="6" fill="#555"/><text x="320" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SS</text>
+<circle cx="355" cy="85" r="6" fill="#555"/><text x="355" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">EC</text>
+<circle cx="390" cy="85" r="6" fill="#555"/><text x="390" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">PHIL</text>
+<circle cx="425" cy="85" r="6" fill="#555"/><text x="425" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SG</text>
+<circle cx="460" cy="85" r="6" fill="#555"/><text x="460" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">LIT</text>
+<circle cx="285" cy="125" r="6" fill="#555"/><text x="285" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">MG</text>
+<circle cx="320" cy="125" r="6" fill="#555"/><text x="320" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">GF</text>
+<circle cx="355" cy="125" r="6" fill="#555"/><text x="355" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">PST</text>
+<circle cx="390" cy="125" r="6" fill="#555"/><text x="390" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">LAB</text>
+<circle cx="425" cy="125" r="6" fill="#555"/><text x="425" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">PQS</text>
+<circle cx="460" cy="125" r="6" fill="#555"/><text x="460" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CQ</text>
+<!-- Foresight (PHAI hub) -->
+<circle cx="530" cy="85" r="8" fill="#CC1400"/><text x="530" y="102" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">PHAI</text>
+<circle cx="570" cy="85" r="7" fill="#CC1400"/><text x="570" y="102" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">AI-DEV</text>
+<circle cx="610" cy="85" r="7" fill="#CC1400"/><text x="610" y="102" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">AI-ACC</text>
+<circle cx="650" cy="85" r="7" fill="#CC1400"/><text x="650" y="102" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">FTT</text>
+<circle cx="690" cy="85" r="6" fill="#555"/><text x="690" y="100" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CLA</text>
+<circle cx="530" cy="125" r="6" fill="#555"/><text x="530" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SIGNAL</text>
+<circle cx="570" cy="125" r="6" fill="#555"/><text x="570" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">PESTLE</text>
+<circle cx="610" cy="125" r="6" fill="#555"/><text x="610" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">MEGA</text>
+<circle cx="650" cy="125" r="6" fill="#555"/><text x="650" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SFS</text>
+<circle cx="690" cy="125" r="6" fill="#555"/><text x="690" y="140" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">FKB</text>
+<!-- Enterprise -->
+<circle cx="55" cy="315" r="7" fill="#CC1400"/><text x="55" y="332" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">TA</text>
+<circle cx="90" cy="315" r="6" fill="#555"/><text x="90" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SGRD</text>
+<circle cx="125" cy="315" r="6" fill="#555"/><text x="125" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">US</text>
+<circle cx="160" cy="315" r="6" fill="#555"/><text x="160" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SGPR</text>
+<circle cx="195" cy="315" r="6" fill="#555"/><text x="195" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">UPR</text>
+<circle cx="55" cy="355" r="6" fill="#555"/><text x="55" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CDH</text>
+<circle cx="90" cy="355" r="6" fill="#555"/><text x="90" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SI</text>
+<circle cx="125" cy="355" r="6" fill="#555"/><text x="125" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">PD</text>
+<circle cx="160" cy="355" r="6" fill="#555"/><text x="160" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">RG</text>
+<circle cx="195" cy="355" r="6" fill="#555"/><text x="195" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">EX</text>
+<!-- Culture -->
+<circle cx="290" cy="315" r="6" fill="#555"/><text x="290" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">KK</text>
+<circle cx="325" cy="315" r="6" fill="#555"/><text x="325" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">JK</text>
+<circle cx="360" cy="315" r="6" fill="#555"/><text x="360" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">HK</text>
+<circle cx="395" cy="315" r="6" fill="#555"/><text x="395" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">EK</text>
+<circle cx="430" cy="315" r="6" fill="#555"/><text x="430" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">IK</text>
+<circle cx="290" cy="355" r="6" fill="#555"/><text x="290" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">FUT</text>
+<circle cx="325" cy="355" r="6" fill="#555"/><text x="325" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">F2</text>
+<circle cx="360" cy="355" r="6" fill="#555"/><text x="360" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CI</text>
+<circle cx="395" cy="355" r="6" fill="#555"/><text x="395" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">TK</text>
+<!-- Infra (GC/AR/SIF/MOR highlighted) -->
+<circle cx="530" cy="315" r="7" fill="#CC1400"/><text x="530" y="332" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">GC</text>
+<circle cx="570" cy="315" r="7" fill="#CC1400"/><text x="570" y="332" font-family="Noto Sans JP" font-size="8" fill="#CC1400" text-anchor="middle" font-weight="700">AR-DB</text>
+<circle cx="610" cy="315" r="6" fill="#555"/><text x="610" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">SIF</text>
+<circle cx="650" cy="315" r="6" fill="#555"/><text x="650" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">CTI</text>
+<circle cx="690" cy="315" r="6" fill="#555"/><text x="690" y="330" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">FVCP</text>
+<circle cx="530" cy="355" r="6" fill="#555"/><text x="530" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">MA</text>
+<circle cx="570" cy="355" r="6" fill="#555"/><text x="570" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">EPO</text>
+<circle cx="610" cy="355" r="6" fill="#555"/><text x="610" y="370" font-family="Noto Sans JP" font-size="8" fill="#6B6B6B" text-anchor="middle">APK</text>
+<!-- PHAI hub edges -->
+<line x1="530" y1="85" x2="55" y2="90" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="285" y2="125" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="55" y2="315" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="125" y2="315" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="530" y2="315" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="570" y2="315" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="570" y2="85" stroke="#CC1400" stroke-width="0.9" opacity="0.7"/>
+<line x1="530" y1="85" x2="610" y2="85" stroke="#CC1400" stroke-width="0.9" opacity="0.7"/>
+<line x1="530" y1="85" x2="650" y2="85" stroke="#CC1400" stroke-width="0.9" opacity="0.7"/>
+<line x1="530" y1="85" x2="610" y2="315" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="395" y2="125" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<line x1="530" y1="85" x2="195" y2="315" stroke="#CC1400" stroke-width="0.6" opacity="0.45"/>
+<!-- 凡例 -->
+<circle cx="40" cy="400" r="5" fill="#CC1400"/>
+<text x="52" y="404" font-family="Noto Sans JP" font-size="10" fill="#121212">Physical AI 関連 DB（12件）</text>
+<circle cx="280" cy="400" r="5" fill="#555"/>
+<text x="292" y="404" font-family="Noto Sans JP" font-size="10" fill="#555">その他 AR-DB 既登録 DB（34件）</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図N1: AR-DB横断マップ。46 DBsを6領域に布置し、Physical AI関連12 DBを赤色ハブとして12本のエッジで他DBと接続。本書がフィジカルAIを単一領域でなく46DB総合知識基盤の上で記述していることを示す。</figcaption>
+</figure>
+
+<h2 class="article-h2">領域別の主要DBと本書での役割</h2>
+
+<p class="no-indent">6領域の役割分担は次のとおりである。<strong>SCIENCE</strong>（8 DB：PHYS物理学／CHEM化学／BOT植物学／ES地球科学／CEH宇宙地球史／TC時間概念／KGH知の生成史／HTP人類文字史）は、フィジカルAIが「物質を理解し操る」ための科学的基盤を提供する。特にKGH-DB（112 events / 115 agents / 59 genealogy_links / 11文明圏×6時代×6分野・非西洋88.4%）は、フィジカルAIの前史としての制御・計算・身体性の系譜を、西洋偏重を是正しながら描く資源となる。HTP-DB（BC3200-AD2026 / 5,226年全期間 / 44 records / Buringh+IDC+UNESCO+CDLI+Perseus+TLG+Oxyrhynchus+Sinica+Shamela+SARIT+Maya+Ge'ez+AI 統合）は、人類が生成したテキスト量の長期推移を、フィジカルAI訓練データの母集団として記録する。</p>
+
+<p><strong>SOCIETY</strong>（20 DB：AN人類学／SS社会科学／EC経済学／PHIL哲学／SG戦略／LIT文学／MG経営学／GF Great Figures／PST人格-学校-活躍経路／LAB生活行動／PQS哲学的問い／CQ現代の問い ほか）は、フィジカルAIの社会的受容と倫理的含意を扱う。AN-DB（500概念・252研究者・OCM分類10知的クラスター）はTim Ingoldの「stream of thought」やArjun Appaduraiの「グローバルなスケープ」をPhysical AIの分配的正義論に接続する。GF-DB（9,178人物・10,033イベント・10意思決定アーキタイプ）は、Joseph Engelberger、George Devol、Marvin Minsky、加藤一郎、瀬名秀明、川人光男ら、Physical AI 系譜の人物を歴史アーカイブとして提供する。</p>
+
+<p><strong>FORESIGHT</strong>（11 DB：PHAI／AI-DEV／AI-ACC／FTT／CLA／SIGNAL／PESTLE／MEGA／SFS／FKB／その他）は、フィジカルAIの予測・シグナル抽出・シナリオ構築を担う中核領域である。<strong>FKB</strong>（Foresight Knowledge Base, 309機関・45,323レポート・23,272予測・507トレンド・5,099シナリオ）は、世界中の foresight 機関（IFTF / RAND / Pew / OECD / IPCC ほか）が発信した予測を統合し、本書のPhase A-G予測の参照基盤となる。<strong>SIGNAL DB</strong>（7,668シグナル・1,806クロスインパクト・232アラート・5次元予測力評価）は、PESTLE 6カテゴリから rule-based + AI-assisted で抽出された弱信号を、メインストリーム化年数で評価する。<strong>CLA-DB</strong>（127年統合CLA・91,550レコード・神話46,345件・社会指標34,212件・パラダイムシフト10件）は、1900-2026年のフィジカルAI Litany・Systemic Cause・Worldview・Myth-Metaphor を4層で読み解く。</p>
+
+<p><strong>ENTERPRISE</strong>（25 DB：TA／SGRD／US／SGPR／UPR／CDH／SI／PD／RG／EX ほか）は、産業・政策・人材・地政学を扱う。<strong>SGRD-DB</strong>（7,836社・36,734件R&D PR・23,762テーマ・GTA48コード）は、上場企業のR&D発信を月次で追跡し、トヨタ／三菱重工／川崎重工／ファナック／HONDA／DENSO／Preferred Networks／Sakana AI／Sony AI のフィジカルAI関連R&D 発信を粒度高く把握する。<strong>US-DB</strong>（5,050社・6,796関係・97大学・12セクター）は、日本の大学発スタートアップを横断する。<strong>CDH-DB</strong>（230年コストダウン史・15領域・158手法）は、Wright's Law / Henderson Learning Curve をPhysical AI のロボット単価・センサーコスト・GPU FLOPS/$ に接続する。</p>
+
+<p><strong>CULTURE</strong>（13 DB：KK暮らし／JK事業／HK変化／EK経営／IK営み／FUT Futures／F2 Futures II／CI文化情報／TK伝統知 ほか）は、フィジカルAIの文化的受容と日常生活への着地を扱う。連載「暮らしのかたち」「経営のかたち」「変化のかたち」「事業のかたち」「いとなみのかたち」「Futures」「Futures II」は、フィジカルAIを抽象論ではなく具体的場面で記述するための「現場」を提供する。<strong>INFRA</strong>（11 DB：GC源泉サイクル／AR-DB／SIF／CTI／FVCP メタ ほか）は、本書を含む全FVCP補論の横断管理を担う。<strong>GC-DB</strong>（237概念・109研究者・Nobel 15名）は、esse-sense中核哲学「源泉を豊かにすれば経済も豊かになる」を学術的に裏打ちし、フィジカルAIが「源泉サイクル」の8ノード（源泉→三資本→資源→Innovation×経済活動→富・再投資→Sustainability→we→源泉還流）のどこに介入するかを問う視座を提供する。</p>
+
+<h2 class="article-h2">日本のフィジカルAI生態系 ── AR-DBから可視化する</h2>
+
+<p class="no-indent">AR-DB＋SGRD-DB＋US-DBを交差して抽出すると、日本のフィジカルAI生態系として少なくとも10機関の系譜が浮かび上がる。<strong>Preferred Networks</strong>（PFN、東京、2014年創業）は、岡野原大輔・西川徹・丸山宏らが牽引する深層学習プラットフォーム企業で、2015年にChainerフレームワーク（Tokui, Oono, Hido, Clayton, NIPS Workshop, https://research.preferred.jp/wp-content/uploads/2015/12/learningsys2015_chainer.pdf）を発表、その後PFN Robotics CloudやPLaMo日本語基盤モデルを擁する。<strong>Sony AI</strong>（東京、2020年発足）は、Gran Turismo Sophy（強化学習）やAIBOファミリのロボット設計、Diffusion Policy 共同研究で世界水準に到達した。<strong>Toyota Research Institute</strong>（TRI、米国マサチューセッツ・カリフォルニア、2015年設立）は、Diffusion Policy（Chi, Feng, TRI, RSS 2023, https://arxiv.org/abs/2303.04137）を主導し、両手協調 Bimanual Manipulation の標準アーキテクチャを提示した。<strong>東京大学JSK研究室</strong>（稲葉雅幸研究室、1986年〜）は、HRP-2／Kengoro／Kaiman など腱駆動筋骨格ヒューマノイドの世界的拠点である（Asano, Kozuki, Urata, Inaba, Humanoids, https://www.jsk.t.u-tokyo.ac.jp/）。<strong>産総研AIST</strong>（HRP-5P 建設現場用ヒューマノイド, Kaneko, Kajita et al., 2018, https://www.aist.go.jp/aist_e/list/latest_research/2018/20180928/en20180928.html）、<strong>OMRON Sinic X</strong>、<strong>Sakana AI</strong>（Akiba, Shing, Tang, Sun, David Ha, Evolutionary Model Merge, 2024, https://arxiv.org/abs/2403.13187）、<strong>東京大学松尾豊研究室</strong>（Kojima, Gu, Reid, Matsuo, Iwasawa, "Large Language Models are Zero-Shot Reasoners", NeurIPS 2022, https://arxiv.org/abs/2205.11916）、<strong>ATR国際電気通信基礎技術研究所</strong>（川人光男によるComputational Motor Control 1992年〜）、<strong>理化学研究所AIP</strong>（杉山将による機械学習理論）── これらが現在の日本Physical AI生態系の脊椎を形成する。</p>
+
+<p>本書の以後の章では、これらの日本機関と研究者を「西洋研究の周辺解説」としてではなく、議論の核として配置する。とりわけ加藤一郎（早稲田大学、WABOT-1, 1973）・川人光男（ATR、Computational Motor Control）・浅田稔（大阪大学、認知発達ロボティクス）・松尾豊（東京大学、深層学習・LLM）・国吉康夫（東京大学、ロボット身体性）・岡野原大輔（PFN、深層学習）・西川徹（PFN代表）・David Ha（Sakana AI、World Models）の8名は、本書を貫く日本人駆動軸として、各章の論理展開の中央に据えられる。</p>
+
+<div class="finding-box">
+<p><strong>DB Evidence ── AR-DB が支える本書の横断性</strong></p>
+<p>AR-DB v1.0: <strong>358 records / 1,490 relations / 564 db_references</strong>（agents 82 / commands 215 / skills 51 / rules 11）。Physical AI 関連 DB <strong>12件</strong>を確認、cross_db_refs <strong>720+</strong>本。<strong>FTT-DB v2.0</strong>: 41,070論文 / 13,166技術言及 / 304マイルストーン / 220系譜エッジ。<strong>AI-DEV-DB</strong>: LLM 1,097 + AGI 1,139 = 2,236論文。<strong>TA-DB</strong>: 227Kレコード / 13ソース / 700万年技術史。<strong>FKB</strong>: 309機関 / 45,323レポート / 23,272予測。<strong>CLA-DB</strong>: 127年 / 91,550レコード / 神話46,345件。<strong>GC-DB</strong>: 237概念 / 109研究者（Nobel 15）。<strong>KGH-DB</strong>: 112 events / 115 agents / 非西洋88.4% / source_url 100%。本書はこれら46DBを横断する「織物」として書かれる。</p>
+</div>
+
+</section>
+
+<!-- ────────────────────────────────────────────
+  Chapter 01 ── 双子峰の高原とフィジカルAIの位置（増補版）
+  ──────────────────────────────────────────── -->
+<section class="chapter-section" id="ch1">
+<div class="chapter-number-label">CHAPTER 01</div>
+<h2 class="chapter-title">双子峰の高原とフィジカルAIの位置</h2>
+
+<div class="epigraph">
+<p>私たちは、私たちが作る道具で世界を作り、その世界が今度は私たちを作り返す。</p>
+<span class="attribution">— マーシャル・マクルーハン『メディア論』（1964年、トロント）</span>
+</div>
+
+<p class="no-indent">本書を貫く視点を、最初に置いておきたい。フィジカルAIは、人類史に突然現れた未曾有の特異点ではない。それは過去250年に積み上げられてきた高位高原のうえに、もう一つ立ち上がりつつある峰である。蒸気機関と動力織機が織りなした第一次産業革命以来、技術と社会の高度化は、近代以前との対比でみればすでに高原状態にある。その高原のうえに、まず情報革命の峰がそびえ、いま、AI革命の峰が並んで立ち上がっている。フィジカルAIはこの後者の峰の物理側実装である。</p>
+
+<p>ここで「高原」と「峰」という比喩は単なる修辞ではなく、長期的な技術-社会指標から実証的に支持される構造である。Vaclav Smil『Energy and Civilization』（2017, MIT Press, ISBN 978-0262035774）が示すように、人類の一人当たり一次エネルギー消費は、18世紀後半から19世紀後半にかけて約一桁拡大し、20世紀を通じてさらに数倍に伸びた。Robert Gordon『The Rise and Fall of American Growth』（2016, Princeton)が示す米国全要素生産性の長期推移も、19世紀後半から20世紀前半の三度の革命的上昇を経て、戦後の高原に達した。Ian Morris『Why the West Rules — For Now』（2010, Farrar, ISBN 978-0374290023）の社会発展指数も同じ形をなす ── Morris の4軸（Energy capture / Organization / Information technology / War-making capacity）はそれぞれ最大250点で、合計1000点満点。2000年時点で西側は906点に到達しており、すでに「天井に近い高原」にある。技術-経済-社会の長期軌道は、定常的低位から階段状に高原へと押し上げられ、その高原のうえで局所的な峰がいくつも生じる、というのが妥当な定性的記述である。</p>
+
+<p>本書ではこの構造を、深い知が拓く2100年の中で導入された CTI v2（Civilizational Transformation Index v2）の「双子峰の高原」モデルを引き継いで用いる。CTI v2は、Carlota Perez『Technological Revolutions and Financial Capital』（2002, Edward Elgar）の五大技術革命論を、Smil的エネルギー基盤・Morris的社会発展指数・Gordon的生産性曲線と統合して再構成した複合指標である。指数で見るかぎり、1971-1973年に始まる情報革命の前峰と、2012-2017年に始まるAI革命の後峰とが、ほぼ同じ高さの双子峰を形成している。前峰0.764、後峰0.768、その比は1.005倍にすぎない。これは「いま起きていることは、たかだか直前の峰の同じ高さの反復である」という、強い節度を要求する数値である。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig1-1-title fig1-1-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="fig1-1-title">図1-1 双子峰の高原モデル（CTI v2, 1750-2100）</title>
+<desc id="fig1-1-desc">産業革命後の高原のうえに情報革命（前峰0.764）とAI革命/フィジカルAI（後峰0.768）が並び立つ双子峰モデル</desc>
+<rect x="0" y="0" width="760" height="420" fill="#FFFFFF"/>
+<text x="380" y="28" fill="#121212" font-family="Noto Sans JP" font-size="14" font-weight="700" text-anchor="middle">図1-1　双子峰の高原モデル（CTI v2 文明転換指数, 1750-2100）</text>
+<text x="380" y="46" fill="#6B6B6B" font-family="Noto Sans JP" font-size="11" text-anchor="middle">産業革命後の高位高原のうえに、情報革命とAI革命/フィジカルAIが双子峰として並ぶ</text>
+<rect x="340" y="140" width="300" height="160" fill="rgba(204,20,0,0.06)"/>
+<line stroke="#121212" x1="80" y1="80" x2="80" y2="340" stroke-width="1.5"/>
+<text x="68" y="84" fill="#555" font-family="Noto Sans JP" font-size="11" text-anchor="end">高</text>
+<text x="68" y="345" fill="#555" font-family="Noto Sans JP" font-size="11" text-anchor="end">低</text>
+<text x="50" y="200" fill="#555" font-family="Noto Sans JP" font-size="11" text-anchor="middle" transform="rotate(-90 50 200)">CTI v2 文明転換指数</text>
+<line stroke="#121212" x1="80" y1="340" x2="700" y2="340" stroke-width="1.5"/>
+<g font-family="Noto Sans JP" font-size="11" fill="#555" text-anchor="middle">
+<text x="100" y="362">1750</text><text x="220" y="362">1850</text><text x="330" y="362">1900</text>
+<text x="470" y="362">1971</text><text x="570" y="362">2017</text><text x="700" y="362">2100</text>
+</g>
+<g stroke="#D9D9D9" stroke-dasharray="2,3" stroke-width="0.6">
+<line x1="80" y1="180" x2="700" y2="180"/><line x1="80" y1="240" x2="700" y2="240"/><line x1="80" y1="300" x2="700" y2="300"/>
+</g>
+<path d="M 100,310 L 220,300" fill="none" stroke="#555555" stroke-width="2.4"/>
+<path d="M 220,300 L 330,200" fill="none" stroke="#121212" stroke-width="2.4"/>
+<path d="M 330,200 L 470,180" fill="none" stroke="#121212" stroke-width="2.4"/>
+<path d="M 470,180 L 510,120 L 545,170" fill="none" stroke="#CC1400" stroke-width="2.8"/>
+<path d="M 545,170 L 570,180" fill="none" stroke="#121212" stroke-width="2.4"/>
+<path d="M 570,180 L 625,110 L 700,160" fill="none" stroke="#CC1400" stroke-width="2.8"/>
+<g stroke="#CC1400" stroke-width="1">
+<line x1="510" y1="105" x2="510" y2="135"/><line x1="505" y1="105" x2="515" y2="105"/><line x1="505" y1="135" x2="515" y2="135"/>
+<line x1="625" y1="95" x2="625" y2="125"/><line x1="620" y1="95" x2="630" y2="95"/><line x1="620" y1="125" x2="630" y2="125"/>
+</g>
+<g font-family="Noto Sans JP" text-anchor="middle">
+<text x="510" y="90" fill="#CC1400" font-size="12" font-weight="700">前峰 0.764</text>
+<text x="510" y="68" fill="#6B6B6B" font-size="10">情報革命</text>
+<text x="510" y="55" fill="#6B6B6B" font-size="9">1971-2010</text>
+<text x="625" y="80" fill="#CC1400" font-size="12" font-weight="700">後峰 0.768</text>
+<text x="625" y="60" fill="#6B6B6B" font-size="10">AI革命 / フィジカルAI</text>
+<text x="625" y="48" fill="#6B6B6B" font-size="9">2017-2100 予測</text>
+</g>
+<line stroke="#CC1400" x1="510" y1="100" x2="625" y2="100" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="568" y="96" fill="#CC1400" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-style="italic">差 1.005 倍（ほぼ等高）</text>
+<text x="395" y="220" fill="#6B6B6B" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-style="italic">産業化後の高位高原</text>
+<line stroke="#CC1400" x1="585" y1="80" x2="585" y2="340" stroke-width="1" stroke-dasharray="2,3"/>
+<text x="585" y="74" fill="#CC1400" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-weight="700">2026 現在</text>
+<rect x="100" y="378" width="600" height="32" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="1"/>
+<g font-family="Noto Sans JP" font-size="10">
+<line stroke="#555555" x1="115" y1="395" x2="140" y2="395" stroke-width="2.4"/><text x="148" y="398" fill="#121212">低位定常</text>
+<line stroke="#121212" x1="220" y1="395" x2="245" y2="395" stroke-width="2.4"/><text x="253" y="398" fill="#121212">産業化／高原</text>
+<line stroke="#CC1400" x1="370" y1="395" x2="395" y2="395" stroke-width="2.8"/><text x="403" y="398" fill="#121212">双子峰</text>
+<rect x="475" y="388" width="22" height="14" fill="rgba(204,20,0,0.06)"/><text x="505" y="398" fill="#121212">高位高原領域</text>
+<line stroke="#CC1400" x1="610" y1="388" x2="610" y2="402" stroke-width="1" stroke-dasharray="2,3"/><text x="620" y="398" fill="#121212">現在線</text>
+</g>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図1-1: 双子峰の高原モデル（CTI v2）の改善版。高位高原領域シェード／誤差バー±0.02／現在線2026年／凡例を追加。情報革命の前峰（0.764）とAI革命の後峰（0.768）がほぼ同高度で並ぶ。フィジカルAIは後峰の物理側実装として位置する。</figcaption>
+</figure>
+
+<h2 class="article-h2">特異性主張への留保 ── なぜ「シンギュラリティ」ではないのか</h2>
+
+<p class="no-indent">2026年現在、フィジカルAIや汎用人工知能の語り口の多くは、Ray Kurzweil『The Singularity Is Near』（2005, Viking）以降の特異点主義（singularitarianism）の引力圏にある。Kurzweil本人は2024年の改稿『The Singularity Is Nearer』（Viking）で2045年シンギュラリティを再宣言した。これに対し、Stuart Russell『Human Compatible』（2019, Viking）は意思決定理論側からAGIの統御問題を、Nick Bostrom『Superintelligence』（2014, Oxford）は哲学側から超知能の存在論的リスクを論じている。Bostromの「orthogonality thesis（知能と価値は独立）」「instrumental convergence（あらゆる目的が自己保存・資源獲得など道具的目標へ収束）」は、Physical AI の身体性ゆえに、純粋情報AI以上に切迫した倫理的問題として再定式化される。これらが提示するのは、フィジカルAIが文明史の連続線上にではなく、その外側に立ちうるという視座である。</p>
+
+<p>しかし、本書はこの視座を採らない。理由は二つある。第一に、長期指標で見るかぎり、現在の変動は1971年以来の情報革命と同じ高さの峰として記述される。物理的成果（電力消費・素材生産・建造物高度・移動速度の上限）のいずれも、20世紀後半のピークを上回っていない。Smilが繰り返し強調するように、人類のエネルギー転換は5%→50%シェアに50-75年を要し、これは過去250年の鉄則である：蒸気機関 60年（1840→1900）、内燃機関 50-80年（1915→1965）、電気駆動 75-100年（2020-移行中）。Physical AI も例外にはならない。第二に、「特異点」を主張する論者の多くが、技術曲線の指数性のみを根拠とし、社会・制度・物理基盤の同時並行進化の遅延を軽視している。Daron Acemoglu and Simon Johnson『Power and Progress』（2023, PublicAffairs）が指摘するように、技術導入と生産性反映のあいだには平均20-40年の遅延がある。電動モーターは1880年代に発明されたが、工場の生産性に反映されるのは1920年代である。同様の遅延が、現在のAI/フィジカルAI導入と社会成果のあいだにも横たわる。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="d5-2-title d5-2-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="d5-2-title">特異性主張への留保 比較表図</title>
+<desc id="d5-2-desc">シンギュラリティ説と5系統合流説を6観点で対比する比較表。本書は後者の立場を採る。</desc>
+<text x="380" y="28" font-family="Noto Sans JP, sans-serif" font-size="13" fill="#121212" text-anchor="middle" font-weight="700">フィジカルAIをどう読むか ── 2つの立場の対比</text>
+<rect x="40" y="50" width="180" height="36" fill="#F7F7F5" stroke="#121212" stroke-width="1"/>
+<text x="130" y="73" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">観点</text>
+<rect x="220" y="50" width="270" height="36" fill="#F7F7F5" stroke="#121212" stroke-width="1"/>
+<text x="355" y="73" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B6B6B" text-anchor="middle" font-weight="700">シンギュラリティ説</text>
+<rect x="490" y="50" width="230" height="36" fill="rgba(204,20,0,0.08)" stroke="#CC1400" stroke-width="1.5"/>
+<text x="605" y="73" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">5系統合流説（本書）</text>
+<g font-family="Noto Sans JP, sans-serif" font-size="10.5">
+<rect x="40" y="86" width="180" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="50" y="112" fill="#121212">時間構造</text>
+<rect x="220" y="86" width="270" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="230" y="105" fill="#555">単一の特異点（垂直の跳躍）</text><text x="230" y="121" fill="#999" font-size="9.5">2045 ± n年に集中</text>
+<rect x="490" y="86" width="230" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="500" y="105" fill="#121212">5系統が独立に発生→2010s合流</text><text x="500" y="121" fill="#999" font-size="9.5">74年（2026-2100）の漸進</text>
+<rect x="40" y="128" width="180" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="50" y="154" fill="#121212">駆動因子</text>
+<rect x="220" y="128" width="270" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="230" y="148" fill="#555">計算量の指数的増加 1因子</text><text x="230" y="163" fill="#999" font-size="9.5">ムーアの法則の延長</text>
+<rect x="490" y="128" width="230" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="500" y="148" fill="#121212">HW/Ctrl/RL/FM/Sim の5因子</text><text x="500" y="163" fill="#999" font-size="9.5">それぞれ別の制約曲線</text>
+<rect x="40" y="170" width="180" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="50" y="196" fill="#121212">予測の粒度</text>
+<rect x="220" y="170" width="270" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="230" y="189" fill="#555">「AGI到来」の単一イベント</text><text x="230" y="205" fill="#999" font-size="9.5">何が起きるかは予測不能</text>
+<rect x="490" y="170" width="230" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="500" y="189" fill="#121212">7フェーズ × 8系統で限定</text><text x="500" y="205" fill="#999" font-size="9.5">時期と内容を学術論文で固定</text>
+<rect x="40" y="212" width="180" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="50" y="238" fill="#121212">物質との関係</text>
+<rect x="220" y="212" width="270" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="230" y="232" fill="#555">情報空間の指数曲線の延長</text><text x="230" y="247" fill="#999" font-size="9.5">物質制約は副次的</text>
+<rect x="490" y="212" width="230" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="500" y="232" fill="#121212">物質基盤が律速</text><text x="500" y="247" fill="#999" font-size="9.5">電力・素材・実機データが限界</text>
+<rect x="40" y="254" width="180" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="50" y="280" fill="#121212">歴史的位置</text>
+<rect x="220" y="254" width="270" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="230" y="273" fill="#555">史上類例なき超越的事象</text><text x="230" y="289" fill="#999" font-size="9.5">過去から学べない</text>
+<rect x="490" y="254" width="230" height="42" fill="none" stroke="#D9D9D9" stroke-width="0.8"/><text x="500" y="273" fill="#121212">高位高原での構造的反復</text><text x="500" y="289" fill="#999" font-size="9.5">情報革命の後峰として読む</text>
+<rect x="40" y="296" width="180" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="50" y="322" fill="#121212">行為への含意</text>
+<rect x="220" y="296" width="270" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="230" y="315" fill="#555">準備か待機しかできない</text><text x="230" y="331" fill="#999" font-size="9.5">設計の余地は限定的</text>
+<rect x="490" y="296" width="230" height="42" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="0.8"/><text x="500" y="315" fill="#121212">5系統それぞれに介入余地</text><text x="500" y="331" fill="#999" font-size="9.5">設計・規制・市民選択が効く</text>
+</g>
+<text x="380" y="368" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-style="italic">本書は右列の立場を採る</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図 D5-2: 特異性主張への留保。シンギュラリティ説と 5系統合流説 を 6観点で対比。本書は後者の立場から、74年の時間幅と8系統の構造分解で、フィジカルAIを「介入可能な運動」として記述する。</figcaption>
+</figure>
+
+<p>もちろん、双子峰モデル自体は仮説である。後峰がさらに伸びて第三峰に到達するか、高原を抜け出して新しい台地に上がる可能性は否定できない。だが、現時点で利用可能なエネルギー・物質・社会指標の総合から判断するかぎり、2026年は「第二峰の登りはじめ」として位置づけるのが最も穏当である。Joel Mokyr『The Gifts of Athena』（2002, Princeton）が用いる「Useful Knowledge」の枠組（Ω＝propositional / Λ＝prescriptive）でいえば、Physical AIはΩとΛの境界そのものを再編する潜在力をもつ。だが、その潜在力の発現には Smil 的エネルギー転換の時定数（50-75年）と Acemoglu 的制度遅延（20-40年）が同時に積み重なる。本書のロードマップ全体は、この穏当な視座のうえに構築される。</p>
+
+<h2 class="article-h2">フィジカルAIの定義 ── 知性が物質に降りる場所</h2>
+
+<p class="no-indent">本書で用いるフィジカルAIの定義を確定しておく。フィジカルAIとは、計算機の内側で完結する知性ではなく、(1)身体を持ち、(2)物理空間で動き、(3)生命と協働し、(4)物質を作り直す知性のことである。NVIDIAのJensen Huangが2024年のCESおよびGTCで提示した同名の概念は、この四要素のうち主に(1)と(2)に重点を置く。本書はそれをさらに広げ、(3)生命系製造と(4)新素材設計までを含めて フィジカルAI と呼ぶ。これは、Xenobot（Kriegman et al. 2020, PNAS 117(4):1853）やA-Lab（Szymanski et al. 2023, Nature 624:86）のような、伝統的にはロボティクスとは別領域とみなされてきた取り組みを、同一の運動の異なる断面として読むためである。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="d5-1-title d5-1-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="d5-1-title">Physical AI の3定義図</title>
+<desc id="d5-1-desc">Physical AIを3つの定義で示す3-up図。左から「知性が物質に降りる」「解像度が上がる」「関係論的存在」。</desc>
+<g>
+<rect x="40" y="60" width="200" height="240" fill="none" stroke="#121212" stroke-width="1.2"/>
+<text x="140" y="48" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#CC1400" text-anchor="middle" font-weight="700" letter-spacing="0.08em">DEFINITION 01</text>
+<text x="140" y="88" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#121212" text-anchor="middle" font-weight="700">知性が物質に降りる</text>
+<circle cx="140" cy="135" r="22" fill="none" stroke="#CC1400" stroke-width="1.5"/>
+<text x="140" y="140" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle">LLM</text>
+<line x1="140" y1="160" x2="140" y2="220" stroke="#CC1400" stroke-width="2" marker-end="url(#d5arrow)"/>
+<text x="160" y="195" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#6B6B6B">descent</text>
+<rect x="100" y="225" width="80" height="50" fill="none" stroke="#121212" stroke-width="1.5"/>
+<text x="140" y="247" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" text-anchor="middle">物質</text>
+<text x="140" y="262" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B" text-anchor="middle">actuator + sensor</text>
+<text x="140" y="290" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#555" text-anchor="middle">VLA で言語→行為が同階層</text>
+</g>
+<g>
+<rect x="280" y="60" width="200" height="240" fill="none" stroke="#121212" stroke-width="1.2"/>
+<text x="380" y="48" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#CC1400" text-anchor="middle" font-weight="700" letter-spacing="0.08em">DEFINITION 02</text>
+<text x="380" y="88" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#121212" text-anchor="middle" font-weight="700">解像度が上がる</text>
+<g stroke="#999" stroke-width="0.8" fill="none">
+<rect x="305" y="120" width="60" height="60"/><line x1="305" y1="150" x2="365" y2="150"/><line x1="335" y1="120" x2="335" y2="180"/>
+</g>
+<text x="335" y="200" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#6B6B6B" text-anchor="middle">2020</text>
+<text x="395" y="155" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#CC1400" text-anchor="middle">→</text>
+<g stroke="#CC1400" stroke-width="0.6" fill="none">
+<rect x="410" y="120" width="60" height="60"/><line x1="410" y1="135" x2="470" y2="135"/><line x1="410" y1="150" x2="470" y2="150"/><line x1="410" y1="165" x2="470" y2="165"/>
+<line x1="425" y1="120" x2="425" y2="180"/><line x1="440" y1="120" x2="440" y2="180"/><line x1="455" y1="120" x2="455" y2="180"/>
+</g>
+<text x="440" y="200" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#CC1400" text-anchor="middle">2026</text>
+<text x="380" y="232" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#555" text-anchor="middle">触覚 1mm→0.1mm / 制御 100Hz→1kHz</text>
+<text x="380" y="248" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#555" text-anchor="middle">力 1N→0.05N / 6軸統合化</text>
+<text x="380" y="285" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#555" text-anchor="middle">物理世界の「見え方」が桁単位で精密化</text>
+</g>
+<g>
+<rect x="520" y="60" width="200" height="240" fill="none" stroke="#121212" stroke-width="1.2"/>
+<text x="620" y="48" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#CC1400" text-anchor="middle" font-weight="700" letter-spacing="0.08em">DEFINITION 03</text>
+<text x="620" y="88" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#121212" text-anchor="middle" font-weight="700">関係論的存在</text>
+<circle cx="565" cy="160" r="14" fill="none" stroke="#121212" stroke-width="1.5"/>
+<text x="565" y="164" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#121212" text-anchor="middle">人</text>
+<circle cx="675" cy="160" r="14" fill="none" stroke="#121212" stroke-width="1.5"/>
+<text x="675" y="164" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#121212" text-anchor="middle">環境</text>
+<circle cx="620" cy="225" r="16" fill="none" stroke="#CC1400" stroke-width="2"/>
+<text x="620" y="229" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#CC1400" text-anchor="middle">PhAI</text>
+<line x1="579" y1="160" x2="661" y2="160" stroke="#CC1400" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="570" y1="172" x2="608" y2="212" stroke="#CC1400" stroke-width="1.2"/>
+<line x1="670" y1="172" x2="632" y2="212" stroke="#CC1400" stroke-width="1.2"/>
+<text x="620" y="265" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#555" text-anchor="middle">単体ではなく「人-環境-機械」</text>
+<text x="620" y="280" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#555" text-anchor="middle">の結節として現れる</text>
+</g>
+<defs><marker id="d5arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#CC1400"/></marker></defs>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図 D5-1: Physical AI の3定義図。「知性が物質に降りる」「解像度が桁単位で上がる」「関係論的に現れる」── 3つの定義は相互補完的で、いずれか1つで Physical AI を定義することはできない。</figcaption>
+</figure>
+
+<p>この定義のもとで、フィジカルAIは過去2、3年で急速に立ち上がってきた研究と産業の集積点を指す。RT-2（Brohan et al. 2023, arXiv:2307.15818）に始まるVision-Language-Action系基盤モデル、OpenVLA（Kim et al. 2024, arXiv:2406.09246）の公開、Helix（Figure AI 2025）・GR00T N1（NVIDIA 2024）・π0（Physical Intelligence 2024）の登場、Open X-Embodiment（2023, arXiv:2310.08864）の22機種527スキル160万エピソード統合 ── これらが第一系統の事象である。AI-DEV-DBがStage 5（Embodied AI / VLA）として整理する論文群は、まさにこの段階に対応する。並行して、AlphaFold 3（Abramson et al. 2024, Nature 630:493）が生体分子相互作用予測を高精度化し、Xenobot系統が細胞由来の自己組織化ロボットを臨床手前段階に押し上げ、Boston Dynamics Atlas Electric（2024）が油圧駆動から電動駆動への世代交代を完成させた。これらすべてが、フィジカルAIという一つの大きな運動の構成要素である。</p>
+
+<h2 class="article-h2">後峰のなかでのフィジカルAIの位置</h2>
+
+<p class="no-indent">後峰すなわちAI革命の峰は、それ自体が均質ではない。便宜的に三層構造で読むと、最上層がLLM（Large Language Model）を代表とする言語空間の知性、中間層がマルチモーダル基盤モデルおよびVLA（Vision-Language-Action）を代表とする「言語と感覚と行動を結ぶ」知性、最下層がフィジカルAIすなわち物理空間に実体を持つ知性である。2022年のChatGPT登場で最上層が一気に立ち上がり、2023年のGPT-4およびPaLM-E（Driess et al. 2023, arXiv:2303.03378）で中間層が形成され、2023-2025年のRT-2／OpenVLA／GR00T／Helixで最下層が立ち上がりつつある、というのが実証的記述である。</p>
+
+<p>この三層は、二つの意味で結合している。第一に、技術的依存。フィジカルAIのVLAは、最上層のLLMアーキテクチャ（Transformer, Vaswani et al. 2017, arXiv:1706.03762）と、中間層のマルチモーダル接地（CLIP, Radford et al. 2021, arXiv:2103.00020）を直接の祖先とする。RT-2はPaLM-Eの後継であり、OpenVLAはRT-2のオープン版である。とりわけ松尾豊らによる「Large Language Models are Zero-Shot Reasoners」（Kojima, Gu, Reid, Matsuo, Iwasawa, NeurIPS 2022, arXiv:2205.11916）が示した「Let's think step by step」のひと言で推論性能が劇的に上がる現象は、LLMの言語空間からPhysical AIの行為空間への翻訳可能性を示唆する重要な経験的事実として、本書を通じて参照される。第二に、経済的依存。最上層の基盤モデルを訓練するには大規模データセンターと電力が要り、その需要が半導体・電池・エネルギー転換を駆動する。OpenAI GPT-4の訓練電力は推定50 GWh、Meta Llama 3.1 405Bは約30 GWh（Patterson et al. 2021）。フィジカルAIはこの駆動の物理的受益者であると同時に、ヒューマノイド稼働時間・実機データ収集・現場展開を通じてその物質的限界を露呈する側でもある。後峰のなかでフィジカルAIは、純粋な情報空間の知性が物質と接触する境界面として機能している。</p>
+
+<h2 class="article-h2">前峰との比較から見える後峰の固有性</h2>
+
+<p class="no-indent">双子峰の高さが等しいことは、両者の中身が同じであることを意味しない。前峰すなわち1971-2010年代の情報革命は、データ・計算・通信の三領域で人類の活動形態を再編した。Intelの4004（1971）に始まる半導体産業 ── trans / chip は1971年の2,300個から2022年のApple M1 Ultra級1.14×10¹¹個まで51年で<strong>約5,000万倍</strong>に拡大した。TCP/IP（1974）からWorld Wide Web（1990）に至るネットワーク化、Google検索（1998）からスマートフォン（2007）に至る端末化が、いずれも物理世界の組み換えというより、情報接続の組み換えを担ってきた。インターネットユーザーは1990年の0.003 billionから2023年の<strong>5.35 billion</strong>へ1,780倍、スマートフォンユーザーは2007年の0.01 billionから2024年の4.90 billionへ490倍。一人の人間が一日に生産・消費する情報の量は、1971年と2010年代で数桁の差がある。だが、その人間が住む建物、移動する車、食べる食物、着る衣服の質感は、おおむね前峰のあいだに保たれた。情報革命は、物質の輪郭の手前で止まる革命であった。</p>
+
+<p>これに対し後峰すなわちAI革命は、当初の数年（2017-2022年のTransformer〜ChatGPT期）は前峰と同じく情報接続の延長線にあった。LLMは文章を扱う技術であり、物質には触れない。しかし2023年以降のVLA基盤モデル、ヒューマノイドの商用配備、A-Labの自律実験、Xenobotの細胞ロボット化が同時に立ち上がったことで、後峰は前峰とは異なる方向へ伸びはじめている。すなわち、情報接続の組み換えから、物質の組み換えへ、である。これがフィジカルAIの固有性である。同じ高さの双子峰でありながら、後峰は前峰と質的に違う対象に触れる。74年の含意の大きさは、ここに依存する。</p>
+
+<p>もう一つの違いは、駆動のされ方である。前峰の駆動力は主として民間企業の競争であった。InflectionからAmazon、Google、Appleに至るプラットフォーム企業群が、ユーザー獲得競争のなかで指数曲線を引き上げてきた。後峰の駆動力はこれに加えて、国家・軍事・科学研究の三領域が前面に出てきている。米中の半導体規制、Stargate構想による450億ドル規模のデータセンター計画、DeepMindのAlphaFold/AlphaProof系統の科学AI、Physical Intelligence社やFigure AIへの巨額投資 ── これらが前峰ではみられなかった規模で動いている。TA-DB のOECD MSTI（GERD, Government R&D）データによれば、2020年時点でUSA $66,641M／CHN $91,821M／DEU $21,502M／JPN $14,240M／KOR $11,231M。中国が米国を超え、日本・韓国・ドイツがそれを追う構図が、すでに完成している。後峰は単一の市場原理では駆動されない。それは、技術-経済-地政学の三要素が結合した、より複合的な運動である。</p>
+
+<h2 class="article-h2">非西洋系譜から読み直す ── アル=フワーリズミー、本居宣長、湯川秀樹</h2>
+
+<p class="no-indent">双子峰モデルが描く250年史は、暗黙のうちに西洋史を中心とする。だが、KGH-DB（知の生成史 DB、非西洋率88.4%）が記録する系譜リンクを参照すれば、Physical AI の前史はずっと深く、地理的にも広い。算法（algorithm）の語源は西暦820年、バグダードのアル=フワーリズミー（Al-Khwārizmī, 780-850）が著した『キターブ・アル=ジャブル・ワル=ムカーバラ』にある。アル=フワーリズミーの方法は、インド数学を受容しつつ体系化した手続的知識（procedural knowledge）であり、Mokyrの言うΛ（prescriptive knowledge）の最古層に位置する。Physical AI が「言語によって行為を指示する」VLAの技術系譜は、9世紀バグダードの手続言語に最初の鍵を持つ。</p>
+
+<p>17世紀の宋応星『天工開物』（1637, 中国）は、農業・工業・冶金・染織・武器製造の130種の技術を図解で記録した百科全書である。KGH-DBはこれを「東アジア製造知の決定的書物」として記録し、明治維新後の西洋知識輸入（1868）→帝国大学体制（1886）→トヨタ生産方式（1975）という東アジア内系譜リンクを保持する。Physical AI の製造業ロボティクスの応用が、なぜ日本・中国・韓国・台湾でとりわけ急速に普及するかを問うとき、この東アジア製造知の長い前史を抜きには語れない。</p>
+
+<p>本居宣長（1730-1801）の『古事記伝』が拓いた国学は、KGH-DBにより西田幾多郎・京都学派（1911-）への transmission link をもつ。西田の「純粋経験」「場所の論理」「行為的直観」は、フィジカルAIが直面する「身体性と知性の結合」の問題に対して、Heidegger / Merleau-Ponty / Varela とは別の系譜から答えを準備している。本書の最終章（譜面を書く者と、譜面を奏でる物質）は、この西田-京都学派の哲学に明示的に触れる。1949年、湯川秀樹が日本初のノーベル物理学賞を受賞したのと同じ年、ノーバート・ウィーナーが『Cybernetics: Or Control and Communication in the Animal and the Machine』第2版（1948 初版、MIT Press）を準備していた。湯川が「中間子」を予言したとき（1935）、彼の理論は西洋物理学の最前線と東アジア知識生産の交差点に立っていた。Physical AI の理論的基盤も、同様の交差点で形成されつつある。</p>
+
+<p>南米からも見過ごせない声がある。チリの神経生物学者フランシスコ・ヴァレラ（Francisco Varela, 1946-2001）はEvan ThompsonおよびEleanor Roschと共著『The Embodied Mind』（1991, MIT Press）でEnactivism（行為遂行主義）を提唱した。Varelaの「身体化された認知」は、Brooks のSubsumption Architecture（1986）と並んで、Physical AIの設計哲学の直接的先行理論である。アンデス先住民の世界観と仏教哲学の影響を併せ持つVarelaの理論は、Physical AIの「関係論的存在」（D5-1 定義 3）の最も精緻な祖型である。本書のCh3（8系統への拡張）でstream_cog の中核として再登場する。</p>
+
+<h2 class="article-h2">冷静と真剣の両立 ── 本書を貫く判断の作法</h2>
+
+<p class="no-indent">双子峰モデルが要求するのは、二つの態度の同時保持である。一方で、現在起きていることが過去250年の高原の構造的反復であるという冷静。他方で、その反復が74年で約60-80億の人類の暮らしを物理面から組み換えうるという真剣。どちらか一方に振れると、判断は歪む。「いまさら騒ぐほどのものではない」という冷笑も、「歴史上類のない特異点だ」という熱狂も、同じく現実を取り逃がす。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="d5-3-title d5-3-desc" style="width:100%;max-width:680px;height:auto;">
+<title id="d5-3-title">冷静と真剣のバランス図</title>
+<desc id="d5-3-desc">縦軸「楽観─悲観」、横軸「軌跡的=構造的反復─跳躍的=特異点」の四象限で、4態度を配置。本書の立場は中央の交差点に位置する。</desc>
+<text x="340" y="28" font-family="Noto Sans JP, sans-serif" font-size="13" fill="#121212" text-anchor="middle" font-weight="700">冷静と真剣の両立 ── 4態度の四象限</text>
+<line x1="340" y1="60" x2="340" y2="350" stroke="#121212" stroke-width="1.5"/>
+<line x1="60" y1="205" x2="620" y2="205" stroke="#121212" stroke-width="1.5"/>
+<text x="340" y="50" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">楽観</text>
+<text x="340" y="368" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="middle" font-weight="700">悲観</text>
+<text x="58" y="220" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="end" font-weight="700">軌跡的</text>
+<text x="58" y="232" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#999" text-anchor="end">構造的反復</text>
+<text x="622" y="220" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#555" text-anchor="start" font-weight="700">跳躍的</text>
+<text x="622" y="232" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#999" text-anchor="start">特異点・断絶</text>
+<g>
+<rect x="345" y="65" width="270" height="135" fill="rgba(204,20,0,0.03)" stroke="#D9D9D9" stroke-width="0.5"/>
+<text x="480" y="90" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">A. 技術ユートピア</text>
+<text x="480" y="110" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">特異点に至り、希少性が消える</text>
+<text x="480" y="128" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">労働・病・物質の制約から解放</text>
+<text x="480" y="155" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#6B6B6B" text-anchor="middle" font-style="italic">代表: Kurzweil 2005, abundance系</text>
+<text x="480" y="180" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#999" text-anchor="middle">→ 物質制約を過小評価</text>
+</g>
+<g>
+<rect x="65" y="65" width="270" height="135" fill="none" stroke="#D9D9D9" stroke-width="0.5"/>
+<text x="200" y="90" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">B. 漸進的改善</text>
+<text x="200" y="110" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">過去の革命の延長として</text>
+<text x="200" y="128" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">便益が穏当に積み上がる</text>
+<text x="200" y="155" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#6B6B6B" text-anchor="middle" font-style="italic">代表: Solow派・標準的経済学</text>
+<text x="200" y="180" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#999" text-anchor="middle">→ 質的転換を見落とす</text>
+</g>
+<g>
+<rect x="65" y="210" width="270" height="135" fill="none" stroke="#D9D9D9" stroke-width="0.5"/>
+<text x="200" y="235" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">C. 既定路線的衰退</text>
+<text x="200" y="255" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">過去の革命と同様に</text>
+<text x="200" y="273" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">格差・環境を悪化させる</text>
+<text x="200" y="300" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#6B6B6B" text-anchor="middle" font-style="italic">代表: 第二次産業革命の負債論</text>
+<text x="200" y="325" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#999" text-anchor="middle">→ 介入余地を放棄</text>
+</g>
+<g>
+<rect x="345" y="210" width="270" height="135" fill="rgba(204,20,0,0.03)" stroke="#D9D9D9" stroke-width="0.5"/>
+<text x="480" y="235" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#CC1400" text-anchor="middle" font-weight="700">D. AI終末論</text>
+<text x="480" y="255" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">特異点が人類存続を脅かす</text>
+<text x="480" y="273" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#555" text-anchor="middle">準備か防御しかできない</text>
+<text x="480" y="300" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#6B6B6B" text-anchor="middle" font-style="italic">代表: Bostrom・x-risk 系</text>
+<text x="480" y="325" font-family="Noto Sans JP, sans-serif" font-size="9.5" fill="#999" text-anchor="middle">→ 設計の余地を見落とす</text>
+</g>
+<circle cx="340" cy="205" r="38" fill="#FFFFFF" stroke="#CC1400" stroke-width="2.5"/>
+<text x="340" y="200" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#CC1400" text-anchor="middle" font-weight="700">本書の立場</text>
+<text x="340" y="216" font-family="Noto Sans JP, sans-serif" font-size="9" fill="#CC1400" text-anchor="middle">冷静 × 真剣</text>
+<text x="340" y="390" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#6B6B6B" text-anchor="middle" font-style="italic">4象限のいずれにも振れず、中央で両軸を同時に保持する</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図 D5-3: 冷静と真剣のバランス。縦軸（楽観─悲観）と横軸（軌跡的─跳躍的）で4態度を配置。本書はいずれの象限にも振れず、中央で「軌跡的読みの冷静」と「74年の真剣な引き受け」を同時保持する立場をとる。</figcaption>
+</figure>
+
+<p>本書はこの両立を、74年の精緻な時間軸と8系統合流の構造的な分解とで担保する。Phase A（2026-2030）からPhase G（2090-2100）までの7フェーズロードマップは、各時期に何が起き、何が起きないかを学術論文ベースで限定する。stream_fm（基盤モデル）からstream_mat（物質基盤）までの8系統分解は、フィジカルAIを「一塊の特異な技術」として神秘化するかわりに、独立に進化する諸系譜の合流体として記述する。前者は時間の節度であり、後者は構造の節度である。両者の交差点に、フィジカルAIの実像が浮かぶ。</p>
+
+<p>本書は技術論であると同時に判断の書である。74年は、現在25歳の人間が99歳になる時間幅に等しい。一人の人生のなかで完結する時間である。その時間幅で、フィジカルAIが何を作り、何を組み換え、何を生み出すかを冷静に見定めることは、その人生の輪郭を描くことと等価である。冷静さは熱情を排除しない。むしろ、熱情をささえる長い視野の確保である。</p>
+
+<div class="finding-box">
+<p><strong>DB Evidence ── 本章を支える主要DB引用</strong></p>
+<p>① <strong>CTI v2-DB</strong>: Morris 4軸×250点／2000年西側906点（Morris 2010, ISBN 978-0374290023）。Smil 5段階エネルギー転換、5%→50%期間50-75年（Smil 2017, ISBN 978-0262035774）。Perez 5大革命（Perez 2002, Edward Elgar）。Mokyr ΩとΛ（Mokyr 2002, Princeton）。Bostrom orthogonality（Bostrom 2014, Oxford）。② <strong>TA-DB</strong>: trans/chip 1971年2,300→2022年1.14×10¹¹（51年で5,000万倍）。memory_cost 1957年$411M/MB→2020年$0.001/MB（63年で4.1×10¹¹倍低下）。internet_users 1990年0.003B→2023年5.35B（1,780倍）。GERD 2020年USA $66,641M / CHN $91,821M / JPN $14,240M（OECD MSTI）。③ <strong>KGH-DB</strong>: アル=フワーリズミー 820年（islamic）/ 本居宣長 1798 → 西田・京都学派 1911（transmission）/ 宋応星『天工開物』1637 → 明治維新 1868 → 帝国大学 1886 → トヨタ 1975（east_asia genealogy）/ Varela 1991（andes/チリ）。④ <strong>AI-DEV-DB</strong>: 松尾豊 et al. "Zero-Shot Reasoners"（NeurIPS 2022, arXiv:2205.11916）。⑤ <strong>FTT-DB v2.0</strong>: Edge AI 5,818件・Safety AI 6,408件・Brain-Machine 4,079件・Medical 6,695件（OpenAlex peer-reviewed）。</p>
+</div>
+
+</section>
+
+<!-- ────────────────────────────────────────────
+  Chapter 02 ── 5系統合流の系譜と現在地（増補版）
+  ──────────────────────────────────────────── -->
+<section class="chapter-section" id="ch2">
+<div class="chapter-number-label">CHAPTER 02</div>
+<h2 class="chapter-title">5系統合流の系譜と現在地</h2>
+
+<div class="epigraph">
+<p>知性は単一の場所に存在しない。それは、生体と環境のあいだに、行為のなかで立ち上がる。</p>
+<span class="attribution">— Francisco Varela, Evan Thompson, Eleanor Rosch『The Embodied Mind』（1991年、MIT Press）</span>
+</div>
+
+<p class="no-indent">フィジカルAIは、過去2、3年で突然立ち上がった技術ではない。それは独立に発生した5つの系統が、2010年代後半から急速に合流して形成された運動である。本章では、その5系統 ── ロボット工学・ハードウェア系（stream_hw、起源1950年代）、古典制御・モーションプランニング系（stream_ctrl、起源1960年代）、機械学習・強化学習系（stream_rl、起源1989年）、基盤モデル・VLM/VLA系（stream_fm、起源2017年）、シミュレーション・データ生成系（stream_sim、起源1996年）── の系譜と現在地を順に確認する。KGH-DBが整理する8系統の知識生成史を踏まえ、各系統がたどってきた長い時間と、それらが2023-2026年にどこで交差しているのかを見ることで、現在の地点の構造的厚みが見えてくる。</p>
+
+<h2 class="article-h2">第一系統 ── ロボット工学・ハードウェア（1950年代以降）</h2>
+
+<p class="no-indent">系統の出発点は、George DevolとJoseph Engelbergerが1956年に創業したUnimation社、そして1961年にゼネラルモーターズのニュージャージー工場に納入された世界初の産業用ロボットUnimate 1900である。Unimateは油圧アクチュエータと磁気ドラムメモリでダイカスト鋳物の取り出しを反復した。学術側では、1969年スタンフォードAI研究所のVictor ScheinmanによるStanford Arm、同年SRI InternationalのShakey the ロボット、1973年早稲田大学加藤一郎研究室のWABOT-1、1978年のPUMA（Programmable Universal Machine for Assembly）が並ぶ。<strong>加藤一郎</strong>のWABOT-1は世界初の本格的なヒューマノイドロボットであり、視覚・聴覚・触覚・人工筋骨格・対話機能を統合した点で、現在のヒューマノイドの原型を1973年の時点で示していた。これは本章のあと半世紀にわたる日本ヒューマノイド系譜（ASIMO、HRP、Kengoro、Atom型）の出発点である。日本では1972年の川崎重工によるUnimateライセンス生産が、世界最大のロボット産業基盤を生んだ。KGH-DB が「東アジア製造知」として整理する宋応星→明治維新→帝国大学→トヨタ生産方式の系譜は、まさにこの川崎-Unimate導入の土台を準備していた。</p>
+
+<p>1980年代以降は、アクチュエータと身体構造の革新が続く。1995年のGill Pratt Series Elastic Actuator（SEA）は剛体駆動からCompliant Actuationへの転換点となり、力制御精度を1-2桁改善した。1986年に起動したHonda P-Seriesは2000年にASIMOとして結実し、日本の人型ロボット研究の象徴となる。Boston Dynamicsは2005年のBigDog（DARPA資金）、2013年のAtlas（油圧版）、そして2024年のAtlas Electric（完全電動化）と進み、油圧から電動への世代交代を完成させた。一方、AISTの<strong>金子健二・梶田秀司</strong>らによるHRP-2（2002）からHRP-5P（2018）への進化は、建設現場用ヒューマノイドという独自路線を切り開いた（Kaneko, Kajita et al., 2018, Humanoids/IROS, https://www.aist.go.jp/aist_e/list/latest_research/2018/20180928/en20180928.html）。東京大学JSK研究室では、<strong>稲葉雅幸</strong>（東京大学情報理工学系研究科 知能機械情報学専攻）の指導の下、Kengoro・Kaimanといった腱駆動筋骨格ヒューマノイドが開発された（Asano, Kozuki, Urata, Inaba, https://www.jsk.t.u-tokyo.ac.jp/）。これらは「人間の身体構造をそのまま模倣する」という構想に基づき、Boston DynamicsやFigureが採るmotor-driven joint approachとは別の道を切り開いた。2024-2026年のヒューマノイド市場は、Figure AI 02、1X Neo、Tesla Optimus V2、Apptronik Apollo、Unitree H1/G1、XPeng PX5、Agility ロボティクス Digit、Sanctuary Phoenixなど20種以上の汎用プラットフォームが並立する状態にある。Goldman Sachsの2024年予測では2030年累計100-200万台、価格2-5万ドル、連続稼働4-8時間が中央値である。</p>
+
+<h2 class="article-h2">第二系統 ── 古典制御・モーションプランニング（1960年代以降）</h2>
+
+<p class="no-indent">ロボット工学の運動学的・動力学的基礎は、1955年のDenavit-Hartenberg parameter、1965年のDonald PieperによるInverse Kinematics解法、1969年のDaniel WhitneyによるResolved Motion Rate Controlで確立された。1980年代にはLagrange/Newton-Euler動力学、1983年のRoy Featherstone Articulated-Body Algorithm、1985年のComputed Torque Controlが体系化される。1986年のRodney Brooks Subsumption Architecture（IEEE J. ロボティクス 2(1):14）は、世界モデル不要・反射的階層制御の積層で昆虫的知能を実現する設計を提案し、Good Old-Fashioned AIへの最初の体系的反論となった。日本側では、<strong>川人光男</strong>（ATR国際電気通信基礎技術研究所）が1990年代から進めたComputational Motor Controlが、運動制御を計算理論として記述するための枠組を提供した。川人の「内部モデル仮説」（forward model + inverse model）は、現在のWorld Model型RL（DreamerV3、JEPA）と直接的に接続される。</p>
+
+<p>2010年代に入ると、Convex MPC for Legged Robots（Di Carlo et al. 2018）に代表されるModel Predictive Controlが、四足・二足ロボットの動的制御の標準となる。2026年現在、産業標準は「MPC + RL ハイブリッド」の二層構造である。低レベルの姿勢・接触制御をConvex MPCが担い、高レベルの歩行・操作を学習ポリシー（Diffusion Policy, ACT, VLA）が担う。Boston Dynamics Atlas、Figure Helix、NVIDIA GR00Tがすべてこの共通スタックに収束した。古典制御が消えたわけではない。むしろ、学習ベースの上位層が成立したことで、古典制御は下位層として剛性を高めた。FTT-DB v2.0 のCYBER_PHYS（Cyber-Physical Systems）領域は、この hybrid stack をカバーする893論文を擁し、TRL 7（early_deployment）に分類される。Physical AI の身体下位層は、すでに「実装→実用」の境界を超えている。</p>
+
+<h2 class="article-h2">第三系統 ── 機械学習・強化学習（1989年以降）</h2>
+
+<p class="no-indent">この系統の臨界点は2013年のDQN（Mnih et al. 2013, arXiv:1312.5602、Nature掲載は2015年）であった。深層ニューラルネットと強化学習が結合し、Atariゲームを画像入力から学習できることが実証された。続く2015年のTRPO、2017年のPPO（Schulman et al. 2017, arXiv:1707.06347）、2018年のSAC（Haarnoja et al. 2018, arXiv:1801.01290）が連続制御に拡張された。2018年のOpenAI Dactyl（arXiv:1808.00177）は、シミュレーション学習のロボットハンドが実機で巧緻操作を行う最初の実証となり、Domain Randomization（2017）がsim-to-realのボトルネックを部分的に解いた。日本側では、Sony AIのGran Turismo Sophy（Wurman, Barrett, Kawamoto, MacGlashan, Subramanian, Walsh, Capobianco, Devlic, Eckert, Fuchs, Gilpin, Khandelwal, Kompella, Lin, MacAlpine, Oller, Seno, Sherstan, Thomure, Aghabozorgi, Barrett, Douglas, Whitehead, Düerr, Stone, Spranger, Kitano, 2022, Nature 602:223）が、深層強化学習でレーシングゲーム世界トッププレイヤーを倒した最初の事例として記録される。<strong>木村元・河本献太</strong>らのチームがNature 2022誌に発表したこの研究は、強化学習を「実時間下のスポーツ的判断」に応用する道を開いた。</p>
+
+<p>2019年のANYmal Sim2Real（Hwangbo et al., Science ロボティクス 4(26)）は、四足ロボットでsim-to-realが実機で動くことを示した。2021年のRapid Motor Adaptation（Kumar et al., arXiv:2107.04034）、MIT Mini Cheetah RLが続き、Convex MPCと深層RLのハイブリッドが脚式移動の標準となる。2023年のDiffusion Policy（Chi et al., arXiv:2303.04137）は拡散モデルを行動生成に転用、ACT/ALOHA（Zhao et al. 2023）が低コスト両手協調プラットフォームを実証し、Open X-Embodiment（22機種・527スキル・160万エピソード）が「ロボティクス版ImageNet」を生んだ。Diffusion Policyの開発にはToyota Research Institute（TRI）が深く関与しており、両手協調マニピュレーションの標準アーキテクチャを示した（Chi, Feng, Du, Xu, Cousineau, Burchfiel, Song, "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion", RSS 2023, https://arxiv.org/abs/2303.04137）。これは Sakana AI / PFN / OMRON Sinic X と並ぶ「日本資本×北米AI研究所」のコラボレーション・モデルの代表例である。</p>
+
+<h2 class="article-h2">第四系統 ── 基盤モデル・VLM/VLA（2017年以降）</h2>
+
+<p class="no-indent">最も若いが、現在の合流の主役である。2017年のTransformer（Vaswani et al., arXiv:1706.03762）が自己注意機構のみでSeq2Seqを実現し、BERT（2018）・GPT-3（Brown et al. 2020, arXiv:2005.14165）・PaLM・GPT-4の系譜を生んだ。2021年のCLIP（Radford et al., arXiv:2103.00020）が画像-言語埋め込みを統一しゼロショット転移を実現、CLIPort（Shridhar et al. 2021）がそれをマニピュレーションに転移した。Transformer 以降の系譜は、AI-DEV-DB のStage 2（Foundation Models）に整理されている。</p>
+
+<p>ロボティクスへの本格流入は、2022年4月のSayCan（Ahn et al. 2022, arXiv:2204.01691）に始まる。LLMでサブゴール分解、affordance scoreで実行可能性を評価する枠組みが提示された。同年末のRT-1（Brohan et al. 2022, arXiv:2212.06817）、2023年のPaLM-E（Driess et al. arXiv:2303.03378）、RT-2（Brohan et al. 2023, arXiv:2307.15818）で、視覚・言語・行動を単一トランスフォーマで結ぶ「ロボット用基盤モデル」が成立した。2024年のOpenVLA（Kim et al. arXiv:2406.09246）、Octo（arXiv:2405.12213）、π0（Physical Intelligence）、GR00T N1（NVIDIA）、2025年のHelix（Figure AI）、π0.5、RDTで、「単一モデルが複数機種で複数タスクを実行する」段階が確立した。AGI-DBの能力マイルストーンMS-019（Manipulation Generalization, 2023）はこの転換点を記録している。</p>
+
+<p>日本側のFM系譜では、<strong>松尾豊</strong>（東京大学松尾研究室）が2022年に提示した「Let's think step by step」（Zero-Shot Chain-of-Thought, NeurIPS 2022）が決定的な貢献として記憶される。これは LLM 推論の本質を「適切なprompt言語化」として位置づけ、Physical AI における言語→行為翻訳の概念的基礎となった。PFNの<strong>岡野原大輔</strong>と<strong>西川徹</strong>はChainerフレームワーク（2015）に始まり、PFN Robotics Cloud、PLaMo（日本語基盤モデル）、PFN Plamoを開発、現場ロボットとLLMを結合する独自路線を切り開いている。Sakana AIの<strong>David Ha</strong>（元Google Brain Tokyo、現Sakana AI CTO）は「World Models」（2018, Ha-Schmidhuber, arXiv:1803.10122）でWorld Model型アーキテクチャを提唱した。同氏の2024年Evolutionary Model Merge（Akiba, Shing, Tang, Sun, Ha, https://arxiv.org/abs/2403.13187）は、進化計算でFMを統合する独自手法を示した。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig2-1-title fig2-1-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="fig2-1-title">図2-1 5系統合流の系譜（1950-2026）</title>
+<desc id="fig2-1-desc">hw/ctrl/rl/sim/fm の5系統が独立に発展しVLA基盤モデルを介して2023-2026に合流</desc>
+<rect x="0" y="0" width="760" height="440" fill="#FFFFFF"/>
+<text x="380" y="28" fill="#121212" font-family="Noto Sans JP" font-size="14" font-weight="700" text-anchor="middle">図2-1　5系統合流の系譜（1950-2026）</text>
+<text x="380" y="46" fill="#6B6B6B" font-family="Noto Sans JP" font-size="11" text-anchor="middle">独立に発生した5系統が VLA 基盤モデルを介して合流し、単一身体のフィジカルAI へ収斂する</text>
+<line stroke="#121212" x1="80" y1="300" x2="700" y2="300" stroke-width="1.5"/>
+<g font-family="Noto Sans JP" font-size="10" fill="#555" text-anchor="middle">
+<text x="100" y="318">1950</text><text x="240" y="318">1980</text><text x="380" y="318">2000</text>
+<text x="520" y="318">2017</text><text x="610" y="318">2023</text><text x="670" y="318">2026</text>
+</g>
+<g stroke="#555555" stroke-width="1">
+<line x1="100" y1="295" x2="100" y2="305"/><line x1="240" y1="295" x2="240" y2="305"/><line x1="380" y1="295" x2="380" y2="305"/>
+<line x1="520" y1="295" x2="520" y2="305"/><line x1="610" y1="295" x2="610" y2="305"/><line x1="670" y1="295" x2="670" y2="305"/>
+</g>
+<path d="M 115,80 Q 280,82 480,88 Q 560,95 615,180" fill="none" stroke="#7A0A00" stroke-width="2.2"/>
+<circle cx="115" cy="80" r="4" fill="#7A0A00"/>
+<text x="125" y="74" fill="#121212" font-family="Noto Sans JP" font-size="11" font-weight="700">stream_hw</text>
+<text x="125" y="89" font-family="Noto Sans JP" font-size="9" fill="#7A0A00">Unimate 1961 → WABOT-1 1973 → ASIMO 2000 → Atlas Electric 2024</text>
+<path d="M 108,120 Q 280,122 480,128 Q 555,135 615,190" fill="none" stroke="#9C1200" stroke-width="2.2"/>
+<circle cx="108" cy="120" r="4" fill="#9C1200"/>
+<text x="125" y="114" fill="#121212" font-family="Noto Sans JP" font-size="11" font-weight="700">stream_ctrl</text>
+<text x="125" y="129" font-family="Noto Sans JP" font-size="9" fill="#9C1200">DH 1955 → Kawato Internal Model 1990 → Subsumption 1986 → Convex MPC 2018</text>
+<path d="M 350,160 Q 450,165 530,175 Q 580,180 615,200" fill="none" stroke="#CC1400" stroke-width="2.4"/>
+<circle cx="350" cy="160" r="4" fill="#CC1400"/>
+<text x="360" y="154" fill="#121212" font-family="Noto Sans JP" font-size="11" font-weight="700">stream_rl</text>
+<text x="360" y="169" font-family="Noto Sans JP" font-size="9" fill="#CC1400">Q-learning 1989 → DQN 2013 → PPO 2017 → GT Sophy 2022 → Diffusion Policy 2023</text>
+<path d="M 390,210 Q 470,212 530,215 Q 575,218 615,210" fill="none" stroke="#D85040" stroke-width="2.2"/>
+<circle cx="390" cy="210" r="4" fill="#D85040"/>
+<text x="400" y="204" fill="#121212" font-family="Noto Sans JP" font-size="11" font-weight="700">stream_sim</text>
+<text x="400" y="219" font-family="Noto Sans JP" font-size="9" fill="#D85040">Gazebo 2002 → MuJoCo 2015 → Isaac Sim 2020 → Genesis 2024</text>
+<path d="M 520,260 Q 555,255 585,250 Q 605,235 615,220" fill="none" stroke="#FF4030" stroke-width="3"/>
+<circle cx="520" cy="260" r="5" fill="#FF4030"/>
+<text x="530" y="254" fill="#CC1400" font-family="Noto Sans JP" font-size="11" font-weight="700">stream_fm（駆動主軸）</text>
+<text x="530" y="269" font-family="Noto Sans JP" font-size="9" fill="#FF4030">Transformer 2017 → GPT-3 2020 → CLIP 2021 → Matsuo CoT 2022 → PaLM-E/RT-2 2023 → OpenVLA 2024</text>
+<g>
+<circle cx="608" cy="200" r="14" fill="none" stroke="#CC1400" stroke-width="2"/>
+<circle cx="608" cy="200" r="4" fill="#CC1400"/>
+</g>
+<text x="608" y="115" fill="#CC1400" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-weight="700">2023 PaLM-E</text>
+<text x="608" y="128" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9" text-anchor="middle">マルチモーダル接地</text>
+<circle cx="635" cy="200" r="4" fill="#CC1400"/>
+<text x="640" y="252" fill="#CC1400" font-family="Noto Sans JP" font-size="10" font-weight="700">2023 RT-2</text>
+<text x="640" y="265" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9">VLA 初出</text>
+<circle cx="655" cy="200" r="4" fill="#CC1400"/>
+<text x="660" y="115" fill="#CC1400" font-family="Noto Sans JP" font-size="10" font-weight="700">2024 OpenVLA</text>
+<text x="660" y="128" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9">オープン化</text>
+<circle cx="670" cy="200" r="4" fill="#CC1400"/>
+<rect x="600" y="76" width="80" height="218" fill="rgba(204,20,0,0.06)"/>
+<text x="640" y="74" fill="#CC1400" font-family="Noto Sans JP" font-size="10" text-anchor="middle" font-weight="700" font-style="italic">合流期 2023-2026</text>
+<defs><marker id="arrow-fig2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0,0 0,6 9,3" fill="#CC1400"/></marker></defs>
+<line stroke="#CC1400" x1="680" y1="200" x2="720" y2="200" stroke-width="2" marker-end="url(#arrow-fig2)"/>
+<text x="725" y="195" fill="#CC1400" font-family="Noto Sans JP" font-size="11" font-weight="700">VLA</text>
+<text x="725" y="208" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9">単一身体</text>
+<rect x="80" y="345" width="620" height="78" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="1"/>
+<text x="92" y="362" fill="#121212" font-family="Noto Sans JP" font-size="10" font-weight="700">凡例：</text>
+<g font-family="Noto Sans JP" font-size="9">
+<line x1="135" y1="358" x2="160" y2="358" stroke="#7A0A00" stroke-width="2.2"/><text x="166" y="362" fill="#121212">stream_hw（ハードウェア）</text>
+<line x1="135" y1="375" x2="160" y2="375" stroke="#9C1200" stroke-width="2.2"/><text x="166" y="379" fill="#121212">stream_ctrl（古典制御）</text>
+<line x1="135" y1="392" x2="160" y2="392" stroke="#CC1400" stroke-width="2.4"/><text x="166" y="396" fill="#121212">stream_rl（強化学習）</text>
+<line x1="135" y1="409" x2="160" y2="409" stroke="#D85040" stroke-width="2.2"/><text x="166" y="413" fill="#121212">stream_sim（シミュレータ）</text>
+<line x1="380" y1="358" x2="405" y2="358" stroke="#FF4030" stroke-width="3"/><text x="411" y="362" fill="#121212">stream_fm（基盤モデル, 駆動主軸）</text>
+<circle cx="395" cy="378" r="4" fill="#CC1400"/><text x="411" y="382" fill="#121212">合流ノード（VLA 構成要素）</text>
+<rect x="385" y="395" width="20" height="14" fill="rgba(204,20,0,0.06)"/><text x="411" y="406" fill="#121212">合流期帯 2023-2026</text>
+</g>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図2-1: 5系統合流の系譜（1950-2026）の改善版。色相分化＋時間スケール正確配置＋合流帯シェード＋日本人研究者（加藤一郎/川人光男/松尾豊）の系譜追加。独立に発生した5系統が2023-2026年にVLA基盤モデルを介して合流。</figcaption>
+</figure>
+
+<h2 class="article-h2">第五系統 ── シミュレーション・データ生成（1996年以降）</h2>
+
+<p class="no-indent">1996年のWebotsとOpen Dynamics Engineに始まり、2002年のGazebo、2010年のV-REP（後のCoppeliaSim）、2014年のToyota Research Institute Drakeが順次登場した。2015年のMuJoCo（Todorov et al.、後にDeepMindが買収・2023年オープン化）、2020年のNVIDIA Isaac Sim/Isaac Lab（OmniverseおよびOpenUSD基盤）、2024年のGenesis（マルチフィジクス統合）が現在の標準となる。同時に、生成的世界モデルとして、World Models（<strong>Ha-Schmidhuber 2018</strong>, arXiv:1803.10122）、DreamerV3（Hafner et al. 2024, Nature 626:982）、Sora（OpenAI 2024）、Genie 2（DeepMind 2024）、Cosmos（NVIDIA 2025）が立ち上がり、訓練データそのものを生成する経路が開かれた。World Modelsの提唱者であるDavid Haは現在Sakana AIのCTOであり、日本拠点のFM研究のキーパーソンとなっている。</p>
+
+<p>2023年のOpen X-Embodimentと2024年のDROID（Khazatsky et al. arXiv:2403.12945、564シーン・86千デモ・13機関連携）は、実機データとシミュレーションデータの両輪を整えた。「データ希少性」というフィジカルAIの構造的ボトルネックへの組織的回答が、フリート学習・遠隔操縦・自律収集・合成データ生成の四方向で進展している。FTT-DB v2.0 のSIM領域（Cross-domain・Cyber-Phys 統合）は5,763論文を擁し、TRL 7-8で評価される。</p>
+
+<h2 class="article-h2">5系統の合流点 ── 5つの閾値超え</h2>
+
+<p class="no-indent">5系統がどこで具体的に交差したかは、5つの閾値超えとして記述できる。第一の閾値は知覚の身体化（2015-2018）であり、ORB-SLAM2やDROID-SLAM（Teed-Deng 2021, arXiv:2108.10869）に至る系統で深層学習がSLAMパイプラインに本格混入した。第二の閾値は強化学習の実機化（2018-2020）であり、OpenAI Dactyl、ANYmal、Mini Cheetah RLがsim-to-realの最初の実証群となった。</p>
+
+<p>第三の閾値は言語条件付け（2022）であり、SayCanとRT-1で「自然言語で命じればロボットが実行する」が研究室レベルで成立した。第四の閾値はVLA基盤モデル化（2023-2025）であり、RT-2／OpenVLA／GR00T／Helix／π0が「汎用VLMをロボット出力にfine-tuneする」アプローチを確立した。第五の閾値は大規模実機データ収集（2023-2026）であり、Open X-EmbodimentとDROIDが「データ希少性」というボトルネックへの組織的回答を提示した。これら5つの閾値超えが、5系統を結びつける接続点として並んでいる。</p>
+
+<h2 class="article-h2">2026年の合流地点で見えるもの</h2>
+
+<p class="no-indent">5系統合流の現在地は、整理すると次の三つの像として読める。第一に、機械の身体（hw + ctrl）はほぼ成熟域にある。アクチュエータ・センサ・低位制御の組み合わせで「動く身体」を作る課題は、コスト・稼働時間・耐久性の漸進改善を残すのみで、構造的な未解決問題はない。第二に、知能の中核（rl + fm + sim）は急成長期にあり、まだ標準化が確定していない。VLAの100Bパラメータ標準化、推論時計算スケーリング、世界モデルの物理整合性などが、Phase A（2026-2030）の中心課題として残る。第三に、両者をつなぐ「身体と知能の翻訳」が、現在の主戦場である。VLAは言語と視覚から行動への翻訳器であり、それを高速化・汎化・低エネルギー化することが、2026-2030年の技術的アジェンダの中核となる。</p>
+
+<p>合流の比喩を、5本の川がひとつの河口に注ぐ図として読んでもよい。それぞれの川は、上流に独自の地形と歴史を持つ。Wienerのフィードバック制御、Devolの産業ロボット、SuttonとBartoの強化学習、VaswaniのTransformer、TodorovのMuJoCo ── これらの源流のうち一つでも欠けていたなら、現在の河口は存在しない。フィジカルAIはこれら5本の合流の上にしか立ち上がりえなかった。そして合流したいま、それぞれの上流が依然として独立に流れつづけていることも忘れてはならない。古典制御の理論的精緻化は、VLAの登場後もなお進んでいる。MoE型LLMのスケーリングは、ロボティクス領域とは別の速度で展開している。合流とは融解ではなく、複数の流れが重ね描きされる場のことである。</p>
+
+<div class="finding-box">
+<p><strong>DB Evidence ── 5系統合流を支える数値と人物</strong></p>
+<p>① <strong>AI-DEV-DB</strong>: VLM/VLA系譜 Stage 5 で 11論文／World Models 系譜（Stage 4）で 5論文。CLIP→PaLM-E→RT-2→OpenVLA→π0 が citation graph 上で直系。② <strong>KGH-DB</strong>: 1940年代に Wiener Cybernetics（1948）／Shannon Information Theory（1948）／von Neumann Computer Architecture（1945）／<strong>湯川秀樹 中間子論再評価（1949 Nobel）</strong>が同時多発（Critical Period 1）。1980-2000年代に Brooks Subsumption（1986）／Varela Embodied Mind（1991）／Berners-Lee Web（1989）が同時多発（Critical Period 2）。③ <strong>SGRD-DB</strong>: トヨタ／Toyota Research Institute／Honda／川崎重工／ファナック／DENSO の Physical AI 関連 R&D PR を月次追跡。④ <strong>FTT-DB v2.0</strong>: CYBER_PHYS 893論文 TRL 7／EDGE_AI 5,818論文・TinyML 普及曲線（2024 TRL 7）／TRANSPORT 1,189論文・Goldman 2030予測 100-200万台。⑤ <strong>AI-ACC-DB</strong>: 「2-5x faster task setup」「2-3x reduced data requirements」等のVLA時代の生産性向上指標。</p>
+</div>
+
+</section>
+
+<!-- ────────────────────────────────────────────
+  Chapter 03 ── 8系統への拡張（増補版）
+  ──────────────────────────────────────────── -->
+<section class="chapter-section" id="ch3">
+<div class="chapter-number-label">CHAPTER 03</div>
+<h2 class="chapter-title">8系統への拡張</h2>
+
+<div class="epigraph">
+<p>身体は、認知が立ち上がる場である。知性を理解することは、身体を理解することに等しい。</p>
+<span class="attribution">— Rolf Pfeifer, Josh Bongard『How the Body Shapes the Way We Think』（2007年、MIT Press）</span>
+</div>
+
+<p class="no-indent">前章で記述した5系統合流モデルは、2026年時点の フィジカルAI を読むための最小限の枠組みである。しかし、2030-2100年の長い時間軸で運動を追跡するには、この5系統では足りない。Phase 2 の5系統精緻化チームが調査を進めるなかで、横断的に伏在していた3つの系統が独立化されるべきだという結論が浮上した。バイオ・神経模倣・生命系製造系（stream_bio、起源1943年）、マテリアル・エネルギー系（stream_mat、起源1947年）、認知科学・脳科学・身体性認知系（stream_cog、起源1948年）の3つである。本章では、なぜこれら3系統を独立化する必要があるのか、そしてそれによってフィジカルAIの全体像がどう変わるのかを記述する。</p>
+
+<h2 class="article-h2">第六系統 ── バイオ・神経模倣・生命系製造（1943年以降）</h2>
+
+<p class="no-indent">この系統は三層からなる。第一層は神経模倣ハードウェアであり、起点はMcCulloch-Pittsの形式ニューロン（1943, Bulletin of Mathematical Biophysics 5:115-133）にある。Rosenblatt Perceptron（1958）、Hebb学習則（1949）から Liquid State Machine（Maass-Natschläger-Markram 2002, Neural Computation 14:2531）、IBM TrueNorth（Merolla et al. 2014, Science 345:668-673）、Intel Loihi 2（2021、114万ニューロン×128コア）、IBM NorthPole（2023, Science）と進む。Event Camera（Lichtsteiner et al. 2008, IEEE JSSC）は網膜の非同期スパイク発火を模した視覚センサで、Prophesee・iniVationが量産化している。FTT-DB v2.0 のNEUROMORPHIC領域は1,022論文を擁し、Loihi 2世代の low-power inference が Edge AI と統合される潮流を示している。日本側では、東京大学の<strong>合原一幸</strong>（複雑系・カオス理論）の研究グループがLiquid State Machine の解析に長く貢献し、また富士通・ソニーセミコンダクタが image-sensor融合型ニューロモーフィック・チップの開発を進めている。</p>
+
+<p>第二層は身体模倣（Bio-mimicry）であり、McKibben Pneumatic Artificial Muscle（1957）に始まる。Whitesides Lab のSoft Robotics（2008）、Octobot（Wehner et al. 2016, Nature 536:451 ── 完全untethered化学駆動）、RoboBee（Ma et al. 2013, Science 340:603）、Origami ロボット（Felton et al. 2014, Science）と連なる。Stanford OceanOneK（Khatib 2022, Science ロボティクス 7:65）は深海200mで触覚フィードバック付き操作を実証した。日本側では、東京工業大学（現 東京科学大学）の<strong>鈴森康一</strong>（人工筋肉・空気圧アクチュエータ）と岡山大学の<strong>松野隆幸</strong>（ヘビ型ロボット）が、独自路線のソフトロボティクスを切り開いている。<strong>国吉康夫</strong>（東京大学情報理工学系研究科 知能機械情報学専攻）の「認知発達ロボティクス」は、身体性が知能の発達を導く理論を実機で検証する世界的拠点であり、Pfeifer-Bongardの理論的継承を実装側で担っている。</p>
+
+<p>第三層が現在進行形で立ち上がっている生命系製造であり、Adleman DNA Computing（1994, Science 266:1021）、Rothemund DNA Origami（2006, Nature 440:297）を遠い起源としつつ、決定的事象はXenobot（Kriegman, Blackiston, Levin, Bongard 2020, PNAS 117(4):1853）である。アフリカツメガエル細胞から自己組織化するロボットが報告され、2021年には自己複製版（PNAS 118(49)）、2023年には成人肺細胞由来のAnthrobot（Gumuskaya et al. 2023, Advanced Science 10(34)）が続いた。並行して自律実験化学ロボットが立ち上がる。Liverpool Mobile Chemist（Burger et al. 2020, Nature 583:237）、A-Lab（Szymanski, Ceder et al. 2023, Nature 624:86 ── 17日間で41の新規無機材料を合成）、Coscientist（Boiko et al. 2023, Nature 624:570 ── GPT-4ベース化学合成）。AI設計薬では Isomorphic Labs（DeepMind系）がAlphaFold 3（Abramson et al. 2024, Nature 630:493）を基盤に動き、Insilico Medicineの Rentosertib（旧INS018_055）が2024年フェーズII到達（Nature Biotechnology 42:1099）となった。</p>
+
+<p>この三層を束ねる必要がある理由は明確である。生命と機械の境界が、物質的に再定義されつつあるからである。Soft Robotics・Neuromorphic Chip・Xenobot・Plant-AIは、5系統の単純な拡張ではなく、機械の身体素材を生体組織へ、計算アーキテクチャを神経模倣へ、製造プロセスを生命系へと同時に注入する一つの運動の異なる断面である。書籍『深い知が拓く2100年』第二部の中核予測である2070年「生命系製造期」は、この系統の合流到達点として位置づけられる。</p>
+
+<h2 class="article-h2">第七系統 ── マテリアル・エネルギー（1947年以降）</h2>
+
+<p class="no-indent">この系統は、フィジカルAIを支える物質基盤と、フィジカルAIによって加速される対象の両方を兼ねる二重性を持つ。1947年Bell Labsの点接触トランジスタ（Bardeen-Brattain-Shockley）に始まる半導体史、1859年Plantéの鉛蓄電池から1991年Sony 18650セルを経て2024年の270-300 Wh/kg級NMC811に至るバッテリー史、1976年の106 USD/Wから2024年の0.10-0.13 USD/Wへと約1000倍下落したc-Si太陽光モジュールのSwanson曲線、1982年のFeynman量子計算講演から2024年Google Willowの表面符号エラー訂正しきい値突破（Nature 638:920）に至る量子計算史。この四つの柱が並列して進む。TA-DB のquantitative_metricsは、これら4つの曲線を統合的に追跡している。</p>
+
+<p>フィジカルAI文脈での決定的事象は、2023年のDeepMind GNoME（Merchant et al., Nature 624:80 ── 220万件の新規結晶構造候補生成、うち38万件がDFT安定）と、それと連動したA-Lab（Szymanski et al. 2023, Nature 624:86 ── 17日間で41種を合成成功）である。これによって従来5-10年かかった新材料発見が数週間-数ヶ月に短縮する基盤が整った。同時期、Toyotaが2023年6月に2027-2028年の全固体BEV商用化（航続1200km・充電10分以下）を公式宣言、Samsung SDIが2024年にS-Line全固体パイロットライン稼働、Mercedes-Benz/Stellantisにサンプル出荷を開始した。固体電池はヒューマノイドの稼働時間を4-8時間から16-24時間に質的に転換する律速要因である。日本側では、東京工業大学の<strong>菅野了次</strong>（リチウムイオン超イオン伝導体）と<strong>東京理科大学</strong>・<strong>京都大学</strong>・<strong>大阪府立大学</strong>の電池研究センター群が、Toyota / Panasonic / GS Yuasa と連携する全固体電池開発の中核を形成している。CDH-DB（コストダウン史 230年・15領域・158手法）はバッテリーコスト 1991年$7,500/kWh→2023年$139/kWhの54倍低下を Wright's Law として記録する。</p>
+
+<p>エネルギー側では、SMRと核融合が二正面で進む。NuScale VOYGR、GE Hitachi BWRX-300（Ontario Power Generation 2029稼働予定）、TerraPower Natrium（Wyoming 2030稼働予定）、Rolls-Royce SMR。核融合では Commonwealth Fusion Systems SPARC（2026-2027稼働予定）、Helion Energy（Microsoftと2028年から50MW PPA契約）、TAE Technologies、ITER First Plasma（2025-2026予定）。データセンター電力需要は IEA Electricity 2024 推計で2022年460TWhから2026年最大1050TWhへ倍増。米国のPJM系統では2024年に容量市場価格が前年比9倍に高騰し、データセンター需要が直接の原因として指摘された。MicrosoftのThree Mile Island Unit 1再稼働契約（2024年9月、Constellation Energyと20年PPA）は、AIと原子力の構造的合流を象徴する。日本でも、東芝・三菱重工・日立がSMR技術を保持し、量子科学技術研究開発機構（QST）でJT-60SA核融合実験が2023年に運転開始した。</p>
+
+<p>この系統を独立化する根拠は、AIとエネルギーの相互依存にある。OpenAI GPT-4の訓練電力は推定50 GWh、Meta Llama 3.1 405Bは約30 GWh（Patterson et al. 2021 手法による推計）。1台のヒューマノイドが24時間稼働するとき、本体バッテリー消費（数 kWh）よりクラウド推論コスト（数十 kWh 換算）の方が大きくなる可能性がある。フィジカルAIの軌道は、stream_matの進捗に物理的に律速される。stream_matを独立系統として扱わない限り、楽観過剰または悲観過剰のどちらかに振れる。</p>
+
+<h2 class="article-h2">第八系統 ── 認知科学・脳科学・身体性認知（1948年以降）</h2>
+
+<p class="no-indent">この系統は、フィジカルAIの「内側」── 何が知性として立ち上がるのか ── を規定する。第一波は1943年のMcCulloch-Pittsから1948年のWiener Cybernetics（MIT Press）へ。1956年のダートマス会議がAIを「記号操作」と再定義し、Cyberneticsの身体性的視座から離反した。1969年Minsky-Papert『Perceptrons』がパーセプトロンの表現限界を示し、ニューラルネットと身体性の研究は1970年代に主流から退いた。</p>
+
+<p>第二波は1980-1990年代のEmbodied Cognitionである。Lakoff-Johnson『Metaphors We Live By』（1980）と『Philosophy in the Flesh』（1999）、Maturana-Varela のオートポイエーシス論（1980）、Varela-Thompson-Rosch『The Embodied Mind』（1991, MIT Press）でEnactivism（行為遂行主義）が提唱された。Varelaがチリ出身の神経生物学者であり、彼の理論がアンデス先住民の世界観と仏教哲学の影響を併せ持つことは、Ch1 で確認した。Physical AIの設計哲学が「西洋発」と片付けられない理由は、Varela一人を取っても明らかである。ロボティクス側ではBrooks Subsumption Architecture（1986）とIntelligence without Representation（1991, AI 47:139）が記号AIへの最も明確な反論となった。日本側では、<strong>浅田稔</strong>（大阪大学先導的学際研究機構、現名誉教授）の「認知発達ロボティクス」（Asada et al., 2009, IEEE Trans. on Autonomous Mental Development, 1(1):12-34）が、身体性が知能の発達を導く理論を世界に発信した。RoboCup を共同創設したのも浅田であり、彼の貢献はAI研究と発達科学の架け橋として、本書を通じて繰り返し参照される。</p>
+
+<p>第三波は2000-2010年代の4E Cognition（Embodied・Embedded・Enacted・Extended）とPredictive Codingである。Clark-Chalmers「The Extended Mind」（1998, Analysis 58:1）、Clark『Supersizing the Mind』（2008）が拡張認知を体系化。Karl Friston「The Free-Energy Principle: A Unified Brain Theory?」（2010, Nature Reviews Neuroscience 11:127）が脳の働きを「自由エネルギー最小化」として統一的に説明する枠組みを提示し、Active Inference理論が立ち上がった。機械学習側では、World Models（Ha-Schmidhuber 2018, arXiv:1803.10122）がFriston的予測脳の工学的実装を示し、LeCun JEPA（2022, Open Review）がLLM中心パラダイムへの代替を提示した。日本側では、京都大学の<strong>谷淳</strong>（理化学研究所BSI）の予測符号化型RNNとロボット運動学習の統合研究、ATRの川人光男の「Computational Motor Control」枠組が、FristonおよびHa-Schmidhuberに先行する系譜として位置づけられる。</p>
+
+<p>第四波は2020年代のBMIと身体性AI実装期である。Neuralinkは2024年1月にNoland Arbaughへの1024電極N1チップ移植を公開、Synchronは血管内ステント型Stentrodeで2022年からFDA監督下臨床試験を開始、2025年時点で10名以上の被験者が日常生活で使用している。FTT-DB v2.0 のBRAIN_CI領域は4,079論文を擁し、TRL 4-5（実証段階）と評価される。Italian Institute of TechnologyのiCub（Metta et al. 2010, Neural Networks 23:1125）は15年以上にわたり発達ロボティクスのプラットフォームとして稼働しており、2024年版iCub 3.0は遠隔操作と自律学習を統合した。Active Inference for Roboticsは Pezzulo（CNR-ISTC, Rome）とFristonによるLanillos et al.「Active Inference in ロボティクス and Artificial Agents」（2021, arXiv:2112.01871）に整理されている。京都大学の<strong>乾敏郎</strong>（情報学）はActive Inferenceの神経科学的基礎を日本に紹介する第一人者として、Friston-Pezzulo系譜の日本側受容を担っている。</p>
+
+<p>この系統を独立化する根拠は、フィジカルAIの最適化目標そのものを規定する役割にある。RL（stream_rl）は与えられた報酬関数を最大化する。FM（stream_fm）は与えられた損失関数を最小化する。これに対し、stream_cogは「何を最適化するべきか」「身体性とは何か」「知性が立ち上がる条件は何か」という根源的問いを扱う。Friston自由エネルギー原理、Varela Enactivism、Clark Extended Mind、Hutchins分散認知、西田幾多郎「行為的直観」── これらは フィジカルAI の設計原理として、5系統の上に立つメタ層を構成する。本書では西田-京都学派と Varela-Enactivism を「東西の双子」として終章で対置する。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig3-1-title fig3-1-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="fig3-1-title">図3-1 8系統の3層モデルと駆動順序</title>
+<desc id="fig3-1-desc">物理基盤層 stream_mat の上に実装層（hw/ctrl/sim）と学習・知能層（rl/fm/bio/cog）が積み上がる3層構造</desc>
+<rect x="0" y="0" width="760" height="460" fill="#FFFFFF"/>
+<text x="380" y="28" fill="#121212" font-family="Noto Sans JP" font-size="14" font-weight="700" text-anchor="middle">図3-1　8系統の3層構造と駆動順序</text>
+<text x="380" y="46" fill="#6B6B6B" font-family="Noto Sans JP" font-size="11" text-anchor="middle">赤＝Phase 2 で独立化された新系統（bio / mat / cog）。橋構造と赤点線フィードバックループが境界溶解を予兆する</text>
+<rect x="60" y="80" width="640" height="100" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.4" stroke-dasharray="5,3"/>
+<text x="76" y="100" fill="#CC1400" font-family="Noto Sans JP" font-size="12" font-weight="700">第三層：学習・知能層</text>
+<text x="76" y="115" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9">機械に知性を注入。2010s後半から急発展</text>
+<rect x="90" y="130" width="130" height="40" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="155" y="148" fill="#121212" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">stream_rl</text>
+<text x="155" y="162" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">DQN / PPO / DROID / GT Sophy</text>
+<rect x="240" y="130" width="130" height="40" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="305" y="148" fill="#121212" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">stream_fm</text>
+<text x="305" y="162" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">RT-2 / OpenVLA / π0 / Matsuo</text>
+<rect x="390" y="130" width="150" height="120" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.8"/>
+<text x="465" y="148" fill="#CC1400" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">stream_bio（新）</text>
+<text x="465" y="162" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">Xenobot / Coscientist / A-Lab</text>
+<text x="465" y="200" fill="#CC1400" font-family="Noto Sans JP" font-size="9" font-style="italic" text-anchor="middle">第二層と第三層の</text>
+<text x="465" y="213" fill="#CC1400" font-family="Noto Sans JP" font-size="9" font-style="italic" text-anchor="middle">境界に位置</text>
+<text x="465" y="230" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">合成生物 + 自律実験</text>
+<rect x="560" y="130" width="130" height="40" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.5"/>
+<text x="625" y="148" fill="#CC1400" font-family="Noto Sans JP" font-size="11" font-weight="700" text-anchor="middle">stream_cog（新）</text>
+<text x="625" y="162" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">World Model / BMI / JEPA / Asada</text>
+<rect x="60" y="200" width="320" height="100" fill="#FFFFFF" stroke="#121212" stroke-width="1.2"/>
+<rect x="555" y="200" width="145" height="100" fill="#FFFFFF" stroke="#121212" stroke-width="1.2"/>
+<text x="76" y="220" fill="#121212" font-family="Noto Sans JP" font-size="12" font-weight="700">第二層：実装層</text>
+<text x="76" y="235" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9">物理身体・制御・訓練環境。工学的成熟度が高い</text>
+<rect x="80" y="250" width="90" height="40" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="125" y="268" fill="#121212" font-family="Noto Sans JP" font-size="10" font-weight="700" text-anchor="middle">stream_hw</text>
+<text x="125" y="282" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">Atlas / Digit / WABOT</text>
+<rect x="185" y="250" width="90" height="40" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="230" y="268" fill="#121212" font-family="Noto Sans JP" font-size="10" font-weight="700" text-anchor="middle">stream_ctrl</text>
+<text x="230" y="282" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">MPC + RL hybrid</text>
+<rect x="290" y="250" width="80" height="40" fill="#FFFFFF" stroke="#121212" stroke-width="1"/>
+<text x="330" y="268" fill="#121212" font-family="Noto Sans JP" font-size="10" font-weight="700" text-anchor="middle">stream_sim</text>
+<text x="330" y="282" fill="#6B6B6B" font-family="Noto Sans JP" font-size="8" text-anchor="middle">Isaac / Genesis</text>
+<rect x="60" y="320" width="640" height="60" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.8"/>
+<text x="76" y="340" fill="#CC1400" font-family="Noto Sans JP" font-size="12" font-weight="700">第一層：物理基盤層</text>
+<text x="76" y="355" fill="#6B6B6B" font-family="Noto Sans JP" font-size="9">他の全系統の物理的可能性を規定する</text>
+<text x="380" y="375" fill="#CC1400" font-family="Noto Sans JP" font-size="11" text-anchor="middle" font-weight="700">stream_mat（新） ── 半導体・電池・太陽光・核分裂/融合・量子・新材料</text>
+<defs>
+<marker id="arrow-fig3-thick" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0,0 0,6 9,3" fill="#121212"/></marker>
+<marker id="arrow-fig3-fb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0,0 0,6 9,3" fill="#CC1400"/></marker>
+</defs>
+<line stroke="#121212" x1="125" y1="318" x2="125" y2="295" stroke-width="2" marker-end="url(#arrow-fig3-thick)"/>
+<line stroke="#121212" x1="230" y1="318" x2="230" y2="295" stroke-width="2" marker-end="url(#arrow-fig3-thick)"/>
+<line stroke="#121212" x1="330" y1="318" x2="330" y2="295" stroke-width="2" marker-end="url(#arrow-fig3-thick)"/>
+<line stroke="#555555" x1="155" y1="245" x2="155" y2="175" stroke-width="1" stroke-dasharray="3,2"/>
+<line stroke="#555555" x1="305" y1="245" x2="305" y2="175" stroke-width="1" stroke-dasharray="3,2"/>
+<path d="M 305,170 Q 250,150 90,175 Q 50,200 50,350 Q 50,395 300,395 Q 360,395 360,380" fill="none" stroke="#CC1400" stroke-width="1" stroke-dasharray="4,3" opacity="0.55" marker-end="url(#arrow-fig3-fb)"/>
+<text x="50" y="232" fill="#CC1400" font-family="Noto Sans JP" font-size="9" font-style="italic" text-anchor="middle" transform="rotate(-90 50 232)">フィードバック</text>
+<line stroke="#CC1400" x1="560" y1="150" x2="540" y2="150" stroke-width="1" stroke-dasharray="2,2"/>
+<rect x="60" y="400" width="640" height="50" fill="#F7F7F5" stroke="#D9D9D9" stroke-width="1"/>
+<g font-family="Noto Sans JP" font-size="9">
+<line stroke="#121212" x1="75" y1="418" x2="98" y2="418" stroke-width="2" marker-end="url(#arrow-fig3-thick)"/><text x="105" y="421" fill="#121212">駆動（物理依存・太い）</text>
+<line stroke="#555555" x1="260" y1="418" x2="283" y2="418" stroke-width="1" stroke-dasharray="3,2"/><text x="290" y="421" fill="#121212">駆動（実装依存・細い）</text>
+<line stroke="#CC1400" x1="430" y1="418" x2="453" y2="418" stroke-width="1" stroke-dasharray="4,3" opacity="0.55"/><text x="460" y="421" fill="#121212">フィードバックループ（赤点線）</text>
+<rect x="75" y="430" width="22" height="14" fill="#FFFFFF" stroke="#CC1400" stroke-width="1.5"/><text x="105" y="442" fill="#121212">Phase 2 新系統（赤縁）</text>
+<text x="430" y="442" fill="#CC1400" font-style="italic">bio は第二/第三層の境界に位置（橋構造）</text>
+</g>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図3-1: 8系統の3層モデル（改善版）。物理基盤層（stream_mat）の上に実装層（hw/ctrl/sim）、その上に学習・知能層（rl/fm/bio/cog）が乗る。stream_bioは第二層と第三層の境界に位置する橋構造。fm→matの赤点線フィードバックループが境界溶解を予兆する。</figcaption>
+</figure>
+
+<h2 class="article-h2">8系統の3層構造と駆動順序</h2>
+
+<p class="no-indent">3つの新系統を加えると、フィジカルAIは8系統からなることになる。これら8系統は対等に並列するのではなく、依存関係と駆動順序を持つ。第一層は物理基盤層であり、stream_mat 単体である。半導体・バッテリー・エネルギー・新材料が、他の全系統の物理的可能性を規定する。第二層は実装層であり、stream_hw（物理身体）・stream_ctrl（制御理論）・stream_sim（訓練環境）からなる。第三層は学習・知能層であり、stream_rl・stream_fm・stream_bio・stream_cog の4系統が並ぶ。</p>
+
+<p>時間軸で見ると、8系統は次の順序で互いを駆動する。stream_mat（物質）→ stream_hw, stream_ctrl（実装）→ stream_sim（訓練環境）→ stream_rl, stream_fm（知能注入）→ stream_bio, stream_cog（関係・生命・認知）。ただしこの矢印は一方通行ではない。stream_bio（A-Lab・GNoME）はstream_matに対して新材料発見の正のフィードバックを返す。stream_cog（Active Inference）はstream_rlに新しい最適化目標を提供する。stream_fm（VLA）はstream_hw（ヒューマノイド）の応用範囲を再定義する。これら相互作用が、第2部で扱う7フェーズロードマップ（Phase A 2026-2030 から Phase G 2090-2100）の推進力となる。</p>
+
+<figure style="margin:36px 0;text-align:center;background:rgba(204,20,0,0.02);border-top:1px solid #CC1400;border-bottom:1px solid #CC1400;padding:32px 16px;">
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figN2-title figN2-desc" style="width:100%;max-width:760px;height:auto;">
+<title id="figN2-title">図N2 8系統×Phase A-G 貢献度ヒートマップ</title>
+<desc id="figN2-desc">8系統と7フェーズの主導関係をヒートマップで可視化、物質と制度への重心移動を示す</desc>
+<text x="380" y="20" fill="#121212" font-family="Noto Sans JP" font-size="13" font-weight="700" text-anchor="middle">図N2　8系統 × Phase A-G 貢献度ヒートマップ</text>
+<text x="180" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase A</text>
+<text x="180" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2026-30</text>
+<text x="260" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase B</text>
+<text x="260" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2030-40</text>
+<text x="340" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase C</text>
+<text x="340" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2040-50</text>
+<text x="420" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase D</text>
+<text x="420" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2050-65</text>
+<text x="500" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase E</text>
+<text x="500" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2065-80</text>
+<text x="580" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase F</text>
+<text x="580" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2080-90</text>
+<text x="660" y="50" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="middle" font-weight="700">Phase G</text>
+<text x="660" y="64" font-family="Noto Sans JP" font-size="9" fill="#6B6B6B" text-anchor="middle">2090-2100</text>
+<text x="140" y="100" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">HW（身体）</text>
+<rect x="148" y="85" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="228" y="85" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="308" y="85" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="388" y="85" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="468" y="85" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="548" y="85" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="628" y="85" width="64" height="28" fill="#CC1400" opacity="0.12"/>
+<text x="140" y="135" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">CTRL（古典制御）</text>
+<rect x="148" y="120" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="228" y="120" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="308" y="120" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="388" y="120" width="64" height="28" fill="#CC1400" opacity="0.12"/>
+<rect x="468" y="120" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="548" y="120" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="628" y="120" width="64" height="28" fill="#CC1400" opacity="0.12"/>
+<text x="140" y="170" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">RL（学習）</text>
+<rect x="148" y="155" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="228" y="155" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="308" y="155" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="388" y="155" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="468" y="155" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="548" y="155" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="628" y="155" width="64" height="28" fill="#CC1400" opacity="0.12"/>
+<text x="140" y="205" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">FM（基盤モデル）</text>
+<rect x="148" y="190" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="228" y="190" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="308" y="190" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="388" y="190" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="468" y="190" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="548" y="190" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="628" y="190" width="64" height="28" fill="#CC1400" opacity="0.12"/>
+<text x="140" y="240" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">SIM（合成世界）</text>
+<rect x="148" y="225" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="228" y="225" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="308" y="225" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="388" y="225" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="468" y="225" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="548" y="225" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="628" y="225" width="64" height="28" fill="#CC1400" opacity="0.12"/>
+<text x="140" y="275" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">MAT（材料・電池）</text>
+<rect x="148" y="260" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="228" y="260" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="308" y="260" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="388" y="260" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="468" y="260" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="548" y="260" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="628" y="260" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<text x="140" y="310" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">ENERGY（電力）</text>
+<rect x="148" y="295" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="228" y="295" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="308" y="295" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="388" y="295" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="468" y="295" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="548" y="295" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="628" y="295" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<text x="140" y="345" font-family="Noto Sans JP" font-size="11" fill="#121212" text-anchor="end">COG/SOC（認知・制度）</text>
+<rect x="148" y="330" width="64" height="28" fill="#CC1400" opacity="0.12"/><rect x="228" y="330" width="64" height="28" fill="#CC1400" opacity="0.4"/>
+<rect x="308" y="330" width="64" height="28" fill="#CC1400" opacity="0.4"/><rect x="388" y="330" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="468" y="330" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="548" y="330" width="64" height="28" fill="#CC1400" opacity="0.85"/><rect x="628" y="330" width="64" height="28" fill="#CC1400" opacity="0.85"/>
+<rect x="180" y="375" width="20" height="14" fill="#CC1400" opacity="0.12"/><text x="205" y="387" font-family="Noto Sans JP" font-size="10" fill="#555">弱</text>
+<rect x="240" y="375" width="20" height="14" fill="#CC1400" opacity="0.4"/><text x="265" y="387" font-family="Noto Sans JP" font-size="10" fill="#555">中</text>
+<rect x="300" y="375" width="20" height="14" fill="#CC1400" opacity="0.85"/><text x="325" y="387" font-family="Noto Sans JP" font-size="10" fill="#555">強（主導系統）</text>
+<text x="500" y="387" font-family="Noto Sans JP" font-size="10" fill="#6B6B6B" font-style="italic">出典: PHAI-DB phase_systems_contribution</text>
+</svg>
+<figcaption style="font-family:var(--font);font-size:0.78rem;color:#6B6B6B;margin-top:12px;text-align:center;">図N2: 8系統×Phase A-Gの貢献度ヒートマップ。FM/SIM/RL/HWが Phase A-C を主導し、Phase D 以降は MAT/ENERGY/COG・SOC へ重心が移行する「物質と制度への着地」が読み取れる。</figcaption>
+</figure>
+
+<p>stream_bioは特殊な位置にある。Soft Robotics・Neuromorphic Chipは第二層（実装）として、Xenobot・A-Labは第三層（生命設計）として機能する。すなわちstream_bioは第二層と第三層の境界に位置し、両層をまたぐ。書籍『深い知が拓く2100年』第十一章の関係論的存在論は、まさにこの境界が物質的に揺らぐ事態を扱う。Soft RoboticsとXenobotが進展するほど、機械と生命の二項対立は物質的に破綻する。stream_bioを独立化することは、その破綻を学術DBのスキーマに正面から書き込むことに等しい。</p>
+
+<h2 class="article-h2">なぜいま3系統を独立化するのか</h2>
+
+<p class="no-indent">8系統への拡張は、単なるDBスキーマの整理ではない。それは、フィジカルAIの定義そのものを書き換える動作である。5系統モデルでは、フィジカルAIは「身体を持つAI」とほぼ同義になる。これに対し、8系統モデルでは、フィジカルAIは「物質・生命・認知が知性と統合される74年の運動」となる。前者は2025年時点のNVIDIA Jensen Huang流の定義に近く、後者は2070年「生命系製造期」を視野に入れた書籍系の定義である。本書は後者を採る。</p>
+
+<p>3系統独立化の根拠は、それぞれ次の通りである。stream_bioについては、Xenobot/Anthrobot/A-Lab/AlphaFold 3 の臨界事象群が2020-2024年に並んで起き、生命と機械の境界が物質的に動き始めた。stream_matについては、GNoME × A-Lab の正のフィードバック、固体電池量産化、核融合複数機並走、データセンター電力需要倍増という4つの事象が、AIとエネルギーの相互依存を構造的事実にした。stream_cogについては、Active Inference の産業実装（VERSES AI Genius 2024）、Neuralink Phase I、World Models のロボット標準層化が、認知科学が抽象哲学から実装規格へと移行する転換点を示した。三系統とも、2020年代前半に独立化を正当化する事象群が立ち上がっている。</p>
+
+<p>3系統を独立化することの実務的含意は、Phase B（2030-2040）以降のロードマップが質的に変わる、ということである。5系統だけで2040-2100を語ろうとすると、たとえばXenobotやA-Labの動向は「stream_simの拡張」「stream_hwの素材革新」として処理されてしまう。これは2070年生命系製造期や2100年知性のオーケストラを正しく描けない。8系統への拡張は、フィジカルAIの長期軌道を解像度高く読むための解析装置である。</p>
+
+<h2 class="article-h2">8系統オーケストラの先取り</h2>
+
+<p class="no-indent">第2部以降で詳述する7フェーズロードマップを、ここで8系統の言葉で先取りしておく。Phase A（2026-2030 VLA基盤定着期）は、stream_fmとstream_hwの合流が完成期に入り、stream_ctrlとstream_simが共通スタックを固める段階である。stream_matの全固体電池量産とSMR商用初号機がここで起き、フィジカルAI普及の物理基盤が整う。stream_bioは神経模倣エッジAIで普及層に入り、stream_cogはWorld Modelsが標準層に上がる。Phase B（2030-2040 物理操作汎化期）でVLAがクロスエンボディメント転移を完成、非構造環境50%タスクで人間並みに到達する。Phase C（2040-2050 人間-機械並走期）で汎用AGIが形式的厳密な意味で到達、Cognitive Stackが産業標準として確立する。</p>
+
+<p>Phase D（2050-2060 自律物理エージェント期）で AIエージェントが組織を持ち、目標設定から実行までを一貫して自律で行う段階に入る。stream_bioでは合成生物・人工臓器のAI設計が一般化、Bio-Hybrid Robotが日用品レベルで使用され、修理ではなく「再生」される製品系統が立ち上がる。Phase E（2060-2075 知性のオーケストラ生成期）で書籍中心命題が現実化を始め、stream_bioの「生命系製造期」が到来する。Phase F（2075-2090 ポスト人間中心物理エコシステム期）で フィジカルAI は「個別機械」から「分散身体」へ転換、ロボットという概念が消え、物理操作能力が環境・建物・道具・身体に分散的に埋め込まれる（ambient embodiment）。そして Phase G（2090-2100 関係論的物理生態系期）で、フィジカルAIは他のAI形態（大規模言語モデル（LLM）・生体AI・量子AI・分散AI）と境界が溶解した状態に到達する。</p>
+
+<p>この長い軌道で見ると、8系統への拡張は、5系統モデルが扱えなかった「合流の先」を解像度高く描くための装置だとわかる。2026年の合流地点はゴールではなく出発点である。74年のロードマップの最後で待っているのは、合流の先の発散 ── 多様な知性が並列に存在する状態 ── である。8系統は、その発散を地図として持ち歩くための分節装置である。</p>
+
+<div class="finding-box">
+<p><strong>DB Evidence ── 8系統独立化を支える事象群</strong></p>
+<p>① <strong>stream_bio</strong>: Xenobot（Kriegman, Blackiston, Levin, Bongard, PNAS 117(4):1853, 2020）／Anthrobot（Gumuskaya et al., Advanced Science 10(34), 2023）／A-Lab（Szymanski, Ceder et al., Nature 624:86, 2023, 17日間で41種新規無機材料合成）／Coscientist（Boiko et al., Nature 624:570, 2023, GPT-4ベース化学合成）／AlphaFold 3（Abramson et al., Nature 630:493, 2024）／Insilico Medicine Rentosertib（Nature Biotechnology 42:1099, 2024, フェーズII到達）。② <strong>stream_mat</strong>: GNoME（Merchant et al., Nature 624:80, 2023, 220万件候補・38万件DFT安定）／Toyota 全固体BEV（2023年6月公式宣言, 航続1200km/充電10分以下）／Microsoft Three Mile Island PPA（2024年9月, 20年契約）／日本：菅野了次（東工大、リチウムイオン超イオン伝導体）。③ <strong>stream_cog</strong>: Friston Free-Energy Principle（Nature Reviews Neuroscience 11:127, 2010）／浅田稔 認知発達ロボティクス（IEEE Trans. on Autonomous Mental Development 1(1):12-34, 2009）／Neuralink N1 1024電極移植（2024年1月, Noland Arbaugh）／Synchron Stentrode FDA試験（2022-）／谷淳 予測符号化型RNN（理研BSI）／乾敏郎 Active Inference 日本側受容（京都大学）。④ <strong>FTT-DB v2.0</strong>: NEUROMORPHIC 1,022論文／BRAIN_CI 4,079論文（TRL 4-5）／CYBER_PHYS 893論文（TRL 7）。</p>
+</div>
+
+</section>
+
+<!-- W1 終了。続く Ch4 以降は別ファイル chapter_w2.html 以降で扱う -->

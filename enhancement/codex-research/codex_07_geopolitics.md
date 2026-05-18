@@ -1,0 +1,104 @@
+# Physical AI / ヒューマノイドロボティクス地政学：米中欧日政策比較 2024-2026
+
+調査日: 2026年5月18日  
+対象: Physical AI 2100 textbook / NPO Miratuku / esse-sense
+
+## 1. Physical AI 地政学の全体像
+
+Physical AI、すなわち物理世界で知覚・判断・行動するAIは、2024年以降、単なるロボット工学や産業自動化の延長ではなく、各国の産業政策、軍事政策、AI規制、半導体政策、重要鉱物政策を束ねる戦略領域になった。生成AIが言語・画像・コードの知的作業を対象にしたのに対し、Physical AIは工場、物流、介護、建設、防衛、農業、宇宙、災害対応といった現場の労働供給と安全保障に直接接続する。このため米国はCHIPS and Science Actと国防調達、欧州はAI ActとHorizon Europe、日本はムーンショット・SIP・AIロボティクス戦略、中国は「具身智能」と人形机器人政策を通じて、AIの身体化を国家競争力の問題として扱い始めている。
+
+第一の変化は産業政策化である。従来のロボット政策は、産業用ロボット、協働ロボット、サービスロボット、介護ロボットなどに分かれていた。しかし2024-2026年の政策言説では、基盤モデル、シミュレーション、センサー、アクチュエータ、半導体、データセンター、標準化、社会実装ロードマップが一体化している。米国のCHIPS for Americaは半導体製造・R&Dに500億ドル規模を投じ、NISTはうち390億ドルを製造インセンティブ、110億ドルをR&Dに充てる枠組みとして説明している（https://www.nist.gov/chips）。Physical AIは大量のエッジ推論、ロボット用SoC、電力半導体、センサー、モーター制御を必要とするため、半導体政策はロボット政策の前提条件になった。
+
+第二の変化は軍事化である。米国防総省のReplicator initiativeは、2023年8月に開始され、第一弾で全領域・消耗可能・自律システムを18-24か月で数千規模配備する構想として説明された（https://www.diu.mil/replicator）。これはヒューマノイドそのものではないが、低コスト自律機、群制御、現場でのAI判断、量産型ロボット兵器というPhysical AIの軍事応用を先取りする。DARPAのRACER、OFFSET、ANSRなども、無人地上車、群ロボット、信頼可能AIを軍事環境で検証するプログラムであり、民生ロボットの知覚・行動技術と境界を共有する（https://www.darpa.mil/program/assured-neuro-symbolic-learning-and-reasoning）。
+
+第三の変化は標準化競争である。EU AI Actは2024年に成立し、AIシステムをリスク別に規制する世界初の包括的AI法制として位置づけられた（https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai）。ロボットは機械指令、製品安全、医療機器、労働安全、サイバーセキュリティと重なるため、AI Actの高リスクAI要件は、欧州市場に入るロボットの設計仕様に影響する。一方、中国はMIITの「人形机器人创新发展指导意见」で2025年までの技術体系確立、2027年までの産業生態系構築を掲げ、標準体系・検査検証・安全治理を支援能力として明記した（https://www.miit.gov.cn/jgsj/kjs/wjfb/art/2023/art_50316f76a9b1454b898c7bb2a5846b79.html）。標準化は輸出市場の支配、保険、認証、公共調達の条件になる。
+
+第四の変化はサプライチェーン化である。Physical AIはGPUだけでは動かない。ロボットにはレアアース磁石、銅、リチウム、ニッケル、コバルト、グラファイト、ガリウム、ゲルマニウム、SiC、GaN、精密減速機、サーボモーター、LiDAR、カメラ、バッテリーが必要である。IEAは2024年の重要鉱物見通しで、銅・リチウム・ニッケル・コバルト・グラファイト・レアアースの供給集中と政策リスクを分析している（https://www.iea.org/reports/global-critical-minerals-outlook-2024）。米国USGSも2025年版重要鉱物リストで供給途絶リスクを再評価している（https://www.usgs.gov/programs/mineral-resources-program/science/about-2025-list-critical-minerals）。Physical AIの地政学は、ソフトウェア覇権だけでなく、鉱山、精錬、磁石、パワー半導体、ロボット部品、標準、軍事調達の競争である。
+
+## 2. 米国: 政策・予算・主要プログラム詳細
+
+米国のPhysical AI政策は、明示的な「ヒューマノイド国家戦略」よりも、半導体、AI、ロボティクス研究、国防調達、製造業回帰の複合体として進む。基盤はCHIPS and Science Actである。2022年法は半導体製造補助、R&D、労働力育成を通じて米国内の計算基盤と製造能力を回復する政策で、NISTのCHIPS for Americaは商務省に500億ドルを与え、390億ドルを施設・設備投資インセンティブ、110億ドルをR&Dエコシステムに投じると説明する（https://www.nist.gov/chips）。2024年にはNatcastが運営するNational Semiconductor Technology Centerのロードマップが発表され、研究、試作、スケールアップ、投資ファンドを組み合わせる構想が示された（https://www.nist.gov/system/files/documents/2024/05/24/NSTC%20Roadmap_FINAL.pdf）。2025年にはCHIPS関連の個別案件が続き、米国はAI・ロボット用計算基盤を国内に置く方向を強めた。
+
+National Robotics Initiative 3.0は、NSFを中心に、ロボット統合の基礎研究を支援する枠組みである。NSFのNRI-3.0公募は、統合ロボットシステム、共同ロボット、人間との相互作用、実環境での利用可能性を重視し、NSF、DOT、NASA、NIH、NIOSH、USDAなど複数機関の関与を示している（https://www.nsf.gov/funding/opportunities/nri-30-national-robotics-initiative-30-innovations-integration/503641/nsf21-559/solicitation）。これは商用ヒューマノイド量産政策ではないが、Physical AIに必要な人間・環境・機械の統合研究を長期的に育てる役割を持つ。
+
+軍事面ではReplicatorが決定的である。Defense Innovation UnitはReplicatorを、特定の作戦課題に対して革新的能力を速度と規模で戦闘員へ届ける国防総省の取り組みと説明し、第一弾Replicator 1はADA2、すなわちall-domain attritable autonomous systemsを2025年8月までに複数千規模で届ける目標を掲げた（https://www.diu.mil/replicator）。国防総省も2024年に第一弾能力の選定を発表し、Switchblade-600など既存の無人システムを含めた加速配備を示した（https://www.defense.gov/News/Releases/Release/Article/3765644/deputy-secretary-of-defense-hicks-announces-first-tranche-of-replicator-capabil/）。これは、ロボットの価値が高性能単品から、低コスト、可損耗、量産、群運用、現場アップデートに移ることを示す。
+
+DARPAは、Physical AIの軍事的技術要素を前倒しで検証してきた。RACERは未舗装・複雑地形での高速無人地上車自律走行、OFFSETは都市環境での小型無人機群、ANSRは自律システムに信頼可能なニューロシンボリック学習・推論を導入するプログラムである（ANSR公式: https://www.darpa.mil/program/assured-neuro-symbolic-learning-and-reasoning）。ヒューマノイドが軍事現場で即座に主役になるとは限らないが、DARPA系プログラムは、移動、群制御、状況理解、信頼性、説明可能性というPhysical AI共通課題を軍事予算で押し上げる。
+
+AIガバナンスは2024-2025で大きく振れた。バイデン政権は2023年10月30日に「Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence」大統領令を出し、安全性、国家安全保障、連邦調達、AI利用指針を広範に扱った。2025年1月、トランプ政権はこれを撤回し、AIリーダーシップ強化と規制緩和を掲げる大統領令を出した（https://www.whitehouse.gov/fact-sheets/2025/01/fact-sheet-president-donald-j-trump-takes-action-to-enhance-americas-ai-leadership/）。Physical AIにとって、この転換は安全性評価よりも商用化・防衛・製造の速度を優先する方向への政治シグナルである。
+
+製造業基盤ではManufacturing USAのARM InstituteとMxDが重要である。ARMはAdvanced Robotics for Manufacturingとして、米国製造業にロボット導入を進める官民ネットワークであり、MxDはデジタル製造・サイバーセキュリティの拠点として、AI、ロボティクス、AR/VR、デジタルツイン、5Gを工場床で実験・訓練する場を持つ（https://www.mxdusa.org/our-story/）。米国モデルの特徴は、NSFが基礎研究、DARPA・DoDが極限環境と軍事実装、CHIPSが半導体基盤、Manufacturing USAが工場実装を担う分散型アーキテクチャにある。
+
+## 3. 中国: 「具身智能」を中心とした産業政策の構造
+
+中国のPhysical AI政策は、「具身智能」と「人形机器人」を結節点として、AI大模型、製造業、地方産業集積、標準化を一体化している。中核文書は2021年末の「十四五」机器人产业发展规划と、2023年10月のMIIT「人形机器人创新发展指导意见」である。「十四五」ロボット計画は、2025年に中国を世界のロボット技術革新の策源地、高端製造集積地、統合応用新高地にすることを掲げ、2035年にはロボット産業の総合力を国際先進水準にするとした（https://www.gov.cn/zhengce/zhengceku/2021-12/28/5664988/files/7cee5d915efa463ab9e7be82228759fb.pdf）。
+
+2023年の人形机器人指導意見は、Physical AI政策として最も明示的である。MIITは2025年までに人形ロボットのイノベーション体系を初歩的に構築し、「大脑」「小脑」「肢体」などの主要技術で突破を得ること、2-3社の世界的影響力を持つエコシステム型企業、複数の専精特新企業、2-3の産業集積区を育てることを掲げた。2027年には技術革新能力を顕著に高め、国際競争力ある産業生態を形成するとする（https://www.miit.gov.cn/zwgk/zcjd/art/2023/art_e3f5686c2f0d49f9968b7ae011d558e1.html）。この文書の構造は、AI大模型をロボットの「脳」、運動制御を「小脳」、アクチュエータ・手足を「肢体」として分解し、国家が技術スタックを整理している点に特徴がある。
+
+ユーザー指定の「具身智能白書2025」については、調査時点でMIIT公式サイト上にその exact title の白書本文URLは確認できなかった。ただしMIITは2025年3月に「三问具身智能」を掲載し、具身智能を物理的身体を持つ知能体が知覚・決策・交互能力で現実世界の任務を実行し学習進化するものとして扱い、2025年に未来産業イノベーション任務で具身智能、量子、バイオ製造等の政策を出す方針に触れている（https://www.miit.gov.cn/xwfb/mtbd/twbd/art/2025/art_e183ac0452d448b2ba554ca1e706b790.html）。また2025年には北京人形机器人创新中心の「慧思开物」具身智能プラットフォームがMIIT系媒体で紹介され、「一脑多能」「一脑多机」を掲げた（https://www.miit-eidc.org.cn/art/2025/3/14/art_1610_11298.html）。したがって中国の2025年政策軸は、白書単体というより、MIIT指導意見、未来産業政策、地方センター、標準化委員会の束として読むべきである。
+
+地方拠点では、北京人形机器人创新中心と上海の国家地方共建型センターが重要である。北京は汎用具身知能プラットフォームとオープンな公版機を進め、上海はAI大模型、スマート製造、ロボット本体企業、サプライチェーンを結びつける。中国の強みは、政策文書の目標が地方政府補助、産業園、展示会、公共調達、量産企業に直結しやすい点である。ユーザー指定企業では、UBTECHが2023年12月に香港取引所メインボード上場を行い、同社自身が「HKEX Main Boardに上場した初のヒューマノイドロボット企業」と発表した（https://www.ubtrobot.com/en/about/news/498762019606597）。Unitreeは2024年にG1を発表し、比較的低価格な研究・教育・開発用ヒューマノイドとして世界市場に露出した（https://www.unitree.com/en/mobile/g1）。XPENGはAI Tech TreeでEV、飛行車、ヒューマノイドを一体の具身知能エコシステムとして説明し、2024-2025年にロボットIRONを披露した（https://www.nasdaq.com/press-release/xpeng-unveils-ai-tech-tree-strategy-upgrade-reshape-future-mobility-launches-2025）。FourierはGR-1、GR-2系でリハビリ・汎用ヒューマノイドを展開する。
+
+中国モデルは、Made in China 2025から2035年長期目標へ続く製造強国路線の中で、具身智能をAI大模型の次の実体化段階として位置づける。15次五カ年計画、すなわち2026-2030の正式綱要は本稿作成時点では策定過程にあるが、2025年のMIIT発信と地方政策を見る限り、具身智能、人形机器人、AIチップ、工業ソフトウェア、標準体系は「未来産業」枠で継続拡大される可能性が高い。
+
+## 4. EU: 規制と投資の二軸
+
+EUのPhysical AI政策は、米中のような単一の産業総動員ではなく、規制による市場形成と、Horizon Europeによる研究投資の二軸で動く。EU AI Actは2024年に成立し、2024年8月1日に発効した。欧州委員会はAI Actを世界初の包括的AI法制と説明し、許容できないリスク、高リスク、限定リスク、最小リスクのリスクベース枠組みを導入した（https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai）。ロボットは人間の身体に近接し、医療、介護、工場、公共空間、交通、警備に関わるため、AI Act、機械規則、製品安全、データ保護の交差点に置かれる。
+
+Horizon Europeは2021-2027年の研究・イノベーション枠組みで、総額約955億ユーロのEU旗艦プログラムである（https://transport.ec.europa.eu/horizon-europe_en）。2025年には「Robust and trustworthy Generative AI for Robotics and industrial automation」というトピックが出され、AI/Data/Robotics PartnershipとMade in Europe Partnershipの連携で、ロボティクスと産業自動化に信頼可能な生成AIを入れる研究が対象になった。フランスのHorizon Europe情報サイトはこのトピックの予算を8500万ユーロと示している（https://www.horizon-europe.gouv.fr/robust-and-trustworthy-generativeai-robotics-and-industrial-automation-ria-aidatarobotics-made）。
+
+SPARCはHorizon 2020期の欧州ロボティクス官民パートナーシップで、euRoboticsと欧州委員会が産業・研究コミュニティを束ねる役割を果たした。Horizon EuropeではAI, Data and Robotics Association、欧州AI Office、Made in Europeなどに機能が分散し、ロボティクスはAI、データ、製造、サイバーセキュリティ、標準化の中に組み込まれている。EUモデルの強みは、研究助成と規制適合を同時に設計することで、世界市場に対して「安全・信頼可能・人間中心」の認証プレミアムを作る点である。
+
+ドイツはARENA2036とAI・製造業政策が中心である。ARENA2036はシュトゥットガルトを拠点とする産学連携の研究キャンパスで、柔軟な自動車生産、軽量材料、デジタルプロトタイプ、人とロボットの新しい協働を扱う（https://www.isw.uni-stuttgart.de/forschung/projekte/arena2036/）。2026年のドイツ高技術政策ではAIロボティクス・ブースターやテスト・訓練センターの方向が示されており、製造業の現場で多目的ロボットを検証する路線が強まっている（https://digital-skills-jobs.europa.eu/en/initiatives/national-strategies/germany-high-tech-agenda）。
+
+フランスは2018年のAI for Humanityを起点に、France 2030とAI戦略を重ねている。仏経済省は2025年2月に国家AI戦略の第3段階を説明し、France 2030から約25億ユーロがAIに充てられると示した（https://www.economie.gouv.fr/actualites/strategie-nationale-intelligence-artificielle）。フランス高等教育研究省も、2025年のAI Action Summit後に1090億ユーロ規模のAI投資発表に触れている（https://www.enseignementsup-recherche.gouv.fr/fr/la-strategie-francaise-en-intelligence-artificielle-49166）。ただしフランスの焦点は、基盤モデル、計算基盤、研究者、応用産業であり、ヒューマノイド単独政策は中国ほど明示的ではない。
+
+## 5. 日本: ムーンショットとロボット白書を軸にした詳細
+
+日本のPhysical AI政策は、産業用ロボットでの歴史的優位、少子高齢化による労働供給制約、介護・建設・農業・物流の現場課題、AI基盤モデル競争への遅れを同時に抱える。2024-2026年の日本政策を読む鍵は、経産省ロボット政策、NEDO、ムーンショット、SIP、統合イノベーション戦略2025、AIST、産業競争力強化法・情報処理法制の接続である。
+
+経済産業省はロボット政策ページで、2026年3月に「AIロボティクスの社会実装に向けた政府の方向性」を取りまとめたと示し、AIロボティクス戦略本文へのリンクを置いている（https://www.meti.go.jp/policy/mono_info_service/mono/robot/?vm=r）。さらにAIロボティクス戦略検討会議を設置し、2026年1月から検討資料を公開している（https://www.meti.go.jp/shingikai/mono_info_service/ai_robotics_strategy/index.html）。これは2024年までの「ロボット導入支援」から、AI基盤、データ、計算資源、現場実装、制度整備を統合する政策への転換を示す。
+
+ムーンショットは日本のPhysical AIを長期社会像に結びつける。内閣府のムーンショット目標1は「2050年までに、人が身体、脳、空間、時間の制約から解放された社会」を掲げ、サイバネティック・アバターを、身代わりロボットや3D映像だけでなく、人の身体的能力、認知能力、知覚能力を拡張するICT・ロボット技術を含む概念として定義している（https://www8.cao.go.jp/cstp/moonshot/sub1.html）。これはヒューマノイドの量産よりも、人間拡張、遠隔操作、多体アバター、身体能力の民主化に重心を置く。
+
+ムーンショット目標3は「2050年までに、AIとロボットの共進化により、自ら学習・行動し人と共生するロボットを実現」と定義されている（https://www8.cao.go.jp/cstp/moonshot/target.html）。この目標はPhysical AIそのものであり、AIがロボットの中で環境と相互作用し、自律的に学習・行動する社会を想定する。ただし日本のムーンショットは研究開発色が強く、米国のReplicatorや中国の人形机器人指导意见のような短期量産目標とは性質が異なる。長期ビジョンを持つ一方で、2026-2030の産業競争には、研究成果を実装・調達・標準化へ移す中間機構が必要である。
+
+SIPはその中間機構になり得る。内閣府の戦略的イノベーション創造プログラムはCSTIが司令塔となり、社会課題と産業競争力に重要な課題をトップダウンで選定する制度である（https://www8.cao.go.jp/cstp/gaiyo/sip/）。NEDOのSIPポータルも、第3期SIPではSociety 5.0の実現に向け、内閣府CSTIが課題とPD、予算配分を決定すると説明する（https://www.nedo.go.jp/activities/ZZJP2_100072.html）。ロボット単独ではないが、AI、ヘルスケア、材料、エネルギー、スマートインフラ、モビリティの各課題にPhysical AIが横断的に入る。
+
+統合イノベーション戦略2025は、日本の2025年時点の政策統合文書である。内閣府は同戦略について、第6期科学技術・イノベーション基本計画の総仕上げとして、先端科学技術、研究力・人材、イノベーション・エコシステムを加速すると説明している（https://www8.cao.go.jp/cstp/tougosenryaku/2025.html）。本文ではAI技術、基盤モデル、AIロボット、Beyond 5G、経済安全保障との連携が扱われ、特にAIロボットについて官民で研究開発・実装を進める方向が示されている（https://www8.cao.go.jp/cstp/tougosenryaku/togo2025_honbun.pdf）。日本にとって重要なのは、ロボットを単なる機械産業ではなく、AI、通信、半導体、標準、データ流通と統合することである。
+
+AISTは、研究インフラとして重要である。産総研のIntelligent Systems Research Instituteは、ロボティクスとAI技術で日本の課題を解く研究組織として、知能システム、ロボット、実世界AIを扱う（https://unit.aist.go.jp/isri/index_en.html）。またDigital Architecture Research Centerは、個人・デバイス・工場などから生じる多様なデータを連携させ、AIを用いてサイバー空間とフィジカル空間を高度に統合することを掲げる（https://www.digiarc.aist.go.jp/en/）。AISTの役割は、企業単体では担いにくい評価基盤、品質管理、標準、データ連携、現場実証にある。
+
+法制度・投資では、2025年に情報処理の促進に関する法律等の改正が成立し、生成AIの計算需要に対応するため、半導体・データセンター等のハードウェアと生成AI等のソフトウェアを連携させるエコシステム構築、デジタル人材育成、AI・半導体施策に必要な財源確保が説明されている（https://www.meti.go.jp/policy/mono_info_service/joho/laws/josokuho.html）。Physical AIは、現場ロボットの国内実装だけでなく、Rapidus等を含む半導体政策、AI基盤モデル、データセンター、エッジ計算に依存する。したがって日本の競争力は、ファナック、安川電機、川崎重工、三菱電機、オムロン、THK、ナブテスコ等の産業用ロボット・部品の蓄積を、基盤モデル時代の具身知能に接続できるかにかかる。
+
+日本の弱点は、ヒューマノイド分野での量産ストーリーが中国や米国スタートアップほど見えにくいこと、公共調達と規制サンドボックスの速度が遅いこと、介護・建設・農業などの現場が小規模分散で、ロボット導入の標準化が難しいことである。一方で強みは、精密部品、減速機、サーボ、産業用ロボット、品質管理、製造現場、介護・災害対応の社会課題、AIST・NEDO・SIPの実証基盤である。2026-2030に必要なのは、ムーンショットの長期研究を、AIロボティクス戦略の実装ロードマップ、公共調達、保険・安全基準、データ共有基盤、部品サプライチェーンに接続することである。
+
+## 6. その他: 韓国、インド、UK、UAE、サウジNEOM
+
+韓国は2025年4月10日にK-Humanoid Allianceを立ち上げた。ユーザー指定では2024とあるが、公式・準公式情報で確認できる発足日は2025年4月である。Korea.netは、同アライアンスが2030年までに韓国をヒューマノイドロボットのグローバル強国にするため、政府支援の下でAI研究者、KAIST、大学、企業を集めるものと説明している（https://www.korea.net/NewsFocus/Sci-Tech/view?articleId=269677）。韓国メディアによれば投資規模は2030年までに1兆ウォン超とされる（https://french.korea.net/NewsFocus/Sci-Tech/view?articleId=269682）。Samsungは2024年末にRainbow Roboticsへの出資比率を35%へ高め、最大株主になると発表した（https://news.samsung.com/sg/samsung-electronics-to-become-largest-shareholder-in-rainbow-robotics-accelerating-future-robot-development）。韓国モデルは、半導体、家電、自動車、バッテリー、大企業製造力をヒューマノイドに接続する点にある。
+
+インドはNational Mission on Roboticsを掲げるが、2026年5月時点ではドラフト戦略とAI・半導体政策の接続段階である。MeitYのDraft National Strategy on Roboticsは、製造、農業、医療、国家安全保障を重点分野とし、National Robotics Missionとして実装する二層制度を提案している（https://www.meity.gov.in/static/uploads/2024/02/Draft-National-Strategy-Robotics.pdf）。PIBも、同戦略がインドを世界のRobotics Hubにすることを目指すと説明した（https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1967486）。加えてIndiaAI Missionは2024年に1兆371.92億ルピー、約10,372 croreルピーの予算で承認され、計算資源、データ、AIスタートアップ、人材を支える（https://www.pib.gov.in/PressReleasePage.aspx?PRID=2222877）。インドはソフトウェア人材と宇宙・防衛・農業需要を持つが、ロボット部品と製造サプライチェーン構築が課題である。
+
+UKは2025年2月にSmart Machines 2035 Strategyを公表し、ロボティクスとスマートマシンで世界的リーダーになるロードマップを示した（https://www.gov.uk/government/publications/smart-machines-strategy-2035）。英国はDeepMind、大学研究、AI安全、ロボティクス研究で強みを持つ一方、量産製造基盤は米中独日韓ほど厚くない。したがってUKの役割は、基盤モデル、AI安全、研究用ロボット、科学自動化、規制・標準に寄る。
+
+UAEは国家AI戦略2031を背景に、Abu DhabiのTII、ATRC、MBZUAIを通じてAI・ロボティクスを国家ブランド化している。TIIは2025年にヒューマノイドロボティクスと具身AIへの取り組みを発信し（https://www.tii.ae/insights/tii-leads-charge-humanoid-robotics-power-uaes-ai-driven-future）、ATRCはTIIとNVIDIAが中東初のAI & Robotics共同研究ラボを設立すると発表した（https://atrc.gov.ae/news/abu-dhabis-tii-and-nvidia-launch-middle-easts-first-joint-ai-robotics-nvaitc-research-lab）。UAEは石油・ガス、港湾、都市インフラ、公共サービスでロボット実装先を持ち、資本と政策速度が強みである。
+
+サウジアラビアではNEOMが建設ロボティクス、自動化、AIデータセンターと結びつく。NEOM Investment Fundは2024年に自動化ロボット技術への投資を発表し、建設ロボティクスで大型プロジェクトの遂行を加速すると説明した（https://www.neom.com/en-us/newsroom/neom-investment-fund-ventures-into-automated-robotic-technology）。2025年にはDataVoltとNEOMがネットゼロAIファクトリー開発で合意し、AIハブ化を掲げた（https://www.neom.com/en-us/newsroom/datavolt-signs-agreement-with-neom）。NEOMはヒューマノイド単体より、都市建設、データセンター、スマートインフラ、BCI、ロボット施工の実験場として位置づけられる。
+
+## 7. 半導体・希少金属サプライチェーン
+
+Physical AIの制約は、モデル性能だけではない。ロボットはGPUで訓練され、エッジAIチップで推論し、センサーで世界を測り、サーボで動き、バッテリーで稼働する。したがって半導体と重要鉱物は、Physical AIの地政学的ボトルネックである。米国CHIPS政策はAIチップ、先端パッケージング、電力半導体、センサーを国内に戻す試みであり、中国は成熟ノード、EVサプライチェーン、レアアース磁石、電池、低コスト部品で強い。日本、韓国、台湾、オランダ、ドイツは装置、材料、メモリ、ファウンドリ、精密部品で重要な位置を占める。
+
+IEAは重要鉱物の供給集中を大きなリスクと見る。2024年見通しでは、銅、リチウム、ニッケル、コバルト、グラファイト、レアアースなどの需要・供給と、精錬能力の集中が分析された（https://www.iea.org/reports/global-critical-minerals-outlook-2024）。ロボットでは特に、ネオジム・鉄・ボロン磁石、ジスプロシウム、テルビウム、銅、アルミ、チタン、リチウム、グラファイト、SiC、GaN、ガリウム、ゲルマニウムが重要である。米国エネルギー省は2025年にレアアース磁石、ガリウム、GaN、ゲルマニウム、SiC、リチウム抽出などを含む重要鉱物・材料供給網強化策を発表した（https://www.energy.gov/articles/energy-department-announces-actions-secure-american-critical-minerals-and-materials-supply）。
+
+サプライチェーンの争点は三つある。第一に、AI計算基盤である。ヒューマノイドを大量に学習・シミュレーションするにはGPUクラスタ、ロボットデータ、シミュレーターが必要で、米国のNVIDIAエコシステムと中国の国産AIチップ政策が競合する。第二に、ロボット部品である。高トルク密度アクチュエータ、精密減速機、軽量材料、バッテリー、安全センサーは、実機性能とコストを決める。第三に、輸出管理である。AIチップ、半導体製造装置、レアアース、先端センサー、軍民両用品は、米中対立の中で規制対象になりやすい。Physical AIは、ソフトウェアの国際展開よりも、部品の輸出管理に強く影響される。
+
+## 8. 2026-2030 outlook
+
+2026-2030年のPhysical AI地政学は、第一に「ヒューマノイドの現実化」と「過大期待の選別」が同時に進む。中国は政策、地方政府、企業群、低コスト部品を背景に、教育・研究・展示・軽作業向けの量産を早めるだろう。米国はFigure AI、Tesla、Agility Robotics、Apptronik、Sanctuary AIなど民間主導で進み、国防・物流・工場での導入が加速する。日本は産業用ロボットと部品の強みを持つが、汎用ヒューマノイドの物語では後手に回る可能性があり、AIロボティクス戦略の実装速度が鍵になる。
+
+第二に、規制と標準が市場アクセスを左右する。EU AI Actの高リスクAI要件、機械安全、サイバーセキュリティ、データガバナンスは、欧州市場へ入るPhysical AI製品の必須条件になる。中国は国家標準・業界標準を通じて国内巨大市場の仕様を固め、米国はNIST、DoD、商用デファクト標準で競争する。日本はISO/IEC、IEC、JIS、産業安全、介護・医療・労働安全の標準化で影響力を持てる余地がある。
+
+第三に、軍事・民生の境界は曖昧になる。Replicator型の低コスト自律システムは、ロボット本体、AI制御、群運用、センサー、エッジコンピュートを民生技術から吸い上げる。逆に、ウクライナ戦争で進んだドローン・UGV・自律航法の経験は、倉庫、建設、農業、災害対応に戻る。ヒューマノイドが兵士になるかどうかよりも、Physical AIの軍事調達が部品価格、量産能力、信頼性評価を押し下げる効果が重要である。
+
+第四に、2030年までの勝者は「最高性能のロボット」を持つ国ではなく、「学習データ、シミュレーション、部品、量産、規制適合、現場導入、保守」を一気通貫で回せる国・企業になる。米国はAIモデルと資本、中国は量産と政策動員、EUは規制市場と研究、日本は精密製造と社会課題、韓国は半導体・家電・大企業製造、インドは人材と大規模需要、UAE・サウジは資本と実証都市で競争する。Physical AIは21世紀後半の労働、軍事、都市、介護、製造のインフラになるため、2026-2030年はその制度とサプライチェーンを誰が握るかを決める移行期である。

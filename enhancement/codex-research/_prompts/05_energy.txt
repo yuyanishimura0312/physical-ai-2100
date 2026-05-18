@@ -1,0 +1,34 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Embodied AI energy constraints — comparing GPU/AI training power vs the 20W human brain, battery density limits for humanoids, and neuromorphic chip alternatives, 2024-2026.
+
+SCOPE (must cover all):
+- GPU energy: H100 (700W), B200 (1000W), GB200 NVL72 (132 kW per rack)
+- LLM training energy: GPT-4, Llama 3.1 405B, Gemini Ultra の推定消費電力・水使用量
+- Inference energy: ChatGPT 1 query ≈ X Wh の最新推定値（IEA 2024/2025 報告書）
+- Human brain: 20W baseline, ~10^15 synaptic operations/sec の効率
+- Battery density limits for humanoid: Li-ion 250-300 Wh/kg, Tesla Optimus 2.3 kWh, Figure 02 battery spec, solid-state 2025-2030 ロードマップ
+- Neuromorphic chip:
+  - Intel Loihi 2 (2021) / Loihi 3 (2025 期待)
+  - IBM NorthPole (2023-10 Science paper)
+  - BrainChip Akida 2.0
+  - SpiNNaker 2 (Manchester)
+  - BrainScaleS-3 (Heidelberg, Human Brain Project successor)
+  - Innatera, GrAI Matter Labs
+- Japan: 東大 Ishiwara 研究, NICT 脳型 chip, NEC Brain-inspired computing, AIST
+- Photonic / analog computing alternatives (Lightmatter, Mythic, Untether AI)
+
+DELIVERABLE: Markdown report ≥ 3,000 words 地の文, structured:
+1. エネルギー制約の全体像 (4 paragraphs: なぜ重要・現状の数値・物理限界・経済限界)
+2. AI training/inference power consumption 一次データ（数値必須、source URL付き）
+3. Humanoid battery 制約: each company 公開 spec + 実稼働時間
+4. Neuromorphic chip catalog (15 entries): chip / manufacturer / year / TOPS/W / 用途・実機デモ
+5. 物理限界 vs 経済限界の対比
+6. 日本機関のニューロモーフィック研究（必須）
+7. 2026-2030 outlook
+
+CITATIONS: IEA reports / 論文 / spec sheet / company blog URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.

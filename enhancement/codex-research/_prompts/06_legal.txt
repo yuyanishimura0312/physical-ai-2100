@@ -1,0 +1,31 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: AI Personhood and embodied AI legal frameworks, 2024-2026.
+
+SCOPE (must cover all):
+- EU AI Act (2024-08 entry into force, 2025-2026 段階適用): high-risk AI category, physical AI implications
+- 米国: NIST AI Risk Management Framework (AI RMF 1.0, 2023; AI 600-1 GenAI Profile 2024-07), California SB 1047 (2024 vetoed), Texas TRAIGA (2025)
+- 国連: Resolution A/78/L.49 (2024-03), AI Advisory Body Final Report (2024-09), Pact for the Future (2024-09)
+- 日本: AI戦略会議, AI事業者ガイドライン (2024-04経済産業省+総務省), 広島 AI プロセス (G7 2023→2024 継続), 自由民主党 AI 推進法案 / AI ホワイトペーパー (2025), 内閣府 AI 制度研究会
+- AI Personhood 議論:
+  - EU Parliament 2017 「electronic personhood」提案の現在
+  - Sophia (Hanson Robotics) Saudi Arabia citizenship 2017 の法的位置付け
+  - 2024-2026 academic & policy debates: Stanford HAI, Oxford Internet Institute, AI Now Institute
+- 身体性AI固有: liability for autonomous physical agent harm (humanoid robot accident), 製造物責任法との接続
+- Tort law / product liability の最新判例
+- Asilomar Principles → EU AI Act → 2025 Bletchley Park follow-up
+
+DELIVERABLE: Markdown report ≥ 3,000 words 地の文, structured:
+1. AI規制の現状マップ (3 paragraphs)
+2. EU AI Act 詳細: 高リスクAI区分、身体性AIへの適用、罰則、施行スケジュール
+3. 米国: 連邦・州法・行政命令の比較
+4. 日本: 政府方針・法案・ガイドラインの現状（必須・詳細）
+5. AI Personhood: 学術論争・政策提案・実例
+6. 身体性AI固有の論点: 自律ロボット事故の責任、被害者救済、保険
+7. 2026-2030 規制トレンド予測
+
+CITATIONS: 公式文書URL / 法案番号 / 判例 / 論文 URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.

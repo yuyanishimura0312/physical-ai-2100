@@ -1,0 +1,170 @@
+OpenAI Codex v0.128.0 (research preview)
+--------
+workdir: /Users/nishimura+/projects/research/agent-registry-db
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/nishimura+/.codex/memories]
+reasoning effort: none
+reasoning summaries: none
+session id: 019e392a-7dbe-7ae2-84e0-4caff665b4e4
+--------
+user
+あなたは Physical AI 2100 教科書のリサーチ専門家です。以下のテーマを深堀りリサーチし、構造化された日本語のMarkdownレポートを作成してください。
+
+# テーマ1: 神経模倣コンピューティング (Neuromorphic Computing)
+
+## 必須カバー対象
+- Intel Loihi 2 / Loihi 3 (アーキテクチャ、ニューロン/シナプス数、消費電力、商用化進捗)
+- IBM NorthPole (2023発表後の進化、2025-2026動向、推論性能)
+- Heidelberg BrainScaleS-2 / BrainScaleS-3 (アナログ-デジタル混在、アクセラレーション倍率)
+- Manchester SpiNNaker 1 / SpiNNaker 2 (Dresden 2024-2025進展、Human Brain Project継承)
+- Sandia National Labs の Neuromorphic 研究
+- SNN (Spiking Neural Networks) vs ANN ベンチマーク (MLPerf, NeuroBench)
+- 2026年商用化進捗 (BrainChip Akida, SynSense, Innatera, GrAI Matter)
+- 日本機関の動向 (理研AIP, 東大五十嵐研, NEC, 産総研, NTT, OKI など必ず含める)
+- Edge AI / Physical AI 応用 (ロボット制御、センサーフュージョン、低消費電力)
+
+## 出力フォーマット
+1. # エグゼクティブサマリ (300字)
+2. ## 主要プレイヤー別技術仕様表 (Loihi/NorthPole/BrainScaleS/SpiNNaker/Sandia + 日本)
+3. ## 2025-2026 ベンチマーク結果と性能比較
+4. ## 商用化動向 (BrainChip Akida等、IPO/資金調達/採用事例)
+5. ## 日本機関の独自貢献
+6. ## Physical AI への接続 (ロボティクス応用)
+7. ## 主要論文・一次資料 (10件以上、各 source_url 必須)
+8. ## 2030年に向けた予測
+
+## 品質要件
+- 全主張に source_url を併記 (Nature, Science, IEEE, arXiv, 公式ホワイトペーパー優先)
+- 2025-2026年の最新情報を必ず含める
+- 日本機関の動向を必ず含める
+- 推測や曖昧な表現禁止、年代・数値を必ず明示
+- 8000字以上、12000字以下
+
+リサーチを開始してください。
+
+codex
+リサーチを開始します。最新動向と数値仕様が多いテーマなので、公式資料・論文・ベンチマーク資料を優先して確認し、検証できない主張は入れません。
+web search: 
+web search: Intel Loihi 2 architecture neurons synapses power commercialization 2025 Loihi 3
+web search: 
+web search: NeuroBench 2025 neuromorphic benchmark results Loihi 2 Akida SNN ANN MLPerf
+web search: 
+web search: GrAI Matter Labs neuromorphic 2025 GrAI VIP commercialization funding
+web search: 
+web search: 理研 AIP スパイキングニューラルネットワーク ニューロモーフィック 2025
+web search: 
+web search: NTT ニューロモーフィック コンピューティング リザバー 光 2025
+web search: 
+web search: https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf
+web search: 
+web search: https://research.ibm.com/blog/northpole-llm-inference-results
+web search: 
+web search: BrainScaleS-2 neuromorphic hardware neurons synapses acceleration factor specs
+web search: 
+web search: "BrainScaleS-3"
+web search: 
+web search: site:intel.com Loihi 3 neuromorphic
+web search: 
+web search: GrAI Matter Labs 2025 neuromorphic processor company acquired commercial
+web search: 
+web search: https://www.innatera.com/about-us/
+web search: 
+web search: site:riken.jp スパイキングニューラルネットワーク ロボット ラーニング AIP
+web search: 
+web search: site:u-tokyo.ac.jp 五十嵐 研究室 ニューロモーフィック
+web search: 
+web search: https://www.nedo.go.jp/news/press/AA5_101864.html
+codex
+# エグゼクティブサマリ
+
+神経模倣コンピューティングは2026年時点で「GPU代替の汎用AI基盤」ではなく、イベント駆動・低遅延・低消費電力・オンデバイス学習を要するPhysical AI向け専用基盤として実用化段階に入っている。Intel Loihi 2/Hala Point、IBM NorthPole、SpiNNaker2、BrainScaleS-2は研究・評価基盤として成熟し、BrainChip、SynSense、Innateraは商用エッジAIへ移行した。一方、Loihi 3とBrainScaleS-3は公式一次資料で仕様を確認できず、未発表扱いとする。
+
+## 主要プレイヤー別技術仕様表
+
+| プレイヤー | 2026年確認済み世代 | アーキテクチャ | 規模・仕様 | 電力・効率 | 商用化/配備状況 | source_url |
+|---|---:|---|---|---|---|---|
+| Intel | Loihi 2 / Hala Point | 非同期イベント駆動SNN、メモリ・計算近接、Lava | Hala Pointは1,152 Loihi 2、最大11.5億ニューロン、1,280億シナプス相当 | IntelはCPU/GPU比で最大100倍低エネルギー、最大50倍高速、Hala Pointで最大15 TOPS/Wを報告 | 2024年Sandiaへ配備。2026年5月時点でLoihi 3の公式仕様は未確認 | https://download.intel.com/newsroom/archive/2025/en-us-2024-04-17-intel-builds-worlds-largest-neuromorphic-system-to-enable-more-sustainable-ai.pdf |
+| IBM | NorthPole | 256コア、オンチップ分散SRAM、推論専用、非SNN寄りの脳型in-memory設計 | 12nm、220億トランジスタ、795mm²、192MB SRAM、8bitで200 TOPS超 | ResNet-50で同等12nm GPU比25倍 FPS/W、22倍低レイテンシ | 研究プロトタイプ。2024年LLM推論実験で16チップ2U構成 | https://research.ibm.com/publications/neural-inference-at-the-frontier-of-energy-space-and-time |
+| Heidelberg | BrainScaleS-2 | アナログ神経・シナプス回路 + デジタルPPU混在 | 512ニューロン、131k可塑シナプス/ASIC | 生物時間比1,000倍加速。2026年にマイク・サーボ直結のリアルタイム閉ループを実証 | EBRAINS/HBP由来の研究基盤。BrainScaleS-3は一次資料で未確認 | https://arxiv.org/abs/2602.04582 |
+| Manchester/TU Dresden | SpiNNaker 1 / SpiNNaker 2 | ARM多数コア、GALS、イベントルーティング、DVFS | SpiNNaker1は100万ARM9コア規模。SpiNNaker2は22nm FD-SOI、152 Cortex-M4F + 管理コア/チップ、19MB SRAM、2GB LPDDR4 | Sandia配備システムでGPU比18倍高効率と報告 | HBP継承。DresdenのSpiNNcloudは5百万コア/最大50億ニューロン級を構築 | https://open-neuromorphic.org/neuromorphic-computing/hardware/spinnaker-2-university-of-dresden/ |
+| Sandia NERL | Hala Point + NERL Braunfels | Loihi 2とSpiNNaker2を併用する国家研テストベッド | 2025年SpiNNaker2「NERL Braunfels」配備、1.75億ニューロン | SpiNNaker2チップをGPU比18倍効率と説明 | NNSA Advanced Simulation and Computingで物理・国防応用を探索 | https://www.sandia.gov/labnews/2025/06/12/brain-based-computing-for-nd-solutions/ |
+| 日本: 理研AIP | Physical Intelligence中心 | ロボット学習、実世界知能、数理AI | フィジカルインテリジェンスグループ、ロボットラーニングチームを運営 | ニューロモーフィックチップ自体ではなくPhysical AI側の応用研究 | 2025-2026もICML/ICLR採択多数 | https://www.riken.jp/research/labs/aip/ |
+| 日本: 東大 | 神経模倣/バイオミメティック系 | 高野研が「Neuromorphic and biomimetic systems」を掲げる | 数理情報学・生産技術研究所連携 | 神経系数理モデルが中心 | 五十嵐歩美氏は計算的社会選択であり、ニューロモーフィック担当ではない | https://www.i.u-tokyo.ac.jp/edu/course/mi/members_e.shtml |
+| 日本: NEC/東北大/アイシン | CMOS/スピントロニクスAI | MRAM統合AIアクセラレータ | 実証チップで画像認識等 | 起動からAI処理完了までのエネルギー効率50倍以上、OS起動時間1/30以下 | NEDO事業、2025年発表 | https://www.nedo.go.jp/news/press/AA5_101864.html |
+| 日本: 産総研/NTT | シリコンフォトニックNN | 電子回路を使わず光集積回路でNN演算 | Iris分類で実証 | 遅延は電子回路の1/1000未満、消費電力は数十分の一 | Nature Communications 2022、光AIアクセラレータ候補 | https://sj.jst.go.jp/news/202208/n0826-01k.html |
+| 日本: OKI | エッジAI実装 | AIエッジコンピューターAE2100、映像AI、スマート工場 | 商用エッジAI装置 | ニューロモーフィック専用チップではない | Physical AI導入先として重要 | https://www.oki.com/jp/products/category/ai.html |
+
+## 2025-2026 ベンチマーク結果と性能比較
+
+2025年の基準線はNeuroBenchである。NeuroBench v1.0は、MLPerf Inferenceのoffline/single-stream/serverの考え方を参照しつつ、ニューロモーフィックでは正解率・タイミング・電力をタスク単位で測る、と定義した。これはTOPSだけではイベント駆動SNNの価値を測れないためである。source_url: https://www.nature.com/articles/s41467-025-56739-4
+
+NeuroBenchの初期結果では、SynSense Xyloが音響シーン分類でArduino組込み系に対し、同程度の精度で動的推論電力60.9倍低、動的推論エネルギー33.4倍低を示した。Loihi 2はQUBO最適化で、10^-2秒以下の短いタイムアウトではCPUより4倍大きいワークロードで可解解を出し、CPUソルバ比37.24倍低電力だった。source_url: https://www.nature.com/articles/s41467-025-56739-4
+
+Intel Loihi 2は、ICASSP 2024の音声・映像処理結果を根拠として、Hala Point発表で「AI推論・最適化でCPU/GPU比最大100倍低エネルギー、最大50倍高速」と説明された。ただしIntel自身が「research」「results may vary」と明記しており、これは量産商用チップの一般性能ではない。source_url: https://download.intel.com/newsroom/archive/2025/en-us-2024-04-17-intel-builds-worlds-largest-neuromorphic-system-to-enable-more-sustainable-ai.pdf
+
+IBM NorthPoleはSNN専用ではないが、脳型のメモリ・計算融合として重要である。2023年Science論文ではResNet-50で12nm GPU比25倍FPS/W、5倍FPS/トランジスタ、22倍低レイテンシを報告した。2024年のIBM発表では、3BパラメータGranite由来LLMを16 NorthPoleチップの2Uサーバで動かし、1トークン1ms未満、28,356 tokens/s、低遅延GPU比72.7倍高エネルギー効率を報告した。source_url: https://research.ibm.com/blog/northpole-llm-inference-results
+
+BrainScaleS-2の2026年実験はPhysical AI接続の重要な証拠である。マイクからアナログ信号を直接注入し、SNNで音源方向を推定し、サーボを制御した。ADC/DAC変換を避け、BrainScaleS-2の1,000倍加速を用いたオンチップ閉ループである。source_url: https://arxiv.org/abs/2602.04582
+
+SpiNNaker2は2025年にSandiaで「NERL Braunfels」として配備された。Sandiaは1.75億ニューロン規模、各チップ150超の処理要素、GPU比18倍効率と説明しており、物理シミュレーション、ランダムウォーク、熱流、遠隔センシング推論を初期応用に挙げた。source_url: https://www.sandia.gov/labnews/2025/06/12/brain-based-computing-for-nd-solutions/
+
+## 商用化動向
+
+BrainChip Akidaは、2026年時点で最も商用化を明示しているニューロモーフィックIP企業である。2026年Q1報告では、EDGEAIとのAkida 2.0ライセンス契約、ForwardEdge ASIC/Lockheed Martin子会社による採用、AKD1500の2026年Q3生産可用性、初回約70,000ユニット、AKD2500の12nm TSMC実装計画を開示した。source_url: https://announcements.asx.com.au/asxpdf/20260424/pdf/06ytg6cfvrv13j.pdf
+
+BrainChipは2026年2月13日にAKD2500を正式開始し、総予算US$2.5M、TSMC 12nm、MPWによる機能検証、2026年Q3プロトタイプ見込みを公表した。これは「量産済み」ではなく、Akida 2.0 IPを現代的プロセスで評価可能にする段階である。source_url: https://www.otcmarkets.com/news-otcapi/news/document/content/id?id=88600
+
+Innateraは、2024年にSpiking Neural Processor T1をCESで公開し、2024年に€15M Series A、後にUS$19.8Mへ拡張、2025年にPulsarを「mass-market neuromorphic microcontroller for the sensor edge」として発表した。同社はSocionext、Aria Sensingなどのセンサ企業との実応用を掲げる。source_url: https://www.innatera.com/about-us/
+
+SynSenseはXyloとSpeckで商用開発キットを提供している。XyloはEEG/EMG、音声、IMU等をマイクロワット級で処理するSNNチップで、SpeckはDVSを統合したイベント駆動ビジョンSoCで328kニューロン、約5mW、単一イベント3.36usレイテンシと整理されている。source_url: https://www.synsense.ai/products/xylo/ source_url: https://open-neuromorphic.org/neuromorphic-computing/hardware/speck-synsense/
+
+GrAI Matter Labsは、独立商用ベンダとしては2023年10月にSnapへ買収され、2025-2026年の市場ではSnapのウェアラブル/センサR&D資産として扱うべきである。CB Insightsは総調達US$29M、2023年10月買収を記録している。source_url: https://www.cbinsights.com/company/grai-matter-labs
+
+## 日本機関の独自貢献
+
+理研AIPはニューロモーフィック半導体そのものより、Physical AI側の受け皿として重要である。2026年時点の組織にはフィジカルインテリジェンスグループ、実世界知能チーム、ロボットラーニングチームがあり、実世界で環境と相互作用する知能基盤の確立を明記している。source_url: https://www.riken.jp/research/labs/aip/
+
+理研の物性系では、スキルミオンを用いたリザバー計算デバイスで手書き数字認識を実証しており、低電力脳型計算の材料基盤に貢献している。source_url: https://www.riken.jp/en/news_pubs/research_news/rr/20230209_1/
+
+東京大学については、依頼にある「五十嵐研」はニューロモーフィックの一次資料を確認できなかった。確認できる東大側の直接関係者は、生産技術研究所の高野隆司教授で、大学院情報理工の一覧に「Neuromorphic and biomimetic systems, Mathematical modeling of neural systems」と明記されている。一方、五十嵐歩美准教授は「Computational Social Choice, Algorithmic Game Theory」であり、本テーマの直接担当とは確認できない。source_url: https://www.i.u-tokyo.ac.jp/edu/course/mi/members_e.shtml
+
+NECは東北大学・アイシンとNEDO事業でCMOS/スピントロニクス融合AI実証チップに参加した。MRAM統合により、電源ONから最初のAI処理完了までのエネルギー効率50倍以上、OS起動時間1/30以下を実測した。これはSNNチップではないが、不揮発メモリ近接AIという点でニューロモーフィックの「データ移動削減」と同じ方向である。source_url: https://www.nedo.go.jp/news/press/AA5_101864.html
+
+産総研とNTTは、シリコンフォトニック回路だけでニューラルネットワーク演算を行う技術を2022年にNature Communicationsで発表した。電子回路比で遅延1/1000未満、消費電力は数十分の一、10倍高速クロック可能と報告されており、将来の光ニューロモーフィック/Physical AIセンサ前段に接続する。source_url: https://sj.jst.go.jp/news/202208/n0826-01k.html
+
+OKIはニューロモーフィックチップ企業ではないが、AIエッジコンピューターAE2100、映像AI、スマート工場、センシング・AI・通信を統合したエッジ事業を展開している。日本でニューロモーフィックを実装する場合、こうした産業エッジ基盤が導入先になる。source_url: https://www.oki.com/jp/products/category/ai.html
+
+## Physical AI への接続
+
+Physical AIにおける価値は、クラウドLLMの置換ではなく、センサ入力が疎で、応答時間が短く、電池や熱制約が強い場面にある。該当するのは、イベントカメラ、IMU、EEG/EMG、音響、レーダ、触覚、産業異常検知、ドローン、ロボット関節制御である。SynSense Speckはイベントビジョン、Xyloは生体信号・IMU・音声、Innatera Pulsarはセンサエッジ、BrainChip AkidaTagはウェアラブル/電池駆動センシングを明示している。source_url: https://open-neuromorphic.org/neuromorphic-computing/hardware/speck-synsense/ source_url: https://www.innatera.com/about-us/ source_url: https://announcements.asx.com.au/asxpdf/20260424/pdf/06ytg6cfvrv13j.pdf
+
+ロボット制御では、BrainScaleS-2の2026年音源定位・サーボ制御が、センサからアクチュエータまでをSNNで閉じる実証である。SandiaのSpiNNaker2配備は、熱流・乱流・化学反応など物理シミュレーションにもニューロモーフィックを使う方向を示す。source_url: https://arxiv.org/abs/2602.04582 source_url: https://www.sandia.gov/labnews/2025/06/12/brain-based-computing-for-nd-solutions/
+
+## 主要論文・一次資料
+
+1. Intel, “Hala Point / Loihi 2 neuromorphic system,” 2024. source_url: https://download.intel.com/newsroom/archive/2025/en-us-2024-04-17-intel-builds-worlds-largest-neuromorphic-system-to-enable-more-sustainable-ai.pdf  
+2. Intel, “Taking Neuromorphic Computing to the Next Level with Loihi 2,” 2021. source_url: https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf  
+3. IBM Research, “Neural inference at the frontier of energy, space, and time,” Science, 2023. source_url: https://research.ibm.com/publications/neural-inference-at-the-frontier-of-energy-space-and-time  
+4. IBM Research, “NorthPole LLM inference results,” 2024. source_url: https://research.ibm.com/blog/northpole-llm-inference-results  
+5. IBM Research, “NorthPole ISSCC 2024 architecture,” 2024. source_url: https://research.ibm.com/publications/ibm-northpole-an-architecture-for-neural-network-inference-with-a-12nm-chip  
+6. NeuroBench, Nature Communications, 2025. source_url: https://www.nature.com/articles/s41467-025-56739-4  
+7. SpiNNaker2 arXiv, 2024. source_url: https://arxiv.org/abs/2401.04491  
+8. Open Neuromorphic, “SpiNNaker2,” source_url: https://open-neuromorphic.org/neuromorphic-computing/hardware/spinnaker-2-university-of-dresden/  
+9. BrainScaleS-2 real-time analog processing, arXiv, 2026. source_url: https://arxiv.org/abs/2602.04582  
+10. BrainScaleS-2 hardware overview, Open Neuromorphic. source_url: https://open-neuromorphic.org/neuromorphic-computing/hardware/brainscales-2-universitat-heidelberg/  
+11. Sandia LabNews, “Brain-based computing for ND solutions,” 2025. source_url: https://www.sandia.gov/labnews/2025/06/12/brain-based-computing-for-nd-solutions/  
+12. BrainChip ASX Q1 2026 report. source_url: https://announcements.asx.com.au/asxpdf/20260424/pdf/06ytg6cfvrv13j.pdf  
+13. Innatera company timeline, 2025 Pulsar. source_url: https://www.innatera.com/about-us/  
+14. SynSense Xylo product page. source_url: https://www.synsense.ai/products/xylo/  
+15. NEDO/NEC/東北大/アイシン CMOSスピントロニクス実証チップ, 2025. source_url: https://www.nedo.go.jp/news/press/AA5_101864.html  
+16. 産総研/NTT シリコンフォトニックNN, 2022. source_url: https://sj.jst.go.jp/news/202208/n0826-01k.html  
+
+## 2030年に向けた予測
+
+2030年までに、神経模倣コンピューティングは3層に分化する。第1層はBrainChip、SynSense、InnateraのようなmW以下から数百mW級のセンサエッジSoC/IPで、量産採用の中心はウェアラブル、産業センサ、レーダ、音響、低速ロボットになる。第2層はLoihi 2後継、SpiNNaker2、BrainScaleS系の研究クラスタで、オンライン学習、最適化、物理シミュレーション、閉ループロボット制御の評価基盤になる。第3層はNorthPoleや光NN、MRAM AIのような「ニューロモーフィック隣接」アーキテクチャで、SNNではなくてもメモリ移動削減により推論効率を改善する。
+
+Loihi 3とBrainScaleS-3は、2026年5月18日時点で公式仕様を確認できないため、2030予測には数値を置かない。確実に言えるのは、商用化の勝敗は「ニューロン数」ではなく、NeuroBench型のタスク単位ベンチマーク、ソフトウェア変換ツール、既存MCU/SoCとの統合、センサ企業との採用事例で決まるという点である。
+tokens used
+127,636

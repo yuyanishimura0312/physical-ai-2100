@@ -1,0 +1,31 @@
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Comprehensive research on Humanoid robotics mass production status as of May 2026.
+
+SCOPE (must cover all):
+- Figure AI (Figure 02, Figure 03, BMW deployment)
+- Tesla Optimus (Gen 2, Gen 3 rumors, factory test)
+- Boston Dynamics Atlas (electric, Hyundai factory)
+- Unitree H1 / G1 / H2 (Chinese mass production)
+- Agility Digit (Amazon warehouse, GXO Logistics)
+- Apptronik Apollo (Mercedes-Benz, NVIDIA Cosmos integration)
+- 1X Technologies NEO Gamma (consumer home robot, 2025 launch)
+- Sanctuary AI Phoenix
+- Fourier GR-1 / GR-2 (China)
+- XPENG Iron, UBTECH Walker S1
+- Japan: Kawasaki Kaleido, Honda E2-DR follow-up, Sony Group humanoid, TRI behavioral models
+
+DELIVERABLE: Markdown report ≥ 3,000 words, 地の文中心, structured:
+1. Industry overview (3-4 paragraphs prose)
+2. Per-company status table (each company minimum 200 words):
+   - 製品名・量産規模（unit/年）・単価 USD・主要顧客・最新マイルストーン（month/year）・公開された失敗事例・source URL
+3. Production capacity comparison (Figure/Tesla/Unitree numerical comparison)
+4. Failure analysis: 何が量産を阻んでいるか (battery / hand dexterity / safety cert / cost / supply chain)
+5. Japanese players section (必須)
+6. 2026-2028 outlook
+
+CITATIONS: every figure (cost, units, deployment count) must have source URL (TechCrunch / Reuters / company press / SEC filing / 日経).
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown, prose-heavy.
+
+Save to stdout.

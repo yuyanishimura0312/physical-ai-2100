@@ -1,0 +1,198 @@
+OpenAI Codex v0.128.0 (research preview)
+--------
+workdir: /Users/nishimura+/projects/research/agent-registry-db
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: none
+reasoning summaries: none
+session id: 019e3929-573d-7973-80fa-aac12006ed6b
+--------
+user
+You are a research agent for the Physical AI 2100 textbook (NPO Miratuku / esse-sense).
+
+TASK: Embodied AI energy constraints — comparing GPU/AI training power vs the 20W human brain, battery density limits for humanoids, and neuromorphic chip alternatives, 2024-2026.
+
+SCOPE (must cover all):
+- GPU energy: H100 (700W), B200 (1000W), GB200 NVL72 (132 kW per rack)
+- LLM training energy: GPT-4, Llama 3.1 405B, Gemini Ultra の推定消費電力・水使用量
+- Inference energy: ChatGPT 1 query ≈ X Wh の最新推定値（IEA 2024/2025 報告書）
+- Human brain: 20W baseline, ~10^15 synaptic operations/sec の効率
+- Battery density limits for humanoid: Li-ion 250-300 Wh/kg, Tesla Optimus 2.3 kWh, Figure 02 battery spec, solid-state 2025-2030 ロードマップ
+- Neuromorphic chip:
+  - Intel Loihi 2 (2021) / Loihi 3 (2025 期待)
+  - IBM NorthPole (2023-10 Science paper)
+  - BrainChip Akida 2.0
+  - SpiNNaker 2 (Manchester)
+  - BrainScaleS-3 (Heidelberg, Human Brain Project successor)
+  - Innatera, GrAI Matter Labs
+- Japan: 東大 Ishiwara 研究, NICT 脳型 chip, NEC Brain-inspired computing, AIST
+- Photonic / analog computing alternatives (Lightmatter, Mythic, Untether AI)
+
+DELIVERABLE: Markdown report ≥ 3,000 words 地の文, structured:
+1. エネルギー制約の全体像 (4 paragraphs: なぜ重要・現状の数値・物理限界・経済限界)
+2. AI training/inference power consumption 一次データ（数値必須、source URL付き）
+3. Humanoid battery 制約: each company 公開 spec + 実稼働時間
+4. Neuromorphic chip catalog (15 entries): chip / manufacturer / year / TOPS/W / 用途・実機デモ
+5. 物理限界 vs 経済限界の対比
+6. 日本機関のニューロモーフィック研究（必須）
+7. 2026-2030 outlook
+
+CITATIONS: IEA reports / 論文 / spec sheet / company blog URL 必須.
+LANGUAGE: Japanese 地の文.
+FORMAT: Markdown.
+
+Save to stdout.
+
+codex
+調査系タスクなので、数値は記憶ではなく一次資料・公式資料・論文・IEA等で照合します。まずGPU仕様、IEA推定、ロボット電池、ニューロモーフィック各社の公開値を分けて確認します。
+web search: 
+web search: NVIDIA H100 Tensor Core GPU 700W TDP official
+web search: 
+web search: IEA 2024 ChatGPT query electricity Wh 2.9 Wh
+web search: 
+web search: GPT-4 training energy consumption water consumption estimate paper 2024
+web search: 
+web search: GPT-4 training compute estimate energy GWh Epoch AI
+web search: 
+web search: human brain 20 watts 10^15 synaptic operations per second source
+web search: 
+web search: Tesla Optimus battery 2.3 kWh official
+web search: 
+web search: Tesla AI Day 2022 Optimus battery 2.3 kWh 52V official
+web search: 
+web search: Intel Loihi 2 energy efficiency TOPS per watt Loihi 3 2025
+web search: 
+web search: SpiNNaker2 chip TOPS W energy efficiency official
+web search: 
+web search: BrainScaleS-3 neuromorphic Heidelberg 2025
+web search: 
+web search: Innatera neuromorphic processor TOPS per watt spiking neural processor
+web search: 
+web search: Lightmatter Envise TOPS per watt photonic AI accelerator
+web search: 
+web search: 東京大学 石原 脳型 チップ ニューロモーフィック 研究
+web search: 
+web search: AIST neuromorphic computing chip Japan brain-inspired AI
+web search: 
+web search: Gemini Ultra training compute cost estimate epoch AI 2024 energy
+web search: 
+web search: Google Gemini prompt energy water 0.24 Wh 0.26 milliliters technical report 2025
+web search: 
+web search: NVIDIA B200 Tensor Core GPU datasheet 1000W TDP
+codex
+# Embodied AI energy constraints：GPU訓練電力、20W脳、ヒューマノイド電池、ニューロモーフィック代替案（2024-2026）
+
+## 1. エネルギー制約の全体像
+
+Physical AI、特にヒューマノイドや移動ロボットにとって、エネルギー制約は単なる運用コストではなく、身体の設計原理そのものを決める制約である。クラウド上のLLMは、データセンターの数十MWからGW級の電力、液冷ラック、送電網、冷却水、資本市場の投資余力を背後に持つ。一方、身体を持つAIは、数kgから数十kgの電池を背負い、関節アクチュエータ、センサー、オンボード推論、通信、熱処理を同じエネルギー予算内で動かす必要がある。人間の脳は約20Wで知覚、運動、記憶、社会的推論を同時に実行しているため、Physical AIの長期目標は「クラウドの知能を小型化する」だけでは不十分であり、「知能のエネルギー密度」を身体スケールまで落とし込むことになる。
+
+現状の数値を見ると、差は極端である。NVIDIA H100 SXMは最大TDP 700W、B200は1000W級、GB200 NVL72ラックはHPEやSupermicroの仕様で1ラック132kWに達する。1台のGB200 NVL72ラックだけで、人間の20W脳を約6600個分、Tesla Optimusの2.3kWh電池なら理論上17分ほどで空にする電力である。IEAは2025年の「Energy and AI」で、世界のデータセンター電力需要を2024年415TWh、2030年945TWh前後と見積もっている。これはAIだけでなく従来型データセンターも含むが、AIアクセラレータが増分需要の主要因になっている。
+
+物理限界は二重に効く。第一に、半導体側ではデータ移動のエネルギー、メモリ帯域、冷却、配線密度が律速になる。演算器そのものよりも、HBM、NVLink、Ethernet/InfiniBand、PCIe、ラック間通信にエネルギーが逃げる。第二に、ロボット側ではリチウムイオン電池の重量エネルギー密度が250-300Wh/kg程度にとどまり、2-3kWhの電池でも数kgから十数kgの質量を持つ。ヒューマノイドは脚で自重を持ち上げ続けるため、電池を増やすほど稼働時間が線形には伸びず、質量増加が歩行・安全・コストに跳ね返る。
+
+経済限界も同じくらい重要である。GPT-4やGemini Ultra級の訓練は、公開企業が公式に電力量を出していないため推定値に依存するが、Epoch AI / Stanford AI Index系の推定ではGPT-4の訓練費用は約7835万ドル、Gemini Ultraは約1.914億ドル規模である。Llama 3.1 405BはMetaが比較的透明に、30.84M H100 GPU-hours、700W、location-based CO2 8930tをモデルカードで示した。電気代だけなら訓練総費用の数%に見えるが、送電契約、変電設備、液冷、ラック、GPU調達、建屋、待機容量、地域の水資源を含むと、AIのスケールは「チップ性能」ではなく「インフラ資本」と「地域許容量」によって制約される。
+
+## 2. AI training / inference power consumption：一次データと推定値
+
+### GPU / rack power
+
+| 対象 | 公開数値 | 読み替え | Source |
+|---|---:|---:|---|
+| NVIDIA H100 SXM | 最大TDP 700W | 8枚でGPUだけ5.6kW | NVIDIA H100公式仕様: https://www.nvidia.com/en-us/data-center/h100/ |
+| NVIDIA B200 | 1000W級 | 8枚でGPUだけ8kW | Lenovo ThinkSystem NVIDIA HGX B200 180GB 1000W GPU: https://lenovopress.lenovo.com/lp2226.pdf |
+| NVIDIA DGX B200 | 8 x B200 GPU | ノード単位でBlackwell推論・訓練 | NVIDIA DGX B200 user guide: https://docs.nvidia.com/dgx/dgxb200-user-guide/introduction-to-dgxb200.html |
+| GB200 NVL72 | 72 Blackwell GPU + 36 Grace CPU | 1ラック132kW | HPE GB200 NVL72 datasheet: https://www.hpe.com/psnow/generateDDS/NVIDIA%20GB200%20NVL72%20by%20HPE%20data%20sheet-PSN1014890104USEN.pdf |
+| GB200 NVL72 | 8 x 1U 33kW PSU、total 132kW | ラック電源・冷却設計の単位 | Supermicro GB200 NVL72 brochure: https://www.supermicro.com/manuals/brochure/Brochure-AI-SuperCluster-NVIDIA-GB200-NVL72.pdf |
+
+ここで重要なのは、GPUのTDPとデータセンターの消費電力は同じではないことである。GPUが700Wでも、CPU、NIC、HBM、DRAM、SSD、スイッチ、電源変換、冷却、ポンプ、照明、予備設備が加わる。IEAは近代的データセンターでサーバーが消費電力の約60%を占めると整理しており、残りはストレージ、ネットワーク、冷却・補機である。したがって「H100 700W x GPU時間」は下限推定であり、施設全体のエネルギーはPUEや水冷方式で増える。
+
+### LLM training energy
+
+| モデル | 公開・推定根拠 | 電力量・水使用量の扱い |
+|---|---|---|
+| GPT-4 | OpenAIは訓練computeや電力量を公式非公開。Stanford AI Index 2024はEpoch推定を使い訓練費用約$78.35M。複数の二次推定で訓練電力量は約50-62GWh。 | 電力量は非公式推定。水使用量は公式値なし。GPT-3訓練水使用の推定を単純拡大する議論はあるが、データセンター地域・冷却方式・電力源に依存するため、GPT-4固有値としては未検証扱い。Sources: Stanford AI Index PDF https://assets.super.so/048fab74-79c2-43a2-b1e2-8d7c5a1cfdd1/files/ef40b5fe-1694-4c04-94e5-9b711d4b3a38/hai_2024_ai-index-report.pdf / Epoch AI https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models |
+| Llama 3.1 405B | Meta model card: 30.84M GPU-hours、Training Power Consumption 700W、location-based CO2 8930t、market-based 0t。 | 30.84M h x 0.7kW = 約21.6GWh相当。Llama 3.1ファミリ全体39.3M GPU-hoursなら約27.5GWh。水使用量はMeta model cardには明記なし。Source: https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct/blob/main/README.md |
+| Gemini Ultra | Googleは訓練電力量・水使用量を公式非公開。Stanford AI Index 2024 / Epoch推定では訓練費用約$191.4M。 | 訓練電力量は公開一次値なし。推定費用はGPT-4より高いが、TPU世代、利用率、PUE、実験回数を含むかで変わる。Source: Stanford AI Index / Epoch AI above |
+| Gemini Apps inference | Googleは2025年にmedian Gemini Apps text promptを0.24Wh、0.03gCO2e、0.26mL水と発表。 | これは「訓練」ではなく「提供時の推論」であり、Googleの測定境界に基づく。間接水使用を巡る批判もある。Source: Google Cloud blog https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference / technical report https://services.google.com/fh/files/misc/measuring_the_environmental_impact_of_delivering_ai_at_google_scale.pdf |
+
+### Inference energy：ChatGPT 1 query ≈ X Wh
+
+ChatGPT 1クエリの電力量は、2024-2026時点で「単一の確定値」はない。よく引用される2.9Wh/リクエストは、IEA 2024の議論やEPRI系の白書で流通した代表値であり、Google検索0.3Whの約10倍という文脈で使われた。一方、OpenAI AcademyはEpoch AIの分析として、GPT-4oの典型的ChatGPTクエリは約0.3Wh程度と紹介している。GoogleはGemini Apps median promptを0.24Whと測定した。したがって、2026年時点の実務的な幅は、短いテキスト応答なら0.2-3Wh、長い推論・画像・音声・ツール実行・エージェント的多段処理では数十Whまで広がる、と見るのが妥当である。
+
+IEAの主張の核は、1クエリのWh値そのものよりも、データセンター全体の需要である。IEA「Energy and AI」は、2024年のデータセンター電力消費を415TWh、2030年を945TWh程度とし、AIアクセラレータの電力需要が年率30%で伸びるBase Caseを示した。Source: IEA Energy and AI https://www.iea.org/reports/energy-and-ai / IEA executive summary https://www.iea.org/reports/energy-and-ai/executive-summary%C2%A0 / IEA Electricity 2024 https://www.iea.org/reports/electricity-2024
+
+## 3. Humanoid battery制約：公開specと実稼働時間
+
+ヒューマノイドの電池制約は、クラウドAIの電力制約と質が違う。データセンターは送電網と冷却を増強できるが、ヒューマノイドは「自分で電源を持つ」ため、エネルギー密度、放電性能、安全性、発熱、交換性、重心、転倒時安全が同時に効く。現在の高エネルギーLi-ionセルは概ね250-300Wh/kg、LFPは安全だが100-190Wh/kg程度に落ちる。パック化するとBMS、筐体、冷却、配線、保護材でさらに下がる。
+
+| Company / robot | 公開・流通spec | 実稼働時間の含意 | Source |
+|---|---|---|---|
+| Tesla Optimus | AI Day 2022で2.3kWh、52V級、胴体内蔵。報道では73kg機体、2.3kWh電池。 | Teslaは「一日分の作業」を目標と述べたが、動的歩行や荷役では平均500W-1kW級になり得るため、2-4時間程度が現実的レンジ。軽作業・待機混在なら8時間目標。 | Engineering.com: https://www.engineering.com/tesla-ai-day-2022-tesla-is-not-a-car-company/ / TechSpot: https://www.techspot.com/news/96169-tesla-ai-day-delivers-real-optimus-prototype-more.html |
+| Figure 02 | Figure 01比で電池容量50%増。二次spec集では2.25kWh、5時間級とされるが、Figure公式は容量を詳細公開していない。 | BMW工場デモなどは限定タスク。連続歩行・重量物搬送・オンボードGPU負荷込みで5時間を維持できるかは未検証。 | Figure公式: https://www.figure.ai/ / HumanoidSpecs: https://humanoidspecs.com/robots/figure-02 |
+| Agility Robotics Digit | 公式には産業物流用途、稼働時間はワークセル・充電運用で管理。詳細kWhは限定公開。 | 倉庫では「連続8時間」より、充電・交代・タスク割当で稼働率を作る設計。 | Agility Robotics: https://agilityrobotics.com/ |
+| Unitree H1 / G1 | 電池容量は機種・構成で変動。高運動性能デモが多く、実作業連続時間は公開値より短くなる可能性。 | 研究・デモでは高出力短時間、産業作業では安全速度・低負荷で時間を稼ぐ。 | Unitree: https://www.unitree.com/ |
+| Apptronik Apollo | 交換式バッテリーを前提に工場・物流用途。詳細容量は限定公開。 | 電池を大型化するより、交換式・休憩スケジュールで稼働率を上げる方向。 | Apptronik: https://apptronik.com/apollo |
+
+250Wh/kgで2.3kWhを作るには、セルだけで9.2kg、300Wh/kgでも7.7kgである。実パックは筐体・BMS・冷却を含むため10kg超になりやすい。100kg級のヒューマノイドが20kgの電池を搭載しても、250Wh/kgなら5kWh、平均消費1kWで5時間、2kWで2.5時間に過ぎない。人間は基礎代謝100W級、脳20W、歩行時数百Wの代謝で長時間動けるが、ロボットはモータ効率、減速機、制御損失、姿勢保持、コンピュータ、冷却で電力を消費する。
+
+Solid-state batteryの2025-2030ロードマップは、セルレベル350-500Wh/kgを狙うが、ヒューマノイドに直ちに効くとは限らない。セルが400Wh/kgでも、パック化、安全認証、急速充電、サイクル寿命、低温性能、衝撃安全を含むと、実機での改善は「同じ稼働時間で軽くする」か「同じ重量で30-60%延ばす」程度になる可能性が高い。FraunhoferのLi-ionロードマップは、現行250Wh/kg級から2030年前後に300-350Wh/kg級への改善を示す。Source: Fraunhofer ISI Lithium-Ion Battery Roadmap https://circular-technology.com/wp-content/uploads/2023/12/Fraunhofer-ISI_LIB-Roadmap-2023.pdf
+
+## 4. Neuromorphic chip catalog：15 entries
+
+| # | chip / system | manufacturer / institution | year | TOPS/W or efficiency | 用途・実機デモ |
+|---:|---|---|---:|---|---|
+| 1 | Loihi 2 | Intel | 2021 | タスク依存。Hala Point全体では従来DNNで15 TOPS/W超とIntelが主張 | SNN、ロボット制御、最適化、低遅延認識。Source: https://newsroom.intel.com/artificial-intelligence/intel-builds-worlds-largest-neuromorphic-system-to-enable-more-sustainable-ai |
+| 2 | Hala Point | Intel / Sandia | 2024 | 最大20 petaops、15 TOPS/W超 | 1152個のLoihi 2、研究用大規模ニューロモーフィック。Source same |
+| 3 | Loihi 3 | Intel | 2025期待 / 2026時点で公式量産情報なし | 未公表 | ユーザー指定の「2025期待」は確認できるが、2026-05時点で公式仕様は未確認。Loihi 2/Hala Pointが実在する公開基盤。 |
+| 4 | NorthPole | IBM Research | 2023 | 同世代GPU比でResNet50のFPS/Wが25倍 | メモリ内蔵型推論、ResNet50、YOLO系。Science paper: https://research.ibm.com/publications/neural-inference-at-the-frontier-of-energy-space-and-time |
+| 5 | TrueNorth | IBM | 2014 | 400B synaptic ops/s/W級として広く引用 | 初期大規模スパイキング推論、研究用。 |
+| 6 | Akida AKD1000 | BrainChip | 2021 | 公式TOPS/Wは条件依存。製品資料では1-3W級、0.7TOPS構成例 | エッジ画像・音声・異常検知、宇宙用途で5mJ/image級デモ。Source: https://brainchip.com/akida-in-space/ |
+| 7 | Akida 2.0 IP | BrainChip | 2024/2025 | IP構成で2.5-64 TOPS級、W非固定 | Temporal event processing、ViT対応、MCU/SoC統合。Source: https://brainchipinc.com/wp-content/uploads/2025/04/Akida-2-IP-Product-Brief-V2.0-1.pdf |
+| 8 | SpiNNaker 2 | Manchester / TU Dresden / SpiNNcloud | 2024-2025 | TOPS/WではなくSNN実時間・低電力指標 | 150-180M neuron級システム、脳シミュレーション、EGRU言語モデル実装。Source: https://arxiv.org/abs/2401.04491 |
+| 9 | BrainScaleS-2 | Heidelberg / EBRAINS | 2020s | アナログ加速型。TOPS/W非公称 | 物理ニューロン・シナプス、神経科学、学習則、EBRAINS提供。Source: https://www.kip.uni-heidelberg.de/vision/ |
+| 10 | BrainScaleS-3 | Heidelberg EINC | 2025以降研究継続 | 未公表 | Human Brain Project後継のEBRAINS/EINC文脈。Source: https://www.uni-heidelberg.de/de/newsroom/konferenz-neuartige-rechenarchitekturen-nach-den-prinzipien-des-gehirns |
+| 11 | Innatera SNP T1 / Pulsar | Innatera | 2024-2025 | sub-mW、従来edge AI比最大500x低エネルギー | always-on sensor edge、音声、レーダー、ウェアラブル。Source: https://www.innatera.com/product/ |
+| 12 | GrAI VIP | GrAI Matter Labs / Snap | 2021 | 公称TOPS/Wは限定公開 | 低遅延vision inference、AR/VR edge。Source: https://www.businesswire.com/news/home/20210111005733/en/GrAI-Matter-Labs-introduces-GrAI-VIP-Vision-Inference-Processor-to-bring-Fastest-AI-to-the-Edge-at-CES-2021 |
+| 13 | Mythic M1076 AMP | Mythic | 2021 | 25 TOPS、3-4W典型なら約6-8 TOPS/W | アナログcompute-in-memory、YOLO/ResNet、ロボティクス・防衛edge。Source: https://mythic.ai/product/analog-matrix-processor/ |
+| 14 | Untether speedAI240 | Untether AI | 2024 | 502 TOPS、最大8 TOPS/W | CNN、attention、recommendation推論、PCIeカード。Source: https://www.untether.ai/products |
+| 15 | Lightmatter Envise / Passage | Lightmatter | 2020s | EnviseはA100比7倍効率主張、Passageは光I/Oで帯域/W改善 | フォトニックAI compute / interconnect。Source: https://lightmatter.co/products/envise/ / https://lightmatter.co/products/passage |
+
+この表で注意すべき点は、TOPS/Wがニューロモーフィックの性能を十分に表さないことである。GPUやNPUはINT8/FP8/FP4の密行列演算をTOPSで表しやすいが、SNNはイベントが発生した時だけ計算するため、無音・無変化・疎な入力では消費電力が劇的に下がる。逆に、現在の大規模TransformerをそのままSNNへ移すと性能・精度・ツールチェーンの壁が出る。NorthPole、Mythic、Untether、Lightmatterは厳密な意味でのスパイキング・ニューロモーフィックではなく、compute-in-memory、near-memory、analog、photonicによって「データ移動エネルギー」を減らす隣接技術である。
+
+## 5. 物理限界 vs 経済限界の対比
+
+物理限界は、エネルギーをどれだけ高密度に、どれだけ低損失で、どれだけ安全に使えるかという限界である。GPU訓練では、演算密度が上がるほどラック電力密度が上がり、空冷から液冷へ、さらに施設単位の熱設計へ移る。GB200 NVL72の132kWラックは、従来の数kWラックとは別物で、床荷重、配電、漏水リスク、保守、地域電力契約まで変える。ヒューマノイドでは、Li-ion 250-300Wh/kgという制約が、平均1kW級のロボットを数時間しか動かせない。人間の脳20W、全身の代謝数百Wという生物側の効率は、半導体だけでなく筋骨格・腱・受動歩行・代謝・熱拡散の統合効率である。
+
+経済限界は、物理的には可能でも支払えない、調達できない、地域に受け入れられないという限界である。GPT-4やGemini Ultra級の訓練費用は数千万から数億ドルで、電気代単体は総費用の2-6%程度と推定されるが、実際の制約はGPU供給、HBM供給、データセンター建設、系統接続、冷却水、長期電力契約、規制、地域住民の反発にある。IEAが示すように、データセンターが世界電力の1.5%から3%へ拡大するだけでも、米国・日本・マレーシアのような地域では電力需要増分の大きな割合を占める。
+
+Physical AIの経済限界はさらに厳しい。ロボット1台が2-3kWhの電池、数十個のアクチュエータ、オンボードGPU/NPU、センサー、構造材を持つなら、クラウドLLMのAPIコストとは別に、実体としてのBOM、保守、充電インフラ、故障率、労災・保険、減価償却がかかる。人間労働の代替を狙うなら、1時間あたりの総所有コストが人件費を下回る必要がある。したがって、エネルギー効率は環境問題だけでなく、ヒューマノイド事業の損益分岐点そのものである。
+
+## 6. 日本機関のニューロモーフィック研究
+
+日本では、欧米のLoihiやBrainScaleSのような大規模公開プラットフォームよりも、材料・デバイス・脳型アルゴリズム・リザバー計算・スピントロニクスに強みがある。東京大学では、次世代知能科学・ニューロインテリジェンス文脈で、非線形動力学に基づく次世代AI、脳の情報処理モデル、ロボティクス応用が進められている。Source: 東京大学「非線形動力学に基づく次世代AI」 https://www.u-tokyo.ac.jp/adm/uci/ja/projects/ai/project_00042.html
+
+東京大学関連では、昆虫脳を模倣するシリコン神経ネットワークチップ基盤技術のKAKEN課題も確認できる。昆虫脳は小規模・低消費電力で柔軟な行動を生むため、ヒューマノイドよりも先にマイクロロボット、ドローン、センサー端末、反射的制御へ応用しやすい。Source: KAKEN https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-21K17849/
+
+NICTはNIMS等と共同で、有機分子層における脳のようなコンピューティング、自己進化回路の研究を発表している。これはCMOSデジタルチップでTransformerを高速化する方向ではなく、材料そのものの非線形性・自己組織化を計算資源にする方向である。Source: NICT press release https://www.nict.go.jp/press/2010/04/26-1.html
+
+NECは「Brain-Morphic AI」「Brain-inspired computing」を掲げ、大阪大学とのNEC Brain-Inspired Computing Research Alliance Laboratoryなどを通じて、ゆらぎ、カオス、複雑系、脳型計算原理の応用を探索している。NEC自身も、日本は欧米に比べニューロモーフィック・ハードウェアで遅れていると述べつつ、脳の直感的計算原理をコンピュータへ移す研究の重要性を示している。Source: NEC Technical Journal https://www.nec.com/en/global/techrep/journal/g16/n01/160117.html / https://www.nec.com/en/global/techrep/journal/g16/n01/160116.html
+
+AISTは2024-2026に、イオンの遅いドリフト拡散を利用する脳型計算、磁気メモリスタでシナプス機能を模倣する研究を発表している。2026年1月の産総研発表では、鉄-マンガン基合金の磁性超薄膜を使い、STDPのようなシナプス重み変化の再現を目指す磁気メモリスタを開発した。これは高速・超省電力な非ノイマン型コンピューティングへの部品技術である。Sources: AIST 2026 magnetic memristor https://www.aist.go.jp/aist_j/press_release/pr2026/pr20260109/pr20260109.html / AIST 2024 ionic drift https://www.aist.go.jp/aist_j/press_release/pr2024/pr20241128/pr20241128.html
+
+NIMSもニューロモルフィックデバイスグループを持ち、イオン、分子、スピン、低次元材料の時空間ダイナミクスを計算資源として使う研究を進めている。日本の強みは、完成したAIアクセラレータ製品よりも、将来の低電力メモリスタ、スピントロニクス、物理リザバー、センサー直結型計算にある。Source: NIMS https://www.nims.go.jp/mana/jp/research/semiconductor-materials/neuromorphic-devices.html
+
+## 7. 2026-2030 outlook
+
+2026-2030年のPhysical AIでは、クラウド訓練と身体推論の分業が進む。大規模基盤モデルは、GB200、GB300、Rubin世代の高密度ラックで訓練され、ロボットには蒸留モデル、視覚言語行動モデル、低遅延制御器、イベント駆動センサー処理が載る。ロボットがすべてをオンボードで考えるのではなく、頻繁な反射・安全停止・歩行・把持はローカル、長期計画・言語理解・学習更新はクラウド、という階層構造になる。
+
+GPU側では、B200の1000W、GB200 NVL72の132kWが示すように、個別チップの性能向上はラック・施設・電力系統の問題へ移る。IEAの2030年945TWh見通しが正しければ、AIインフラは半導体産業だけでなく電力産業の主要需要家になる。電力制約地域では、モデル訓練の場所、再エネPPA、原子力・ガス火力・蓄電、液冷水利用が競争力を左右する。
+
+ヒューマノイド側では、2030年までに固体電池が劇的にすべてを解決する可能性は低い。セルが350-450Wh/kgに改善しても、実機では安全・寿命・コスト・量産歩留まりが効くため、稼働時間は2-5時間から4-8時間へ改善する程度が中心だろう。実用化は「一日中歩く人型」よりも、交換式電池、充電ドック、限定エリア、軽作業、台車併用、上半身作業、遠隔監視を組み合わせた運用設計で先に進む。
+
+ニューロモーフィック、アナログ、フォトニック、near-memory計算は、GPUを全面置換するよりも、センサーエッジと常時待機推論から入る。Innateraのsub-mWセンサー処理、BrainChip Akidaのイベント駆動認識、Intel Loihi 2の低遅延適応制御、IBM NorthPoleのメモリ内蔵推論、Mythicのアナログcompute-in-memory、LightmatterのフォトニックI/Oは、いずれも「データ移動を減らす」点で共通している。Physical AIにとって最初に効くのは、LLM全体をニューロモーフィック化することではなく、視覚・触覚・音・振動・異常検知・反射制御をmW-W級で処理し、クラウドやGPUに投げる情報量を減らすことである。
+
+結論として、2026-2030年のEmbodied AIの勝負は、知能の絶対性能だけでなく、1Whあたりの行動価値で決まる。人間の脳20Wは単なる比較対象ではなく、身体を持つ知能の設計目標である。GPUクラウドは引き続き基盤モデルを押し上げるが、ヒューマノイドが社会に入るには、電池、アクチュエータ、センサー、オンボード推論、熱、保守、電力価格を一体で最適化する必要がある。ニューロモーフィックと隣接するアナログ・フォトニック技術は、そのギャップを埋める候補だが、短期的には「脳の完全模倣」ではなく、「身体の限られた電力で役に立つイベント駆動知能」を実装できるかが評価軸になる。
+tokens used
+128,270
